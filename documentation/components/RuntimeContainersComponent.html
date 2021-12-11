@@ -1,0 +1,3881 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>wm-devops-console documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">wm-devops-console documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>RuntimeContainersComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/runtime-containers.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>runtime-containers</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>../templates/runtime-containers.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>../templates/runtime-containers.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_displayedColumns">_displayedColumns</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_displayedColumnsMin">_displayedColumnsMin</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_host">_host</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_msr">_msr</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_run">_run</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_stop">_stop</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_table">_table</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_test">_test</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#cachedContainerStatus">cachedContainerStatus</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#containers">containers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#includeTestsCtrl">includeTestsCtrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#run">run</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectedContainers">selectedContainers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectedDeploymentName">selectedDeploymentName</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#spinner">spinner</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#templates">templates</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#testButtonColor">testButtonColor</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_refresh">_refresh</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#addDeploymentSet">addDeploymentSet</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#colorForPort">colorForPort</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#colorForState">colorForState</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#containerLog">containerLog</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deploymentSelectionChanged">deploymentSelectionChanged</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#displayedColumns">displayedColumns</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#edit">edit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#failedTests">failedTests</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#filterContainers">filterContainers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#formatPort">formatPort</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#haveMissingContainer">haveMissingContainer</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#haveRunningContainers">haveRunningContainers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#haveTests">haveTests</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isContainerRunning">isContainerRunning</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#latestVersionForContainer">latestVersionForContainer</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mergeContainerRuntimeInfo">mergeContainerRuntimeInfo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#onInitialLoadCompleted">onInitialLoadCompleted</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#openPage">openPage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#passedTests">passedTests</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#refForElement">refForElement</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#runningTests">runningTests</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setIncludeTests">setIncludeTests</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#showTestResults">showTestResults</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#startContainers">startContainers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#stopContainer">stopContainer</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#stopContainers">stopContainers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#testLabelFor">testLabelFor</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#todoTests">todoTests</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#updateContainerStatus">updateContainerStatus</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                                <span class="modifier">Public</span>
+                        <code>constructor(_router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, _settings: <a href="../injectables/Settings.html">Settings</a>, _configService: <a href="../injectables/ConfigurationService.html">ConfigurationService</a>, _dialog: MatDialog, _dockerService: <a href="../injectables/DockerService.html">DockerService</a>, _testMgr: <a href="../injectables/TestTraceService.html">TestTraceService</a>, _sanitizer: <a href="https://angular.io/api/platform-browser/DomSanitizer" target="_blank">DomSanitizer</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/components/runtime-containers.component.ts:54</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_settings</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/Settings.html" target="_self" >Settings</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_configService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ConfigurationService.html" target="_self" >ConfigurationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_dialog</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatDialog</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_dockerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DockerService.html" target="_self" >DockerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_testMgr</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TestTraceService.html" target="_self" >TestTraceService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_sanitizer</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/platform-browser/DomSanitizer" target="_blank" >DomSanitizer</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_refresh"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            _refresh
+                        </b>
+                        <a href="#_refresh"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_refresh(onInit: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="462"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:462</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>onInit</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addDeploymentSet"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            addDeploymentSet
+                        </b>
+                        <a href="#addDeploymentSet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addDeploymentSet()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="196"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:196</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="colorForPort"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            colorForPort
+                        </b>
+                        <a href="#colorForPort"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>colorForPort(container: <a href="../classes/Container.html">Container</a>, port: <a href="../classes/Port.html">Port</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="383"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:383</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>container</td>
+                                    <td>
+                                                <code><a href="../classes/Container.html" target="_self" >Container</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>port</td>
+                                    <td>
+                                                <code><a href="../classes/Port.html" target="_self" >Port</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>&quot;gray&quot; | &quot;accent&quot; | &quot;primary&quot;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="colorForState"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            colorForState
+                        </b>
+                        <a href="#colorForState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>colorForState(container: <a href="../classes/Container.html">Container</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="398"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:398</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>container</td>
+                                    <td>
+                                                <code><a href="../classes/Container.html" target="_self" >Container</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>&quot;gray&quot; | &quot;accent&quot; | &quot;primary&quot; | &quot;warn&quot;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="containerLog"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            containerLog
+                        </b>
+                        <a href="#containerLog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>containerLog(container: <a href="../classes/Container.html">Container</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="180"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:180</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>container</td>
+                                    <td>
+                                                <code><a href="../classes/Container.html" target="_self" >Container</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deploymentSelectionChanged"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            deploymentSelectionChanged
+                        </b>
+                        <a href="#deploymentSelectionChanged"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deploymentSelectionChanged(onInit?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="145"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:145</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>onInit</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="displayedColumns"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            displayedColumns
+                        </b>
+                        <a href="#displayedColumns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>displayedColumns()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="132"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:132</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>string[]</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="edit"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            edit
+                        </b>
+                        <a href="#edit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>edit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="200"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:200</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="failedTests"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            failedTests
+                        </b>
+                        <a href="#failedTests"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>failedTests(element: <a href="../classes/Container.html">Container</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="324"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:324</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>element</td>
+                                    <td>
+                                                <code><a href="../classes/Container.html" target="_self" >Container</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filterContainers"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            filterContainers
+                        </b>
+                        <a href="#filterContainers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>filterContainers(onInit?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="334"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:334</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>onInit</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formatPort"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            formatPort
+                        </b>
+                        <a href="#formatPort"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>formatPort(port: <a href="../classes/Port.html">Port</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="365"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:365</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>port</td>
+                                    <td>
+                                                <code><a href="../classes/Port.html" target="_self" >Port</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="haveMissingContainer"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            haveMissingContainer
+                        </b>
+                        <a href="#haveMissingContainer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>haveMissingContainer()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="261"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:261</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="haveRunningContainers"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            haveRunningContainers
+                        </b>
+                        <a href="#haveRunningContainers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>haveRunningContainers()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="279"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:279</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="haveTests"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            haveTests
+                        </b>
+                        <a href="#haveTests"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>haveTests(element: <a href="../classes/Container.html">Container</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="309"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:309</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>element</td>
+                                    <td>
+                                                <code><a href="../classes/Container.html" target="_self" >Container</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isContainerRunning"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            isContainerRunning
+                        </b>
+                        <a href="#isContainerRunning"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isContainerRunning(container: <a href="../classes/Container.html">Container</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="256"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:256</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>container</td>
+                                    <td>
+                                                <code><a href="../classes/Container.html" target="_self" >Container</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="latestVersionForContainer"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            latestVersionForContainer
+                        </b>
+                        <a href="#latestVersionForContainer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>latestVersionForContainer(container: <a href="../classes/Container.html">Container</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="435"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:435</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>container</td>
+                                    <td>
+                                                <code><a href="../classes/Container.html" target="_self" >Container</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mergeContainerRuntimeInfo"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            mergeContainerRuntimeInfo
+                        </b>
+                        <a href="#mergeContainerRuntimeInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mergeContainerRuntimeInfo(container: <a href="../classes/Container.html">Container</a>, runningContainers: <a href="../classes/Container.html">Container[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="477"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:477</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>container</td>
+                                    <td>
+                                                <code><a href="../classes/Container.html" target="_self" >Container</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>runningContainers</td>
+                                    <td>
+                                                <code><a href="../classes/Container.html" target="_self" >Container[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            ngOnDestroy
+                        </b>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="102"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:102</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:90</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onInitialLoadCompleted"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            onInitialLoadCompleted
+                        </b>
+                        <a href="#onInitialLoadCompleted"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onInitialLoadCompleted(containerCount: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="107"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:107</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>containerCount</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openPage"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            openPage
+                        </b>
+                        <a href="#openPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>openPage(container: <a href="../classes/Container.html">Container</a>, port: <a href="../classes/Port.html">Port</a>, page?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="373"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:373</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>container</td>
+                                    <td>
+                                                <code><a href="../classes/Container.html" target="_self" >Container</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>port</td>
+                                    <td>
+                                                <code><a href="../classes/Port.html" target="_self" >Port</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>page</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="passedTests"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            passedTests
+                        </b>
+                        <a href="#passedTests"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>passedTests(element: <a href="../classes/Container.html">Container</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="329"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:329</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>element</td>
+                                    <td>
+                                                <code><a href="../classes/Container.html" target="_self" >Container</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refForElement"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            refForElement
+                        </b>
+                        <a href="#refForElement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>refForElement(element: <a href="../classes/Container.html">Container</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="297"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:297</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>element</td>
+                                    <td>
+                                                <code><a href="../classes/Container.html" target="_self" >Container</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="runningTests"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            runningTests
+                        </b>
+                        <a href="#runningTests"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>runningTests(element: <a href="../classes/Container.html">Container</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="319"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:319</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>element</td>
+                                    <td>
+                                                <code><a href="../classes/Container.html" target="_self" >Container</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setIncludeTests"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            setIncludeTests
+                        </b>
+                        <a href="#setIncludeTests"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setIncludeTests(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="170"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:170</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showTestResults"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            showTestResults
+                        </b>
+                        <a href="#showTestResults"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>showTestResults(container: <a href="../classes/Container.html">Container</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="175"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:175</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>container</td>
+                                    <td>
+                                                <code><a href="../classes/Container.html" target="_self" >Container</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="startContainers"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            startContainers
+                        </b>
+                        <a href="#startContainers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>startContainers()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="205"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:205</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stopContainer"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            stopContainer
+                        </b>
+                        <a href="#stopContainer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>stopContainer(container: <a href="../classes/Container.html">Container</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="242"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:242</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>container</td>
+                                    <td>
+                                                <code><a href="../classes/Container.html" target="_self" >Container</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stopContainers"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            stopContainers
+                        </b>
+                        <a href="#stopContainers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>stopContainers()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="226"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:226</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="testLabelFor"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            testLabelFor
+                        </b>
+                        <a href="#testLabelFor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>testLabelFor(container: <a href="../classes/Container.html">Container</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="417"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:417</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>container</td>
+                                    <td>
+                                                <code><a href="../classes/Container.html" target="_self" >Container</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="todoTests"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            todoTests
+                        </b>
+                        <a href="#todoTests"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>todoTests(element: <a href="../classes/Container.html">Container</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="314"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:314</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>element</td>
+                                    <td>
+                                                <code><a href="../classes/Container.html" target="_self" >Container</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateContainerStatus"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            updateContainerStatus
+                        </b>
+                        <a href="#updateContainerStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateContainerStatus(container: <a href="../classes/Container.html">Container</a>, status: <a href="../classes/Test.html">TestStatus</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="515"
+                            class="link-to-prism">src/app/components/runtime-containers.component.ts:515</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>container</td>
+                                    <td>
+                                                <code><a href="../classes/Container.html" target="_self" >Container</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>status</td>
+                                    <td>
+                                                <code><a href="../classes/Test.html" target="_self" >TestStatus</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_displayedColumns"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _displayedColumns</b>
+                            <a href="#_displayedColumns"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&quot;id&quot;, &quot;image&quot;, &quot;created&quot;, &quot;state&quot;, &quot;status&quot;, &quot;ports&quot;, &quot;name&quot;, &quot;testStatus&quot;, &quot;remove&quot;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/components/runtime-containers.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_displayedColumnsMin"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _displayedColumnsMin</b>
+                            <a href="#_displayedColumnsMin"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&quot;id&quot;, &quot;image&quot;, &quot;state&quot;, &quot;status&quot;, &quot;testStatus&quot;, &quot;remove&quot;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/components/runtime-containers.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_host"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _host</b>
+                            <a href="#_host"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/components/runtime-containers.component.ts:53</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_msr"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _msr</b>
+                            <a href="#_msr"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/components/runtime-containers.component.ts:54</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_run"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _run</b>
+                            <a href="#_run"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/RunSet.html" target="_self" >RunSet</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/components/runtime-containers.component.ts:50</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_stop"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _stop</b>
+                            <a href="#_stop"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/components/runtime-containers.component.ts:52</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_table"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _table</b>
+                            <a href="#_table"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Container.html" target="_self" >MatTable&lt;Container&gt;</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;table&#x27;, {read: MatTable})<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/components/runtime-containers.component.ts:48</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_test"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _test</b>
+                            <a href="#_test"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/components/runtime-containers.component.ts:51</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cachedContainerStatus"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            cachedContainerStatus</b>
+                            <a href="#cachedContainerStatus"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Test.html" target="_self" >Map&lt;String | TestStatus&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/components/runtime-containers.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="containers"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            containers</b>
+                            <a href="#containers"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Container.html" target="_self" >Container[]</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/components/runtime-containers.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="includeTestsCtrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            includeTestsCtrl</b>
+                            <a href="#includeTestsCtrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/components/runtime-containers.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="run"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            run</b>
+                            <a href="#run"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/components/runtime-containers.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedContainers"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            selectedContainers</b>
+                            <a href="#selectedContainers"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Container.html" target="_self" >Container[]</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/runtime-containers.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedDeploymentName"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            selectedDeploymentName</b>
+                            <a href="#selectedDeploymentName"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/components/runtime-containers.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="spinner"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            spinner</b>
+                            <a href="#spinner"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/components/runtime-containers.component.ts:43</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="templates"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            templates</b>
+                            <a href="#templates"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/components/runtime-containers.component.ts:35</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="testButtonColor"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            testButtonColor</b>
+                            <a href="#testButtonColor"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/components/runtime-containers.component.ts:45</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ChangeDetectorRef, 
+			OnInit, OnDestroy, ViewChild }   		from &#x27;@angular/core&#x27;;
+import { DomSanitizer, SafeUrl, SafeResourceUrl, SafeHtml }  from &#x27;@angular/platform-browser&#x27;;
+import { Router }									from &#x27;@angular/router&#x27;;
+import { Observer, Observable, of }               	from &#x27;rxjs&#x27;;
+
+import { MatTable }                     			from &#x27;@angular/material&#x27;;
+import {FormBuilder, FormGroup, FormControl, 
+								Validators} 		from &#x27;@angular/forms&#x27;;
+import { MatDialog, MatDialogRef,
+					MAT_DIALOG_DATA }	  			from &#x27;@angular/material&#x27;;
+import { DockerImage }       						from &#x27;../models/docker-image&#x27;;
+import { RunSet, Container, Port }       			from &#x27;../models/project&#x27;;
+import { TestStatus }								from &#x27;../models/docker-image&#x27;;
+import { ConfigurationService }                     from &#x27;../services/configuration.service&#x27;;
+import { DockerService }							from &#x27;../services/docker.service&#x27;;
+import { TestTraceService }							from &#x27;../services/test-trace.service&#x27;;
+
+import { Settings }									from &#x27;../settings&#x27;;
+import { BuildExeComponent }                        from &#x27;./build-exe.component&#x27;;
+
+import * as $ from &#x27;jquery&#x27;;
+
+@Component({
+  selector: &#x27;runtime-containers&#x27;,
+  templateUrl: &#x27;../templates/runtime-containers.html&#x27;,
+  styleUrls: [&#x27;../templates/runtime-containers.css&#x27;]
+})
+
+export class RuntimeContainersComponent implements OnInit, OnDestroy {
+
+	public _displayedColumns: string[] &#x3D; [&quot;id&quot;, &quot;image&quot;, &quot;created&quot;, &quot;state&quot;, &quot;status&quot;, &quot;ports&quot;, &quot;name&quot;, &quot;testStatus&quot;, &quot;remove&quot;];
+	public _displayedColumnsMin: string[] &#x3D; [&quot;id&quot;, &quot;image&quot;, &quot;state&quot;, &quot;status&quot;, &quot;testStatus&quot;, &quot;remove&quot;];
+
+	public templates: string[];
+	public selectedDeploymentName: string;
+	public selectedContainers: Container[];
+
+	public containers: Container[];
+	public cachedContainerStatus: Map&lt;String, TestStatus&gt;;
+	public includeTestsCtrl: FormControl;
+	public run: boolean &#x3D; false;
+	public spinner: boolean;
+
+	public testButtonColor: string;
+
+	@ViewChild(&#x27;table&#x27;, {read: MatTable}) 
+	private _table: MatTable&lt;Container&gt;;
+	
+	private _run: RunSet;
+	private _test: boolean;
+	private _stop: boolean;
+	private _host: string;
+	private _msr: string;
+
+	public constructor(private _router: Router, private _settings: Settings, private _configService: ConfigurationService, private _dialog: MatDialog, 
+		private _dockerService: DockerService, private _testMgr: TestTraceService, private _sanitizer: DomSanitizer) {
+
+		this.cachedContainerStatus &#x3D; new Map();
+
+		this.templates &#x3D; [];
+		this.templates.push(&quot;None - (All Containers)&quot;);
+
+		if (this._settings.currentRuntime)
+			this.selectedDeploymentName &#x3D; this._settings.currentRuntime;
+		else
+			this.selectedDeploymentName &#x3D; this.templates[0];
+
+		this._configService.runSets().subscribe((runs) &#x3D;&gt; {
+			runs.forEach((r) &#x3D;&gt; {
+				this.templates.push(r);
+			});
+		});
+
+		this._settings.values().subscribe((s) &#x3D;&gt; {
+			if (s.dockerHost)
+				this._host &#x3D; s.dockerHost.substring(0, s.dockerHost.indexOf(&quot;:&quot;));
+			else
+				this._host &#x3D; &quot;localhost&quot;;
+			
+			if (this._host &#x3D;&#x3D; &#x27;host.docker.internal&#x27;)
+				this._host &#x3D; &#x27;localhost&#x27;;
+
+			this._settings.setCurrentPage(&quot;deploy&quot;);
+		});
+
+		this.includeTestsCtrl &#x3D; new FormControl();
+	}
+
+	public ngOnInit() {
+
+		this._stop &#x3D; false;
+		this.spinner &#x3D; true;
+
+		let ref: RuntimeContainersComponent &#x3D; this;
+		this._settings.values().subscribe((v) &#x3D;&gt; {
+
+			ref._refresh(true);
+		});
+	}
+
+	public ngOnDestroy() {
+
+		this._stop &#x3D; true;
+	}
+
+	public onInitialLoadCompleted(containerCount: number) {
+
+		if (containerCount &#x3D;&#x3D; 0) {
+
+			// no running containers
+			// so navigate to more appropriate page
+
+			this._configService.runSets().subscribe((runs) &#x3D;&gt; {
+
+				if (runs.length &#x3D;&#x3D; 0) {
+					// no runs, but do we have any applicable images to run 
+					// if so go to run page, otherwise build page
+
+					this._dockerService.customImages(false).subscribe((images) &#x3D;&gt; {
+				
+						if (images.length &#x3D;&#x3D; 0)
+							this._router.navigate([&#x27;image&#x27;]);
+						else
+							this._router.navigate([&#x27;run&#x27;]);
+					});
+				}
+			});
+		}
+	}
+
+	public displayedColumns(): string[] {
+
+		let wide: boolean &#x3D; false;
+
+      	if ($(&#x27;#runtime-table&#x27;).width() &gt; 1200)
+        	wide &#x3D; true;
+
+        if (wide)
+        	return this._displayedColumns;
+        else
+        	return this._displayedColumnsMin;
+	}
+
+	public deploymentSelectionChanged(onInit?: boolean) {
+
+		this._settings.currentRuntime &#x3D; this.selectedDeploymentName;
+
+		if (this.selectedDeploymentName &amp;&amp; this.selectedDeploymentName !&#x3D; this.templates[0]) {
+
+			this._configService.runSet(this.selectedDeploymentName).subscribe((run) &#x3D;&gt; {
+
+				this._run &#x3D; run;
+				this.selectedContainers &#x3D; [];
+				
+				run.deployments.forEach((s) &#x3D;&gt; {
+					s.containers.forEach((c) &#x3D;&gt; {
+						this.selectedContainers.push(c.copy());
+					});
+				});
+
+				this.filterContainers(onInit);
+			});
+		} else {
+			this.selectedContainers &#x3D; null;
+			this.filterContainers(onInit);
+		}
+	}
+
+	public setIncludeTests(event: any) {
+
+		this._test &#x3D; event.checked;
+	} 
+
+	public showTestResults(container: Container) {
+
+		window.open(this._msr + &quot;/JcTestSuite&quot;, &quot;test&quot;);
+	}
+
+	public containerLog(container: Container) {
+
+		if (container.state &#x3D;&#x3D; &#x27;running&#x27;) {
+
+			let dialogRef &#x3D; this._dialog.open(BuildExeComponent, {
+		      width: &quot;80%&quot;,
+		      height: &quot;80%&quot;,
+		      data: {containerId: container.id, containerName: container.imageName() },
+		    });
+
+		    dialogRef.afterClosed().subscribe(result &#x3D;&gt; {    
+		    	
+		    });
+		}
+	}
+
+	public addDeploymentSet() {
+		this._router.navigate([&#x27;/run&#x27;]);
+	}
+
+	public edit() {
+
+		this._router.navigate([&#x27;/run&#x27;, this.selectedDeploymentName]);
+	}
+
+	public startContainers() {
+
+		this.spinner &#x3D; true;
+
+		let dialogRef &#x3D; this._dialog.open(BuildExeComponent, {
+	      width: &quot;80%&quot;,
+	      height: &quot;80%&quot;,
+	      data: {run: this._run, includeTests: this._test, uploadAPIs: false },
+	    });
+
+	    dialogRef.afterClosed().subscribe(result &#x3D;&gt; {    
+	    	
+	    	let ref: RuntimeContainersComponent &#x3D; this;
+
+	    	setTimeout(() &#x3D;&gt;  {
+				ref.spinner &#x3D; false;
+				ref.deploymentSelectionChanged();
+			}, 500);
+	    });
+	}
+
+	public stopContainers() {
+
+		this.spinner &#x3D; true;
+
+		this._dockerService.stop(this._run).subscribe((result) &#x3D;&gt; {
+
+			this.spinner &#x3D; false;
+
+			let ref: RuntimeContainersComponent &#x3D; this;
+			setTimeout(() &#x3D;&gt;  {
+				ref.selectedDeploymentName &#x3D; null;
+				ref.filterContainers();
+			}, 1500);
+		});
+	}
+
+	public stopContainer(container: Container) {
+
+		this.spinner &#x3D; true;
+
+		this._dockerService.stopContainer(container.id).subscribe((result) &#x3D;&gt; {
+
+			let ref: RuntimeContainersComponent &#x3D; this;
+			setTimeout(() &#x3D;&gt;  {
+				ref._refresh(false);
+				ref.spinner &#x3D; false;
+			}, 1000);
+		});
+	}
+
+	public isContainerRunning(container: Container): boolean {
+
+		return !container.id.startsWith(&quot;??&quot;);
+	}
+
+	public haveMissingContainer() {
+
+		if (!this.containers)
+			return true;
+		
+		let missing: boolean &#x3D; false;
+
+		for (var i &#x3D; 0; i &lt; this.containers.length; i++) {
+
+			if (this.containers[i].id.startsWith(&quot;??&quot;)) {
+				missing &#x3D; true;
+				break;
+			}
+		}
+
+		return missing;
+	}
+
+	public haveRunningContainers() {
+
+		if (!this.containers)
+			return false;
+
+		let running: boolean &#x3D; false;
+
+		for (var i &#x3D; 0; i &lt; this.containers.length; i++) {
+
+			if (!this.containers[i].id.startsWith(&quot;??&quot;)) {
+				running &#x3D; true;
+				break;
+			}
+		}
+
+		return running;
+	}
+
+	public refForElement(element: Container): string {
+
+		if (element &amp;&amp; element.id) {
+			if (element.id.length &gt; 6)
+				return element.id.substring(0, 6);
+			else
+				return element.id;
+		} else {
+			return null;
+		}
+	}
+
+	public haveTests(element: Container): boolean {
+		
+		return element.testStatus !&#x3D; null &amp;&amp; element.testStatus !&#x3D; TestStatus.none
+	}
+
+	public todoTests(element: Container): boolean {
+		
+		return element.testStatus &#x3D;&#x3D; TestStatus.todo;
+	}
+
+	public runningTests(element: Container): boolean {
+		
+		return element.testStatus &#x3D;&#x3D; TestStatus.todo;
+	}
+
+	public failedTests(element: Container): boolean {
+		
+		return element.testStatus &#x3D;&#x3D; TestStatus.failed;
+	}
+
+	public passedTests(element: Container): boolean {
+		
+		return element.testStatus &#x3D;&#x3D; TestStatus.passed;
+	}
+
+	public filterContainers(onInit?: boolean) {
+
+		this._dockerService.containers().subscribe((containers) &#x3D;&gt; {
+
+			if (this.selectedContainers) {
+
+				this.containers &#x3D; [];
+
+				this.selectedContainers.forEach((c) &#x3D;&gt; {
+					this.containers.push(c);
+
+					c.testStatus &#x3D; this.cachedContainerStatus.get(c.id);
+					this.mergeContainerRuntimeInfo(c, containers);
+				});
+
+			} else {
+				// no filter
+
+				this.containers &#x3D; containers;
+			}
+
+			if (!onInit &amp;&amp; this._table) {
+				this._table.renderRows();
+			}
+			else {
+				this.spinner &#x3D; false;
+				this.onInitialLoadCompleted(containers.length);
+			}
+		});
+	}
+
+	public formatPort(port: Port) {
+
+		if (port.external !&#x3D; port.internal)
+			return port.external + &quot;:&quot; + port.internal;
+		else
+			return port.external;
+	}
+
+	public openPage(container: Container, port: Port, page?: string) {
+
+		if (port.type !&#x3D; &#x27;http&#x27; &amp;&amp; port.type !&#x3D; &#x27;https&#x27;)
+			return;
+
+		var url: string &#x3D; port.type + &quot;://&quot; + (this._host ? this._host : &quot;localhost&quot;) + &quot;:&quot; + port.external + &quot;/&quot; + (page ? page : &quot;&quot;);
+
+		window.open(url, container.name);
+	}
+
+	public colorForPort(container: Container, port: Port) {
+
+		if (container.state &#x3D;&#x3D; &quot;missing&quot;) {
+			return &quot;gray&quot;;
+		} else {
+
+			if (port.type &#x3D;&#x3D; &quot;http&quot;)
+				return &quot;primary&quot;;
+			else if (port.type &#x3D;&#x3D; &quot;https&quot;)
+				return &quot;accent&quot;;
+			else
+				return &quot;gray&quot;;
+		}
+	}
+
+	public colorForState(container: Container) {
+
+		if (container.state &#x3D;&#x3D; &quot;missing&quot;) {
+			return &quot;gray&quot;;
+		}
+		else if (container.state !&#x3D; &quot;running&quot;) {
+
+			return &quot;warn&quot;
+		} else {
+
+			if (container.status &amp;&amp; container.status.indexOf(&quot;unhealthy&quot;) !&#x3D; -1)
+				return &quot;accent&quot;;
+			else if (container.status &amp;&amp; container.status.indexOf(&quot;starting&quot;) !&#x3D; -1)
+				return &quot;accent&quot;;
+			else
+				return &quot;primary&quot;;
+		}
+	}
+
+	public testLabelFor(container: Container): string {
+
+		let s: string &#x3D; &quot;&quot;;
+
+		if (container.testStatus &#x3D;&#x3D; TestStatus.none)
+			s &#x3D; &quot;No test cases defined&quot;;
+		else if (container.testStatus &#x3D;&#x3D; TestStatus.passed)
+			s &#x3D; &quot;All test cases pased successfully&quot;;
+		if (container.testStatus &#x3D;&#x3D; TestStatus.failed)
+			s &#x3D; &quot;Some test cases failed&quot;;
+		if (container.testStatus &#x3D;&#x3D; TestStatus.running)
+			s &#x3D; &quot;Test Cases are running&quot;;
+		if (container.testStatus &#x3D;&#x3D; TestStatus.todo)
+			s &#x3D; &quot;Test cases defined, but not yet run&quot;;
+
+		return s;
+	}
+
+	public latestVersionForContainer(container: Container): any {
+
+		let wrapper &#x3D; {label: null};
+
+		if (container.image.endsWith(&quot;latest&quot;)) {
+
+			let useDedicatedRepo: boolean &#x3D; false;
+
+			if (this._run) {
+				this._run.builds.forEach((b) &#x3D;&gt; {
+					if (b.targetImage.name() &#x3D;&#x3D; container.imageName()) {
+						useDedicatedRepo &#x3D; b.targetImage.dedicatedRepository();
+					}
+				});
+			}
+
+			this._dockerService.image(container.uniqueName(useDedicatedRepo)).subscribe((d) &#x3D;&gt; {
+
+				if (d !&#x3D; null) {
+					wrapper.label &#x3D; &quot; (&quot; + d.latestVersion().version() + &quot;)&quot;;
+				}
+			});
+		} 
+
+		return wrapper;
+	}
+
+	private _refresh(onInit: boolean) {
+
+		if (this.selectedDeploymentName &amp;&amp; this.selectedDeploymentName !&#x3D; this.templates[0])
+			this.deploymentSelectionChanged(onInit);
+		else
+			this.filterContainers(onInit);
+
+		if (!this._stop) {
+			let ref: RuntimeContainersComponent &#x3D; this;
+			setTimeout(() &#x3D;&gt; {
+				ref._refresh(false);
+			}, 10000);
+		}
+	}
+
+	private mergeContainerRuntimeInfo(container: Container, runningContainers: Container[]) {
+
+		var found: Container &#x3D; null;
+		var status: string &#x3D;  &quot;missing&quot;;
+
+		for (var i &#x3D; 0; i &lt; runningContainers.length; i++) {
+
+			if (runningContainers[i].name.indexOf(container.name) !&#x3D; -1) {
+				found &#x3D; runningContainers[i];
+				break;
+			}
+		}
+
+		if (found) {
+
+			container.id &#x3D; found.id;
+			container.state &#x3D; found.state;
+			container.status &#x3D; found.status;
+			container.description &#x3D; found.description;
+			container.created &#x3D; found.created;
+
+			if (container.type &#x3D;&#x3D; &quot;MicroService Runtime&quot; &amp;&amp; container.status.indexOf(&quot;(healthy&quot;) !&#x3D; -1) {
+				// ping for test status
+
+				this._msr &#x3D; &quot;http://&quot; + this._host + &quot;:&quot; + container.ports[0].external;
+				this._testMgr.checkTestStatus(this._run.name).subscribe((status) &#x3D;&gt; {
+					
+					this.updateContainerStatus(container, status);
+				});
+			}
+		} else {
+			// h&#x27;mmm
+
+			container.id &#x3D; &quot;??????&quot;;
+			container.state &#x3D; &quot;missing&quot;;
+		}
+	}
+
+	private updateContainerStatus(container: Container, status: TestStatus) {
+
+		container.testStatus &#x3D; status;
+
+		if (container.testStatus &#x3D;&#x3D; TestStatus.passed)
+			this.testButtonColor &#x3D; &quot;primary&quot;;
+		else if (container.testStatus &#x3D;&#x3D; TestStatus.failed)
+			this.testButtonColor &#x3D; &quot;warn&quot;;
+		else
+			this.testButtonColor &#x3D; &quot;basic&quot;;
+
+		this.cachedContainerStatus.set(container.id, status);
+	}
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;page-wrapper&quot;&gt;
+  &lt;h1 class&#x3D;&quot;page-content-title&quot;&gt;Running Containers&lt;/h1&gt;
+  &lt;div id&#x3D;&quot;spinner&quot; class&#x3D;&quot;spinner&quot; [hidden]&#x3D;&quot;!spinner&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;page-content-wrapper&quot; *ngIf&#x3D;&quot;!spinner&quot;&gt;
+    &lt;div class&#x3D;&quot;page-scrollable-content&quot;&gt;
+    	&lt;div style&#x3D;&quot;width:100%;&quot;&gt;
+	  		&lt;div style&#x3D;&quot;float:right&quot;&gt;
+	  			&lt;mat-form-field style&#x3D;&quot;min-width: 250px; text-align: right; margin-right: 40px&quot;&gt;
+	                &lt;mat-label *ngIf&#x3D;&quot;selectedDeploymentName &#x3D;&#x3D; null&quot;&gt;Select Runtime Template&lt;/mat-label&gt;
+	                &lt;mat-select #selectedDeploymentControl placeholder&#x3D;&quot;Deployment Set&quot; [(value)]&#x3D;&quot;selectedDeploymentName&quot; style&#x3D;&quot;min-width: 200px&quot; (selectionChange)&#x3D;&quot;deploymentSelectionChanged()&quot;&gt;
+	                  &lt;mat-option *ngFor&#x3D;&quot;let template of templates&quot; [value]&#x3D;&quot;template&quot;&gt;
+	                    {{template}}
+	                  &lt;/mat-option&gt;
+	                &lt;/mat-select&gt;
+	              &lt;/mat-form-field&gt;
+	              &lt;button *ngIf&#x3D;&quot;selectedDeploymentName &#x3D;&#x3D; templates[0]&quot; mat-raised-button color&#x3D;&quot;bum&quot; (click)&#x3D;&quot;addDeploymentSet()&quot; style&#x3D;&quot;margin-left: 20px&quot;&gt; Add &lt;/button&gt;
+	              &lt;button *ngIf&#x3D;&quot;selectedDeploymentName !&#x3D; templates[0]&quot; mat-raised-button color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;edit()&quot; style&#x3D;&quot;margin-left: 20px&quot;&gt;Configure &lt;fa-icon class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;tools&#x27;]&quot;&gt;&lt;/fa-icon&gt;&lt;/button&gt;
+	  		&lt;/div&gt;
+  		&lt;/div&gt;
+		&lt;table id&#x3D;&quot;runtime-table&quot; #table mat-table [dataSource]&#x3D;&quot;containers&quot; class&#x3D;&quot;mat-elevation-z8&quot; style&#x3D;&quot;width:100%&quot;&gt;
+
+  &lt;!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition&quot; --&gt;
+
+          &lt;ng-container matColumnDef&#x3D;&quot;remove&quot;&gt;
+		    &lt;th mat-header-cell *matHeaderCellDef style&#x3D;&quot;width:30px&quot;&gt;  &lt;/th&gt;
+		    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; &lt;button mat-button class&#x3D;&quot;red-on-hover&quot; (click)&#x3D;&quot;stopContainer(element)&quot; *ngIf&#x3D;&quot;isContainerRunning(element)&quot;&gt;&lt;fa-icon class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;trash-alt&#x27;]&quot;&gt;&lt;/fa-icon&gt;&lt;/button&gt; &lt;/td&gt;
+		  &lt;/ng-container&gt;
+
+		  
+		  &lt;ng-container matColumnDef&#x3D;&quot;src&quot;&gt;
+		    &lt;th mat-header-cell *matHeaderCellDef style&#x3D;&quot;width:200px&quot;&gt; Source &lt;/th&gt;
+		    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.src}} &lt;/td&gt;
+		  &lt;/ng-container&gt;
+
+		  &lt;ng-container matColumnDef&#x3D;&quot;id&quot;&gt;
+		    &lt;th mat-header-cell *matHeaderCellDef style&#x3D;&quot;flex-grow: 2&quot;&gt; ID&lt;/th&gt;
+		    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot; style&#x3D;&quot;flex-grow: 2&quot;&gt; {{refForElement(element)}} &lt;/td&gt;
+		  &lt;/ng-container&gt;
+
+		  &lt;ng-container matColumnDef&#x3D;&quot;image&quot;&gt;
+		    &lt;th mat-header-cell *matHeaderCellDef style&#x3D;&quot;flex-grow: 4&quot;&gt; Image &lt;/th&gt;
+		    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot; style&#x3D;&quot;flex-grow: 4&quot;&gt; {{element.image}} {{latestVersionForContainer(element).label}}&lt;/td&gt;
+		  &lt;/ng-container&gt;
+
+
+		  &lt;ng-container matColumnDef&#x3D;&quot;version&quot;&gt;
+		    &lt;th mat-header-cell *matHeaderCellDef style&#x3D;&quot;flex-grow: 2&quot;&gt; Version &lt;/th&gt;
+		    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot; style&#x3D;&quot;flex-grow: 4&quot;&gt; {{latestVersionForContainer(element).label}} &lt;/td&gt;
+		  &lt;/ng-container&gt;
+
+		  &lt;ng-container matColumnDef&#x3D;&quot;created&quot;&gt;
+		    &lt;th mat-header-cell *matHeaderCellDef style&#x3D;&quot;flex-grow: 2&quot;&gt; Created &lt;/th&gt;
+		    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot; style&#x3D;&quot;flex-grow: 2&quot;&gt; {{element.created | date: &#x27;dd/MM/yyyy HH:mm&#x27;}} &lt;/td&gt;
+		  &lt;/ng-container&gt;
+
+		  &lt;ng-container matColumnDef&#x3D;&quot;state&quot;&gt;
+		    &lt;th mat-header-cell *matHeaderCellDef style&#x3D;&quot;flex-grow: 1&quot;&gt; State &lt;/th&gt;
+		    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot; style&#x3D;&quot;flex-grow: 1&quot;&gt;&lt;mat-chip-list&gt;&lt;mat-chip [color]&#x3D;&quot;colorForState(element)&quot; (click)&#x3D;&quot;containerLog(element)&quot; selected&gt; {{element.state}} &lt;fa-icon *ngIf&#x3D;&quot;element.state &#x3D;&#x3D; &#x27;running&#x27;&quot; class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;terminal&#x27;]&quot; style&#x3D;&quot;padding-left: 10px; color: white&quot;&gt;&lt;/fa-icon&gt;&lt;/mat-chip&gt;&lt;/mat-chip-list&gt;&lt;/td&gt;
+		  &lt;/ng-container&gt;
+
+		  &lt;ng-container matColumnDef&#x3D;&quot;status&quot;&gt;
+		    &lt;th mat-header-cell *matHeaderCellDef style&#x3D;&quot;flex-grow: 1&quot;&gt; Status &lt;/th&gt;
+		    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot; style&#x3D;&quot;flex-grow: 1&quot;&gt; {{element.status}} &lt;/td&gt;
+		  &lt;/ng-container&gt;
+
+		   &lt;ng-container matColumnDef&#x3D;&quot;testStatus&quot;&gt;
+		    &lt;th mat-header-cell *matHeaderCellDef style&#x3D;&quot;flex-grow: 1&quot;&gt; Test &lt;/th&gt;
+		    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot; style&#x3D;&quot;flex-grow: 1&quot;&gt; 
+
+		    	&lt;button *ngIf&#x3D;&quot;!haveTests(element)&quot; mat-mini-fab disabled [matTooltip]&#x3D;&quot;testLabelFor(element)&quot;&gt;&lt;/button&gt;
+				&lt;div *ngIf&#x3D;&quot;haveTests(element)&quot;&gt;
+					&lt;button mat-mini-fab [color]&#x3D;&quot;testButtonColor&quot; [matTooltip]&#x3D;&quot;testLabelFor(element)&quot; (click)&#x3D;&quot;showTestResults(element)&quot;&gt;
+						&lt;fa-icon *ngIf&#x3D;&quot;todoTests(element)&quot; class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;play&#x27;]&quot; style&#x3D;&quot;color: gray: font-size: 12px&quot;&gt;&lt;/fa-icon&gt;
+						&lt;fa-icon *ngIf&#x3D;&quot;runningTests(element)&quot; class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;spinner&#x27;]&quot; style&#x3D;&quot;color: gray: font-size: 12px&quot;&gt;&lt;/fa-icon&gt;
+						&lt;fa-icon *ngIf&#x3D;&quot;passedTests(element)&quot; class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;check&#x27;]&quot; style&#x3D;&quot;color: green: font-size: 12px&quot;&gt;&lt;/fa-icon&gt;
+						&lt;fa-icon *ngIf&#x3D;&quot;failedTests(element)&quot; class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;bug&#x27;]&quot; style&#x3D;&quot;color: red: font-size: 12px&quot;&gt;&lt;/fa-icon&gt;
+					&lt;/button&gt;
+				&lt;/div&gt;
+			&lt;/td&gt;
+		  &lt;/ng-container&gt;
+
+		  &lt;ng-container matColumnDef&#x3D;&quot;ports&quot;&gt;
+		    &lt;th mat-header-cell *matHeaderCellDef style&#x3D;&quot;flex-grow: 1&quot;&gt; Ports &lt;/th&gt;
+		    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot; style&#x3D;&quot;flex-grow: 1&quot;&gt; 
+		    	&lt;mat-chip-list&gt;
+  					&lt;mat-chip *ngFor&#x3D;&quot;let port of element.ports&quot; (click)&#x3D;&quot;openPage(element, port)&quot; [color]&#x3D;&quot;colorForPort(element, port)&quot; selected&gt;{{formatPort(port)}}&lt;/mat-chip&gt;
+  				&lt;/mat-chip-list&gt;
+  				&lt;/td&gt;
+		  &lt;/ng-container&gt;
+
+		  &lt;ng-container matColumnDef&#x3D;&quot;name&quot;&gt;
+		    &lt;th mat-header-cell *matHeaderCellDef style&#x3D;&quot;flex-grow: 1&quot;&gt; Name &lt;/th&gt;
+		    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot; style&#x3D;&quot;flex-grow: 1; min-width: 200px&quot;&gt; {{element.description}} &lt;/td&gt;
+		  &lt;/ng-container&gt;
+
+		  &lt;tr mat-header-row *matHeaderRowDef&#x3D;&quot;displayedColumns()&quot;&gt;&lt;/tr&gt;
+		  &lt;tr mat-row *matRowDef&#x3D;&quot;let row; columns: displayedColumns();&quot;&gt;&lt;/tr&gt;
+		
+		&lt;/table&gt;
+    &lt;/div&gt;
+    &lt;div *ngIf&#x3D;&quot;selectedDeploymentName !&#x3D; templates[0]&quot; style&#x3D;&quot;margin-top: 100px&quot;&gt;
+    	&lt;mat-checkbox [formControl]&#x3D;&quot;includeTestsCtrl&quot; (change)&#x3D;&quot;setIncludeTests($event)&quot;&gt;Run tests on startup&lt;/mat-checkbox&gt;
+    &lt;/div&gt;
+    &lt;div *ngIf&#x3D;&quot;selectedDeploymentName !&#x3D; templates[0]&quot; style&#x3D;&quot;width:100%; margin-top: 30px&quot;&gt;
+    	&lt;button mat-raised-button color&#x3D;&quot;accent&quot; (click)&#x3D;&quot;stopContainers()&quot; [disabled]&#x3D;&quot;!haveRunningContainers()&quot;&gt;Stop&lt;/button&gt;
+    	&lt;button mat-raised-button color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;startContainers()&quot; [disabled]&#x3D;&quot;!haveMissingContainer()&quot; style&#x3D;&quot;margin-left: 50px&quot;&gt;Start&lt;/button&gt;
+    	&lt;!-- &lt;button mat-raised-button color&#x3D;&quot;warning&quot; (click)&#x3D;&quot;edit()&quot; style&#x3D;&quot;float: right; margin-right: 50px&quot;&gt;Configure &lt;fa-icon class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;tools&#x27;]&quot;&gt;&lt;/fa-icon&gt;&lt;/button&gt; --&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>../templates/runtime-containers.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">a {
+	text-decoration: none !important;
+	color: white !important;
+	background-color: rgba(255,255,255,0.1);
+	border-radius: 10px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	margin-left: 10px;
+}
+a:visited {
+	color: white;
+}
+a:hover {
+	background-color: gray;
+}
+
+.toolbar {
+	height: 50px;
+	background-color: rgb(23, 115, 187);
+}
+.toolbar-content {
+	display: flex;
+	align-items: stretch;
+	width: 100%;
+	height: 30px;
+	padding: 5px;
+}
+.toolbar-title-column {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 0;
+	width: 250px;
+	color: white;
+	font-size: 10px;
+}
+.toolbar-right-column {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	flex-grow: 2;
+	color: white;
+}
+.toolbar-links {
+	font-size: 11px;
+	line-height: 21px;
+}
+mat-card-actions {
+	position: absolute;
+	right:20px;
+	bottom: 0px;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="page-wrapper">  <h1 class="page-content-title">Running Containers</h1>  <div id="spinner" class="spinner" [hidden]="!spinner">  </div>  <div class="page-content-wrapper" *ngIf="!spinner">    <div class="page-scrollable-content">    	<div style="width:100%;">	  		<div style="float:right">	  			<mat-form-field style="min-width: 250px; text-align: right; margin-right: 40px">	                <mat-label *ngIf="selectedDeploymentName == null">Select Runtime Template</mat-label>	                <mat-select #selectedDeploymentControl placeholder="Deployment Set" [(value)]="selectedDeploymentName" style="min-width: 200px" (selectionChange)="deploymentSelectionChanged()">	                  <mat-option *ngFor="let template of templates" [value]="template">	                    {{template}}	                  </mat-option>	                </mat-select>	              </mat-form-field>	              <button *ngIf="selectedDeploymentName == templates[0]" mat-raised-button color="bum" (click)="addDeploymentSet()" style="margin-left: 20px"> Add </button>	              <button *ngIf="selectedDeploymentName != templates[0]" mat-raised-button color="primary" (click)="edit()" style="margin-left: 20px">Configure <fa-icon class="icon" [icon]="[\'fas\', \'tools\']"></fa-icon></button>	  		</div>  		</div>		<table id="runtime-table" #table mat-table [dataSource]="containers" class="mat-elevation-z8" style="width:100%">  <!--- Note that these columns can be defined in any order.        The actual rendered columns are set as a property on the row definition" -->          <ng-container matColumnDef="remove">		    <th mat-header-cell *matHeaderCellDef style="width:30px">  </th>		    <td mat-cell *matCellDef="let element"> <button mat-button class="red-on-hover" (click)="stopContainer(element)" *ngIf="isContainerRunning(element)"><fa-icon class="icon" [icon]="[\'fas\', \'trash-alt\']"></fa-icon></button> </td>		  </ng-container>		  		  <ng-container matColumnDef="src">		    <th mat-header-cell *matHeaderCellDef style="width:200px"> Source </th>		    <td mat-cell *matCellDef="let element"> {{element.src}} </td>		  </ng-container>		  <ng-container matColumnDef="id">		    <th mat-header-cell *matHeaderCellDef style="flex-grow: 2"> ID</th>		    <td mat-cell *matCellDef="let element" style="flex-grow: 2"> {{refForElement(element)}} </td>		  </ng-container>		  <ng-container matColumnDef="image">		    <th mat-header-cell *matHeaderCellDef style="flex-grow: 4"> Image </th>		    <td mat-cell *matCellDef="let element" style="flex-grow: 4"> {{element.image}} {{latestVersionForContainer(element).label}}</td>		  </ng-container>		  <ng-container matColumnDef="version">		    <th mat-header-cell *matHeaderCellDef style="flex-grow: 2"> Version </th>		    <td mat-cell *matCellDef="let element" style="flex-grow: 4"> {{latestVersionForContainer(element).label}} </td>		  </ng-container>		  <ng-container matColumnDef="created">		    <th mat-header-cell *matHeaderCellDef style="flex-grow: 2"> Created </th>		    <td mat-cell *matCellDef="let element" style="flex-grow: 2"> {{element.created | date: \'dd/MM/yyyy HH:mm\'}} </td>		  </ng-container>		  <ng-container matColumnDef="state">		    <th mat-header-cell *matHeaderCellDef style="flex-grow: 1"> State </th>		    <td mat-cell *matCellDef="let element" style="flex-grow: 1"><mat-chip-list><mat-chip [color]="colorForState(element)" (click)="containerLog(element)" selected> {{element.state}} <fa-icon *ngIf="element.state == \'running\'" class="icon" [icon]="[\'fas\', \'terminal\']" style="padding-left: 10px; color: white"></fa-icon></mat-chip></mat-chip-list></td>		  </ng-container>		  <ng-container matColumnDef="status">		    <th mat-header-cell *matHeaderCellDef style="flex-grow: 1"> Status </th>		    <td mat-cell *matCellDef="let element" style="flex-grow: 1"> {{element.status}} </td>		  </ng-container>		   <ng-container matColumnDef="testStatus">		    <th mat-header-cell *matHeaderCellDef style="flex-grow: 1"> Test </th>		    <td mat-cell *matCellDef="let element" style="flex-grow: 1"> 		    	<button *ngIf="!haveTests(element)" mat-mini-fab disabled [matTooltip]="testLabelFor(element)"></button>				<div *ngIf="haveTests(element)">					<button mat-mini-fab [color]="testButtonColor" [matTooltip]="testLabelFor(element)" (click)="showTestResults(element)">						<fa-icon *ngIf="todoTests(element)" class="icon" [icon]="[\'fas\', \'play\']" style="color: gray: font-size: 12px"></fa-icon>						<fa-icon *ngIf="runningTests(element)" class="icon" [icon]="[\'fas\', \'spinner\']" style="color: gray: font-size: 12px"></fa-icon>						<fa-icon *ngIf="passedTests(element)" class="icon" [icon]="[\'fas\', \'check\']" style="color: green: font-size: 12px"></fa-icon>						<fa-icon *ngIf="failedTests(element)" class="icon" [icon]="[\'fas\', \'bug\']" style="color: red: font-size: 12px"></fa-icon>					</button>				</div>			</td>		  </ng-container>		  <ng-container matColumnDef="ports">		    <th mat-header-cell *matHeaderCellDef style="flex-grow: 1"> Ports </th>		    <td mat-cell *matCellDef="let element" style="flex-grow: 1"> 		    	<mat-chip-list>  					<mat-chip *ngFor="let port of element.ports" (click)="openPage(element, port)" [color]="colorForPort(element, port)" selected>{{formatPort(port)}}</mat-chip>  				</mat-chip-list>  				</td>		  </ng-container>		  <ng-container matColumnDef="name">		    <th mat-header-cell *matHeaderCellDef style="flex-grow: 1"> Name </th>		    <td mat-cell *matCellDef="let element" style="flex-grow: 1; min-width: 200px"> {{element.description}} </td>		  </ng-container>		  <tr mat-header-row *matHeaderRowDef="displayedColumns()"></tr>		  <tr mat-row *matRowDef="let row; columns: displayedColumns();"></tr>				</table>    </div>    <div *ngIf="selectedDeploymentName != templates[0]" style="margin-top: 100px">    	<mat-checkbox [formControl]="includeTestsCtrl" (change)="setIncludeTests($event)">Run tests on startup</mat-checkbox>    </div>    <div *ngIf="selectedDeploymentName != templates[0]" style="width:100%; margin-top: 30px">    	<button mat-raised-button color="accent" (click)="stopContainers()" [disabled]="!haveRunningContainers()">Stop</button>    	<button mat-raised-button color="primary" (click)="startContainers()" [disabled]="!haveMissingContainer()" style="margin-left: 50px">Start</button>    	<!-- <button mat-raised-button color="warning" (click)="edit()" style="float: right; margin-right: 50px">Configure <fa-icon class="icon" [icon]="[\'fas\', \'tools\']"></fa-icon></button> -->    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'about-app'},{'name': 'ActionComponent', 'selector': 'action'},{'name': 'ApiGatewayInstallerComponent', 'selector': 'jc-apigw-install'},{'name': 'ApiMicroGatewayInstallerComponent', 'selector': 'jc-apimg-install'},{'name': 'ApiPortalInstallerComponent', 'selector': 'jc-apipr-installer'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BuildCommandsComponent', 'selector': 'build-commands'},{'name': 'BuildComponent', 'selector': 'build'},{'name': 'BuildExeComponent', 'selector': 'build-exe'},{'name': 'BuildImageComponent', 'selector': 'build-solution'},{'name': 'BuildInstallComponent', 'selector': 'build-install'},{'name': 'BuildPackagesComponent', 'selector': 'build-package'},{'name': 'ContainerComponent', 'selector': 'container'},{'name': 'ContainersComponent', 'selector': 'app-containers'},{'name': 'DeploymentDetailsComponent', 'selector': 'jc-deployment-details'},{'name': 'DeploymentListComponent', 'selector': 'jc-k8s-deployments'},{'name': 'DockerImageChooserComponent', 'selector': 'docker-image-chooser'},{'name': 'DockerImageListComponent', 'selector': 'jc-docker-images'},{'name': 'DockerImageVersionsComponent', 'selector': 'jc-docker-image-versions'},{'name': 'EditContainerComponent', 'selector': 'edit-container'},{'name': 'GitSourcesComponent', 'selector': 'git-source'},{'name': 'HomeComponent', 'selector': 'home'},{'name': 'InstallerComponent', 'selector': 'jc-install'},{'name': 'MicroServiceBuilderComponent', 'selector': 'jc-msc-configure'},{'name': 'MicroServiceInstallerComponent', 'selector': 'jc-msc-install'},{'name': 'PodsListComponent', 'selector': 'jc-pods'},{'name': 'RuntimeContainersComponent', 'selector': 'runtime-containers'},{'name': 'RuntimeDeployComponent', 'selector': 'runtime-deploy'},{'name': 'RuntimeDetailsComponent', 'selector': ''},{'name': 'RuntimeK8sComponent', 'selector': 'runtime'},{'name': 'RuntimeScaleComponent', 'selector': 'jc-runtime-scale'},{'name': 'RuntimeStageComponent', 'selector': 'runtime-stage'},{'name': 'RuntimeUpdateComponent', 'selector': ''},{'name': 'SagImageAlerterComponent', 'selector': 'sag-image-alerter'},{'name': 'ServicePropertiesComponent', 'selector': 'k8s-props'},{'name': 'SettingsComponent', 'selector': 'home'},{'name': 'SimpleNameComponent', 'selector': 'name-dialog'},{'name': 'StagingComponent', 'selector': 'staging'},{'name': 'TestCaseComponent', 'selector': 'test-case'},{'name': 'TestDefinitionComponent', 'selector': 'test-definitions'},{'name': 'TestHistoryComponent', 'selector': 'test-history'},{'name': 'TestRunComponent', 'selector': 'test-reun'},{'name': 'UMInstallerComponent', 'selector': 'jc-um-install'},{'name': 'UploadButtonComponent', 'selector': 'file-uploader-button'}];
+    var DIRECTIVES = [{'name': 'BuildImageChooseDirective', 'selector': '[builder]'},{'name': 'CancelCdkDrag', 'selector': '[appCancelCdkDrag]'},{'name': 'NgFileDrop', 'selector': '[ng-file-drop]'},{'name': 'NgFileSelect', 'selector': '[ng-file-select]'},{'name': 'RuntimeActionsDirective', 'selector': '[runtime-actions]'}];
+    var ACTUAL_COMPONENT = {'name': 'RuntimeContainersComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'RuntimeContainersComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

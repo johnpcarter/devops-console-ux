@@ -1,0 +1,17 @@
+ <div id="spinner" class="spinner" [hidden]="true"></div>
+  <div *ngIf="settingsLoaded" class="page-content-wrapper">
+    <div style="margin-top: 50px">
+      <h3>Source Code Sets</h3>
+      <mat-chip-list>
+        <mat-chip *ngFor="let s of deploymentSets" selected style="background-color: green" (click)="gotoSourceCode(s)">{{s}}</mat-chip>
+      </mat-chip-list>
+    </div>
+    <div style="margin-top: 50px">
+      <h3>Base Images</h3>
+      <jc-docker-chips-images [type]="'sag'" (imageCount)="sagImageCount($event)"></jc-docker-chips-images>
+    </div>
+    <div style="margin-top: 50px">
+      <h3>Microservice Images</h3>
+      <jc-docker-chips-images [type]="'custom'" (imageCount)="customImageCount($event)"></jc-docker-chips-images>
+    </div>
+  </div>

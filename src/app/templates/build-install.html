@@ -1,0 +1,222 @@
+ <div id="spinner" class="spinner" [hidden]="!isInstalling || !settingsLoaded">
+  </div>
+  <div class="page-content-wrapper">
+    <div class="page-scrollable-content">
+      <mat-horizontal-stepper [linear]="isLinearStepper" #stepper>
+        <mat-step [stepControl]="installerTypeFormGroup">
+          <mat-card style="min-height: 380px">
+            <form [formGroup]="installerTypeFormGroup">
+              <ng-template matStepLabel>{{installationType()}}</ng-template>
+                <div style="display: flex; flex-direction: column; width: 50%">
+                  <mat-form-field style="min-width: 450px; margin-right: 20px; margin-top: 40px">
+                    <mat-select id="build.install.productType" placeholder="Product" formControlName="prodCtrl" required>
+                      <mat-option *ngFor="let prod of productCodesVisible" [value]="prod">
+                        {{productLabelForCode(prod)}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-hint>Ready made images provided by Software AG can also be used via the build option. Visit docker hub for a <a href="https://hub.docker.com/search?q=softwareag&type=image" target="docker" style="color: blue">complete list</a></mat-hint>
+                  </mat-form-field>
+                  <div style="display: inline-flex; justify-content: space-between; margin-top: 60px">
+                    <mat-form-field style="margin-right:20px; flex-grow: 2">
+                      <input id="build.install.template" matInput placeholder="Identify template" formControlName="installCtrl" [matAutocomplete]="auto">
+                      <mat-autocomplete #auto="matAutocomplete">
+                          <mat-option *ngFor="let install of installs" [value]="install">
+                            {{install}}
+                          </mat-option>
+                      </mat-autocomplete>
+                      <mat-hint align="start">Optional, Use this to save your installation parameters for future reference and to enable automatic installs. </mat-hint>
+                    </mat-form-field>
+                    <div [hidden]="!installCtrl.value" style="flex-grow: 1; display: inline-flex; justify-content: flex-start; align-items: center">
+                      <button mat-flat-button id="build.install.addTemplate" color="primary" (click)="addTemplate($event)" [disabled]="isExistingTemplate()" style="margin-right: 10px">Add</button>
+                      <button mat-flat-button id="build.install.removeTemplate" color="warn" (click)="deleteTemplate($event)" [disabled]="!isExistingTemplate()" style="margin-left: 10px">Delete</button>
+                    </div>
+                  </div>
+                </div>
+                <mat-card-actions>
+                    <button mat-raised-button id="build.install.installTypeNext" matStepperNext color="primary" [disabled]="!installerTypeFormGroup.valid">Next</button>
+                </mat-card-actions>
+            </form>
+          </mat-card>
+        </mat-step>
+        <mat-step [stepControl]="installerImageFormGroup">
+          <mat-card style="min-height: 380px">
+            <form [formGroup]="installerImageFormGroup">
+              <ng-template matStepLabel>Target Image</ng-template>
+              <div style="display: flex; flex-direction: column;">
+                <ng-template matStepLabel>Image</ng-template>
+                <div style="display: flex; flex-direction: row">
+                  <mat-form-field style="width: 4em; margin-right: 40px; min-width: 250px">
+                    <input matInput id="build.install.repository" placeholder="Repository" formControlName="targetRepoCtrl" oninput="this.value = this.value.toLowerCase()">
+                  </mat-form-field>
+                  <mat-form-field style="min-width: 250px; margin-right: 10px">
+                    <input matInput id="build.install.name" formControlName="targetImageCtrl" placeholder="Image name" [matAutocomplete]="selectedDockerControl" oninput="this.value = this.value.toLowerCase()" required>
+                    <mat-autocomplete #selectedDockerControl="matAutocomplete" [displayWith]="imageName">
+                      <mat-option *ngFor="let image of filteredImages | async" [value]="image">
+                        {{image.name()}}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </mat-form-field>
+                  <mat-form-field style="width: 4em; margin-right: 40px">
+                    <input matInput id="build.install.version" placeholder="Version" formControlName="targetVersionCtrl" required>
+                  </mat-form-field>
+                </div>
+                <mat-checkbox id="build.install.dedicatedRepo" formControlName="dedicatedRepoCtrl" [disabled]="!targetRepoCtrl.value">Dedicated Repository</mat-checkbox>
+                <div><label *ngIf="targetImageCtrl.value" style="color:gray;">{{targetTag()}}</label></div>
+                <label style="margin-top: 40px">Type</label>
+                <mat-radio-group id="build.install.osTypeGroup" class="radio-group" aria-label="Type" formControlName="osTypeCtrl" required>
+                  <mat-radio-button id="build.install.osType.centos" class="radio-button" value="centos">CentOS</mat-radio-button>
+                  <mat-radio-button id="build.install.osType.ubuntu" class="radio-button" value="ubuntu">Ubuntu</mat-radio-button>
+                  <mat-radio-button id="build.install.osType.alpine" class="radio-button" value="alpine">Alpine</mat-radio-button>
+                  <mat-radio-button id="build.install.osType.other" class="radio-button" value="other">Other</mat-radio-button>
+                </mat-radio-group>
+                <mat-form-field *ngIf="osTypeCtrl.value == 'other'" style="min-width: 450px; margin-right: 20px; margin-top: 10px">
+                  <input matInput placeholder="Image name" formControlName="otherOsTypeCtrl" oninput="this.value = this.value.toLowerCase()" required>
+                </mat-form-field>
+                 <mat-form-field style="min-width: 450px; margin-right: 20px; margin-top: 10px">
+                  <input matInput placeholder="OS Version" formControlName="osTypeVersionCtrl">
+                </mat-form-field>
+                <div *ngIf="currentInstaller.isSAGProduct == 'true'">
+                  <mat-form-field style="min-width: 450px; margin-right: 20px; margin-top: 40px">
+                    <mat-select id="build.install.imageChooser" placeholder="webMethods Installer Image" formControlName="wmImageCtrl" required>
+                      <mat-option *ngFor="let image of wmImages" [value]="image.filename">
+                        {{image.filename}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-hint align="start">Installation can be done by direct download and you can choose to keep a copy of the installer image for future use. Alternatively you can upload images that you have already created with the Software AG Installer.</mat-hint>
+                  </mat-form-field>
+                  <file-uploader-button id="build.install.upload" alias="installer-images" type="installer-images" uploadURL="/invoke/jc.devops.console.resources_.services:uploadMultipartForm" title="Upload image" (onCompletion)="wmImageFileAdded($event)"></file-uploader-button>
+                </div>
+                <div *ngIf="wmImageCtrl.value == 'Download'" style="margin-left: 40px; display: flex; flex-direction: column; justify-content: flex-start;">
+                  <mat-form-field style="min-width: 450px; margin-right: 20px; margin-top: 40px">
+                    <input matInput placeholder="Empower User" formControlName="userCtrl" required>
+                  </mat-form-field>
+                  <mat-form-field style="min-width: 450px; margin-right: 20px">
+                    <input matInput type="password" placeholder="Empower password" formControlName="passwordCtrl" required>
+                    <mat-hint align="start">You need to provide your empower credentials (via preferences) if you want to download the software directly</mat-hint>
+                  </mat-form-field>
+                  <mat-slide-toggle id="build.install.keepImage" class="example-margin" style="margin-left: -40px; margin-top: 20px" formControlName="keepWmImageCtrl">
+                    Archive installer image ?
+                  </mat-slide-toggle>
+                </div>
+              </div>
+            <mat-card-actions>
+                <button mat-raised-button id="build.install.targetImageNext" matStepperNext color="primary" [disabled]="!installerImageFormGroup.valid">Next</button>
+            </mat-card-actions>
+            </form>
+          </mat-card>
+        </mat-step>
+        <mat-step [stepControl]="propertiesFormGroup">
+          <mat-card style="min-height: 380px">
+            <form [formGroup]="propertiesFormGroup">
+              <ng-template matStepLabel>General Properties</ng-template>
+              <div style="display:flex; flex-direction: column; justify-content: flex-start;">
+                <div *ngIf="currentInstaller.isSAGProduct == 'true'">
+                  <mat-form-field style="min-width: 450px; margin-right: 20px; margin-bottom: 40px">
+                      <mat-select id="build.install.license" placeholder="Licence File (Optional)" formControlName="licCtrl">
+                        <mat-option *ngFor="let lic of licenceFiles" [value]="lic">
+                          {{lic}}
+                        </mat-option>
+                      </mat-select>
+                    <mat-hint>Ensure a valid license file is included (if required) either here in your base image or when building a solution image, otherwise you will not be able to start your container </mat-hint>
+                  </mat-form-field>
+                  <file-uploader-button id="build.install.licenseUploadButton" alias="license" type="licenses" uploadURL="/invoke/jc.devops.console.resources_.services:uploadMultipartForm" title="Add License" (onCompletion)="licenseFileAdded($event)"></file-uploader-button>
+                </div>
+                <mat-form-field style="min-width: 450px; margin-right: 20px">
+                  <input matInput id="build.install.primary.port" placeholder="Primary Port" formControlName="portCtrl" required>
+                </mat-form-field>
+              </div>
+
+              <mat-card-actions>
+                <button mat-raised-button matStepperPrevious>Back</button>
+                <button mat-raised-button id="build.install.propertiesNext" matStepperNext color="primary" [disabled]="!propertiesFormGroup.valid">Next</button>
+              </mat-card-actions>
+            </form>
+          </mat-card>
+        </mat-step>
+        <mat-step [stepControl]="productPropertiesFormGroup">
+          <mat-card style="min-height: 380px">
+            <form [formGroup]="propertiesFormGroup">
+              <ng-template matStepLabel>Product Properties</ng-template>
+              <ng-template builder></ng-template>
+              <mat-card-actions style="width: 100%">
+                <button mat-flat-button (click)="showHiddenCommands()" [color]="showHideCommandAccent()" style="margin-left: 20px"> {{ showHideCommandsLabel() }} </button>
+                <div style="float: right">
+                  <button mat-raised-button matStepperPrevious>Back</button>
+                  <button mat-raised-button id="build.install.customPropsNext" matStepperNext color="primary" [disabled]="!productPropertiesFormGroup.valid">Next</button>
+                </div>
+              </mat-card-actions>
+            </form>
+          </mat-card>
+        </mat-step>
+        <mat-step [stepControl]="summaryFormGroup">
+          <mat-card style="min-height: 380px">
+            <form [formGroup]="summaryFormGroup">
+              <ng-template matStepLabel>Install</ng-template>
+              <div style="display:flex; flex-direction: column; justify-content: flex-start; align-items: flex-start;">
+                <div *ngIf="currentInstaller" style="width: 100%; display: flex; flex-direction: column">
+                  <h4>Product</h4>
+                  <mat-form-field style="width: 50%; margin-left: 40px">
+                    <input matInput style="color: gray;" placeholder="Type" value="{{productLabelForCode(currentInstaller.productType)}}" readonly="true">
+                  </mat-form-field>
+                  <mat-form-field style="width: 50%; margin-left: 40px">
+                    <input matInput style="color: gray;" placeholder="Target Image" value="{{currentInstaller.targetImage.tag()}}" readonly="true">
+                  </mat-form-field>
+                  <mat-form-field *ngIf="currentInstaller.isSAGProduct == 'true'" style="width: 50%; margin-left: 40px">
+                    <input matInput style="color: gray;" placeholder="webMethods Installer Image" value="{{currentInstaller.wmInstallerImage}} {{keepWmImageCtrl.value ? '(Will Archive)' : ''}}" readonly="true">
+                  </mat-form-field>
+                </div>
+                <div *ngIf="builderDisplayableKeys()" style="width:100%">
+                  <h4>Features to include</h4>
+                  <table style="width:100%; margin-left: 40px">
+                    <tr>
+                      <th style="text-align:left">Asset</th>
+                      <th style="text-align:left" *ngFor="let attr of builderDisplayableKeys()">{{attr}}</th>
+                    </tr>
+                    <tr *ngFor="let prop of builderDisplayableEntries">
+                      <td style="text-align:left">{{prop}}</td>
+                      <td style="text-align:left" *ngFor="let attr of propertiesFor(prop)">
+                        <mat-chip-list>
+                          <mat-chip *ngFor="let value of attr.values" selected>{{value}}</mat-chip>
+                        </mat-chip-list>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <mat-checkbox *ngIf="currentInstaller.isSAGProduct == 'true'" formControlName="updateCtrl" style="margin-top: 50px">Includes fixes ?</mat-checkbox>
+                <div *ngIf="updateCtrl.value" style="margin-left: 40px; display: flex; flex-direction: column; justify-content: flex-start;">
+                  <mat-form-field style="min-width: 450px; margin-right: 20px; margin-top: 30px">
+                    <input matInput placeholder="Empower User" formControlName="userUpdateCtrl" disabled required>
+                  </mat-form-field>
+                  <mat-form-field style="min-width: 450px; margin-right: 20px">
+                    <input matInput placeholder="Empower passaccentword (Encrypted)" formControlName="passwordEncryptedCtrl" disabled required>
+                   <mat-hint align="start">Your credentials are not saved as part of the template, but instead in your preferences.</mat-hint>
+                  </mat-form-field>
+                </div>
+              </div>
+              <mat-form-field style="width: 100%; min-width: 450px; margin-right: 20px; margin-top: 60px">
+                    <input id="build.install.comments" matInput placeholder="Comments" formControlName="commentsCtrl" required>
+                </mat-form-field>
+              <mat-form-field style="width: 100%; margin-top: 40px">
+                    <input matInput placeholder="Save as template" formControlName="installerNameCtrl" [readonly]="isExistingTemplate()">
+                    <mat-hint align="start">Save configuration as template for future builds</mat-hint>
+              </mat-form-field>
+              <div style="width: 100%; height: 80px; margin-top: 40px;">
+                <div style="float: right">
+                  <mat-checkbox id="build.install.buildOnServerRadio" formControlName="downloadCtrl" style="margin-top: 20px">Build On Server ?</mat-checkbox>
+                </div>
+              </div>
+              <mat-card-actions style="width: 100%">
+                <button *ngIf="!templateEstablished()" #saveButton mat-raised-button (click)="saveTemplate()" color="accent" [disabled]="isExistingTemplate() || !installerNameCtrl.value" style="margin-left: 20px"><fa-icon class="icon" [icon]="['fas', 'file-upload']" style="color: white"></fa-icon> Save </button>
+                <div style="float: right">
+                  <button mat-raised-button matStepperPrevious>Back</button>
+                  <button *ngIf="downloadRef" mat-raised-button #downloadButton color="primary" (click)="downloadNow(downloadRef)" style="width: 140px"><fa-icon class="icon" [icon]="['fas', 'file-download']" style="color: white"></fa-icon> DOWNLOAD </button>
+                  <button *ngIf="isInstalling" mat-raised-button #waitButton color="warn" class="pulseButton" style="width: 140px"><fa-icon class="icon" [icon]="['fas', 'rocket']" style="color: white"></fa-icon> {{labelForPreparingButton()}} </button>
+                  <button id="build.install.installButton" *ngIf="!downloadRef && !isInstalling" mat-raised-button #buildButton (click)="install()" [disabled]="!summaryFormGroup.valid" color="warn" style="width:140px"><fa-icon class="icon" [icon]="['fas', 'rocket']" style="color: white"></fa-icon> {{labelForGoButton()}} </button>
+                </div>
+              </mat-card-actions>
+            </form>
+          </mat-card>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </div>
+  </div>

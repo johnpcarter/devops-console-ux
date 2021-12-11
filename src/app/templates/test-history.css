@@ -1,0 +1,21 @@
+
+.mat-expansion-panel-body {
+	margin-top: -30px !important;
+}
+
+div.mat-expansion-panel-body {
+	margin-top: -30px !important;
+}
+
+.container {
+  background-color: #e3e8ee;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 20px;
+  padding-bottom: 65px;
+}
+
+.simple {
+	background-color: rgba(255,255,255, 0.3);
+	border-radius: 0px;
+}

@@ -1,0 +1,3577 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>wm-devops-console documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">wm-devops-console documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>DockerImageListComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/elements/docker-images-list.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnChanges" target="_blank" >OnChanges</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>jc-docker-images</code></td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>../../templates/elements/docker-images-list.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_displayedColumnsBase">_displayedColumnsBase</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_displayedColumnsBaseMin">_displayedColumnsBaseMin</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_displayedColumnsCustom">_displayedColumnsCustom</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_displayedColumnsCustomMin">_displayedColumnsCustomMin</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_displayedEditCustom">_displayedEditCustom</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#_selectedVersion">_selectedVersion</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_version">_version</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#canPublish">canPublish</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#canPull">canPull</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#colorForEditButton">colorForEditButton</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#colorForTest">colorForTest</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#displayedColumns">displayedColumns</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#failedTests">failedTests</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#haveTests">haveTests</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isCurrentVersion">isCurrentVersion</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isSelected">isSelected</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#localizedStatus">localizedStatus</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnChanges">ngOnChanges</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#passedTests">passedTests</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#productCodeLabel">productCodeLabel</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#pullImage">pullImage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#pushImage">pushImage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#runningTests">runningTests</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectRow">selectRow</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#showTests">showTests</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#styleForAction">styleForAction</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#styleForStatus">styleForStatus</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#styleForVersionColumn">styleForVersionColumn</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#test">test</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#testLabelFor">testLabelFor</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#todoTests">todoTests</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#unknownTests">unknownTests</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#updateReferences">updateReferences</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#updateVersion">updateVersion</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#updateVersionButtonLabel">updateVersionButtonLabel</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#columns">columns</a>
+                            </li>
+                            <li>
+                                <a href="#currentVersion">currentVersion</a>
+                            </li>
+                            <li>
+                                <a href="#dataSource">dataSource</a>
+                            </li>
+                            <li>
+                                <a href="#namespace">namespace</a>
+                            </li>
+                            <li>
+                                <a href="#references">references</a>
+                            </li>
+                            <li>
+                                <a href="#title">title</a>
+                            </li>
+                            <li>
+                                <a href="#type">type</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#haveChanges">haveChanges</a>
+                            </li>
+                            <li>
+                                <a href="#imageCount">imageCount</a>
+                            </li>
+                            <li>
+                                <a href="#onAction">onAction</a>
+                            </li>
+                            <li>
+                                <a href="#onSelection">onSelection</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                                <span class="modifier">Public</span>
+                        <code>constructor(_router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, _snackBar: MatSnackBar, _dockerImageService: <a href="../injectables/DockerService.html">DockerService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:74</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_snackBar</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatSnackBar</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_dockerImageService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DockerService.html" target="_self" >DockerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="columns"></a>
+                        <b>columns</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:60</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="currentVersion"></a>
+                        <b>currentVersion</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:57</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dataSource"></a>
+                        <b>dataSource</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/DockerImage.html" target="_self" >DockerImage[]</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:54</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="namespace"></a>
+                        <b>namespace</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:48</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="references"></a>
+                        <b>references</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:51</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="title"></a>
+                        <b>title</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:42</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="type"></a>
+                        <b>type</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:45</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="haveChanges"></a>
+                        <b>haveChanges</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;boolean&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:63</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="imageCount"></a>
+                        <b>imageCount</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;number&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:72</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onAction"></a>
+                        <b>onAction</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;Action&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:66</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onSelection"></a>
+                        <b>onSelection</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/DockerImage.html" target="_self" >EventEmitter&lt;DockerImage&gt;</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:69</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_version"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            _version
+                        </b>
+                        <a href="#_version"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_version(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="145"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:145</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="canPublish"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            canPublish
+                        </b>
+                        <a href="#canPublish"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>canPublish(row: <a href="../classes/DockerImage.html">DockerImage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="190"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:190</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>row</td>
+                                    <td>
+                                                <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="canPull"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            canPull
+                        </b>
+                        <a href="#canPull"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>canPull(row: <a href="../classes/DockerImage.html">DockerImage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="195"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:195</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>row</td>
+                                    <td>
+                                                <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="colorForEditButton"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            colorForEditButton
+                        </b>
+                        <a href="#colorForEditButton"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>colorForEditButton(image: <a href="../classes/DockerImage.html">DockerImage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="364"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:364</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>image</td>
+                                    <td>
+                                                <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>&quot;primary&quot; | &quot;warn&quot;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="colorForTest"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            colorForTest
+                        </b>
+                        <a href="#colorForTest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>colorForTest(image: <a href="../classes/DockerImage.html">DockerImage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="333"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:333</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>image</td>
+                                    <td>
+                                                <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="displayedColumns"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            displayedColumns
+                        </b>
+                        <a href="#displayedColumns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>displayedColumns()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="200"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:200</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>string[]</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="failedTests"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            failedTests
+                        </b>
+                        <a href="#failedTests"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>failedTests(image: <a href="../classes/DockerImage.html">DockerImage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="295"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:295</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>image</td>
+                                    <td>
+                                                <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="haveTests"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            haveTests
+                        </b>
+                        <a href="#haveTests"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>haveTests(image: <a href="../classes/DockerImage.html">DockerImage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="285"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:285</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>image</td>
+                                    <td>
+                                                <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isCurrentVersion"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            isCurrentVersion
+                        </b>
+                        <a href="#isCurrentVersion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isCurrentVersion(row: <a href="../classes/DockerImage.html">DockerImage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="160"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:160</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>row</td>
+                                    <td>
+                                                <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSelected"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            isSelected
+                        </b>
+                        <a href="#isSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isSelected(row: <a href="../classes/DockerImage.html">DockerImage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="174"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:174</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>row</td>
+                                    <td>
+                                                <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="localizedStatus"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            localizedStatus
+                        </b>
+                        <a href="#localizedStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>localizedStatus(image: <a href="../classes/DockerImage.html">DockerImage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="238"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:238</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>image</td>
+                                    <td>
+                                                <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            ngOnChanges
+                        </b>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnChanges()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="111"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:111</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="80"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:80</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="passedTests"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            passedTests
+                        </b>
+                        <a href="#passedTests"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>passedTests(image: <a href="../classes/DockerImage.html">DockerImage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="290"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:290</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>image</td>
+                                    <td>
+                                                <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="productCodeLabel"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            productCodeLabel
+                        </b>
+                        <a href="#productCodeLabel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>productCodeLabel(element: <a href="../classes/DockerImage.html">DockerImage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="122"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:122</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>element</td>
+                                    <td>
+                                                <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pullImage"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            pullImage
+                        </b>
+                        <a href="#pullImage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>pullImage(image: <a href="../classes/DockerImage.html">DockerImage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="401"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:401</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>image</td>
+                                    <td>
+                                                <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pushImage"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            pushImage
+                        </b>
+                        <a href="#pushImage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>pushImage(image: <a href="../classes/DockerImage.html">DockerImage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="380"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:380</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>image</td>
+                                    <td>
+                                                <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="runningTests"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            runningTests
+                        </b>
+                        <a href="#runningTests"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>runningTests(image: <a href="../classes/DockerImage.html">DockerImage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="305"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:305</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>image</td>
+                                    <td>
+                                                <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectRow"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            selectRow
+                        </b>
+                        <a href="#selectRow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>selectRow(row: <a href="../classes/DockerImage.html">DockerImage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="349"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:349</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>row</td>
+                                    <td>
+                                                <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showTests"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            showTests
+                        </b>
+                        <a href="#showTests"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>showTests(element: <a href="../classes/DockerImage.html">DockerImage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="127"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:127</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>element</td>
+                                    <td>
+                                                <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="styleForAction"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            styleForAction
+                        </b>
+                        <a href="#styleForAction"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>styleForAction(image: <a href="../classes/DockerImage.html">DockerImage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="252"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:252</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>image</td>
+                                    <td>
+                                                <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="styleForStatus"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            styleForStatus
+                        </b>
+                        <a href="#styleForStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>styleForStatus(image: <a href="../classes/DockerImage.html">DockerImage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="217"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:217</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>image</td>
+                                    <td>
+                                                <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="styleForVersionColumn"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            styleForVersionColumn
+                        </b>
+                        <a href="#styleForVersionColumn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>styleForVersionColumn(image: <a href="../classes/DockerImage.html">DockerImage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="272"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:272</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>image</td>
+                                    <td>
+                                                <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="test"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            test
+                        </b>
+                        <a href="#test"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>test(image: <a href="../classes/DockerImage.html">DockerImage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="344"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:344</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>image</td>
+                                    <td>
+                                                <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="testLabelFor"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            testLabelFor
+                        </b>
+                        <a href="#testLabelFor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>testLabelFor(image: <a href="../classes/DockerImage.html">DockerImage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="315"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:315</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>image</td>
+                                    <td>
+                                                <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="todoTests"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            todoTests
+                        </b>
+                        <a href="#todoTests"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>todoTests(image: <a href="../classes/DockerImage.html">DockerImage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="300"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:300</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>image</td>
+                                    <td>
+                                                <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="unknownTests"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            unknownTests
+                        </b>
+                        <a href="#unknownTests"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>unknownTests(image: <a href="../classes/DockerImage.html">DockerImage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="310"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:310</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>image</td>
+                                    <td>
+                                                <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateReferences"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            updateReferences
+                        </b>
+                        <a href="#updateReferences"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateReferences(d: <a href="../classes/DockerImage.html">DockerImage[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="132"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:132</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>d</td>
+                                    <td>
+                                                <code><a href="../classes/DockerImage.html" target="_self" >DockerImage[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateVersion"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            updateVersion
+                        </b>
+                        <a href="#updateVersion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateVersion(image: <a href="../classes/DockerImage.html">DockerImage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="422"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:422</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>image</td>
+                                    <td>
+                                                <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateVersionButtonLabel"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            updateVersionButtonLabel
+                        </b>
+                        <a href="#updateVersionButtonLabel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateVersionButtonLabel(image: <a href="../classes/DockerImage.html">DockerImage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="372"
+                            class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:372</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>image</td>
+                                    <td>
+                                                <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_displayedColumnsBase"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _displayedColumnsBase</b>
+                            <a href="#_displayedColumnsBase"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&#x27;Name&#x27;, &#x27;Type&#x27;, &#x27;Description&#x27;, &quot;Size&quot;, &#x27;Last Updated&#x27;, &#x27;Version&#x27;, &quot;Pull&quot;, &quot;Push&quot;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:34</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_displayedColumnsBaseMin"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _displayedColumnsBaseMin</b>
+                            <a href="#_displayedColumnsBaseMin"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&#x27;Name&#x27;, &#x27;Type&#x27;, &#x27;Version&#x27;, &quot;Push&quot;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:35</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_displayedColumnsCustom"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _displayedColumnsCustom</b>
+                            <a href="#_displayedColumnsCustom"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&#x27;Name&#x27;, &#x27;Type&#x27;, &#x27;Description&#x27;, &quot;Size&quot;, &quot;Author&quot;,&#x27;Last Updated&#x27;, &#x27;Version&#x27;, &#x27;Tested&#x27;, &quot;Pull&quot;, &quot;Push&quot;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_displayedColumnsCustomMin"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _displayedColumnsCustomMin</b>
+                            <a href="#_displayedColumnsCustomMin"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&#x27;Name&#x27;, &#x27;Last Updated&#x27;, &#x27;Version&#x27;, &#x27;Tested&#x27;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_displayedEditCustom"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _displayedEditCustom</b>
+                            <a href="#_displayedEditCustom"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&#x27;Name&#x27;, &#x27;Type&#x27;, &#x27;Description&#x27;, &quot;Size&quot;, &quot;Author&quot;, &#x27;Last Updated&#x27;, &#x27;Tested&#x27;, &#x27;Version&#x27;, &#x27;Edit Version&#x27;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_selectedVersion"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Protected</span>
+                            _selectedVersion</b>
+                            <a href="#_selectedVersion"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/app/components/elements/docker-images-list.component.ts:74</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ChangeDetectorRef, OnInit, OnDestroy, OnChanges,
+          EventEmitter, Input, Output }                           from &#x27;@angular/core&#x27;;
+import { Router }                                                 from &#x27;@angular/router&#x27;;
+
+import { MatSnackBar }                                            from &#x27;@angular/material/snack-bar&#x27;;
+
+import { BuildInstallComponent }                                  from &#x27;../build-install.component&#x27;;
+
+import { DockerImage, ImageStatus, TestStatus }                   from &#x27;../../models/docker-image&#x27;;
+import { DockerService }                                          from &#x27;../../services/docker.service&#x27;;
+
+import { ContainerTemplates }                                     from &#x27;../../support/container.templates&#x27;;
+
+import * as $ from &#x27;jquery&#x27;;
+
+export class Action {
+
+  public action: string;
+  public image: DockerImage;
+
+  constructor(action: string, image: DockerImage) {
+    this.action &#x3D; action;
+    this.image &#x3D; image;
+  }
+}
+
+@Component({
+  selector: &#x27;jc-docker-images&#x27;,
+  templateUrl: &#x27;../../templates/elements/docker-images-list.html&#x27;
+})
+
+export class DockerImageListComponent implements OnInit, OnChanges {
+
+  public _displayedColumnsBase: string[] &#x3D; [&#x27;Name&#x27;, &#x27;Type&#x27;, &#x27;Description&#x27;, &quot;Size&quot;, &#x27;Last Updated&#x27;, &#x27;Version&#x27;, &quot;Pull&quot;, &quot;Push&quot;];
+  public _displayedColumnsBaseMin: string[] &#x3D; [&#x27;Name&#x27;, &#x27;Type&#x27;, &#x27;Version&#x27;, &quot;Push&quot;];
+  public _displayedColumnsCustom: string[] &#x3D; [&#x27;Name&#x27;, &#x27;Type&#x27;, &#x27;Description&#x27;, &quot;Size&quot;, &quot;Author&quot;,&#x27;Last Updated&#x27;, &#x27;Version&#x27;, &#x27;Tested&#x27;, &quot;Pull&quot;, &quot;Push&quot;];
+  public _displayedColumnsCustomMin: string[] &#x3D; [&#x27;Name&#x27;, &#x27;Last Updated&#x27;, &#x27;Version&#x27;, &#x27;Tested&#x27;];
+
+  public _displayedEditCustom: string[] &#x3D; [&#x27;Name&#x27;, &#x27;Type&#x27;, &#x27;Description&#x27;, &quot;Size&quot;, &quot;Author&quot;, &#x27;Last Updated&#x27;, &#x27;Tested&#x27;, &#x27;Version&#x27;, &#x27;Edit Version&#x27;];
+
+  @Input()
+  public title: string;
+
+  @Input()
+  public type: string;
+
+  @Input()
+  public namespace: string;
+
+  @Input()
+  public references: any[];
+
+  @Input()
+  public dataSource: DockerImage[];
+
+  @Input()
+  public currentVersion: number;
+
+  @Input()
+  public columns: string[];
+
+  @Output()
+  public haveChanges: EventEmitter&lt;boolean&gt; &#x3D; new EventEmitter&lt;boolean&gt;();
+
+  @Output()
+  public onAction: EventEmitter&lt;Action&gt; &#x3D; new EventEmitter&lt;Action&gt;();
+
+  @Output()
+  public onSelection: EventEmitter&lt;DockerImage&gt; &#x3D; new EventEmitter&lt;DockerImage&gt;();
+
+  @Output()
+  public imageCount: EventEmitter&lt;number&gt; &#x3D; new EventEmitter&lt;number&gt;();
+
+  protected _selectedVersion: DockerImage;
+
+  public constructor(private _router: Router, private _snackBar: MatSnackBar, private _dockerImageService: DockerService) {
+
+  }
+
+  public ngOnInit() {
+
+    if (this.type &#x3D;&#x3D; &#x27;sag&#x27;) {
+
+      this._dockerImageService.sagImages(true).subscribe((d) &#x3D;&gt; {
+        this.dataSource &#x3D; d;
+        this.imageCount.emit(d.length);
+      });
+    } else if (this.type &#x3D;&#x3D; &#x27;base&#x27;) {
+
+      this._dockerImageService.baseImages(true).subscribe((d) &#x3D;&gt; {
+        this.dataSource &#x3D; d;
+        this.imageCount.emit(d.length);
+      });
+    } else if (this.type &#x3D;&#x3D; &#x27;custom&#x27;) {
+
+      this._dockerImageService.customImages(true).subscribe((d) &#x3D;&gt; {
+
+        if (this.references) {
+
+         this.updateReferences(d);
+
+        } else {
+          this.dataSource &#x3D; d;
+          this.imageCount.emit(d.length);
+        }
+      });
+    }
+
+  }
+
+  public ngOnChanges() {
+
+    //if (this.type &#x3D;&#x3D; &#x27;custom&#x27; &amp;&amp; this.references) {
+    if (this.references) {
+      this._dockerImageService.baseImages(true).subscribe((d) &#x3D;&gt; {
+
+         this.updateReferences(d);
+      });
+    }
+  }
+
+  public productCodeLabel(element: DockerImage): string {
+
+    return ContainerTemplates.productCodeLabel(element.type);
+  }
+
+  public showTests(element: DockerImage) {
+
+    this._router.navigate([&#x27;/test&#x27;], { skipLocationChange: false });
+  }
+
+  private updateReferences(d: DockerImage[]) {
+
+    this.dataSource &#x3D; [];
+
+      d.forEach((i) &#x3D;&gt; {
+        let v: number &#x3D; -1;
+
+        if ((v&#x3D;this._version(i.uniqueName())) !&#x3D; -1) {
+          this.dataSource.push(i.imageForVersion(v));
+        }
+    });
+
+  }
+  private _version(name: string): number {
+
+    let found: number &#x3D; -1;
+
+    for (var i &#x3D; 0; i &lt; this.references.length; i++) {
+
+      if (this.references[i].name &#x3D;&#x3D; name) {
+        found &#x3D; this.references[i].version;
+        break;
+      }
+    }
+
+    return found;
+  }
+
+  public isCurrentVersion(row: DockerImage): boolean {
+
+    if (row) {
+
+      if (this.currentVersion &#x3D;&#x3D; Number(row.version()))
+        return true;
+      else
+        return false;
+    } else {
+      return false;
+    }
+
+  }
+
+  public isSelected(row: DockerImage): boolean {
+
+    if (this.isCurrentVersion(row)) {
+      return true;
+    } else if (row) {
+
+      if (this._selectedVersion &amp;&amp; this._selectedVersion.version() &#x3D;&#x3D; row.version())
+        return true;
+      else
+        return false;
+    } else {
+      return false;
+    }
+
+  }
+
+  public canPublish(row: DockerImage): boolean {
+
+    return row.repository() !&#x3D; null &amp;&amp; row.id !&#x3D; null;
+  }
+
+  public canPull(row: DockerImage): boolean {
+
+    return row.repository() !&#x3D; null;
+  }
+
+  public displayedColumns(): string[] {
+
+      let wide: boolean &#x3D; false;
+
+      if ($(&#x27;#img-table&#x27;).width() &gt; 1200)
+        wide &#x3D; true;
+
+      if (this.columns)
+        return this.columns;
+      else if (this.type &#x3D;&#x3D; &#x27;base&#x27; || this.type &#x3D;&#x3D; &#x27;sag&#x27;)
+        return wide ? this._displayedColumnsBase : this._displayedColumnsBaseMin;
+      else if (this.type &#x3D;&#x3D; &#x27;custom&#x27;)
+        return wide ? this._displayedColumnsCustom : this._displayedColumnsCustomMin;
+      else
+        return this._displayedEditCustom;
+  }
+
+  public styleForStatus(image: DockerImage): any {
+
+      let style: any &#x3D; {};
+      style[&#x27;text-align&#x27;] &#x3D; &#x27;center&#x27;;
+      style[&#x27;border-radius&#x27;] &#x3D; &#x27;5px&#x27;;
+      style[&#x27;padding&#x27;] &#x3D; &#x27;10px&#x27;;
+
+      if (image.status &#x3D;&#x3D; ImageStatus.deprecated)
+        style[&#x27;background-color&#x27;] &#x3D; &#x27;light-gray&#x27;;
+      else if (image.status &#x3D;&#x3D; ImageStatus.deployed)
+        style[&#x27;background-color&#x27;] &#x3D; &#x27;blue&#x27;;
+      else if (image.status &#x3D;&#x3D; ImageStatus.running)
+        style[&#x27;background-color&#x27;] &#x3D; &#x27;green&#x27;;
+      else if (image.status &#x3D;&#x3D; ImageStatus.failed)
+        style[&#x27;background-color&#x27;] &#x3D; &#x27;red&#x27;;
+      else
+        style[&#x27;background-color&#x27;] &#x3D; &#x27;pink&#x27;;
+
+      return style;
+    }
+
+     public localizedStatus(image: DockerImage): string {
+
+      if (image.status &#x3D;&#x3D; ImageStatus.deprecated)
+        return &quot;deprecated&quot;;
+      else if (image.status &#x3D;&#x3D; ImageStatus.deployed)
+        return &quot;deployed&quot;;
+      else if (image.status &#x3D;&#x3D; ImageStatus.running)
+        return &quot;running&quot;;
+      else if (image.status &#x3D;&#x3D; ImageStatus.failed)
+        return &quot;failed&quot;;
+      else
+        return &quot;new&quot;;
+    }
+
+    public styleForAction(image: DockerImage): string {
+
+      let style: any &#x3D; {};
+      style[&#x27;text-align&#x27;] &#x3D; &#x27;center&#x27;;
+      style[&#x27;border-radius&#x27;] &#x3D; &#x27;5px&#x27;;
+      style[&#x27;padding&#x27;] &#x3D; &#x27;10px&#x27;;
+      style[&#x27;color&#x27;] &#x3D; &quot;white&quot;;
+
+      if (this.type &#x3D;&#x3D; &#x27;base&#x27;)
+        style[&#x27;background-color&#x27;] &#x3D; &#x27;pink&#x27;;
+      else if (image.status &#x3D;&#x3D; ImageStatus.deprecated)
+        style[&#x27;background-color&#x27;] &#x3D; &#x27;light-gray&#x27;;
+      else if (image.status &#x3D;&#x3D; ImageStatus.running)
+        style[&#x27;background-color&#x27;] &#x3D; &#x27;orange&#x27;;
+      else
+        style[&#x27;background-color&#x27;] &#x3D; &#x27;green&#x27;;
+
+      return style;
+    }
+
+    public styleForVersionColumn(image: DockerImage): string {
+
+      let style: any &#x3D; {};
+      style[&#x27;text-align&#x27;] &#x3D; &#x27;center&#x27;;
+
+      if (this.type &#x3D;&#x3D; &#x27;edit&#x27; &amp;&amp; image.version() !&#x3D; image.latestVersion().version())
+        style[&#x27;color&#x27;] &#x3D; &#x27;orange&#x27;;
+      else
+        style[&#x27;color&#x27;] &#x3D; &#x27;rgb(100,100,100)&#x27;;
+
+      return style;
+    }
+
+    public haveTests(image: DockerImage) {
+
+      return image.testStatus !&#x3D; TestStatus.none;
+    }
+
+    public passedTests(image: DockerImage) {
+
+      return image.testStatus &#x3D;&#x3D; TestStatus.passed;
+    }
+
+    public failedTests(image: DockerImage) {
+
+      return image.testStatus &#x3D;&#x3D; TestStatus.failed;
+    }
+
+    public todoTests(image: DockerImage) {
+
+      return image.testStatus &#x3D;&#x3D; TestStatus.todo;
+    }
+
+    public runningTests(image: DockerImage) {
+
+      return image.testStatus &#x3D;&#x3D; TestStatus.running;
+    }
+
+    public unknownTests(image: DockerImage) {
+
+      return (this.type !&#x3D; &#x27;edit&#x27; || image.version() !&#x3D; image.latestVersion().version()) &amp;&amp; image.testStatus &#x3D;&#x3D; TestStatus.unknown;
+    }
+
+    public testLabelFor(image: DockerImage): string {
+
+      let s: string &#x3D; &quot;&quot;;
+
+      if (image.testStatus &#x3D;&#x3D; TestStatus.none)
+        s &#x3D; &quot;No test cases defined&quot;;
+      else if (image.testStatus &#x3D;&#x3D; TestStatus.passed)
+        s &#x3D; &quot;All test cases pased successfully&quot;;
+      if (image.testStatus &#x3D;&#x3D; TestStatus.failed)
+        s &#x3D; &quot;Some test cases failed&quot;;
+      if (image.testStatus &#x3D;&#x3D; TestStatus.running)
+        s &#x3D; &quot;Test Cases are running&quot;;
+      if (image.testStatus &#x3D;&#x3D; TestStatus.todo)
+        s &#x3D; &quot;Test cases defined, but not yet run&quot;;
+
+      return s;
+    }
+
+    public colorForTest(image: DockerImage): string {
+
+      if (image.testStatus &#x3D;&#x3D; TestStatus.none)
+        return &quot;basic&quot;;
+      else if (image.testStatus &#x3D;&#x3D; TestStatus.passed)
+        return &quot;primary&quot;;
+      else
+        return &quot;warn&quot;;
+
+    }
+
+    public test(image: DockerImage) {
+
+      this._router.navigate([&#x27;/test&#x27;, {id: image.id}]);
+    }
+
+    public selectRow(row: DockerImage) {
+
+      if (Number(row.version())!&#x3D; this.currentVersion) {
+
+        if (this._selectedVersion &#x3D;&#x3D; row)
+          this._selectedVersion &#x3D; null;
+        else
+          this._selectedVersion &#x3D; row;
+      }
+
+      if (this.onSelection)
+        this.onSelection.emit(this._selectedVersion);
+    }
+
+
+    public colorForEditButton(image: DockerImage) {
+
+      if (image.version() &#x3D;&#x3D; image.latestVersion().version())
+        return &quot;primary&quot;;
+      else
+        return &quot;warn&quot;;
+    }
+
+    public updateVersionButtonLabel(image: DockerImage) {
+
+      if (image.version() &#x3D;&#x3D; image.latestVersion().version())
+        return &quot;Change&quot;;
+      else
+        return image.latestVersion();
+    }
+
+    public pushImage(image: DockerImage) {
+
+      let busy &#x3D; this._snackBar.open(&quot;Pushing &quot; + image.tag() + &quot; ...&quot;);
+
+      this._dockerImageService.pushImage(image).subscribe((result) &#x3D;&gt; {
+
+        busy.dismiss();
+
+        let message &#x3D; null;
+
+        if (result)
+          message &#x3D; &quot;Container successfully pushed&quot;;
+        else
+         message &#x3D; &quot;Container push failed for reposiotory &quot; + image.repository();
+
+        this._snackBar.open(message, &quot;Dismiss&quot;, {
+          duration: 5000,
+        });
+      });
+    }
+
+    public pullImage(image: DockerImage) {
+
+      let busy &#x3D; this._snackBar.open(&quot;Pulling &quot; + image.tag() + &quot; ...&quot;);
+
+      this._dockerImageService.pullImage(image.tag()).subscribe((result) &#x3D;&gt; {
+
+        busy.dismiss();
+
+        let message &#x3D; null;
+
+        if (result)
+          message &#x3D; &quot;Container pulled with id #&quot; + result.id.substring(0, 6);
+        else
+         message &#x3D; &quot;Container pull failed with tag &quot; + image.tag();
+
+        this._snackBar.open(message, &quot;Dismiss&quot;, {
+          duration: 5000,
+        });
+      });
+    }
+
+    private updateVersion(image: DockerImage) {
+
+      this.onAction.emit(new Action(&quot;update&quot;, image));
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;mat-table id&#x3D;&quot;img-table&quot; [dataSource]&#x3D;&quot;dataSource&quot; class&#x3D;&quot;mat-elevation-z8&quot; style&#x3D;&quot;width:100%; height:100%; overflow: scroll&quot;&gt;
+
+  &lt;!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition&quot; --&gt;
+
+    &lt;ng-container matColumnDef&#x3D;&quot;Name&quot;&gt;
+      &lt;mat-header-cell *matHeaderCellDef style&#x3D;&quot;min-width: 200px&quot;&gt; Name&lt;/mat-header-cell&gt;
+      &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot; style&#x3D;&quot;min-width: 200px&quot;&gt; {{element.name()}} &lt;/mat-cell&gt;
+    &lt;/ng-container&gt;
+
+    &lt;ng-container matColumnDef&#x3D;&quot;Type&quot;&gt;
+      &lt;mat-header-cell *matHeaderCellDef&gt; Type &lt;/mat-header-cell&gt;
+      &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{ productCodeLabel(element) }} &lt;/mat-cell&gt;
+    &lt;/ng-container&gt;
+
+    &lt;ng-container matColumnDef&#x3D;&quot;Description&quot;&gt;
+      &lt;mat-header-cell *matHeaderCellDef style&#x3D;&quot;min-width: 350px&quot;&gt; Description &lt;/mat-header-cell&gt;
+      &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot; style&#x3D;&quot;min-width: 350px&quot;&gt; {{element.description}} &lt;/mat-cell&gt;
+    &lt;/ng-container&gt;
+
+    &lt;ng-container matColumnDef&#x3D;&quot;Comments&quot;&gt;
+      &lt;mat-header-cell *matHeaderCellDef&gt; Comments &lt;/mat-header-cell&gt;
+      &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.comments}} &lt;/mat-cell&gt;
+    &lt;/ng-container&gt;
+
+    &lt;ng-container matColumnDef&#x3D;&quot;Author&quot;&gt;
+      &lt;mat-header-cell *matHeaderCellDef&gt; Author &lt;/mat-header-cell&gt;
+      &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.author}} &lt;/mat-cell&gt;
+    &lt;/ng-container&gt;
+
+    &lt;ng-container matColumnDef&#x3D;&quot;Size&quot;&gt;
+      &lt;mat-header-cell *matHeaderCellDef&gt; Size(GB) &lt;/mat-header-cell&gt;
+      &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.sizeGb}} &lt;/mat-cell&gt;
+    &lt;/ng-container&gt;
+
+    &lt;ng-container matColumnDef&#x3D;&quot;Last Updated&quot;&gt;
+      &lt;mat-header-cell *matHeaderCellDef&gt; Created &lt;/mat-header-cell&gt;
+      &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot; style&#x3D;&quot;min-width: 140px&quot;&gt; {{element.createdDate | date: &#x27;dd/MM/yyyy HH:mm&#x27;}} &lt;/mat-cell&gt;
+    &lt;/ng-container&gt;
+
+    &lt;ng-container matColumnDef&#x3D;&quot;Version&quot;&gt;
+      &lt;mat-header-cell *matHeaderCellDef&gt;&lt;span style&#x3D;&quot;text-align: center;width:100%&quot;&gt;Version&lt;/span&gt; &lt;/mat-header-cell&gt;
+      &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot; [ngStyle]&#x3D;&quot;styleForVersionColumn(element)&quot;&gt; 
+        &lt;span style&#x3D;&quot;text-align: center; width:100%&quot;&gt;{{element.version()}}&lt;/span&gt;
+      &lt;/mat-cell&gt;
+    &lt;/ng-container&gt;
+
+    &lt;ng-container matColumnDef&#x3D;&quot;Tested&quot;&gt;
+      &lt;mat-header-cell *matHeaderCellDef style&#x3D;&quot;width:50px&quot; &gt; Test Status &lt;/mat-header-cell&gt;
+      &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot; style&#x3D;&quot;text-align: center;width:100%&quot;&gt;
+        &lt;button *ngIf&#x3D;&quot;!haveTests(element)&quot; mat-mini-fab disabled [matTooltip]&#x3D;&quot;testLabelFor(element)&quot;&gt;&lt;/button&gt;
+        &lt;div *ngIf&#x3D;&quot;haveTests(element)&quot;&gt;
+          &lt;button mat-mini-fab [color]&#x3D;&quot;colorForTest(element)&quot; [matTooltip]&#x3D;&quot;testLabelFor(element)&quot; (click)&#x3D;&quot;showTests(element)&quot;&gt;
+            &lt;fa-icon *ngIf&#x3D;&quot;todoTests(element)&quot; class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;play&#x27;]&quot; style&#x3D;&quot;color: gray: font-size: 12px&quot;&gt;&lt;/fa-icon&gt;
+            &lt;fa-icon *ngIf&#x3D;&quot;runningTests(element)&quot; class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;spinner&#x27;]&quot; style&#x3D;&quot;color: gray: font-size: 12px&quot;&gt;&lt;/fa-icon&gt;
+            &lt;fa-icon *ngIf&#x3D;&quot;passedTests(element)&quot; class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;check&#x27;]&quot; style&#x3D;&quot;color: green: font-size: 12px&quot;&gt;&lt;/fa-icon&gt;
+            &lt;fa-icon *ngIf&#x3D;&quot;failedTests(element)&quot; class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;bug&#x27;]&quot; style&#x3D;&quot;color: red: font-size: 12px&quot;&gt;&lt;/fa-icon&gt;
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/mat-cell&gt;
+    &lt;/ng-container&gt;
+
+    &lt;ng-container matColumnDef&#x3D;&quot;current&quot;&gt;
+      &lt;mat-header-cell *matHeaderCellDef&gt;  &lt;/mat-header-cell&gt;
+      &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;
+        &lt;mat-checkbox (click)&#x3D;&quot;$event.stopPropagation()&quot; (change)&#x3D;&quot;selectRow(element)&quot; [disabled]&#x3D;&quot;isCurrentVersion(element)&quot; [checked]&#x3D;&quot;isSelected(element)&quot;&gt;
+        &lt;/mat-checkbox&gt;
+      &lt;/mat-cell&gt;
+    &lt;/ng-container&gt;
+
+    &lt;ng-container matColumnDef&#x3D;&quot;Status&quot;&gt;
+      &lt;mat-header-cell *matHeaderCellDef style&#x3D;&quot;flex-grow: 1; width: 100%&quot;&gt; Status &lt;/mat-header-cell&gt;
+      &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot; style&#x3D;&quot;flex-grow: 1; width: 100%&quot;&gt;
+        &lt;span [ngStyle]&#x3D;&quot;styleForStatus(element)&quot;&gt;
+          {{localizedStatus(element.status)}} 
+        &lt;/span&gt;
+      &lt;/mat-cell&gt;
+    &lt;/ng-container&gt;
+
+    &lt;ng-container matColumnDef&#x3D;&quot;Edit Version&quot;&gt;
+      &lt;mat-header-cell *matHeaderCellDef&gt; Edit Version &lt;/mat-header-cell&gt;
+      &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; 
+        &lt;button mat-raised-button (click)&#x3D;&quot;updateVersion(element)&quot; [color]&#x3D;&quot;colorForEditButton(element)&quot; pull&#x3D;&quot;right&quot;&gt;{{updateVersionButtonLabel(element)}}&lt;/button&gt;
+      &lt;/mat-cell&gt;
+    &lt;/ng-container&gt;
+
+    &lt;ng-container matColumnDef&#x3D;&quot;Push&quot;&gt;
+      &lt;mat-header-cell *matHeaderCellDef style&#x3D;&quot;max-width:40px&quot;&gt; &lt;/mat-header-cell&gt;
+      &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot; style&#x3D;&quot;max-width:40px&quot;&gt;
+        &lt;button *ngIf&#x3D;&quot;canPublish(element)&quot; mat-button (click)&#x3D;&quot;pushImage(element)&quot;
+          matTooltip&#x3D;&quot;Push image to remote repository&quot; [matTooltipPosition]&#x3D;&quot;&#x27;right&#x27;&quot;&gt;
+            &lt;fa-icon class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;arrow-right&#x27;]&quot; size&#x3D;&quot;sm&quot;&gt;&lt;/fa-icon&gt;
+        &lt;/button&gt;
+      &lt;/mat-cell&gt;
+    &lt;/ng-container&gt;
+
+    &lt;ng-container matColumnDef&#x3D;&quot;Pull&quot;&gt;
+      &lt;mat-header-cell *matHeaderCellDef style&#x3D;&quot;max-width:40px&quot;&gt; &lt;/mat-header-cell&gt;
+      &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot; style&#x3D;&quot;max-width:40px&quot;&gt;
+        &lt;button *ngIf&#x3D;&quot;canPull(element)&quot; mat-button (click)&#x3D;&quot;pullImage(element)&quot;
+          matTooltip&#x3D;&quot;Pull latest update from remote repository&quot; [matTooltipPosition]&#x3D;&quot;&#x27;right&#x27;&quot;&gt;
+            &lt;fa-icon class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;arrow-left&#x27;]&quot; size&#x3D;&quot;sm&quot;&gt;&lt;/fa-icon&gt;
+        &lt;/button&gt;
+      &lt;/mat-cell&gt;
+    &lt;/ng-container&gt;
+
+    &lt;mat-header-row *matHeaderRowDef&#x3D;&quot;displayedColumns();sticky: true&quot;&gt;&lt;/mat-header-row&gt;
+    &lt;mat-row *matRowDef&#x3D;&quot;let row; columns: displayedColumns();&quot; (click)&#x3D;&quot;selectRow(row)&quot; [class.selected]&#x3D;&quot;isCurrentVersion(row)&quot;&gt;&lt;/mat-row&gt;
+  &lt;/mat-table&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><mat-table id="img-table" [dataSource]="dataSource" class="mat-elevation-z8" style="width:100%; height:100%; overflow: scroll">  <!--- Note that these columns can be defined in any order.        The actual rendered columns are set as a property on the row definition" -->    <ng-container matColumnDef="Name">      <mat-header-cell *matHeaderCellDef style="min-width: 200px"> Name</mat-header-cell>      <mat-cell *matCellDef="let element" style="min-width: 200px"> {{element.name()}} </mat-cell>    </ng-container>    <ng-container matColumnDef="Type">      <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>      <mat-cell *matCellDef="let element"> {{ productCodeLabel(element) }} </mat-cell>    </ng-container>    <ng-container matColumnDef="Description">      <mat-header-cell *matHeaderCellDef style="min-width: 350px"> Description </mat-header-cell>      <mat-cell *matCellDef="let element" style="min-width: 350px"> {{element.description}} </mat-cell>    </ng-container>    <ng-container matColumnDef="Comments">      <mat-header-cell *matHeaderCellDef> Comments </mat-header-cell>      <mat-cell *matCellDef="let element"> {{element.comments}} </mat-cell>    </ng-container>    <ng-container matColumnDef="Author">      <mat-header-cell *matHeaderCellDef> Author </mat-header-cell>      <mat-cell *matCellDef="let element"> {{element.author}} </mat-cell>    </ng-container>    <ng-container matColumnDef="Size">      <mat-header-cell *matHeaderCellDef> Size(GB) </mat-header-cell>      <mat-cell *matCellDef="let element"> {{element.sizeGb}} </mat-cell>    </ng-container>    <ng-container matColumnDef="Last Updated">      <mat-header-cell *matHeaderCellDef> Created </mat-header-cell>      <mat-cell *matCellDef="let element" style="min-width: 140px"> {{element.createdDate | date: \'dd/MM/yyyy HH:mm\'}} </mat-cell>    </ng-container>    <ng-container matColumnDef="Version">      <mat-header-cell *matHeaderCellDef><span style="text-align: center;width:100%">Version</span> </mat-header-cell>      <mat-cell *matCellDef="let element" [ngStyle]="styleForVersionColumn(element)">         <span style="text-align: center; width:100%">{{element.version()}}</span>      </mat-cell>    </ng-container>    <ng-container matColumnDef="Tested">      <mat-header-cell *matHeaderCellDef style="width:50px" > Test Status </mat-header-cell>      <mat-cell *matCellDef="let element" style="text-align: center;width:100%">        <button *ngIf="!haveTests(element)" mat-mini-fab disabled [matTooltip]="testLabelFor(element)"></button>        <div *ngIf="haveTests(element)">          <button mat-mini-fab [color]="colorForTest(element)" [matTooltip]="testLabelFor(element)" (click)="showTests(element)">            <fa-icon *ngIf="todoTests(element)" class="icon" [icon]="[\'fas\', \'play\']" style="color: gray: font-size: 12px"></fa-icon>            <fa-icon *ngIf="runningTests(element)" class="icon" [icon]="[\'fas\', \'spinner\']" style="color: gray: font-size: 12px"></fa-icon>            <fa-icon *ngIf="passedTests(element)" class="icon" [icon]="[\'fas\', \'check\']" style="color: green: font-size: 12px"></fa-icon>            <fa-icon *ngIf="failedTests(element)" class="icon" [icon]="[\'fas\', \'bug\']" style="color: red: font-size: 12px"></fa-icon>          </button>        </div>      </mat-cell>    </ng-container>    <ng-container matColumnDef="current">      <mat-header-cell *matHeaderCellDef>  </mat-header-cell>      <mat-cell *matCellDef="let element">        <mat-checkbox (click)="$event.stopPropagation()" (change)="selectRow(element)" [disabled]="isCurrentVersion(element)" [checked]="isSelected(element)">        </mat-checkbox>      </mat-cell>    </ng-container>    <ng-container matColumnDef="Status">      <mat-header-cell *matHeaderCellDef style="flex-grow: 1; width: 100%"> Status </mat-header-cell>      <mat-cell *matCellDef="let element" style="flex-grow: 1; width: 100%">        <span [ngStyle]="styleForStatus(element)">          {{localizedStatus(element.status)}}         </span>      </mat-cell>    </ng-container>    <ng-container matColumnDef="Edit Version">      <mat-header-cell *matHeaderCellDef> Edit Version </mat-header-cell>      <mat-cell *matCellDef="let element">         <button mat-raised-button (click)="updateVersion(element)" [color]="colorForEditButton(element)" pull="right">{{updateVersionButtonLabel(element)}}</button>      </mat-cell>    </ng-container>    <ng-container matColumnDef="Push">      <mat-header-cell *matHeaderCellDef style="max-width:40px"> </mat-header-cell>      <mat-cell *matCellDef="let element" style="max-width:40px">        <button *ngIf="canPublish(element)" mat-button (click)="pushImage(element)"          matTooltip="Push image to remote repository" [matTooltipPosition]="\'right\'">            <fa-icon class="icon" [icon]="[\'fas\', \'arrow-right\']" size="sm"></fa-icon>        </button>      </mat-cell>    </ng-container>    <ng-container matColumnDef="Pull">      <mat-header-cell *matHeaderCellDef style="max-width:40px"> </mat-header-cell>      <mat-cell *matCellDef="let element" style="max-width:40px">        <button *ngIf="canPull(element)" mat-button (click)="pullImage(element)"          matTooltip="Pull latest update from remote repository" [matTooltipPosition]="\'right\'">            <fa-icon class="icon" [icon]="[\'fas\', \'arrow-left\']" size="sm"></fa-icon>        </button>      </mat-cell>    </ng-container>    <mat-header-row *matHeaderRowDef="displayedColumns();sticky: true"></mat-header-row>    <mat-row *matRowDef="let row; columns: displayedColumns();" (click)="selectRow(row)" [class.selected]="isCurrentVersion(row)"></mat-row>  </mat-table></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'about-app'},{'name': 'ActionComponent', 'selector': 'action'},{'name': 'ApiGatewayInstallerComponent', 'selector': 'jc-apigw-install'},{'name': 'ApiMicroGatewayInstallerComponent', 'selector': 'jc-apimg-install'},{'name': 'ApiPortalInstallerComponent', 'selector': 'jc-apipr-installer'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BuildCommandsComponent', 'selector': 'build-commands'},{'name': 'BuildComponent', 'selector': 'build'},{'name': 'BuildExeComponent', 'selector': 'build-exe'},{'name': 'BuildImageComponent', 'selector': 'build-solution'},{'name': 'BuildInstallComponent', 'selector': 'build-install'},{'name': 'BuildPackagesComponent', 'selector': 'build-package'},{'name': 'ContainerComponent', 'selector': 'container'},{'name': 'ContainersComponent', 'selector': 'app-containers'},{'name': 'DeploymentDetailsComponent', 'selector': 'jc-deployment-details'},{'name': 'DeploymentListComponent', 'selector': 'jc-k8s-deployments'},{'name': 'DockerImageChooserComponent', 'selector': 'docker-image-chooser'},{'name': 'DockerImageListComponent', 'selector': 'jc-docker-images'},{'name': 'DockerImageVersionsComponent', 'selector': 'jc-docker-image-versions'},{'name': 'EditContainerComponent', 'selector': 'edit-container'},{'name': 'GitSourcesComponent', 'selector': 'git-source'},{'name': 'HomeComponent', 'selector': 'home'},{'name': 'InstallerComponent', 'selector': 'jc-install'},{'name': 'MicroServiceBuilderComponent', 'selector': 'jc-msc-configure'},{'name': 'MicroServiceInstallerComponent', 'selector': 'jc-msc-install'},{'name': 'PodsListComponent', 'selector': 'jc-pods'},{'name': 'RuntimeContainersComponent', 'selector': 'runtime-containers'},{'name': 'RuntimeDeployComponent', 'selector': 'runtime-deploy'},{'name': 'RuntimeDetailsComponent', 'selector': ''},{'name': 'RuntimeK8sComponent', 'selector': 'runtime'},{'name': 'RuntimeScaleComponent', 'selector': 'jc-runtime-scale'},{'name': 'RuntimeStageComponent', 'selector': 'runtime-stage'},{'name': 'RuntimeUpdateComponent', 'selector': ''},{'name': 'SagImageAlerterComponent', 'selector': 'sag-image-alerter'},{'name': 'ServicePropertiesComponent', 'selector': 'k8s-props'},{'name': 'SettingsComponent', 'selector': 'home'},{'name': 'SimpleNameComponent', 'selector': 'name-dialog'},{'name': 'StagingComponent', 'selector': 'staging'},{'name': 'TestCaseComponent', 'selector': 'test-case'},{'name': 'TestDefinitionComponent', 'selector': 'test-definitions'},{'name': 'TestHistoryComponent', 'selector': 'test-history'},{'name': 'TestRunComponent', 'selector': 'test-reun'},{'name': 'UMInstallerComponent', 'selector': 'jc-um-install'},{'name': 'UploadButtonComponent', 'selector': 'file-uploader-button'}];
+    var DIRECTIVES = [{'name': 'BuildImageChooseDirective', 'selector': '[builder]'},{'name': 'CancelCdkDrag', 'selector': '[appCancelCdkDrag]'},{'name': 'NgFileDrop', 'selector': '[ng-file-drop]'},{'name': 'NgFileSelect', 'selector': '[ng-file-select]'},{'name': 'RuntimeActionsDirective', 'selector': '[runtime-actions]'}];
+    var ACTUAL_COMPONENT = {'name': 'DockerImageListComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'DockerImageListComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

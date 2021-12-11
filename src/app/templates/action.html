@@ -1,0 +1,49 @@
+<form [formGroup]="form">
+	<div style="display: flex; flex-direction: column; align-items: flex-start;">
+		<label *ngIf="haveAPIs()"><b>API Deployment</b></label>
+		<div *ngIf="haveAPIs()" style="display: flex; flex-direction: row; align-items: flex-start; align-content: stretch; width: 100%">
+	        <mat-form-field style="margin-right:20px; min-width: 300px; flex-grow: 1">
+		    	<mat-select style="margin-right: 30px;" placeholder="Action" aria-label="API Action" formControlName="apiDeployCtrl">
+		        	<mat-option *ngFor="let action of apiActions()" [value]="action.key">
+	          			{{action.value}}
+	           		</mat-option>
+		        </mat-select>
+	    	</mat-form-field>
+			<mat-form-field style="margin-right:20px; flex-grow: 2">
+				<input matInput placeholder="API Stage" formControlName="apiStageCtrl">
+			</mat-form-field>
+			<mat-form-field style="margin-right:20px; flex-grow: 1">
+				<mat-select placeholder="Select API Maturity" formControlName="apiMaturityCtrl">
+		        	<mat-option *ngFor="let maturity of apiMaturityList" [value]="maturity">
+		          		{{maturity}}
+		           	</mat-option>
+		       	</mat-select>
+		   	</mat-form-field>
+		</div>
+		<label *ngIf="type != 'start'"><b>Image</b></label>
+		<div *ngIf="type != 'start'" style="display: flex; flex-direction: row; align-items: flex-start; align-content: stretch; width: 100%">
+			<mat-form-field style="margin-right:20px; min-width: 300px; flex-grow: 1">
+				<input matInput placeholder="Tag Image" formControlName="tagImageCtrl" required>
+	    	</mat-form-field>
+	    	<mat-form-field style="margin-right:20px; min-width: 300px; flex-grow: 1">
+		    	<mat-select style="margin-right: 30px;" placeholder="Action" aria-label="Push" formControlName="actionImageCtrl">
+		        	<mat-option *ngFor="let action of dockerActions" [value]="action">
+	          			{{action}}
+	           		</mat-option>
+		        </mat-select>
+	    	</mat-form-field>
+		</div>
+		<div *ngIf="type == 'start'" style="margin-top: 30px">
+			<mat-checkbox formControlName="runTestsCtrl">Run tests on startup</mat-checkbox>
+		</div>
+		<div *ngIf="type != 'start'" style="margin-top: 30px">
+			<mat-checkbox formControlName="keepAliveCtrl">Keep Container Alive</mat-checkbox>
+		</div>
+		<label style="margin-top: 20px"><b>Pipeline Execution</b></label>
+		<mat-radio-group aria-label="Pipeline Execution" formControlName="pipelineStatusCtrl" style="display: flex; flex-direction: column; margin-bottom: 15px">
+		  <mat-radio-button value="continue" style="padding-top: 10px">Continue</mat-radio-button>
+		  <mat-radio-button value="pause" style="padding-top: 5px">Pause</mat-radio-button>
+		  <mat-radio-button value=stop style="padding-top: 5px">Stop</mat-radio-button>
+		</mat-radio-group>
+	</div>
+</form>

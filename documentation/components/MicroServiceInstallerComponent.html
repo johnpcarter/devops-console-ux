@@ -1,0 +1,1732 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>wm-devops-console documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">wm-devops-console documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>MicroServiceInstallerComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/plugins/micro-service-installer.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="../interfaces/BuilderComponent.html" target="_self" >BuilderComponent</a></code>
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>jc-msc-install</code></td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>../../templates/plugins/msc-install.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_ignoreValuesChange">_ignoreValuesChange</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#addMysqlDriverCtrl">addMysqlDriverCtrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#currentInstaller">currentInstaller</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#features">features</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#featuresCtrl">featuresCtrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#formGroup">formGroup</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#owner">owner</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#propertyFiles">propertyFiles</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#propsCtrl">propsCtrl</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#determineFeatureAddOn">determineFeatureAddOn</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#downloadProperties">downloadProperties</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#flagChanges">flagChanges</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#propertiesFileAdded">propertiesFileAdded</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#refreshBuildCommands">refreshBuildCommands</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setDefaults">setDefaults</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setLicenseFile">setLicenseFile</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setMysqlDriverFile">setMysqlDriverFile</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setMysqlTypeFile">setMysqlTypeFile</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setPropertiesFile">setPropertiesFile</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                                <span class="modifier">Public</span>
+                        <code>constructor(_runSetsService: <a href="../injectables/ConfigurationService.html">ConfigurationService</a>, _resources: <a href="../injectables/ResourceService.html">ResourceService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/plugins/micro-service-installer.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_runSetsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ConfigurationService.html" target="_self" >ConfigurationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_resources</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ResourceService.html" target="_self" >ResourceService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="determineFeatureAddOn"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            determineFeatureAddOn
+                        </b>
+                        <a href="#determineFeatureAddOn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>determineFeatureAddOn()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="305"
+                            class="link-to-prism">src/app/components/plugins/micro-service-installer.component.ts:305</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="downloadProperties"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            downloadProperties
+                        </b>
+                        <a href="#downloadProperties"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>downloadProperties(event)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="125"
+                            class="link-to-prism">src/app/components/plugins/micro-service-installer.component.ts:125</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="flagChanges"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            flagChanges
+                        </b>
+                        <a href="#flagChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>flagChanges(propsFile: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, addons: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="290"
+                            class="link-to-prism">src/app/components/plugins/micro-service-installer.component.ts:290</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>propsFile</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>addons</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">src/app/components/plugins/micro-service-installer.component.ts:44</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="propertiesFileAdded"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            propertiesFileAdded
+                        </b>
+                        <a href="#propertiesFileAdded"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>propertiesFileAdded(filename: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="133"
+                            class="link-to-prism">src/app/components/plugins/micro-service-installer.component.ts:133</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>filename</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refreshBuildCommands"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            refreshBuildCommands
+                        </b>
+                        <a href="#refreshBuildCommands"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>refreshBuildCommands(show: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="121"
+                            class="link-to-prism">src/app/components/plugins/micro-service-installer.component.ts:121</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>show</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setDefaults"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            setDefaults
+                        </b>
+                        <a href="#setDefaults"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setDefaults()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="145"
+                            class="link-to-prism">src/app/components/plugins/micro-service-installer.component.ts:145</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setLicenseFile"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            setLicenseFile
+                        </b>
+                        <a href="#setLicenseFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setLicenseFile(license: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="98"
+                            class="link-to-prism">src/app/components/plugins/micro-service-installer.component.ts:98</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>license</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setMysqlDriverFile"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            setMysqlDriverFile
+                        </b>
+                        <a href="#setMysqlDriverFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setMysqlDriverFile(include: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="186"
+                            class="link-to-prism">src/app/components/plugins/micro-service-installer.component.ts:186</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>include</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setMysqlTypeFile"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            setMysqlTypeFile
+                        </b>
+                        <a href="#setMysqlTypeFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setMysqlTypeFile(include: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="216"
+                            class="link-to-prism">src/app/components/plugins/micro-service-installer.component.ts:216</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>include</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setPropertiesFile"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            setPropertiesFile
+                        </b>
+                        <a href="#setPropertiesFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setPropertiesFile(props: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="254"
+                            class="link-to-prism">src/app/components/plugins/micro-service-installer.component.ts:254</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>props</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_ignoreValuesChange"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _ignoreValuesChange</b>
+                            <a href="#_ignoreValuesChange"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/plugins/micro-service-installer.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="addMysqlDriverCtrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            addMysqlDriverCtrl</b>
+                            <a href="#addMysqlDriverCtrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/components/plugins/micro-service-installer.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="currentInstaller"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            currentInstaller</b>
+                            <a href="#currentInstaller"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Installer.html" target="_self" >Installer</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/plugins/micro-service-installer.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="features"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            features</b>
+                            <a href="#features"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&quot;JDBC Adapter&quot;, &quot;Monitoring&quot;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/plugins/micro-service-installer.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="featuresCtrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            featuresCtrl</b>
+                            <a href="#featuresCtrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/plugins/micro-service-installer.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="formGroup"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            formGroup</b>
+                            <a href="#formGroup"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/plugins/micro-service-installer.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="owner"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            owner</b>
+                            <a href="#owner"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/PropertiesChangedOwner.html" target="_self" >PropertiesChangedOwner</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/components/plugins/micro-service-installer.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="propertyFiles"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            propertyFiles</b>
+                            <a href="#propertyFiles"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/plugins/micro-service-installer.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="propsCtrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            propsCtrl</b>
+                            <a href="#propsCtrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/plugins/micro-service-installer.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, OnInit} from &#x27;@angular/core&#x27;;
+
+import {FormControl, FormGroup} from &#x27;@angular/forms&#x27;;
+
+import {BuilderComponent, BuilderProperties, PropertiesChangedOwner} from &#x27;../elements/build-image-choose.directive&#x27;;
+import {BuildCommand, DisplayType, Installer} from &#x27;../../models/project&#x27;;
+import {ConfigurationService} from &#x27;../../services/configuration.service&#x27;;
+import {ResourceService} from &#x27;../../services/resources.service&#x27;;
+
+@Component({
+  selector: &#x27;jc-msc-install&#x27;,
+  templateUrl: &#x27;../../templates/plugins/msc-install.html&#x27;
+})
+
+export class MicroServiceInstallerComponent implements BuilderComponent, OnInit {
+
+  public features: string[] &#x3D; [&quot;JDBC Adapter&quot;, &quot;Monitoring&quot;];
+
+	public formGroup: FormGroup;
+	public owner: PropertiesChangedOwner;
+
+	public propsCtrl: FormControl;
+
+	public currentInstaller: Installer;
+	public propertyFiles: string[] &#x3D; [];
+  public featuresCtrl: FormControl;
+  public addMysqlDriverCtrl: FormControl;
+
+	private _ignoreValuesChange: boolean;
+
+	public constructor(private _runSetsService: ConfigurationService, private _resources: ResourceService) {
+
+		this.propertyFiles &#x3D; [];
+
+		this._resources.resourcesForType(&quot;properties&quot;).subscribe((p) &#x3D;&gt; {
+
+      this.propertyFiles &#x3D; [];
+      p.forEach((f) &#x3D;&gt; {
+        this.propertyFiles.push(f.name);
+      });
+    });
+	}
+
+	public ngOnInit() {
+
+		this.currentInstaller &#x3D; this.owner.initialProperties();
+
+    this.setDefaults();
+
+		let propsFile: BuildCommand &#x3D; this.currentInstaller.fileForType(&quot;properties&quot;);
+
+		this.propsCtrl &#x3D; new FormControl(propsFile ? propsFile.source.replace(/-/g, &quot; &quot;) : null)
+    this.featuresCtrl &#x3D; new FormControl(this.determineFeatureAddOn());
+    this.addMysqlDriverCtrl &#x3D; new FormControl(this.currentInstaller.fileForType(&quot;support&quot;, &quot;mysql-connector-java-5.1.47.jar&quot;) !&#x3D; null);
+    //this.addMysqlDriverCtrl &#x3D; new FormControl(this.currentInstaller.fileForType(&quot;support&quot;, &quot;mysql-connector-java-8.0.13.jar&quot;) !&#x3D; null);
+
+		this.formGroup.addControl(&quot;propsCtrl&quot;, this.propsCtrl);
+    this.formGroup.addControl(&quot;featuresCtrl&quot;, this.featuresCtrl);
+    this.formGroup.addControl(&quot;addMysqlDriverCtrl&quot;, this.addMysqlDriverCtrl);
+
+		if (propsFile || this.featuresCtrl.value)
+			this.flagChanges(propsFile ? propsFile.source : null, this.featuresCtrl ? this.featuresCtrl.value : null);
+
+		this.formGroup.valueChanges.subscribe(values &#x3D;&gt; {
+
+    		if (this._ignoreValuesChange)
+    			return;
+
+    		if (this.propsCtrl.dirty) {
+          this.setPropertiesFile(this.propsCtrl.value);
+          this.propsCtrl.markAsPristine();
+    		}
+
+        if (this.featuresCtrl.dirty) {
+
+          if (this.featuresCtrl.value &#x3D;&#x3D; &#x27;JDBC Adapter&#x27;) {
+            this.currentInstaller.productType &#x3D; &quot;msr-jdbc&quot;;
+          }
+          else {
+            this.currentInstaller.productType &#x3D; &#x27;msr-monitor&#x27;;
+          }
+
+          this.featuresCtrl.markAsPristine();
+        }
+
+        if (this.addMysqlDriverCtrl.dirty) {
+
+          this.setMysqlDriverFile(this.addMysqlDriverCtrl.value);
+          this.setMysqlTypeFile(this.addMysqlDriverCtrl.value);
+
+          this.addMysqlDriverCtrl.markAsPristine();
+        }
+
+        this.flagChanges(this.propsCtrl.value, this.featuresCtrl.value);
+    	});
+	}
+
+  public setLicenseFile(license: string) {
+
+    let file: BuildCommand &#x3D; this.currentInstaller.fileWithDescription(&quot;licenses&quot;, &quot;Product License&quot;);
+
+      if (!file) {
+          file &#x3D; new BuildCommand();
+          file.commandType &#x3D; &quot;file&quot;;
+          file.buildTarget &#x3D; &quot;install&quot;;
+          file.description &#x3D; &quot;Product License&quot;;
+          file.fileType &#x3D; &quot;licenses&quot;;
+          file.description &#x3D; &quot;License file&quot;;
+          file.target &#x3D; &quot;/software/license.xml&quot;;
+          file.display &#x3D; DisplayType.hidden;
+
+          //ensures that the build-components view gets updated
+          this.currentInstaller.buildCommands &#x3D; Object.assign([], this.currentInstaller.buildCommands);
+
+          this.currentInstaller.buildCommands.push(file);
+      }
+
+      file.source &#x3D; license.replace(/\s/g, &quot;-&quot;);
+  }
+
+  public refreshBuildCommands(show: boolean) {
+
+  }
+
+	public downloadProperties(event) {
+
+      let file: BuildCommand &#x3D; this.currentInstaller.fileForType(&quot;properties&quot;);
+
+      if (file)
+        this._resources.downloadResource(&quot;properties&quot;, file.source);
+    }
+
+	public propertiesFileAdded(filename: string) {
+
+       this._resources.resourcesForType(&quot;properties&quot;).subscribe((p) &#x3D;&gt; {
+
+          this.propertyFiles &#x3D; [];
+          p.forEach((f) &#x3D;&gt; {
+            this.propertyFiles.push(f.name);
+           	this.propsCtrl.setValue(f.name);
+          });
+        });
+  }
+
+  private setDefaults() {
+
+      let touchdb: BuildCommand &#x3D; this.currentInstaller.fileForType(&quot;touchdb&quot;);
+
+      if (!touchdb) {
+          touchdb &#x3D; new BuildCommand();
+          this.currentInstaller.buildCommands.push(touchdb);
+      }
+
+      touchdb.commandType &#x3D; &quot;run&quot;;
+      touchdb.buildTarget &#x3D; &quot;build&quot;;
+      touchdb.fileType &#x3D; &quot;touchdb&quot;;
+      touchdb.target &#x3D; &quot;mkdir /opt/softwareag/IntegrationServer/db&quot;;
+
+      let touchcache: BuildCommand &#x3D; this.currentInstaller.fileForType(&quot;touchcache&quot;);
+
+      if (!touchcache) {
+        touchcache &#x3D; new BuildCommand();
+        this.currentInstaller.buildCommands.push(touchcache);
+      }
+
+      touchcache.commandType &#x3D; &quot;run&quot;;
+      touchcache.buildTarget &#x3D; &quot;build&quot;;
+      touchcache.fileType &#x3D; &quot;touchcache&quot;;
+      touchcache.target &#x3D; &quot;mkdir /opt/softwareag/IntegrationServer/cache&quot;;
+
+      let glob: BuildCommand &#x3D; this.currentInstaller.fileWithDescription(&quot;build&quot;, &quot;globalVars&quot;);
+
+      if (!glob) {
+        glob &#x3D; new BuildCommand();
+        glob.commandType &#x3D; &quot;file&quot;;
+        glob.buildTarget &#x3D; &quot;build&quot;;
+        glob.fileType &#x3D; &quot;support&quot;;
+        glob.description &#x3D; &quot;globalVars&quot;;
+        glob.source &#x3D; &quot;globalVariables.cnf&quot;;
+        glob.target &#x3D; &quot;/opt/softwareag/IntegrationServer/config&quot;;
+
+        this.currentInstaller.buildCommands.push(glob);
+      }
+  }
+
+  private setMysqlDriverFile(include: boolean) {
+
+      let file: BuildCommand &#x3D; this.currentInstaller.fileForType(&quot;support&quot;, &quot;mysql-connector-java-5.1.47.jar&quot;);
+      //let file: BuildCommand &#x3D; this.currentInstaller.fileForType(&quot;support&quot;, &quot;mysql-connector-java-8.0.13.jar&quot;);
+
+      if (!file &amp;&amp; include) {
+
+        // add if not already in list
+
+        file &#x3D; new BuildCommand();
+        file.commandType &#x3D; &quot;file&quot;;
+        file.buildTarget &#x3D; &quot;build&quot;;
+        file.fileType &#x3D; &quot;support&quot;;
+        file.description &#x3D; &quot;mySQL JDBC Driver&quot;;
+        file.source &#x3D; &quot;mysql-connector-java-5.1.47.jar&quot;;
+        //file.source &#x3D; &quot;mysql-connector-java-8.0.13.jar&quot;;
+
+        file.target &#x3D; &quot;/opt/softwareag/IntegrationServer/lib/jars&quot;;
+        file.display &#x3D; DisplayType.hidden;
+
+        this.currentInstaller.buildCommands.push(file);
+
+      } else if (file &amp;&amp; !include) {
+
+        // remove
+
+        this.currentInstaller.buildCommands.splice(this.currentInstaller.buildCommands.indexOf(file), 1);
+      }
+  }
+
+   private setMysqlTypeFile(include: boolean) {
+
+      let file: BuildCommand &#x3D; this.currentInstaller.fileForType(&quot;support&quot;, &quot;MySQLTypeMapping.xml&quot;);
+
+      if (!file &amp;&amp; include) {
+
+        // add if not already in list
+
+        file &#x3D; new BuildCommand();
+        file.commandType &#x3D; &quot;file&quot;;
+        file.buildTarget &#x3D; &quot;build&quot;;
+        file.fileType &#x3D; &quot;support&quot;;
+        file.description &#x3D; &quot;misspelled mysql type file&quot;;
+        file.source &#x3D; &quot;MySQLTypeMapping.xml&quot;;
+        file.target &#x3D; &quot;/opt/softwareag/IntegrationServer/packages/WmJDBCAdapter/config&quot;;
+        file.display &#x3D; DisplayType.hidden;
+
+        this.currentInstaller.buildCommands.push(file);
+
+        file &#x3D; new BuildCommand();
+        file.commandType &#x3D; &quot;file&quot;;
+        file.buildTarget &#x3D; &quot;build&quot;;
+        file.fileType &#x3D; &quot;support&quot;;
+        file.description &#x3D; &quot;mispelled mysql keyword file&quot;;
+        file.source &#x3D; &quot;MySQLKeywords.xml&quot;;
+        file.target &#x3D; &quot;/opt/softwareag/IntegrationServer/packages/WmJDBCAdapter/config/Keywords&quot;;
+        file.display &#x3D; DisplayType.hidden;
+
+        this.currentInstaller.buildCommands.push(file);
+
+      } else if (file &amp;&amp; !include) {
+
+        // remove
+
+        this.currentInstaller.buildCommands.splice(this.currentInstaller.buildCommands.indexOf(file), 1);
+      }
+  }
+
+  private setPropertiesFile(props: string) {
+
+      let file: BuildCommand &#x3D; this.currentInstaller.fileForType(&quot;properties&quot;);
+
+      if (!file &amp;&amp; props) {
+
+        // add if not already in list
+
+        file &#x3D; new BuildCommand();
+        file.commandType &#x3D; &quot;file&quot;;
+        file.buildTarget &#x3D; &quot;build&quot;;
+        file.fileType &#x3D; &quot;properties&quot;;
+        file.description &#x3D; &quot;Micro Service Properties Field&quot;;
+        file.target &#x3D; &quot;/opt/softwareag/IntegrationServer/application.properties&quot;;
+        file.display &#x3D; DisplayType.hidden;
+
+        //ensures that the build-components view gets updated
+        this.currentInstaller.buildCommands &#x3D; Object.assign([], this.currentInstaller.buildCommands);
+
+        this.currentInstaller.buildCommands.push(file);
+      } else if (file &amp;&amp; !props) {
+
+        // remove
+
+        this.currentInstaller.buildCommands.splice(this.currentInstaller.buildCommands.indexOf(file), 1);
+      }
+
+      if (props) {
+
+        file.source &#x3D; props.replace(/\s/g, &quot;-&quot;);
+
+        if (!file.target)
+          file.target &#x3D; &quot;/opt/softwareag/IntegrationServer/application.properties&quot;;
+      }
+  }
+
+	private flagChanges(propsFile: string, addons: string) {
+
+		let features: Map&lt;string, BuilderProperties[]&gt; &#x3D; new Map();
+
+    if (propsFile)
+		  features.set(&quot;Properties&quot;, [new BuilderProperties(&quot;File&quot;, [propsFile])]);
+
+    if (addons &#x3D;&#x3D; &#x27;JDBC Adapter&#x27;)
+      features.set(&quot;Adapters&quot;, [new BuilderProperties(&quot;Adapters&quot;, [&quot;JDBC&quot;])]);
+    else
+      features.set(&quot;Adapters&quot;, [new BuilderProperties(&quot;Adapters&quot;, [&quot;Monitoring&quot;])]);
+
+		this.owner.propertiesChangedInBuilder(&quot;msc&quot;, features, this.currentInstaller);
+	}
+
+  private determineFeatureAddOn(): string {
+
+    if (this.currentInstaller.productType &#x3D;&#x3D; &quot;msr-jdbc&quot;)
+      return &quot;JDBC Adapter&quot;;
+    else  if (this.currentInstaller.productType &#x3D;&#x3D; &quot;msr-monitor&quot;)
+      return &quot;Monitoring&quot;;
+    else
+      return null;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;form [formGroup]&#x3D;&quot;formGroup&quot;&gt;
+&lt;div style&#x3D;&quot;width:100%;display:block;margin-top:17px&quot;&gt;
+  &lt;mat-card-title&gt;Micro Service Runtime Configuration&lt;/mat-card-title&gt;
+  &lt;div style&#x3D;&quot;display: flex; flex-direction: column; align-items: flex-start&quot;&gt;
+    &lt;mat-form-field style&#x3D;&quot;min-width: 450px; margin-right: 10px&quot; floatLabel&#x3D;&quot;never&quot;&gt;
+      &lt;mat-select placeholder&#x3D;&quot;Additional Features&quot; formControlName&#x3D;&quot;featuresCtrl&quot;&gt;
+        &lt;mat-option&gt;None&lt;/mat-option&gt;
+        &lt;mat-option *ngFor&#x3D;&quot;let feature of features&quot; [value]&#x3D;&quot;feature&quot;&gt;
+          {{feature}}
+        &lt;/mat-option&gt;
+      &lt;/mat-select&gt;
+    &lt;/mat-form-field&gt;
+    &lt;mat-slide-toggle class&#x3D;&quot;example-margin&quot; style&#x3D;&quot;margin-top: 20px&quot; formControlName&#x3D;&quot;addMysqlDriverCtrl&quot;&gt;
+      Include mySQL JDBC Driver ?
+    &lt;/mat-slide-toggle&gt;
+    &lt;div style&#x3D;&quot;margin-top: 40px&quot;&gt;
+      &lt;mat-form-field style&#x3D;&quot;min-width: 450px; margin-right: 10px&quot; floatLabel&#x3D;&quot;never&quot;&gt;
+        &lt;mat-select placeholder&#x3D;&quot;Select File (optional)&quot; formControlName&#x3D;&quot;propsCtrl&quot;&gt;
+          &lt;mat-option&gt;None&lt;/mat-option&gt;
+          &lt;mat-option *ngFor&#x3D;&quot;let file of propertyFiles&quot; [value]&#x3D;&quot;file&quot;&gt;
+            {{file}}
+          &lt;/mat-option&gt;
+        &lt;/mat-select&gt;
+        &lt;span matPrefix&gt;
+          &lt;a href&#x3D;&quot;&quot; onclick&#x3D;&quot;window.open(&#x27;http://localhost:5555&#x27;, &#x27;_blank&#x27;, &#x27;location&#x3D;yes,height&#x3D;570,width&#x3D;520,scrollbars&#x3D;yes,status&#x3D;yes&#x27;); return false&quot; matTooltip&#x3D;&quot;Opens a link to Service Runtime Admin console from where you can configure and export your propertiesFor&quot; style&#x3D;&quot;width:15px&quot;&gt; &lt;fa-icon class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;tools&#x27;]&quot; style&#x3D;&quot;color: red&quot;&gt; &lt;/fa-icon&gt; &lt;/a&gt;
+        &lt;/span&gt;
+        &lt;mat-hint align&#x3D;&quot;start&quot;&gt;Allows you override specific features via a simple key/value file. You can generate a file via the micro service runtime admin page. Click on the tool icon to access your local runtime.&lt;/mat-hint&gt;
+      &lt;/mat-form-field&gt;
+      &lt;button id&#x3D;&quot;props&quot; mat-raised-button color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;downloadProperties($event)&quot; [disabled]&#x3D;&quot;!propsCtrl.value&quot; style&#x3D;&quot;margin-left: 50px; margin-right: 10px;&quot;&gt;&lt;fa-icon class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;file-download&#x27;]&quot; style&#x3D;&quot;color: white&quot;&gt;&lt;/fa-icon&gt; Download&lt;/button&gt;
+      &lt;file-uploader-button alias&#x3D;&quot;properties&quot; type&#x3D;&quot;properties&quot; uploadURL&#x3D;&quot;/invoke/jc.devops.console.resources_.services:uploadMultipartForm&quot; title&#x3D;&quot;Upload Properties&quot; (onCompletion)&#x3D;&quot;propertiesFileAdded($event)&quot;&gt;&lt;/file-uploader-button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/form&gt;</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><form [formGroup]="formGroup"><div style="width:100%;display:block;margin-top:17px">  <mat-card-title>Micro Service Runtime Configuration</mat-card-title>  <div style="display: flex; flex-direction: column; align-items: flex-start">    <mat-form-field style="min-width: 450px; margin-right: 10px" floatLabel="never">      <mat-select placeholder="Additional Features" formControlName="featuresCtrl">        <mat-option>None</mat-option>        <mat-option *ngFor="let feature of features" [value]="feature">          {{feature}}        </mat-option>      </mat-select>    </mat-form-field>    <mat-slide-toggle class="example-margin" style="margin-top: 20px" formControlName="addMysqlDriverCtrl">      Include mySQL JDBC Driver ?    </mat-slide-toggle>    <div style="margin-top: 40px">      <mat-form-field style="min-width: 450px; margin-right: 10px" floatLabel="never">        <mat-select placeholder="Select File (optional)" formControlName="propsCtrl">          <mat-option>None</mat-option>          <mat-option *ngFor="let file of propertyFiles" [value]="file">            {{file}}          </mat-option>        </mat-select>        <span matPrefix>          <a href="" onclick="window.open(\'http://localhost:5555\', \'_blank\', \'location=yes,height=570,width=520,scrollbars=yes,status=yes\'); return false" matTooltip="Opens a link to Service Runtime Admin console from where you can configure and export your propertiesFor" style="width:15px"> <fa-icon class="icon" [icon]="[\'fas\', \'tools\']" style="color: red"> </fa-icon> </a>        </span>        <mat-hint align="start">Allows you override specific features via a simple key/value file. You can generate a file via the micro service runtime admin page. Click on the tool icon to access your local runtime.</mat-hint>      </mat-form-field>      <button id="props" mat-raised-button color="primary" (click)="downloadProperties($event)" [disabled]="!propsCtrl.value" style="margin-left: 50px; margin-right: 10px;"><fa-icon class="icon" [icon]="[\'fas\', \'file-download\']" style="color: white"></fa-icon> Download</button>      <file-uploader-button alias="properties" type="properties" uploadURL="/invoke/jc.devops.console.resources_.services:uploadMultipartForm" title="Upload Properties" (onCompletion)="propertiesFileAdded($event)"></file-uploader-button>    </div>  </div></div></form></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'about-app'},{'name': 'ActionComponent', 'selector': 'action'},{'name': 'ApiGatewayInstallerComponent', 'selector': 'jc-apigw-install'},{'name': 'ApiMicroGatewayInstallerComponent', 'selector': 'jc-apimg-install'},{'name': 'ApiPortalInstallerComponent', 'selector': 'jc-apipr-installer'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BuildCommandsComponent', 'selector': 'build-commands'},{'name': 'BuildComponent', 'selector': 'build'},{'name': 'BuildExeComponent', 'selector': 'build-exe'},{'name': 'BuildImageComponent', 'selector': 'build-solution'},{'name': 'BuildInstallComponent', 'selector': 'build-install'},{'name': 'BuildPackagesComponent', 'selector': 'build-package'},{'name': 'ContainerComponent', 'selector': 'container'},{'name': 'ContainersComponent', 'selector': 'app-containers'},{'name': 'DeploymentDetailsComponent', 'selector': 'jc-deployment-details'},{'name': 'DeploymentListComponent', 'selector': 'jc-k8s-deployments'},{'name': 'DockerImageChooserComponent', 'selector': 'docker-image-chooser'},{'name': 'DockerImageListComponent', 'selector': 'jc-docker-images'},{'name': 'DockerImageVersionsComponent', 'selector': 'jc-docker-image-versions'},{'name': 'EditContainerComponent', 'selector': 'edit-container'},{'name': 'GitSourcesComponent', 'selector': 'git-source'},{'name': 'HomeComponent', 'selector': 'home'},{'name': 'InstallerComponent', 'selector': 'jc-install'},{'name': 'MicroServiceBuilderComponent', 'selector': 'jc-msc-configure'},{'name': 'MicroServiceInstallerComponent', 'selector': 'jc-msc-install'},{'name': 'PodsListComponent', 'selector': 'jc-pods'},{'name': 'RuntimeContainersComponent', 'selector': 'runtime-containers'},{'name': 'RuntimeDeployComponent', 'selector': 'runtime-deploy'},{'name': 'RuntimeDetailsComponent', 'selector': ''},{'name': 'RuntimeK8sComponent', 'selector': 'runtime'},{'name': 'RuntimeScaleComponent', 'selector': 'jc-runtime-scale'},{'name': 'RuntimeStageComponent', 'selector': 'runtime-stage'},{'name': 'RuntimeUpdateComponent', 'selector': ''},{'name': 'SagImageAlerterComponent', 'selector': 'sag-image-alerter'},{'name': 'ServicePropertiesComponent', 'selector': 'k8s-props'},{'name': 'SettingsComponent', 'selector': 'home'},{'name': 'SimpleNameComponent', 'selector': 'name-dialog'},{'name': 'StagingComponent', 'selector': 'staging'},{'name': 'TestCaseComponent', 'selector': 'test-case'},{'name': 'TestDefinitionComponent', 'selector': 'test-definitions'},{'name': 'TestHistoryComponent', 'selector': 'test-history'},{'name': 'TestRunComponent', 'selector': 'test-reun'},{'name': 'UMInstallerComponent', 'selector': 'jc-um-install'},{'name': 'UploadButtonComponent', 'selector': 'file-uploader-button'}];
+    var DIRECTIVES = [{'name': 'BuildImageChooseDirective', 'selector': '[builder]'},{'name': 'CancelCdkDrag', 'selector': '[appCancelCdkDrag]'},{'name': 'NgFileDrop', 'selector': '[ng-file-drop]'},{'name': 'NgFileSelect', 'selector': '[ng-file-select]'},{'name': 'RuntimeActionsDirective', 'selector': '[runtime-actions]'}];
+    var ACTUAL_COMPONENT = {'name': 'MicroServiceInstallerComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'MicroServiceInstallerComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

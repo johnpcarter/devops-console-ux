@@ -1,0 +1,10 @@
+<mat-card style="height:90%; box-shadow: none">
+  	<mat-card-title>Select new version</mat-card-title>
+  <mat-card-content style="position: absolute; top: 40px; bottom: 40px; left: 10px; right: 10px; overflow: hidden">
+  	  <jc-docker-images [type]="'edit'" [columns]="columns" [dataSource]="dataSource" [currentVersion]="currentVersion" (onSelection)="selectVersion($event)"></jc-docker-images>
+  </mat-card-content>
+  <mat-card-actions style="position: absolute; bottom: 20px; left: 10px; right: 10px;">
+    <button mat-raised-button color="primary" (click)="close()">Close</button>
+    <button *ngIf="haveActions()" #updateButton mat-raised-button color="warn" (click)="updateVersion()" style="float:right">{{labelForAction()}}</button>
+  </mat-card-actions>
+</mat-card>

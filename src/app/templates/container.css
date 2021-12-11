@@ -1,0 +1,7 @@
+
+.container-dragger {
+ 	color: #9aacd7;
+ }
+.container:hover .container-dragger {
+	color: white;
+}

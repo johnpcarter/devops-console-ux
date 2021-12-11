@@ -1,0 +1,34 @@
+<div id="runtime-containers-page" class="page-content-wrapper">
+  <canvas id="runtime-container-graph" waCanvas2d [width]="availableWidth()" [height]="requiredHeight()">
+    <ng-container *ngIf="root">
+      <ng-container *ngFor="let deployment of root.shapes">
+        <canvas-path fillStyle="#FFFFFF" lineWidth="1.0" [lineDash]="[5, 15]" strokeStyle="grey" shadowColor="grey" shadowBlur="1" shadowOffsetY="0">
+          <canvas-rect [x]="deployment.x" [y]="deployment.y" [width]="deployment.width" [height]="deployment.height"></canvas-rect>
+        </canvas-path>
+        <canvas-text fillStyle="black" [text]="deployment.title" font="18px Sans-Serif" [x]="deployment.x + 5" [y]="deployment.y + deployment.height - 10"></canvas-text>
+
+        <ng-container *ngFor="let container of deployment.shapes">
+          <canvas-path [fillStyle]="container.backgroundColor" lineWidth="1.0" strokeStyle="grey">
+            <canvas-rect *ngIf="container.isRect()" [x]="container.coords(deployment).x" [y]="container.coords(deployment).y" [width]="container.width" [height]="container.height"></canvas-rect>
+            <canvas-ellipse *ngIf="container.isEllipse()" [x]="container.coords(deployment).x" [y]="container.coords(deployment).y"
+                            [radiusX]="container.width" [radiusY]="container.height" [startAngle]="0" [endAngle]="360"></canvas-ellipse>
+          </canvas-path>
+          <canvas-text fillStyle="black" [text]="container.title" font="12px Sans-Serif" [x]="container.coords(deployment).titlex + 10" [y]="container.coords(deployment).titley"></canvas-text>
+          <canvas-text *ngIf="container.subTitle" fillStyle="gray" [text]="container.subTitle" font="12px Sans-Serif" [x]="container.coords(deployment).subTitlex + 10" [y]="container.coords(deployment).titley + 15"></canvas-text>
+        </ng-container>
+      </ng-container>
+
+      <ng-container *ngFor="let link of links">
+        <canvas-path fillStyle="grey" lineWidth="1.5" strokeStyle="green">
+          <canvas-move-to [x]="link.fromCoords().x" [y]="link.fromCoords().y"></canvas-move-to>
+          <canvas-line-to [x]="link.toCoords().x" [y]="link.toCoords().y"></canvas-line-to>
+        </canvas-path>
+        <canvas-path fillStyle="grey" lineWidth="1.0" strokeStyle="grey">
+          <canvas-ellipse [x]="link.toCoords().x" [y]="link.toCoords().y"
+                          [radiusX]="5" [radiusY]="5" [startAngle]="0" [endAngle]="360"></canvas-ellipse>
+        </canvas-path>
+        <canvas-text *ngIf="link.label" fillStyle="gray" [text]="link.label" font="12px Sans-Serif" [x]="link.fromCoords().titlex" [y]="link.fromCoords().titley"></canvas-text>
+      </ng-container>
+    </ng-container>
+  </canvas>
+</div>

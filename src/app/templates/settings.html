@@ -1,0 +1,193 @@
+<div class="page-content-wrapper">
+  <form [formGroup]="settingsForm">
+    <div style="white-space: nowrap; margin-bottom: 20px">
+      <mat-form-field style="width: 85%">
+        <input matInput placeholder="Identify Environment" formControlName="envCtrl" [matAutocomplete]="auto" (change)="changedEnvironment()">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let env of environments" [value]="env">
+            {{env}}
+          </mat-option>
+        </mat-autocomplete>
+        <mat-hint align="start">Add additional environments to allow for different deployment options and runtime targets</mat-hint>
+      </mat-form-field>
+      <div [hidden]="!envCtrl.value" style="padding-left: 20px; padding-right: 20px; flex-grow: 1; display: inline-flex; justify-content: flex-start; align-items: center">
+        <button id="build.image.addTemplateButton" mat-flat-button color="accent" (click)="addEnvironment()" [disabled]="isExistingEnvironment()" style="margin-right: 10px">Add</button>
+        <button id="build.image.deleteTemplateButton" mat-flat-button color="warn" (click)="deleteEnvironment()" [disabled]="envCtrl.value == 'Default' || !isExistingEnvironment()" style="margin-left: 10px">Delete</button>
+      </div>
+    </div>
+    <mat-expansion-panel id="settings.git.expander" [expanded]="gitExpander">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          GIT Server
+        </mat-panel-title>
+        <mat-panel-description style="width: 100%">
+          <div style="position: fixed; right: 80px">
+            Source for webMethods packages and Configuration
+          </div>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div style="padding: 30px; display: flex; flex-direction: column">
+        <div style="display: flex; flex-direction: row; align-items: center">
+          <mat-form-field style="margin-top:20px; flex-grow: 1">
+            <input id="settings.git.host" matInput [placeholder]="gotHostPlaceholder()" formControlName="gitHostCtrl" required
+                   [disabled]="true">
+          </mat-form-field>
+          <mat-button-toggle-group name="gitType" aria-label="Git Type" formControlName="gitTypeCtrl" style="flex-grow: 0; margin-left: 20px">
+            <mat-button-toggle value="github">GitHub</mat-button-toggle>
+            <mat-button-toggle value="gitlab">GitLab</mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+        <div style="height: 60px; display: flex; flex-direction: row; align-items: center">
+          <mat-checkbox id="settings.git.isOrg" formControlName="gitIsOrgCtrl">IS Organization ?</mat-checkbox>
+          <mat-form-field *ngIf="gitIsOrgCtrl.value" style="margin-left: 20px;">
+            <input matInput id="settings.git.name" formControlName="gitNameCtrl" float="false" required>
+          </mat-form-field>
+        </div>
+        <mat-form-field style="margin-top:20px">
+          <input matInput id="settings.git.user" [placeholder]="gitUserPlaceholder()" formControlName="gitUserCtrl" required>
+        </mat-form-field>
+        <div style="display: flex">
+          <mat-slide-toggle id="settings.git.isPac" style="margin-top: 20px; flex-grow: 0"
+                            formControlName="gitTokenCtrl">PAC Token
+          </mat-slide-toggle>
+          <mat-form-field style="margin-top:20px; margin-left: 20px; flex-grow: 1">
+            <input matInput id="settings.git.password" type="password" [placeholder]="gitPasswordPlaceholder()"
+                   type="password" formControlName="gitPasswordCtrl" required>
+            <mat-hint *ngIf="!gitTokenCtrl.value">
+              (deprecated)
+            </mat-hint>
+          </mat-form-field>
+        </div>
+        <div
+          style="background-color: #eeee; margin-left: 20px; padding: 15px; margin-top:20px; display: flex; flex-direction: column">
+          <div style="display: flex; flex-direction: row">
+            <mat-form-field style="flex-grow: 1">
+              <input matInput id="settings.git.repo" placeholder="Repo/Project Settings" formControlName="gitRepoCtrl"
+                     [matAutocomplete]="auto">
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let repo of gitRepos" [value]="repo.name">
+                  {{repo.name}}
+                </mat-option>
+              </mat-autocomplete>
+              <mat-hint>
+                Define applicable GIT repositories here, Specify the location of webMethods packages and configurations
+                files below for each repository.
+              </mat-hint>
+            </mat-form-field>
+            <div [hidden]="!gitRepoCtrl.value"
+                 style="flex-grow: 0; margin-left: 20px; display: inline-flex; justify-content: flex-start; align-items: center">
+              <button mat-flat-button id="settings.git.addRepoButton" color="accent" (click)="addRepo()"
+                      [disabled]="isExistingRepo(gitRepoCtrl.value)" style="margin-right: 10px">Add
+              </button>
+              <button mat-flat-button id="settings.git.removeRepoButton" color="warn" (click)="deleteRepo()"
+                      [disabled]="!isExistingRepo(gitRepoCtrl.value)" style="margin-left: 10px">Delete
+              </button>
+            </div>
+          </div>
+          <div style="margin-top: 40px; display: flex; flex-direction: row">
+            <mat-form-field style="margin-left:20px">
+              <input matInput id="settings.git.packagesDir" placeholder="{{gitRepoCtrl.value}} Packages directory"
+                     formControlName="gitPackagesCtrl">
+            </mat-form-field>
+            <mat-form-field style="margin-left:20px">
+              <input matInput id="settings.git.configDir" placeholder="{{gitRepoCtrl.value}} Configuration directory"
+                     formControlName="gitConfigCtrl">
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+    </mat-expansion-panel>
+
+    <mat-expansion-panel id="settings.docker.expander" [expanded]="dockerExpander">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Docker
+        </mat-panel-title>
+        <mat-panel-description style="width:100%">
+          <div style="position: fixed; right: 80px">
+            Server on which to run Containers
+          </div>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div style="padding: 30px; display: flex; flex-direction: column">
+
+        <mat-form-field style="margin-top: 30px">
+          <input matInput id="settings.docker.host" placeholder="Docker Host" formControlName="dockerHostCtrl" required
+                 [disabled]="true">
+          <mat-hint>
+            If Docker is running locally, leave blank.
+          </mat-hint>
+        </mat-form-field>
+        <mat-form-field style="margin-top:20px; margin-bottom: 70px">
+          <input matInput id="settings.docker.port" type="number" min="1000" placeholder="Port"
+                 formControlName="dockerPortCtrl" required [disabled]="true">
+          <mat-hint>
+            If not running locally, ensure that you have enabled the docker API by running the following command on the
+            docker host.<br><br>
+            $ docker run -d -v /var/run/docker.sock:/var/run/docker.sock -p 127.0.0.1:1234:1234 bobrik/socat
+            TCP-LISTEN:1234,fork UNIX-CONNECT:/var/run/docker.sock
+          </mat-hint>
+        </mat-form-field>
+        <mat-slide-toggle id="settings.docker.enableHttps" formControlName="dockerHttpsCtrl">Enable HTTPS
+        </mat-slide-toggle>
+        <mat-form-field>
+          <input matInput id="settings.docker.cert" placeholder="Https Certificate" [disabled]="!dockerHttpsCtrl.value">
+          <mat-hint>
+            HTTPS is not enabled by default, refer <a style="color: blue !important"
+                                                      href="https://docs.docker.com/engine/security/https/">here</a> to
+            configure.
+          </mat-hint>
+        </mat-form-field>
+        <mat-form-field style="margin-top:20px">
+          <input matInput id="settings.docker.email" placeholder="Docker Email Address"
+                 formControlName="dockerEmailCtrl">
+          <mat-hint>We need this in order to pull images from docker hub</mat-hint>
+        </mat-form-field>
+        <mat-form-field style="margin-top:20px">
+          <input matInput id="settings.docker.accountId" placeholder="Your account id"
+                 formControlName="dockerUserIdCtrl">
+        </mat-form-field>
+        <mat-form-field style="margin-top:20px">
+          <input matInput id="settings.docker.password" type="password" placeholder="Account password" type="password"
+                 formControlName="dockerPasswordCtrl">
+        </mat-form-field>
+      </div>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel id="settings.k8s.expander" [expanded]="k8sExpander">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Kubernetes
+        </mat-panel-title>
+        <mat-panel-description style="width:100%">
+          <div style="position: fixed; right: 80px">
+            Required for Deployment
+          </div>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div style="padding: 30px; display: flex; flex-direction: column">
+        <mat-form-field style="margin-top:20px">
+          <mat-select placeholder="Platform" formControlName="k8sTypeCtrl">
+            <mat-option *ngFor="let type of k8sTypes"  [value]="type">{{type}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field style="margin-top:20px">
+          <input matInput id="settings.k8s.host" placeholder="Kubernetes Host" formControlName="k8sUrlCtrl">
+          <mat-hint>Where are you hosting your Kubernetes, if local then you can leave this blank and we will assume it
+            exposed via the port 6443
+          </mat-hint>
+        </mat-form-field>
+        <mat-form-field style="margin-top:20px">
+          <input matInput id="settings.k8s.token" type="text" placeholder="Client Token" formControlName="k8sTokenCtrl">
+          <mat-hint>Token assigned to system account, If running docker for Desktop you can obtain your token using $
+            kubectl describe secret. If that doesn't work you can enable the http proxy to avoid all authentication
+            using $ kubectl proxy --port=8080 &. Obviously don't do that on a production environment!
+          </mat-hint>
+        </mat-form-field>
+      </div>
+    </mat-expansion-panel>
+  </form>
+</div>

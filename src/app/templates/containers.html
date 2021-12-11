@@ -1,0 +1,54 @@
+<div *ngIf="runSet && runSet.deployments" style="width:100%;display:flex;flex-direction: column;">
+	<form *ngIf="showK8sFields" [formGroup]="formGroup">
+		<mat-expansion-panel [expanded]="false" hideToggle style="margin:10px; box-shadow: none; background-color: orange">
+			<mat-expansion-panel-header>
+				<mat-panel-title style="color: white">Kubernetes</mat-panel-title>
+			</mat-expansion-panel-header>
+			<mat-card style="border: none; box-shadow: none">
+				<div style="display: flow; align-items: center; margin-bottom: 20px">
+					<mat-form-field style="margin-left: 30px; min-width: 250px">
+            <input id="run.deploy.containers.namespace" matInput type="text" placeholder="Name Space" formControlName="namespaceCtrl">
+            <mat-hint>Groups platform into distinct k8s space with dedicated resources</mat-hint>
+          </mat-form-field>
+          <mat-form-field style="margin-left: 30px; min-width: 350px">
+            <input id="run.deploy.containers.description" matInput type="text" placeholder="Description" formControlName="descriptionCtrl">
+          </mat-form-field>
+          <mat-form-field style="margin-left: 30px; min-width: 250px; margin-bottom: 20px">
+            <input id="run.deploy.containers.annotation" matInput type="text" placeholder="Type" formControlName="typeCtrl">
+            <mat-hint>Additional annotation to allow lookup</mat-hint>
+          </mat-form-field>
+				</div>
+			</mat-card>
+		</mat-expansion-panel>
+	</form>
+
+	<div class="services-zone" cdkDropList (cdkDropListDropped)="dropDeployment($event)">
+		<div *ngFor="let service of runSet.deployments" class="group-panel" cdkDrag [cdkDragData]="service" cdkDragBoundary=".services-zone" cdkDragLockAxis="y">
+			<div class="deployment-set">
+				<div  class="group-title" style="width: 35%"><div style="margin-right: 10px"><i class="fa fa-bars fa-lg deployment-set-dragger" aria-hidden="true" cdkDragHandle></i></div> {{service.name}}
+					<mat-form-field *ngIf="haveDeploymentBelow(service)" style="margin-left: 20px; margin-top: -10px; font-size: 11px">
+					  <mat-select id="run.deploy.container.{{service.name}}.dependsOn" placeholder="Depends on" [value]="service.dependsOn" (selectionChange)="selectionChanged($event, service)">
+					  	<mat-option [value]="null">None</mat-option>
+					    <mat-option *ngFor="let depends of dependsOn(service)" [value]="depends">
+					      {{depends}}
+					    </mat-option>
+					  </mat-select>
+					</mat-form-field>
+				</div>
+				<div class="deployment-set-placeholder" *cdkDragPlaceholder></div>
+				<k8s-props *ngIf="showK8sFields" [deployment]="service" (serviceUpdated)="serviceUpdated(service)"></k8s-props>
+				<div class="containers-zone" cdkDropList (cdkDropListDropped)="dropContainer($event)">
+					<ng-container *ngFor="let container of service.containers">
+            <div class="deployment-set-placeholder" *cdkDragPlaceholder></div>
+						<container [container]="container" [images]="images" [showK8sFields]="showK8sFields" (containerUpdated)="containerConfigUpdated(container)" (deleteContainer)="deleteContainer(container)" cdkDrag cdkDragBoundary=".containers-zone" [cdkDragData]="{container: container, service: service}" cdkDragLockAxis="y"></container>
+					</ng-container>
+					<div style="width: 100%">
+						<button id="run.deploy.container.{{service.name}}.addContainerButton" (click)="addNewContainer(service)" style="float: right; margin-right: 10px; height: 16px; border: none; background-color: transparent;"><fa-icon class="icon" [icon]="['fas', 'plus-square']" style="color: red"></fa-icon> Add Container</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<button id="run.deploy.addServiceButton" (click)="addNewService()" style="margin-left: 20px; margin-right: 10px; height: 20px; border: none; background-color: transparent;"><fa-icon class="icon" [icon]="['fas', 'plus-square']" style="color: red"></fa-icon> Add Service Layer</button>
+

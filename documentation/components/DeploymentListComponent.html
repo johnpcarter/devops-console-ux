@@ -1,0 +1,2155 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>wm-devops-console documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">wm-devops-console documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>DeploymentListComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/k8s/deployment-list.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnChanges" target="_blank" >OnChanges</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>jc-k8s-deployments</code></td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>../../templates/k8s/deployment-list.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_displayedColumnsActive">_displayedColumnsActive</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_displayedColumnsBase">_displayedColumnsBase</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_lastFetch">_lastFetch</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_podCountsByRow">_podCountsByRow</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dataSource">dataSource</a>
+                            </li>
+                            <li>
+                                <a href="#expandedElement">expandedElement</a>
+                            </li>
+                            <li>
+                                <a href="#isExpansionDetailRow">isExpansionDetailRow</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_refresh">_refresh</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_scaleDeployment">_scaleDeployment</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#displayedColumns">displayedColumns</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#enableDeployment">enableDeployment</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isDeploymentSuspened">isDeploymentSuspened</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isExpanded">isExpanded</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnChanges">ngOnChanges</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#podCount">podCount</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#refresh">refresh</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#scalePerformance">scalePerformance</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#showActions">showActions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#showExpandedAreaForRow">showExpandedAreaForRow</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#styleForPodCount">styleForPodCount</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#styleForStatus">styleForStatus</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#updatePodCount">updatePodCount</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#updateVersion">updateVersion</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#namespace">namespace</a>
+                            </li>
+                            <li>
+                                <a href="#runningOnly">runningOnly</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                                <span class="modifier">Public</span>
+                        <code>constructor(_router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, _snackBar: MatSnackBar, _settings: <a href="../injectables/Settings.html">Settings</a>, _k8sService: <a href="../injectables/K8sService.html">K8sService</a>, _configService: <a href="../injectables/ConfigurationService.html">ConfigurationService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/components/k8s/deployment-list.component.ts:52</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_snackBar</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatSnackBar</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_settings</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/Settings.html" target="_self" >Settings</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_k8sService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/K8sService.html" target="_self" >K8sService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_configService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ConfigurationService.html" target="_self" >ConfigurationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="namespace"></a>
+                        <b>namespace</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/components/k8s/deployment-list.component.ts:40</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="runningOnly"></a>
+                        <b>runningOnly</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/components/k8s/deployment-list.component.ts:43</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_refresh"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            _refresh
+                        </b>
+                        <a href="#_refresh"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_refresh()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="221"
+                            class="link-to-prism">src/app/components/k8s/deployment-list.component.ts:221</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_scaleDeployment"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            _scaleDeployment
+                        </b>
+                        <a href="#_scaleDeployment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_scaleDeployment(deployment: <a href="../classes/K8sDeployment.html">K8sDeployment</a>, count: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="203"
+                            class="link-to-prism">src/app/components/k8s/deployment-list.component.ts:203</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>deployment</td>
+                                    <td>
+                                                <code><a href="../classes/K8sDeployment.html" target="_self" >K8sDeployment</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>count</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="displayedColumns"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            displayedColumns
+                        </b>
+                        <a href="#displayedColumns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>displayedColumns()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">src/app/components/k8s/deployment-list.component.ts:75</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>string[]</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enableDeployment"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            enableDeployment
+                        </b>
+                        <a href="#enableDeployment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>enableDeployment(event: MatSlideToggleChange, row: <a href="../classes/K8sDeployment.html">K8sDeployment</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="88"
+                            class="link-to-prism">src/app/components/k8s/deployment-list.component.ts:88</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>MatSlideToggleChange</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>row</td>
+                                    <td>
+                                                <code><a href="../classes/K8sDeployment.html" target="_self" >K8sDeployment</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isDeploymentSuspened"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            isDeploymentSuspened
+                        </b>
+                        <a href="#isDeploymentSuspened"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isDeploymentSuspened(row: <a href="../classes/K8sDeployment.html">K8sDeployment</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">src/app/components/k8s/deployment-list.component.ts:83</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>row</td>
+                                    <td>
+                                                <code><a href="../classes/K8sDeployment.html" target="_self" >K8sDeployment</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isExpanded"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            isExpanded
+                        </b>
+                        <a href="#isExpanded"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isExpanded(row: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="113"
+                            class="link-to-prism">src/app/components/k8s/deployment-list.component.ts:113</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>row</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            ngOnChanges
+                        </b>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnChanges()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">src/app/components/k8s/deployment-list.component.ts:63</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">src/app/components/k8s/deployment-list.component.ts:58</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="podCount"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            podCount
+                        </b>
+                        <a href="#podCount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>podCount(deployment: <a href="../classes/K8sDeployment.html">K8sDeployment</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="133"
+                            class="link-to-prism">src/app/components/k8s/deployment-list.component.ts:133</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>deployment</td>
+                                    <td>
+                                                <code><a href="../classes/K8sDeployment.html" target="_self" >K8sDeployment</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refresh"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            refresh
+                        </b>
+                        <a href="#refresh"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>refresh()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">src/app/components/k8s/deployment-list.component.ts:68</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="scalePerformance"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            scalePerformance
+                        </b>
+                        <a href="#scalePerformance"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>scalePerformance(deployment: <a href="../classes/K8sDeployment.html">K8sDeployment</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="179"
+                            class="link-to-prism">src/app/components/k8s/deployment-list.component.ts:179</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>deployment</td>
+                                    <td>
+                                                <code><a href="../classes/K8sDeployment.html" target="_self" >K8sDeployment</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showActions"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            showActions
+                        </b>
+                        <a href="#showActions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>showActions(deployment: <a href="../classes/K8sDeploymentDefinition.html">K8sDeploymentDefinition</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="193"
+                            class="link-to-prism">src/app/components/k8s/deployment-list.component.ts:193</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>deployment</td>
+                                    <td>
+                                                <code><a href="../classes/K8sDeploymentDefinition.html" target="_self" >K8sDeploymentDefinition</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showExpandedAreaForRow"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            showExpandedAreaForRow
+                        </b>
+                        <a href="#showExpandedAreaForRow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>showExpandedAreaForRow(row: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="105"
+                            class="link-to-prism">src/app/components/k8s/deployment-list.component.ts:105</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>row</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="styleForPodCount"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            styleForPodCount
+                        </b>
+                        <a href="#styleForPodCount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>styleForPodCount(deployment: <a href="../classes/K8sDeployment.html">K8sDeployment</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="138"
+                            class="link-to-prism">src/app/components/k8s/deployment-list.component.ts:138</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>deployment</td>
+                                    <td>
+                                                <code><a href="../classes/K8sDeployment.html" target="_self" >K8sDeployment</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="styleForStatus"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            styleForStatus
+                        </b>
+                        <a href="#styleForStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>styleForStatus(deployment: <a href="../classes/K8sDeployment.html">K8sDeployment</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="158"
+                            class="link-to-prism">src/app/components/k8s/deployment-list.component.ts:158</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>deployment</td>
+                                    <td>
+                                                <code><a href="../classes/K8sDeployment.html" target="_self" >K8sDeployment</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updatePodCount"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            updatePodCount
+                        </b>
+                        <a href="#updatePodCount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updatePodCount(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="121"
+                            class="link-to-prism">src/app/components/k8s/deployment-list.component.ts:121</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateVersion"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            updateVersion
+                        </b>
+                        <a href="#updateVersion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateVersion(deployment: <a href="../classes/K8sDeployment.html">K8sDeployment</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="186"
+                            class="link-to-prism">src/app/components/k8s/deployment-list.component.ts:186</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>deployment</td>
+                                    <td>
+                                                <code><a href="../classes/K8sDeployment.html" target="_self" >K8sDeployment</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_displayedColumnsActive"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _displayedColumnsActive</b>
+                            <a href="#_displayedColumnsActive"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&quot;enable&quot;, &#x27;Name&#x27;, &#x27;Replicas&#x27;, &#x27;Pods&#x27;, &#x27;Description&#x27;, &#x27;Status&#x27;, &quot;expand&quot;, &quot;remove&quot;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/k8s/deployment-list.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_displayedColumnsBase"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _displayedColumnsBase</b>
+                            <a href="#_displayedColumnsBase"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&#x27;Name&#x27;, &#x27;Description&#x27;, &#x27;Last Updated&#x27;, &#x27;version&#x27;, &#x27;Status&#x27;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/components/k8s/deployment-list.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_lastFetch"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _lastFetch</b>
+                            <a href="#_lastFetch"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/components/k8s/deployment-list.component.ts:50</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_podCountsByRow"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _podCountsByRow</b>
+                            <a href="#_podCountsByRow"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Map&lt;any | number&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Map()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/components/k8s/deployment-list.component.ts:52</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dataSource"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            dataSource</b>
+                            <a href="#dataSource"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>any[]</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/components/k8s/deployment-list.component.ts:45</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="expandedElement"></a>
+                        <span class="name">
+                            <b>
+                            expandedElement</b>
+                            <a href="#expandedElement"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/components/k8s/deployment-list.component.ts:48</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isExpansionDetailRow"></a>
+                        <span class="name">
+                            <b>
+                            isExpansionDetailRow</b>
+                            <a href="#isExpansionDetailRow"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/components/k8s/deployment-list.component.ts:47</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ChangeDetectorRef, OnInit, OnChanges,
+                OnDestroy, Input }                                from &#x27;@angular/core&#x27;;
+import { Router }                                                 from &#x27;@angular/router&#x27;;
+import { animate, state, style, transition, trigger }             from &#x27;@angular/animations&#x27;;
+import { DataSource }                                             from &#x27;@angular/cdk/collections&#x27;;
+
+import { Observable, of, pipe }                                   from &#x27;rxjs&#x27;;
+import { map }                                                    from &#x27;rxjs/operators&#x27;;
+
+import { MatSlideToggleChange }                                   from &#x27;@angular/material&#x27;;
+import { MatSnackBar }                                            from &#x27;@angular/material/snack-bar&#x27;;
+
+import { Settings }                                               from &#x27;../../settings&#x27;;
+import { K8sDeployment, DeploymentStatus }                        from &#x27;../../models/k8s-deployment&#x27;;
+import { K8sDeploymentDefinition }                                from &#x27;../../models/k8s-deployment-definition&#x27;;
+
+import { K8sService }                                             from &#x27;../../services/k8s.service&#x27;;
+import { ConfigurationService }                                   from &#x27;../../services/configuration.service&#x27;;
+import { RuntimeScaleComponent }                                  from &#x27;./runtime-scale.component&#x27;;
+import { RuntimeUpdateComponent }                                 from &#x27;./runtime-update.component&#x27;;
+
+@Component({
+  selector: &#x27;jc-k8s-deployments&#x27;,
+  templateUrl: &#x27;../../templates/k8s/deployment-list.html&#x27;,
+  animations: [
+    trigger(&#x27;detailExpand&#x27;, [
+      state(&#x27;collapsed&#x27;, style({ height: &#x27;0px&#x27;, minHeight: &#x27;0&#x27;, visibility: &#x27;hidden&#x27; })),
+      state(&#x27;expanded&#x27;, style({ height: &#x27;*&#x27;, visibility: &#x27;visible&#x27; })),
+      transition(&#x27;expanded &lt;&#x3D;&gt; collapsed&#x27;, animate(&#x27;225ms cubic-bezier(0.4, 0.0, 0.2, 1)&#x27;)),
+    ]),
+  ]
+})
+
+export class DeploymentListComponent implements OnInit, OnChanges {
+
+  public _displayedColumnsBase: string[] &#x3D; [&#x27;Name&#x27;, &#x27;Description&#x27;, &#x27;Last Updated&#x27;, &#x27;version&#x27;, &#x27;Status&#x27;];
+  public _displayedColumnsActive: string[] &#x3D; [&quot;enable&quot;, &#x27;Name&#x27;, &#x27;Replicas&#x27;, &#x27;Pods&#x27;, &#x27;Description&#x27;, &#x27;Status&#x27;, &quot;expand&quot;, &quot;remove&quot;];
+
+    @Input()
+    public namespace: string;
+
+    @Input()
+    public runningOnly: boolean;
+
+    public dataSource: any[];
+
+    isExpansionDetailRow &#x3D; (i: number, row: Object) &#x3D;&gt; row.hasOwnProperty(&#x27;detailRow&#x27;);
+    expandedElement: any;
+
+    private _lastFetch: string;
+
+    private _podCountsByRow: Map&lt;any, number&gt; &#x3D; new Map();
+
+    public constructor(private _router: Router, private _snackBar: MatSnackBar, private _settings: Settings, private _k8sService: K8sService, private _configService: ConfigurationService) {
+
+    }
+
+    public ngOnInit() {
+
+      this.refresh();
+    }
+
+    public ngOnChanges() {
+
+      this.refresh();
+    }
+
+    public refresh() {
+
+      if (this._lastFetch !&#x3D; this.namespace) {
+        this._refresh();
+      }
+    }
+
+    public displayedColumns(): string[] {
+
+      if (this.runningOnly)
+        return this._displayedColumnsActive;
+      else
+        return this._displayedColumnsBase;
+    }
+
+    public isDeploymentSuspened(row: K8sDeployment): boolean {
+
+      return (row &amp;&amp; row.replicas &#x3D;&#x3D; 0);
+    }
+
+    public enableDeployment(event: MatSlideToggleChange, row: K8sDeployment) {
+
+      if (event.checked) {
+
+        this._configService.runSet(row.deploymentId).subscribe((result) &#x3D;&gt; {
+          if (result) {
+            this._scaleDeployment(row, +result.serviceFor(row.serviceId.replace(&#x27;-&#x27;, &#x27; &#x27;)).replicas);
+          } else {
+            this._snackBar.open(&quot;Activation failed&quot;, &quot;Dismiss&quot;, {duration: 5000});
+          }
+        });
+      } else {
+        this._scaleDeployment(row, 0);
+      }
+
+    }
+
+    public showExpandedAreaForRow(row: any) {
+
+      if (this.expandedElement &#x3D;&#x3D; row)
+        this.expandedElement &#x3D; null;
+      else
+        this.expandedElement &#x3D; row;
+    }
+
+    public isExpanded(row: any): string {
+
+      if (row.element &#x3D;&#x3D; this.expandedElement)
+        return &#x27;expanded&#x27;;
+      else
+        return &#x27;collapsed&#x27;;
+    }
+
+    public updatePodCount(event: any) {
+
+      this.dataSource.forEach((d) &#x3D;&gt; {
+        if (d.name &#x3D;&#x3D; event.appId &amp;&amp; !d.detailRow) {
+                console.log(&quot;got pod event for &quot; + event.appId + &quot;, &quot; + event.running + &quot;, &quot; + event.other);
+
+          d.updatePodCount(d.replicas, event.ready, event.available, event.unavailable);
+        }
+      });
+
+    }
+
+    public podCount(deployment: K8sDeployment): number {
+
+      return deployment.readyReplicas || 0;
+    }
+
+    public styleForPodCount(deployment: K8sDeployment): any {
+
+      let style: any &#x3D; {};
+      style[&#x27;text-align&#x27;] &#x3D; &#x27;center&#x27;;
+      style[&#x27;border-radius&#x27;] &#x3D; &#x27;3px&#x27;;
+      style[&#x27;padding&#x27;] &#x3D; &#x27;10px&#x27;;
+      style[&#x27;color&#x27;] &#x3D; &#x27;white&#x27;;
+
+      let count: number &#x3D; this.podCount(deployment);
+
+      if (count &#x3D;&#x3D; 0)
+        style[&#x27;background-color&#x27;] &#x3D; &#x27;red&#x27;;
+      else if (count &#x3D;&#x3D; 1)
+        style[&#x27;background-color&#x27;] &#x3D; &#x27;blue&#x27;;
+      else
+        style[&#x27;background-color&#x27;] &#x3D; &#x27;green&#x27;;
+
+      return style;
+    }
+
+    public styleForStatus(deployment: K8sDeployment): string {
+
+      let style: any &#x3D; {};
+
+      style[&#x27;text-align&#x27;] &#x3D; &#x27;center&#x27;;
+      style[&#x27;border-radius&#x27;] &#x3D; &#x27;3px&#x27;;
+      style[&#x27;padding&#x27;] &#x3D; &#x27;10px&#x27;;
+      style[&#x27;color&#x27;] &#x3D; &#x27;black&#x27;;
+
+      if (deployment.status &#x3D;&#x3D; DeploymentStatus.unknown)
+        style[&#x27;background-color&#x27;] &#x3D; &#x27;rgb(150, 150, 150)&#x27;;
+      else if (deployment.status &#x3D;&#x3D; DeploymentStatus.running)
+        style[&#x27;background-color&#x27;] &#x3D; &#x27;green&#x27;;
+      else if (deployment.status &#x3D;&#x3D; DeploymentStatus.suspended || deployment.status &#x3D;&#x3D; DeploymentStatus.updating)
+        style[&#x27;background-color&#x27;] &#x3D; &#x27;orange&#x27;;
+      else if (deployment.status &#x3D;&#x3D; DeploymentStatus.unavailable)
+        style[&#x27;background-color&#x27;] &#x3D; &#x27;red&#x27;;
+
+      return style;
+    }
+
+    public scalePerformance(deployment: K8sDeployment) {
+
+      K8sDeployment.currentDeployment &#x3D; &lt;K8sDeployment&gt; deployment;
+
+      this._router.navigate([&#x27;/scale&#x27; ], { skipLocationChange: false });
+    }
+
+    public updateVersion(deployment: K8sDeployment) {
+
+      K8sDeployment.currentDeployment &#x3D; &lt;K8sDeployment&gt; deployment;
+
+      this._router.navigate([&#x27;/update&#x27; ], { skipLocationChange: false });
+    }
+
+    public showActions(deployment: K8sDeploymentDefinition) {
+
+      if (this.runningOnly)
+        K8sDeployment.currentDeployment &#x3D; &lt;K8sDeployment&gt; deployment;
+      else
+        K8sDeploymentDefinition.currentDeployment &#x3D; deployment;
+
+      this._router.navigate([&#x27;/solution&#x27; ], { skipLocationChange: false });
+    }
+
+    private _scaleDeployment(deployment: K8sDeployment, count: number) {
+
+      this._k8sService.scalePods(deployment, count).subscribe((result) &#x3D;&gt; {
+
+        let type: string &#x3D; count &#x3D;&#x3D; 0 ? &quot;Activation&quot; : &quot;Suspend&quot;;
+
+        if (result) {
+
+          this._refresh();
+
+          this._snackBar.open(type + &quot; succeeded&quot;, &quot;Dismiss&quot;, { duration: 2000});
+
+        } else {
+          this._snackBar.open(type + &quot; failed&quot;, &quot;Dismiss&quot;, { duration: 2000});
+        }
+      });
+    }
+
+    private _refresh() {
+
+      this._k8sService.deployments(this.namespace, true).subscribe((d) &#x3D;&gt; {
+          this._lastFetch &#x3D; this.namespace;
+          this.dataSource &#x3D; [];
+
+           d.forEach((dp) &#x3D;&gt; {
+
+             this.dataSource.push(dp, {element: dp, detailRow: true});
+           });
+      });
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;mat-table #table [dataSource]&#x3D;&quot;dataSource&quot;&gt;
+
+  &lt;!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition&quot; --&gt;
+
+   &lt;ng-container matColumnDef&#x3D;&quot;remove&quot;&gt;
+    &lt;th mat-header-cell *matHeaderCellDef style&#x3D;&quot;width:30px&quot;&gt;  &lt;/th&gt;
+    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot; style&#x3D;&quot;width:30px&quot;&gt; &lt;button mat-button class&#x3D;&quot;red-on-hover&quot; (click)&#x3D;&quot;deleteDeployment(element)&quot;&gt;&lt;fa-icon class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;trash-alt&#x27;]&quot;&gt;&lt;/fa-icon&gt;&lt;/button&gt; &lt;/td&gt;
+  &lt;/ng-container&gt;
+
+  &lt;ng-container matColumnDef&#x3D;&quot;enable&quot;&gt;
+    &lt;mat-header-cell *matHeaderCellDef style&#x3D;&quot;flex-grow: 2&quot; style&#x3D;&quot;width:30px&quot;&gt; &lt;/mat-header-cell&gt;
+    &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot; style&#x3D;&quot;flex-grow: 1; width: 30px&quot;&gt; &lt;mat-slide-toggle toggle [checked]&#x3D;&quot;!isDeploymentSuspened(element)&quot; (change)&#x3D;&quot;enableDeployment($event, element)&quot;&gt;&lt;/mat-slide-toggle&gt;&lt;/mat-cell&gt;
+  &lt;/ng-container&gt;
+
+  &lt;ng-container matColumnDef&#x3D;&quot;Name&quot;&gt;
+    &lt;mat-header-cell *matHeaderCellDef style&#x3D;&quot;flex-grow: 2&quot;&gt; Name&lt;/mat-header-cell&gt;
+    &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot; style&#x3D;&quot;flex-grow: 2&quot;&gt; {{element.name}} &lt;/mat-cell&gt;
+  &lt;/ng-container&gt;
+
+  &lt;ng-container matColumnDef&#x3D;&quot;Description&quot;&gt;
+    &lt;mat-header-cell *matHeaderCellDef style&#x3D;&quot;flex-grow: 4&quot;&gt; Description &lt;/mat-header-cell&gt;
+    &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot; style&#x3D;&quot;flex-grow: 4&quot;&gt; {{element.description}} &lt;/mat-cell&gt;
+  &lt;/ng-container&gt;
+
+  &lt;ng-container matColumnDef&#x3D;&quot;Version&quot;&gt;
+    &lt;mat-header-cell *matHeaderCellDef style&#x3D;&quot;flex-grow: 1;&quot;&gt; Version &lt;/mat-header-cell&gt;
+    &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot; style&#x3D;&quot;flex-grow: 1;&quot;&gt; {{element.version}} &lt;/mat-cell&gt;
+  &lt;/ng-container&gt;
+
+  &lt;ng-container matColumnDef&#x3D;&quot;Replicas&quot;&gt;
+    &lt;mat-header-cell *matHeaderCellDef style&#x3D;&quot;flex-grow: 1;&quot;&gt; Replicas &lt;/mat-header-cell&gt;
+    &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot; style&#x3D;&quot;flex-grow: 1;&quot;&gt; {{element.replicas}} &lt;/mat-cell&gt;
+  &lt;/ng-container&gt;
+
+  &lt;ng-container matColumnDef&#x3D;&quot;Pods&quot;&gt;
+    &lt;mat-header-cell *matHeaderCellDef style&#x3D;&quot;flex-grow: 1&quot;&gt; Pods&lt;/mat-header-cell&gt;
+    &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot; style&#x3D;&quot;flex-grow: 1; text-align: center&quot;&gt;
+      &lt;span style&#x3D;&quot;background-color: green; color: white; border-radius: 3px; padding: 10px; margin-right: 5px&quot;&gt;
+        {{element.readyReplicas}} 
+      &lt;/span&gt;
+      &lt;span style&#x3D;&quot;background-color: orange; color: white; border-radius: 3px; padding: 10px; margin-right: 5px&quot;&gt;
+        {{element.availableReplicas}} 
+      &lt;/span&gt;
+       &lt;span style&#x3D;&quot;background-color: red; color: white; border-radius: 3px; padding: 10px; margin-right: 5px&quot;&gt;
+        {{element.unavailableReplicas}} 
+      &lt;/span&gt;
+    &lt;/mat-cell&gt;
+  &lt;/ng-container&gt;
+
+  &lt;ng-container matColumnDef&#x3D;&quot;Last Updated&quot;&gt;
+    &lt;mat-header-cell *matHeaderCellDef style&#x3D;&quot;flex-grow: 2&quot;&gt; Last Updated &lt;/mat-header-cell&gt;
+    &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot; style&#x3D;&quot;flex-grow: 2&quot;&gt; {{element.lastUpdated | date: &#x27;dd/MM/yyyy HH:mm&#x27;}} &lt;/mat-cell&gt;
+  &lt;/ng-container&gt;
+
+   &lt;ng-container matColumnDef&#x3D;&quot;Status&quot;&gt;
+    &lt;mat-header-cell *matHeaderCellDef&gt; Status &lt;/mat-header-cell&gt;
+    &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;
+    	&lt;span [ngStyle]&#x3D;&quot;styleForStatus(element)&quot;&gt;
+        {{element.status}} 
+      &lt;/span&gt;
+    &lt;/mat-cell&gt;
+  &lt;/ng-container&gt;
+
+  &lt;ng-container matColumnDef&#x3D;&quot;expand&quot;&gt;
+    &lt;mat-header-cell *matHeaderCellDef&gt;  &lt;/mat-header-cell&gt;
+    &lt;mat-cell *matCellDef&#x3D;&quot;let element&quot; (click)&#x3D;&quot;showExpandedAreaForRow(element)&quot; style&#x3D;&quot;align-self: flex-end; flex-grow: 1; text-align: right&quot;&gt;
+      &lt;span *ngIf&#x3D;&quot;expandedElement !&#x3D; element&quot; style&#x3D;&quot;width:100%; color: rgb(23, 115, 187);&quot;&gt;&lt;fa-icon class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;caret-square-down&#x27;]&quot; size&#x3D;&quot;lg&quot;&gt;&lt;/fa-icon&gt;&lt;/span&gt;
+      &lt;span *ngIf&#x3D;&quot;expandedElement &#x3D;&#x3D; element&quot; style&#x3D;&quot;width:100%; color: rgb(23, 115, 187);&quot;&gt;&lt;fa-icon class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;caret-square-up&#x27;]&quot; size&#x3D;&quot;lg&quot;&gt;&lt;/fa-icon&gt;&lt;/span&gt;
+    &lt;/mat-cell&gt;
+  &lt;/ng-container&gt;
+
+ &lt;!-- Expanded Content Column - The detail row is made up of this one column --&gt;
+  &lt;ng-container matColumnDef&#x3D;&quot;expandedDetail&quot;&gt;
+    &lt;mat-cell *matCellDef&#x3D;&quot;let detail&quot;&gt;
+      &lt;div style&#x3D;&quot;display: flex; flex-direction: column; width:100%; align-items: stretch; padding: 10px; background-color: rgba(0,0,100,0.09)&quot;&gt;
+        &lt;jc-pods [showActions]&#x3D;&quot;false&quot; [namespace]&#x3D;&quot;namespace&quot; [appId]&#x3D;&quot;detail.element.description&quot; (podCountChanged)&#x3D;&quot;updatePodCount($event)&quot;&gt;&lt;/jc-pods&gt;
+        &lt;div style&#x3D;&quot;display: inline-flex; justify-content: space-between; padding: 10px&quot;&gt;
+          &lt;div style&#x3D;&quot;display: inline-flex;&quot;&gt;
+           
+          &lt;/div&gt;
+          &lt;div style&#x3D;&quot;display: inline-flex;&quot;&gt;
+            &lt;button mat-raised-button color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;scalePerformance(detail.element)&quot; style&#x3D;&quot;margin-right: 10px;&quot;&gt;&lt;fa-icon class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fab&#x27;, &#x27;cloudscale&#x27;]&quot;&gt;&lt;/fa-icon&gt; Scale&lt;/button&gt;
+            &lt;button mat-raised-button color&#x3D;&quot;warn&quot; (click)&#x3D;&quot;updateVersion(detail.element)&quot;&gt;&lt;fa-icon class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;code-branch&#x27;]&quot;&gt;&lt;/fa-icon&gt; Update&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/mat-cell&gt;
+  &lt;/ng-container&gt;
+
+  &lt;mat-header-row *matHeaderRowDef&#x3D;&quot;displayedColumns()&quot;&gt;&lt;/mat-header-row&gt;
+  &lt;mat-row *matRowDef&#x3D;&quot;let row; columns: displayedColumns();&quot; class&#x3D;&quot;element-row&quot; [class.expanded]&#x3D;&quot;expandedElement &#x3D;&#x3D; row&quot;&gt;&lt;/mat-row&gt;
+  &lt;mat-row *matRowDef&#x3D;&quot;let row; columns: [&#x27;expandedDetail&#x27;]; when: isExpansionDetailRow&quot; [@detailExpand]&#x3D;&quot;isExpanded(row)&quot; style&#x3D;&quot;overflow: hidden&quot;&gt;&lt;/mat-row&gt;
+
+&lt;/mat-table&gt;</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><mat-table #table [dataSource]="dataSource">  <!--- Note that these columns can be defined in any order.        The actual rendered columns are set as a property on the row definition" -->   <ng-container matColumnDef="remove">    <th mat-header-cell *matHeaderCellDef style="width:30px">  </th>    <td mat-cell *matCellDef="let element" style="width:30px"> <button mat-button class="red-on-hover" (click)="deleteDeployment(element)"><fa-icon class="icon" [icon]="[\'fas\', \'trash-alt\']"></fa-icon></button> </td>  </ng-container>  <ng-container matColumnDef="enable">    <mat-header-cell *matHeaderCellDef style="flex-grow: 2" style="width:30px"> </mat-header-cell>    <mat-cell *matCellDef="let element" style="flex-grow: 1; width: 30px"> <mat-slide-toggle toggle [checked]="!isDeploymentSuspened(element)" (change)="enableDeployment($event, element)"></mat-slide-toggle></mat-cell>  </ng-container>  <ng-container matColumnDef="Name">    <mat-header-cell *matHeaderCellDef style="flex-grow: 2"> Name</mat-header-cell>    <mat-cell *matCellDef="let element" style="flex-grow: 2"> {{element.name}} </mat-cell>  </ng-container>  <ng-container matColumnDef="Description">    <mat-header-cell *matHeaderCellDef style="flex-grow: 4"> Description </mat-header-cell>    <mat-cell *matCellDef="let element" style="flex-grow: 4"> {{element.description}} </mat-cell>  </ng-container>  <ng-container matColumnDef="Version">    <mat-header-cell *matHeaderCellDef style="flex-grow: 1;"> Version </mat-header-cell>    <mat-cell *matCellDef="let element" style="flex-grow: 1;"> {{element.version}} </mat-cell>  </ng-container>  <ng-container matColumnDef="Replicas">    <mat-header-cell *matHeaderCellDef style="flex-grow: 1;"> Replicas </mat-header-cell>    <mat-cell *matCellDef="let element" style="flex-grow: 1;"> {{element.replicas}} </mat-cell>  </ng-container>  <ng-container matColumnDef="Pods">    <mat-header-cell *matHeaderCellDef style="flex-grow: 1"> Pods</mat-header-cell>    <mat-cell *matCellDef="let element" style="flex-grow: 1; text-align: center">      <span style="background-color: green; color: white; border-radius: 3px; padding: 10px; margin-right: 5px">        {{element.readyReplicas}}       </span>      <span style="background-color: orange; color: white; border-radius: 3px; padding: 10px; margin-right: 5px">        {{element.availableReplicas}}       </span>       <span style="background-color: red; color: white; border-radius: 3px; padding: 10px; margin-right: 5px">        {{element.unavailableReplicas}}       </span>    </mat-cell>  </ng-container>  <ng-container matColumnDef="Last Updated">    <mat-header-cell *matHeaderCellDef style="flex-grow: 2"> Last Updated </mat-header-cell>    <mat-cell *matCellDef="let element" style="flex-grow: 2"> {{element.lastUpdated | date: \'dd/MM/yyyy HH:mm\'}} </mat-cell>  </ng-container>   <ng-container matColumnDef="Status">    <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>    <mat-cell *matCellDef="let element">    	<span [ngStyle]="styleForStatus(element)">        {{element.status}}       </span>    </mat-cell>  </ng-container>  <ng-container matColumnDef="expand">    <mat-header-cell *matHeaderCellDef>  </mat-header-cell>    <mat-cell *matCellDef="let element" (click)="showExpandedAreaForRow(element)" style="align-self: flex-end; flex-grow: 1; text-align: right">      <span *ngIf="expandedElement != element" style="width:100%; color: rgb(23, 115, 187);"><fa-icon class="icon" [icon]="[\'fas\', \'caret-square-down\']" size="lg"></fa-icon></span>      <span *ngIf="expandedElement == element" style="width:100%; color: rgb(23, 115, 187);"><fa-icon class="icon" [icon]="[\'fas\', \'caret-square-up\']" size="lg"></fa-icon></span>    </mat-cell>  </ng-container> <!-- Expanded Content Column - The detail row is made up of this one column -->  <ng-container matColumnDef="expandedDetail">    <mat-cell *matCellDef="let detail">      <div style="display: flex; flex-direction: column; width:100%; align-items: stretch; padding: 10px; background-color: rgba(0,0,100,0.09)">        <jc-pods [showActions]="false" [namespace]="namespace" [appId]="detail.element.description" (podCountChanged)="updatePodCount($event)"></jc-pods>        <div style="display: inline-flex; justify-content: space-between; padding: 10px">          <div style="display: inline-flex;">                     </div>          <div style="display: inline-flex;">            <button mat-raised-button color="primary" (click)="scalePerformance(detail.element)" style="margin-right: 10px;"><fa-icon class="icon" [icon]="[\'fab\', \'cloudscale\']"></fa-icon> Scale</button>            <button mat-raised-button color="warn" (click)="updateVersion(detail.element)"><fa-icon class="icon" [icon]="[\'fas\', \'code-branch\']"></fa-icon> Update</button>          </div>        </div>      </div>    </mat-cell>  </ng-container>  <mat-header-row *matHeaderRowDef="displayedColumns()"></mat-header-row>  <mat-row *matRowDef="let row; columns: displayedColumns();" class="element-row" [class.expanded]="expandedElement == row"></mat-row>  <mat-row *matRowDef="let row; columns: [\'expandedDetail\']; when: isExpansionDetailRow" [@detailExpand]="isExpanded(row)" style="overflow: hidden"></mat-row></mat-table></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'about-app'},{'name': 'ActionComponent', 'selector': 'action'},{'name': 'ApiGatewayInstallerComponent', 'selector': 'jc-apigw-install'},{'name': 'ApiMicroGatewayInstallerComponent', 'selector': 'jc-apimg-install'},{'name': 'ApiPortalInstallerComponent', 'selector': 'jc-apipr-installer'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BuildCommandsComponent', 'selector': 'build-commands'},{'name': 'BuildComponent', 'selector': 'build'},{'name': 'BuildExeComponent', 'selector': 'build-exe'},{'name': 'BuildImageComponent', 'selector': 'build-solution'},{'name': 'BuildInstallComponent', 'selector': 'build-install'},{'name': 'BuildPackagesComponent', 'selector': 'build-package'},{'name': 'ContainerComponent', 'selector': 'container'},{'name': 'ContainersComponent', 'selector': 'app-containers'},{'name': 'DeploymentDetailsComponent', 'selector': 'jc-deployment-details'},{'name': 'DeploymentListComponent', 'selector': 'jc-k8s-deployments'},{'name': 'DockerImageChooserComponent', 'selector': 'docker-image-chooser'},{'name': 'DockerImageListComponent', 'selector': 'jc-docker-images'},{'name': 'DockerImageVersionsComponent', 'selector': 'jc-docker-image-versions'},{'name': 'EditContainerComponent', 'selector': 'edit-container'},{'name': 'GitSourcesComponent', 'selector': 'git-source'},{'name': 'HomeComponent', 'selector': 'home'},{'name': 'InstallerComponent', 'selector': 'jc-install'},{'name': 'MicroServiceBuilderComponent', 'selector': 'jc-msc-configure'},{'name': 'MicroServiceInstallerComponent', 'selector': 'jc-msc-install'},{'name': 'PodsListComponent', 'selector': 'jc-pods'},{'name': 'RuntimeContainersComponent', 'selector': 'runtime-containers'},{'name': 'RuntimeDeployComponent', 'selector': 'runtime-deploy'},{'name': 'RuntimeDetailsComponent', 'selector': ''},{'name': 'RuntimeK8sComponent', 'selector': 'runtime'},{'name': 'RuntimeScaleComponent', 'selector': 'jc-runtime-scale'},{'name': 'RuntimeStageComponent', 'selector': 'runtime-stage'},{'name': 'RuntimeUpdateComponent', 'selector': ''},{'name': 'SagImageAlerterComponent', 'selector': 'sag-image-alerter'},{'name': 'ServicePropertiesComponent', 'selector': 'k8s-props'},{'name': 'SettingsComponent', 'selector': 'home'},{'name': 'SimpleNameComponent', 'selector': 'name-dialog'},{'name': 'StagingComponent', 'selector': 'staging'},{'name': 'TestCaseComponent', 'selector': 'test-case'},{'name': 'TestDefinitionComponent', 'selector': 'test-definitions'},{'name': 'TestHistoryComponent', 'selector': 'test-history'},{'name': 'TestRunComponent', 'selector': 'test-reun'},{'name': 'UMInstallerComponent', 'selector': 'jc-um-install'},{'name': 'UploadButtonComponent', 'selector': 'file-uploader-button'}];
+    var DIRECTIVES = [{'name': 'BuildImageChooseDirective', 'selector': '[builder]'},{'name': 'CancelCdkDrag', 'selector': '[appCancelCdkDrag]'},{'name': 'NgFileDrop', 'selector': '[ng-file-drop]'},{'name': 'NgFileSelect', 'selector': '[ng-file-select]'},{'name': 'RuntimeActionsDirective', 'selector': '[runtime-actions]'}];
+    var ACTUAL_COMPONENT = {'name': 'DeploymentListComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'DeploymentListComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

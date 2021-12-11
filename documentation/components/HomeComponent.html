@@ -1,0 +1,1653 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>wm-devops-console documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">wm-devops-console documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>HomeComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/home.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>home</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>../templates/home.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>../templates/home.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_currentExtra">_currentExtra</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_showExtraInfo">_showExtraInfo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#goBuild">goBuild</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#goDeploy">goDeploy</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#goInstall">goInstall</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#goMake">goMake</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#goRun">goRun</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#goSource">goSource</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#goStage">goStage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#goTest">goTest</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#goTestRun">goTestRun</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#goTestSetup">goTestSetup</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#hideExtraInfo">hideExtraInfo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#offset">offset</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#offsetForExtraInfo">offsetForExtraInfo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setOffsetForExtraDivs">setOffsetForExtraDivs</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#showDetailsInfo">showDetailsInfo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#xposOfMainDiv">xposOfMainDiv</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(_location: <a href="https://angular.io/api/common/Location" target="_blank">Location</a>, _router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, _settings: <a href="../injectables/Settings.html">Settings</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/home.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_location</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/common/Location" target="_blank" >Location</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_settings</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/Settings.html" target="_self" >Settings</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_showExtraInfo"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            _showExtraInfo
+                        </b>
+                        <a href="#_showExtraInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_showExtraInfo(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="110"
+                            class="link-to-prism">src/app/components/home.component.ts:110</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goBuild"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            goBuild
+                        </b>
+                        <a href="#goBuild"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>goBuild()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">src/app/components/home.component.ts:70</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goDeploy"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            goDeploy
+                        </b>
+                        <a href="#goDeploy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>goDeploy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="86"
+                            class="link-to-prism">src/app/components/home.component.ts:86</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goInstall"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            goInstall
+                        </b>
+                        <a href="#goInstall"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>goInstall()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">src/app/components/home.component.ts:74</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goMake"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            goMake
+                        </b>
+                        <a href="#goMake"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>goMake()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="82"
+                            class="link-to-prism">src/app/components/home.component.ts:82</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goRun"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            goRun
+                        </b>
+                        <a href="#goRun"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>goRun()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">src/app/components/home.component.ts:90</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goSource"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            goSource
+                        </b>
+                        <a href="#goSource"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>goSource()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">src/app/components/home.component.ts:78</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goStage"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            goStage
+                        </b>
+                        <a href="#goStage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>goStage()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="94"
+                            class="link-to-prism">src/app/components/home.component.ts:94</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goTest"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            goTest
+                        </b>
+                        <a href="#goTest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>goTest()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="98"
+                            class="link-to-prism">src/app/components/home.component.ts:98</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goTestRun"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            goTestRun
+                        </b>
+                        <a href="#goTestRun"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>goTestRun()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="106"
+                            class="link-to-prism">src/app/components/home.component.ts:106</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goTestSetup"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            goTestSetup
+                        </b>
+                        <a href="#goTestSetup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>goTestSetup()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="102"
+                            class="link-to-prism">src/app/components/home.component.ts:102</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hideExtraInfo"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            hideExtraInfo
+                        </b>
+                        <a href="#hideExtraInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>hideExtraInfo()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">src/app/components/home.component.ts:56</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">src/app/components/home.component.ts:36</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="offset"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            offset
+                        </b>
+                        <a href="#offset"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>offset()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="150"
+                            class="link-to-prism">src/app/components/home.component.ts:150</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="offsetForExtraInfo"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            offsetForExtraInfo
+                        </b>
+                        <a href="#offsetForExtraInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>offsetForExtraInfo(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="139"
+                            class="link-to-prism">src/app/components/home.component.ts:139</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setOffsetForExtraDivs"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            setOffsetForExtraDivs
+                        </b>
+                        <a href="#setOffsetForExtraDivs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setOffsetForExtraDivs()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="118"
+                            class="link-to-prism">src/app/components/home.component.ts:118</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showDetailsInfo"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            showDetailsInfo
+                        </b>
+                        <a href="#showDetailsInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>showDetailsInfo(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/app/components/home.component.ts:41</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="xposOfMainDiv"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            xposOfMainDiv
+                        </b>
+                        <a href="#xposOfMainDiv"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>xposOfMainDiv()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="155"
+                            class="link-to-prism">src/app/components/home.component.ts:155</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_currentExtra"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _currentExtra</b>
+                            <a href="#_currentExtra"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/home.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ChangeDetectorRef, Inject, OnInit,
+									OnDestroy }        		from &#x27;@angular/core&#x27;;
+import { Router }					   						from &#x27;@angular/router&#x27;;
+import { Location } 										   from &quot;@angular/common&quot;;
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} 	from &#x27;@angular/material&#x27;;
+
+import { Settings }                                from &#x27;../settings&#x27;;
+
+import * as $ from &#x27;jquery&#x27;;
+
+@Component({
+  selector: &#x27;home&#x27;,
+  templateUrl: &#x27;../templates/home.html&#x27;,
+  styleUrls: [&#x27;../templates/home.css&#x27;]
+})
+export class HomeComponent implements OnInit {
+
+	private _currentExtra: string;
+
+  // constructor(public dialogRef: MatDialogRef&lt;AboutComponent&gt;, @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+   constructor(private _location: Location, private _router: Router, private _settings: Settings) {
+   	
+   		if (this._location.path() &#x3D;&#x3D; &quot;&quot;) {
+
+   			// user reloaded browser, do we need to go back to last page
+
+   			this._settings.values().subscribe(values &#x3D;&gt; {
+
+	   			if (values.lastViewedPage &amp;&amp; values.lastViewedPage !&#x3D; &#x27;home&#x27;) {
+	   				this._settings.gotoLastViewedPage(this._router);
+	   			}
+   			});
+   		}
+   }
+
+   public ngOnInit() {
+
+   		this.setOffsetForExtraDivs();
+      }
+
+   public showDetailsInfo(name: string) {
+
+   		if (this.hideExtraInfo()) {
+   			let ref: HomeComponent &#x3D; this;
+   			setTimeout(() &#x3D;&gt; {
+   				ref._showExtraInfo(name);
+   			}, 100);
+
+   		} else {
+   			this._showExtraInfo(name);
+   		}
+
+   		
+   }
+
+   public hideExtraInfo(): boolean {
+
+   		if (this._currentExtra) {
+   			$(this._currentExtra).animate({ bottom: &#x27;-800px&#x27; }, 400);
+   			$(this._currentExtra).css({display: &#x27;none&#x27;});
+   			
+   			this._currentExtra &#x3D; null;
+
+   			return true;
+   		} else {
+   			return false;
+   		}
+   }
+
+   public goBuild() {
+   		this._router.navigate([&#x27;/build&#x27;]);
+   }
+
+   public goInstall() {
+   		this._router.navigate([&#x27;/install&#x27;]);
+   }
+
+   public goSource() {
+   		this._router.navigate([&#x27;/package&#x27;]);
+   }
+
+   public goMake() {
+   		this._router.navigate([&#x27;/image&#x27;]);
+   }
+
+   public goDeploy() {
+   		this._router.navigate([&#x27;/deploy&#x27;]);
+   }
+
+   public goRun() {
+   		this._router.navigate([&#x27;/run&#x27;]);
+   }
+
+   public goStage() {
+   		this._router.navigate([&#x27;/stage&#x27;]);
+   }
+
+   public goTest() {
+   		this._router.navigate([&#x27;/test&#x27;]);
+   }
+
+   public goTestSetup() {
+   		this._router.navigate([&#x27;/testDefinition&#x27;]);
+   }
+
+   public goTestRun() {
+   		this._router.navigate([&#x27;/testRun&#x27;]);
+   }
+
+   private _showExtraInfo(name: string) {
+
+   		this._currentExtra &#x3D; name;
+   		$(name).css({display: &#x27;block&#x27;});
+
+   		$(name).animate({ bottom: this.offsetForExtraInfo(name)}, 400);
+   }
+
+   private setOffsetForExtraDivs() {
+
+   		let left: number &#x3D; this.xposOfMainDiv();
+
+   		if (left &gt; 20) {
+   	   		$(&#x27;#buildextra&#x27;).css({left: $(&quot;#build-block&quot;).offset().left - 210});
+   	   		$(&#x27;#deployextra&#x27;).css({left: $(&quot;#deploy-block&quot;).offset().left - 210});
+   	   		$(&#x27;#testextra&#x27;).css({left: $(&quot;#test-block&quot;).offset().left - 210});
+   		}
+   	   	else {
+   	   		$(&#x27;#buildextra&#x27;).css({left: $(&quot;#build-block&quot;).offset().left + 20});
+   	   		$(&#x27;#deployextra&#x27;).css({left: $(&quot;#deploy-block&quot;).offset().left + 20});
+   	   		$(&#x27;#testextra&#x27;).css({left: $(&quot;#test-block&quot;).offset().left + 20});
+   	   	}
+
+   	   	let ref: HomeComponent &#x3D; this;
+   		setTimeout(() &#x3D;&gt; {
+   			ref.setOffsetForExtraDivs();
+   		}, 500);
+   }
+
+   private offsetForExtraInfo(name: string): number {
+
+   		let dh: number &#x3D; $(&#x27;#home-page&#x27;).offset().top + $(&#x27;#home-page&#x27;).height() - 10;
+   		let my: number &#x3D; this.offset();
+		let bh: number &#x3D; $(name).height(); 
+
+   		let space: number &#x3D; dh - my;
+
+   		return space - bh;
+   }
+
+   private offset(): number {
+
+   		return $(&#x27;#page-content&#x27;).offset().top + $(&#x27;#page-content&#x27;).height();
+   }
+
+   private xposOfMainDiv(): number {
+
+   		return $(&quot;#home-page&quot;).offset().left;
+   }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div id&#x3D;&quot;home-page&quot; class&#x3D;&quot;page-wrapper&quot; (mouseleave)&#x3D;&quot;hideExtraInfo()&quot;&gt;
+  &lt;h1 class&#x3D;&quot;page-content-title&quot;&gt;Welcome&lt;/h1&gt;
+  &lt;div id&#x3D;&quot;page-content&quot; class&#x3D;&quot;page-content-wrapper&quot;&gt;
+    &lt;div id&#x3D;&quot;scroller&quot; class&#x3D;&quot;page-scrollable-content&quot;&gt;
+    	&lt;div style&#x3D;&quot;width:100%; text-align: center&quot;&gt;
+    		&lt;span class&#x3D;&quot;page-title&quot;&gt;End to end solution for docker image creation and deployment for all your micro service requirements, powered by webMethods.&lt;/span&gt;
+    	&lt;/div&gt;
+    	&lt;div id&#x3D;&quot;top-doc&quot; class&#x3D;&quot;row&quot;&gt;
+    		&lt;div class&#x3D;&quot;stack-vertical&quot;&gt;
+    			&lt;fa-icon class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;box&#x27;]&quot; size&#x3D;&quot;4x&quot; style&#x3D;&quot;color: rgb(23, 118,191); padding-bottom: 10px&quot;&gt;&lt;/fa-icon&gt;
+    			&lt;div id&#x3D;&quot;build-block&quot; class&#x3D;&quot;block&quot; (mouseenter)&#x3D;&quot;showDetailsInfo(&#x27;#buildextra&#x27;)&quot;&gt;
+    				&lt;div class&#x3D;&quot;title&quot;&gt;Build&lt;/div&gt;
+    				&lt;span class&#x3D;&quot;subject&quot;&gt;Build Docker images comprising both Software AG base Products with your Micro Services.&lt;/span&gt;
+    				&lt;button class&#x3D;&quot;learn-more&quot; (click)&#x3D;&quot;goBuild()&quot;&gt;Build Summary&lt;/button&gt;
+    			&lt;/div&gt;
+    		&lt;/div&gt;
+    		&lt;svg width&#x3D;&quot;150&quot; height&#x3D;&quot;75&quot;&gt;&lt;line x1&#x3D;&quot;0&quot; y1&#x3D;&quot;32&quot; x2&#x3D;&quot;150&quot; y2&#x3D;&quot;32&quot; stroke&#x3D;&quot;gray&quot;/&gt;&lt;/svg&gt;
+    		&lt;div class&#x3D;&quot;stack-vertical&quot;&gt;
+    			&lt;fa-icon class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;rocket&#x27;]&quot; size&#x3D;&quot;4x&quot; style&#x3D;&quot;color: rgb(246, 113, 46); padding-bottom: 10px&quot;&gt;&lt;/fa-icon&gt;
+    			&lt;div id&#x3D;&quot;deploy-block&quot; class&#x3D;&quot;block&quot; style&#x3D;&quot;background-color: rgb(246, 113, 46)&quot; (mouseenter)&#x3D;&quot;showDetailsInfo(&#x27;#deployextra&#x27;)&quot;&gt;
+    				&lt;div class&#x3D;&quot;title&quot;&gt;Deploy&lt;/div&gt;
+    				&lt;span class&#x3D;&quot;subject&quot;&gt;Run and deploy your Micro Services using docker compose or through Kubernetes&lt;/span&gt;
+    				&lt;button class&#x3D;&quot;learn-more&quot; (click)&#x3D;&quot;goDeploy()&quot;&gt;Deployments&lt;/button&gt;
+    			&lt;/div&gt;
+    		&lt;/div&gt;
+    		&lt;svg width&#x3D;&quot;150&quot; height&#x3D;&quot;75&quot;&gt;&lt;line x1&#x3D;&quot;0&quot; y1&#x3D;&quot;32&quot; x2&#x3D;&quot;150&quot; y2&#x3D;&quot;32&quot; stroke&#x3D;&quot;gray&quot;/&gt;&lt;/svg&gt;
+    		&lt;div class&#x3D;&quot;stack-vertical&quot;&gt;
+    			&lt;fa-icon class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;vial&#x27;]&quot; size&#x3D;&quot;4x&quot; style&#x3D;&quot;color: rgb(179, 210, 13); padding-bottom: 10px&quot;&gt;&lt;/fa-icon&gt;
+    			&lt;div id&#x3D;&quot;test-block&quot; class&#x3D;&quot;block&quot; style&#x3D;&quot;background-color: rgb(179, 210, 13)&quot; (mouseenter)&#x3D;&quot;showDetailsInfo(&#x27;#testextra&#x27;)&quot;&gt;
+    				&lt;div class&#x3D;&quot;title&quot;&gt;Test&lt;/div&gt;
+    				&lt;span class&#x3D;&quot;subject&quot;&gt;Generate Test Cases, execute and review results&lt;/span&gt;
+    				&lt;button class&#x3D;&quot;learn-more&quot; (click)&#x3D;&quot;goTest()&quot;&gt;Test Results&lt;/button&gt;
+    			&lt;/div&gt;
+    		&lt;/div&gt;
+    	&lt;/div&gt;
+    	&lt;div&gt;
+	    	&lt;div id&#x3D;&quot;buildextra&quot; class&#x3D;&quot;extra&quot;&gt;
+		    	&lt;div class&#x3D;&quot;stack-vertical&quot;&gt;
+		    		&lt;svg width&#x3D;&quot;150&quot; height&#x3D;&quot;20&quot;&gt;&lt;line x1&#x3D;&quot;75&quot; y1&#x3D;&quot;0&quot; x2&#x3D;&quot;75&quot; y2&#x3D;&quot;20&quot; stroke&#x3D;&quot;gray&quot;/&gt;&lt;/svg&gt;
+		    		&lt;div class&#x3D;&quot;blockextra&quot;&gt;
+		    			&lt;span class&#x3D;&quot;subjectExtra&quot;&gt;Create a webMethods Docker image.&lt;/span&gt;
+	    				&lt;button class&#x3D;&quot;go&quot; (click)&#x3D;&quot;goInstall()&quot;&gt;Install Product&lt;/button&gt;
+		    		&lt;/div&gt;
+		    		&lt;svg width&#x3D;&quot;150&quot; height&#x3D;&quot;20&quot;&gt;&lt;line x1&#x3D;&quot;75&quot; y1&#x3D;&quot;0&quot; x2&#x3D;&quot;75&quot; y2&#x3D;&quot;20&quot; stroke&#x3D;&quot;gray&quot;/&gt;&lt;/svg&gt;
+					&lt;div class&#x3D;&quot;blockextra&quot;&gt;
+		    			&lt;span class&#x3D;&quot;subjectExtra&quot;&gt;Identify your webMethods packages and services to be deployed&lt;/span&gt;
+	    				&lt;button class&#x3D;&quot;go&quot; (click)&#x3D;&quot;goSource()&quot;&gt;Identify Source&lt;/button&gt;
+		    		&lt;/div&gt;
+		    		&lt;svg width&#x3D;&quot;150&quot; height&#x3D;&quot;20&quot;&gt;&lt;line x1&#x3D;&quot;75&quot; y1&#x3D;&quot;0&quot; x2&#x3D;&quot;75&quot; y2&#x3D;&quot;20&quot; stroke&#x3D;&quot;gray&quot;/&gt;&lt;/svg&gt;
+					&lt;div class&#x3D;&quot;blockextra&quot;&gt;
+		    			&lt;span class&#x3D;&quot;subjectExtra&quot;&gt;Combine your webMethods &amp; Services into single deployable image&lt;/span&gt;
+	    				&lt;button class&#x3D;&quot;go&quot; (click)&#x3D;&quot;goMake()&quot;&gt;Make Docker Image&lt;/button&gt;
+		    		&lt;/div&gt;
+		    	&lt;/div&gt;
+		    &lt;/div&gt;
+		    &lt;div id&#x3D;&quot;deployextra&quot; class&#x3D;&quot;extra&quot;&gt;
+		    	&lt;div class&#x3D;&quot;stack-vertical&quot;&gt;
+		    		&lt;svg width&#x3D;&quot;150&quot; height&#x3D;&quot;20&quot;&gt;&lt;line x1&#x3D;&quot;75&quot; y1&#x3D;&quot;0&quot; x2&#x3D;&quot;75&quot; y2&#x3D;&quot;20&quot; stroke&#x3D;&quot;gray&quot;/&gt;&lt;/svg&gt;
+		    		&lt;div class&#x3D;&quot;blockextra&quot; style&#x3D;&quot;background-color: rgba(246, 113, 46, 0.96)&quot;&gt;
+		    			&lt;span class&#x3D;&quot;subjectExtra&quot;&gt;Select image &amp; settings necessary to run your micro service&lt;/span&gt;
+	    				&lt;button class&#x3D;&quot;go&quot; (click)&#x3D;&quot;goRun()&quot;&gt;Run Containers&lt;/button&gt;
+		    		&lt;/div&gt;
+		    		&lt;svg width&#x3D;&quot;150&quot; height&#x3D;&quot;20&quot;&gt;&lt;line x1&#x3D;&quot;75&quot; y1&#x3D;&quot;0&quot; x2&#x3D;&quot;75&quot; y2&#x3D;&quot;20&quot; stroke&#x3D;&quot;gray&quot;/&gt;&lt;/svg&gt;
+					&lt;div class&#x3D;&quot;blockextra&quot; style&#x3D;&quot;background-color: rgba(246, 113, 46, 0.96)&quot;&gt;
+		    			&lt;span class&#x3D;&quot;subjectExtra&quot;&gt;Generate jenkins pipeline to automate startup, testing and deployment&lt;/span&gt;
+	    				&lt;button class&#x3D;&quot;go&quot; (click)&#x3D;&quot;goStage()&quot;&gt;Staging&lt;/button&gt;
+		    		&lt;/div&gt;
+		    	&lt;/div&gt;
+		    &lt;/div&gt;
+		    &lt;div id&#x3D;&quot;testextra&quot; class&#x3D;&quot;extra&quot;&gt;
+		    	&lt;div class&#x3D;&quot;stack-vertical&quot;&gt;
+		    		&lt;svg width&#x3D;&quot;150&quot; height&#x3D;&quot;20&quot;&gt;&lt;line x1&#x3D;&quot;75&quot; y1&#x3D;&quot;0&quot; x2&#x3D;&quot;75&quot; y2&#x3D;&quot;20&quot; stroke&#x3D;&quot;gray&quot;/&gt;&lt;/svg&gt;
+		    		&lt;div class&#x3D;&quot;blockextra&quot; style&#x3D;&quot;background-color: rgba(179, 210, 13, 0.96)&quot;&gt;
+		    			&lt;span class&#x3D;&quot;subjectExtra&quot;&gt;Define unit tests for source packages and services&lt;/span&gt;
+	    				&lt;button class&#x3D;&quot;go&quot; (click)&#x3D;&quot;goTestSetup()&quot;&gt;Setup&lt;/button&gt;
+		    		&lt;/div&gt;
+		    		&lt;svg width&#x3D;&quot;150&quot; height&#x3D;&quot;20&quot;&gt;&lt;line x1&#x3D;&quot;75&quot; y1&#x3D;&quot;0&quot; x2&#x3D;&quot;75&quot; y2&#x3D;&quot;20&quot; stroke&#x3D;&quot;gray&quot;/&gt;&lt;/svg&gt;
+					&lt;div class&#x3D;&quot;blockextra&quot; style&#x3D;&quot;background-color: rgba(179, 210, 13, 0.96)&quot;&gt;
+		    			&lt;span class&#x3D;&quot;subjectExtra&quot;&gt;Run test cases on your local Integration Server&lt;/span&gt;
+	    				&lt;button class&#x3D;&quot;go&quot; (click)&#x3D;&quot;goTestRun()&quot;&gt;Test&lt;/button&gt;
+		    		&lt;/div&gt;
+		    	&lt;/div&gt;
+		    &lt;/div&gt;
+		&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>../templates/home.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">
+.block {
+	background-color: rgb(23, 118,191);
+	color: white;
+	padding: 10px;
+	width: 300px;
+	height: 200px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	cursor: pointer;
+}
+.stack-vertical {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 20px;
+	padding: 5px;
+}
+.row {
+	 display: flex;
+	 flex-direction: row;
+	 justify-content: center;
+	 align-items: center;
+	 margin-top: 100px
+}
+.page-title {
+	font-size: 14px;
+	color: darkgray;
+}
+.page-content-title {
+	text-align: center;
+}
+.title {
+	font-size: 30px;
+	line-height: 75px;
+	vertical-align: middle;
+}
+.subject {
+	font-size: 14px;
+}
+.learn-more {
+	background-color: rgba(0,0,0, 0.3);
+	color: white;
+	padding: 5px;
+	margin-top: 30px;
+	border: none;
+	text-transform: uppercase;
+	font-size: 14px;
+}
+.learn-more:hover {
+	color: orange;
+}
+.extra {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 100px;
+	display: none;
+}
+.blockextra {
+	background-color: rgba(23, 118,191, 0.96);
+	color: white;
+	padding: 10px;
+	width: 200px;
+	height: 75px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	cursor: pointer;
+}
+.titleExtra {
+	font-size: 12px;
+	font-weight: bold;
+}
+.subjectExtra {
+	font-size: 11px;
+	font-weight: lighter;
+}
+.go {
+	background-color: rgba(0,0,0, 0.3);
+	color: white;
+	padding: 5px;
+	margin-top: 10px;
+	border: none;
+	text-transform: uppercase;
+	font-size: 11px;
+}
+.go:hover {
+	font-weight: bolder;
+	color: orange;
+}
+#buildextra {
+	bottom: -800px;
+}
+#deployextra {
+	bottom: -800px;
+}
+#testextra {
+	bottom: -800px;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div id="home-page" class="page-wrapper" (mouseleave)="hideExtraInfo()">  <h1 class="page-content-title">Welcome</h1>  <div id="page-content" class="page-content-wrapper">    <div id="scroller" class="page-scrollable-content">    	<div style="width:100%; text-align: center">    		<span class="page-title">End to end solution for docker image creation and deployment for all your micro service requirements, powered by webMethods.</span>    	</div>    	<div id="top-doc" class="row">    		<div class="stack-vertical">    			<fa-icon class="icon" [icon]="[\'fas\', \'box\']" size="4x" style="color: rgb(23, 118,191); padding-bottom: 10px"></fa-icon>    			<div id="build-block" class="block" (mouseenter)="showDetailsInfo(\'#buildextra\')">    				<div class="title">Build</div>    				<span class="subject">Build Docker images comprising both Software AG base Products with your Micro Services.</span>    				<button class="learn-more" (click)="goBuild()">Build Summary</button>    			</div>    		</div>    		<svg width="150" height="75"><line x1="0" y1="32" x2="150" y2="32" stroke="gray"/></svg>    		<div class="stack-vertical">    			<fa-icon class="icon" [icon]="[\'fas\', \'rocket\']" size="4x" style="color: rgb(246, 113, 46); padding-bottom: 10px"></fa-icon>    			<div id="deploy-block" class="block" style="background-color: rgb(246, 113, 46)" (mouseenter)="showDetailsInfo(\'#deployextra\')">    				<div class="title">Deploy</div>    				<span class="subject">Run and deploy your Micro Services using docker compose or through Kubernetes</span>    				<button class="learn-more" (click)="goDeploy()">Deployments</button>    			</div>    		</div>    		<svg width="150" height="75"><line x1="0" y1="32" x2="150" y2="32" stroke="gray"/></svg>    		<div class="stack-vertical">    			<fa-icon class="icon" [icon]="[\'fas\', \'vial\']" size="4x" style="color: rgb(179, 210, 13); padding-bottom: 10px"></fa-icon>    			<div id="test-block" class="block" style="background-color: rgb(179, 210, 13)" (mouseenter)="showDetailsInfo(\'#testextra\')">    				<div class="title">Test</div>    				<span class="subject">Generate Test Cases, execute and review results</span>    				<button class="learn-more" (click)="goTest()">Test Results</button>    			</div>    		</div>    	</div>    	<div>	    	<div id="buildextra" class="extra">		    	<div class="stack-vertical">		    		<svg width="150" height="20"><line x1="75" y1="0" x2="75" y2="20" stroke="gray"/></svg>		    		<div class="blockextra">		    			<span class="subjectExtra">Create a webMethods Docker image.</span>	    				<button class="go" (click)="goInstall()">Install Product</button>		    		</div>		    		<svg width="150" height="20"><line x1="75" y1="0" x2="75" y2="20" stroke="gray"/></svg>					<div class="blockextra">		    			<span class="subjectExtra">Identify your webMethods packages and services to be deployed</span>	    				<button class="go" (click)="goSource()">Identify Source</button>		    		</div>		    		<svg width="150" height="20"><line x1="75" y1="0" x2="75" y2="20" stroke="gray"/></svg>					<div class="blockextra">		    			<span class="subjectExtra">Combine your webMethods & Services into single deployable image</span>	    				<button class="go" (click)="goMake()">Make Docker Image</button>		    		</div>		    	</div>		    </div>		    <div id="deployextra" class="extra">		    	<div class="stack-vertical">		    		<svg width="150" height="20"><line x1="75" y1="0" x2="75" y2="20" stroke="gray"/></svg>		    		<div class="blockextra" style="background-color: rgba(246, 113, 46, 0.96)">		    			<span class="subjectExtra">Select image & settings necessary to run your micro service</span>	    				<button class="go" (click)="goRun()">Run Containers</button>		    		</div>		    		<svg width="150" height="20"><line x1="75" y1="0" x2="75" y2="20" stroke="gray"/></svg>					<div class="blockextra" style="background-color: rgba(246, 113, 46, 0.96)">		    			<span class="subjectExtra">Generate jenkins pipeline to automate startup, testing and deployment</span>	    				<button class="go" (click)="goStage()">Staging</button>		    		</div>		    	</div>		    </div>		    <div id="testextra" class="extra">		    	<div class="stack-vertical">		    		<svg width="150" height="20"><line x1="75" y1="0" x2="75" y2="20" stroke="gray"/></svg>		    		<div class="blockextra" style="background-color: rgba(179, 210, 13, 0.96)">		    			<span class="subjectExtra">Define unit tests for source packages and services</span>	    				<button class="go" (click)="goTestSetup()">Setup</button>		    		</div>		    		<svg width="150" height="20"><line x1="75" y1="0" x2="75" y2="20" stroke="gray"/></svg>					<div class="blockextra" style="background-color: rgba(179, 210, 13, 0.96)">		    			<span class="subjectExtra">Run test cases on your local Integration Server</span>	    				<button class="go" (click)="goTestRun()">Test</button>		    		</div>		    	</div>		    </div>		</div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'about-app'},{'name': 'ActionComponent', 'selector': 'action'},{'name': 'ApiGatewayInstallerComponent', 'selector': 'jc-apigw-install'},{'name': 'ApiMicroGatewayInstallerComponent', 'selector': 'jc-apimg-install'},{'name': 'ApiPortalInstallerComponent', 'selector': 'jc-apipr-installer'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BuildCommandsComponent', 'selector': 'build-commands'},{'name': 'BuildComponent', 'selector': 'build'},{'name': 'BuildExeComponent', 'selector': 'build-exe'},{'name': 'BuildImageComponent', 'selector': 'build-solution'},{'name': 'BuildInstallComponent', 'selector': 'build-install'},{'name': 'BuildPackagesComponent', 'selector': 'build-package'},{'name': 'ContainerComponent', 'selector': 'container'},{'name': 'ContainersComponent', 'selector': 'app-containers'},{'name': 'DeploymentDetailsComponent', 'selector': 'jc-deployment-details'},{'name': 'DeploymentListComponent', 'selector': 'jc-k8s-deployments'},{'name': 'DockerImageChooserComponent', 'selector': 'docker-image-chooser'},{'name': 'DockerImageListComponent', 'selector': 'jc-docker-images'},{'name': 'DockerImageVersionsComponent', 'selector': 'jc-docker-image-versions'},{'name': 'EditContainerComponent', 'selector': 'edit-container'},{'name': 'GitSourcesComponent', 'selector': 'git-source'},{'name': 'HomeComponent', 'selector': 'home'},{'name': 'InstallerComponent', 'selector': 'jc-install'},{'name': 'MicroServiceBuilderComponent', 'selector': 'jc-msc-configure'},{'name': 'MicroServiceInstallerComponent', 'selector': 'jc-msc-install'},{'name': 'PodsListComponent', 'selector': 'jc-pods'},{'name': 'RuntimeContainersComponent', 'selector': 'runtime-containers'},{'name': 'RuntimeDeployComponent', 'selector': 'runtime-deploy'},{'name': 'RuntimeDetailsComponent', 'selector': ''},{'name': 'RuntimeK8sComponent', 'selector': 'runtime'},{'name': 'RuntimeScaleComponent', 'selector': 'jc-runtime-scale'},{'name': 'RuntimeStageComponent', 'selector': 'runtime-stage'},{'name': 'RuntimeUpdateComponent', 'selector': ''},{'name': 'SagImageAlerterComponent', 'selector': 'sag-image-alerter'},{'name': 'ServicePropertiesComponent', 'selector': 'k8s-props'},{'name': 'SettingsComponent', 'selector': 'home'},{'name': 'SimpleNameComponent', 'selector': 'name-dialog'},{'name': 'StagingComponent', 'selector': 'staging'},{'name': 'TestCaseComponent', 'selector': 'test-case'},{'name': 'TestDefinitionComponent', 'selector': 'test-definitions'},{'name': 'TestHistoryComponent', 'selector': 'test-history'},{'name': 'TestRunComponent', 'selector': 'test-reun'},{'name': 'UMInstallerComponent', 'selector': 'jc-um-install'},{'name': 'UploadButtonComponent', 'selector': 'file-uploader-button'}];
+    var DIRECTIVES = [{'name': 'BuildImageChooseDirective', 'selector': '[builder]'},{'name': 'CancelCdkDrag', 'selector': '[appCancelCdkDrag]'},{'name': 'NgFileDrop', 'selector': '[ng-file-drop]'},{'name': 'NgFileSelect', 'selector': '[ng-file-select]'},{'name': 'RuntimeActionsDirective', 'selector': '[runtime-actions]'}];
+    var ACTUAL_COMPONENT = {'name': 'HomeComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'HomeComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

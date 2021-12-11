@@ -1,0 +1,55 @@
+<mat-table #podsTable [dataSource]="dataSource()" class="mat-elevation-z8" width="100%">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+    <ng-container matColumnDef="Name">
+      <mat-header-cell *matHeaderCellDef style="flex-grow: 2"> Name</mat-header-cell>
+      <mat-cell *matCellDef="let element" style="flex-grow: 2"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Type">
+      <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.type}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Description" style="flex-grow: 2">
+      <mat-header-cell *matHeaderCellDef style="flex-grow: 2"> Description </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Containers">
+      <mat-header-cell *matHeaderCellDef style="flex-grow: 2"> Containers </mat-header-cell>
+      <mat-cell *matCellDef="let element" style="display:flex;flex-direction: column; align-items: flex-start; flex-grow: 2; padding: 5px">
+        <p style="line-height:19px;min-height:12px;" *ngFor="let c of containerSummary(element)">{{c}}</p>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Created">
+      <mat-header-cell *matHeaderCellDef> Created </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.creationDate | date: 'dd/MM/yyyy HH:mm'}} </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="Status">
+      <mat-header-cell *matHeaderCellDef style="align-items: flex-end; flex-grow: 1; max-width: 100px"> Status </mat-header-cell>
+      <mat-cell *matCellDef="let element" style="align-self: flex-end; flex-grow: 1; max-width: 100px">
+        <span [ngStyle]="styleForStatus(element)">
+          {{localizedStatus(element.status)}}
+        </span>
+      </mat-cell>
+    </ng-container>
+
+     <ng-container matColumnDef="Actions">
+      <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-button (click)="executeAction(element)"
+          [matTooltip]="labelForAction(element)" [matTooltipPosition]="'right'">
+            <fa-icon class="icon" [icon]="['fas', iconForAction(element)]" size="sm" [ngStyle]="styleForAction(element)"></fa-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns()"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns();"></mat-row>
+  </mat-table>

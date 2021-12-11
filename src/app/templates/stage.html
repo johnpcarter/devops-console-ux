@@ -1,0 +1,59 @@
+<form [formGroup]="form">
+	<div style="width:100%;display:flex;flex-direction: column; margin-bottom: 80px;">
+		<mat-form-field style="margin-right:20px; flex-grow: 2">
+			<input matInput placeholder="Stage Name" formControlName="stageNameCtrl" required>
+		</mat-form-field>
+		<div class="group-panel">
+			<div class="group-title" style="width: 70px">Start Up</div>
+			<mat-form-field style="margin-right:20px; flex-grow: 2">
+				<mat-select matInput placeholder="Runtime environment" formControlName="envCtrl">
+          <mat-option *ngFor="let env of environments" [value]="env">{{env}}</mat-option>
+        </mat-select>
+			</mat-form-field>
+			<mat-checkbox formControlName="buildServiceCtrl" style=" margin-top: 20px; margin-right: 20px; float: right;">Build MicroService Image</mat-checkbox>
+			<mat-radio-group class="radio-group" aria-label="Type" formControlName="runTypeCtrl">
+          		<mat-radio-button class="radio-button" value="docker">Docker</mat-radio-button>
+          	<mat-radio-button class="radio-button" value="k8s">Kubernetes Deployment</mat-radio-button>
+        	</mat-radio-group>
+        	<table style="width:100%">
+		        <tr>
+		          <th style="text-align:left">Service</th>
+		          <th style="text-align:left">Containers</th>
+		          <th style="text-align:left">API's</th>
+		        </tr>
+		        <tr *ngFor="let service of stage.deployments">
+		          <td style="text-align:left">{{service.name}}</td>
+		          <td style="text-align:left">
+		            <mat-chip-list>
+		              <mat-chip [color]="colorForContainer(container)" *ngFor="let container of service.containers" selected (click)="editContainer(container, $event)">
+		              	<span  style="font-size: 12px">{{container.description}} <fa-icon class="icon" [icon]="['fas', 'cog']" style="margin-left: 10px"></fa-icon></span>
+		              </mat-chip>
+		            </mat-chip-list>
+		          </td>
+		           <td style="text-align:left">
+		            <mat-chip-list>
+		              <mat-chip color="warn" *ngFor="let api of service.apis" selected>
+		              	{{api.name}}
+		              </mat-chip>
+		            </mat-chip-list>
+		          </td>
+		        </tr>
+		        <tr>
+		        	<td></td>
+		        	<td style="font-size:11px;color: gray; height:30px;vertical-align: bottom"><span>Click container to activate/deactivate and or specify alternative endpoint</span></td>
+		    </table>
+		</div>
+        <div class="group-panel">
+			<div class="group-title" style="width: 70px">On Start</div>
+	        <action [stage]="stage" [action]="stage.onStart" type="start" (change)="actionChanged($event)"></action>
+	    </div>
+        <div *ngIf="stage.onStart.runTests == 'true'" class="group-panel">
+			<div class="group-title" style="width: 100px">On Success</div>
+	        <action [stage]="stage" [action]="stage.onSuccess" type="success" (change)="actionChanged()"></action>
+	    </div>
+	    <div *ngIf="stage.onStart.runTests == 'true'" class="group-panel">
+			<div class="group-title" style="width: 70px">On Fail</div>
+	        <action [stage]="stage" [action]="stage.onFail" type="fail" (change)="actionChanged()"></action>
+	    </div>
+	</div>
+</form>

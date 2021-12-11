@@ -1,0 +1,2476 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>wm-devops-console documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">wm-devops-console documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li>ConfigurationService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/services/configuration.service.ts</code>
+        </p>
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#URI_CONFIG">URI_CONFIG</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#URI_TEMPLATES">URI_TEMPLATES</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#build">build</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#builds">builds</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deleteBuild">deleteBuild</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deleteDeploymentSet">deleteDeploymentSet</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deleteInstall">deleteInstall</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deleteProject">deleteProject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deleteRunSet">deleteRunSet</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deploymentSet">deploymentSet</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deploymentSets">deploymentSets</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#displayTypes">displayTypes</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#generateJenkinsPipeline">generateJenkinsPipeline</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#install">install</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#installs">installs</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#installTemplate">installTemplate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#project">project</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#projects">projects</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#runSet">runSet</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#runSets">runSets</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#runtimeTemplate">runtimeTemplate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#uploadBuild">uploadBuild</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#uploadDeploymentSet">uploadDeploymentSet</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#uploadInstall">uploadInstall</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#uploadProject">uploadProject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#uploadRunSet">uploadRunSet</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(_settings: <a href="../injectables/Settings.html">Settings</a>, _http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>, _ngxXml2jsonService: NgxXml2jsonService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/services/configuration.service.ts:17</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_settings</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/Settings.html" target="_self" >Settings</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_http</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_ngxXml2jsonService</td>
+                                                  
+                                                        <td>
+                                                                    <code>NgxXml2jsonService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="build"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            build
+                        </b>
+                        <a href="#build"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>build(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="266"
+                            class="link-to-prism">src/app/services/configuration.service.ts:266</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Builder.html" target="_self" >Observable&lt;Builder&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="builds"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            builds
+                        </b>
+                        <a href="#builds"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>builds()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="249"
+                            class="link-to-prism">src/app/services/configuration.service.ts:249</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;string[]&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteBuild"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            deleteBuild
+                        </b>
+                        <a href="#deleteBuild"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteBuild(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="302"
+                            class="link-to-prism">src/app/services/configuration.service.ts:302</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;boolean&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteDeploymentSet"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            deleteDeploymentSet
+                        </b>
+                        <a href="#deleteDeploymentSet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteDeploymentSet(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="160"
+                            class="link-to-prism">src/app/services/configuration.service.ts:160</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;boolean&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteInstall"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            deleteInstall
+                        </b>
+                        <a href="#deleteInstall"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteInstall(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="232"
+                            class="link-to-prism">src/app/services/configuration.service.ts:232</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;boolean&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteProject"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            deleteProject
+                        </b>
+                        <a href="#deleteProject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteProject(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="444"
+                            class="link-to-prism">src/app/services/configuration.service.ts:444</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;boolean&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteRunSet"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            deleteRunSet
+                        </b>
+                        <a href="#deleteRunSet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteRunSet(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="374"
+                            class="link-to-prism">src/app/services/configuration.service.ts:374</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;boolean&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deploymentSet"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            deploymentSet
+                        </b>
+                        <a href="#deploymentSet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deploymentSet(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="124"
+                            class="link-to-prism">src/app/services/configuration.service.ts:124</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;DeploymentSet&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deploymentSets"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            deploymentSets
+                        </b>
+                        <a href="#deploymentSets"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deploymentSets()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="107"
+                            class="link-to-prism">src/app/services/configuration.service.ts:107</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;string[]&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="displayTypes"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            displayTypes
+                        </b>
+                        <a href="#displayTypes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>displayTypes()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">src/app/services/configuration.service.ts:84</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;ArgDisplayType[]&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateJenkinsPipeline"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            generateJenkinsPipeline
+                        </b>
+                        <a href="#generateJenkinsPipeline"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>generateJenkinsPipeline(project: <a href="../classes/Project.html">Project</a>, gitUri: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, gitRepo: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, gitUser: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, gitPassword: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/app/services/configuration.service.ts:23</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>project</td>
+                                    <td>
+                                                <code><a href="../classes/Project.html" target="_self" >Project</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>gitUri</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>gitRepo</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>gitUser</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>gitPassword</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="install"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            install
+                        </b>
+                        <a href="#install"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>install(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="194"
+                            class="link-to-prism">src/app/services/configuration.service.ts:194</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Installer.html" target="_self" >Observable&lt;Installer&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="installs"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            installs
+                        </b>
+                        <a href="#installs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>installs()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="177"
+                            class="link-to-prism">src/app/services/configuration.service.ts:177</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;string[]&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="installTemplate"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            installTemplate
+                        </b>
+                        <a href="#installTemplate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>installTemplate(product: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">src/app/services/configuration.service.ts:50</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>product</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Installer.html" target="_self" >Observable&lt;Installer&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="project"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            project
+                        </b>
+                        <a href="#project"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>project(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="408"
+                            class="link-to-prism">src/app/services/configuration.service.ts:408</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Project.html" target="_self" >Observable&lt;Project&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="projects"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            projects
+                        </b>
+                        <a href="#projects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>projects()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="391"
+                            class="link-to-prism">src/app/services/configuration.service.ts:391</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;string[]&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="runSet"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            runSet
+                        </b>
+                        <a href="#runSet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>runSet(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="336"
+                            class="link-to-prism">src/app/services/configuration.service.ts:336</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/RunSet.html" target="_self" >Observable&lt;RunSet&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="runSets"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            runSets
+                        </b>
+                        <a href="#runSets"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>runSets()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="319"
+                            class="link-to-prism">src/app/services/configuration.service.ts:319</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;string[]&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="runtimeTemplate"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            runtimeTemplate
+                        </b>
+                        <a href="#runtimeTemplate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>runtimeTemplate(product: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="67"
+                            class="link-to-prism">src/app/services/configuration.service.ts:67</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>product</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Container.html" target="_self" >Observable&lt;Container&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="uploadBuild"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            uploadBuild
+                        </b>
+                        <a href="#uploadBuild"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>uploadBuild(build: <a href="../classes/Builder.html">Builder</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="283"
+                            class="link-to-prism">src/app/services/configuration.service.ts:283</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>build</td>
+                                    <td>
+                                                <code><a href="../classes/Builder.html" target="_self" >Builder</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;boolean&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="uploadDeploymentSet"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            uploadDeploymentSet
+                        </b>
+                        <a href="#uploadDeploymentSet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>uploadDeploymentSet(serviceSet: <a href="../classes/DeploymentSet.html">DeploymentSet</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="141"
+                            class="link-to-prism">src/app/services/configuration.service.ts:141</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>serviceSet</td>
+                                    <td>
+                                                <code><a href="../classes/DeploymentSet.html" target="_self" >DeploymentSet</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;boolean&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="uploadInstall"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            uploadInstall
+                        </b>
+                        <a href="#uploadInstall"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>uploadInstall(install: <a href="../classes/Installer.html">Installer</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="211"
+                            class="link-to-prism">src/app/services/configuration.service.ts:211</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>install</td>
+                                    <td>
+                                                <code><a href="../classes/Installer.html" target="_self" >Installer</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;boolean&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="uploadProject"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            uploadProject
+                        </b>
+                        <a href="#uploadProject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>uploadProject(project: <a href="../classes/Project.html">Project</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="425"
+                            class="link-to-prism">src/app/services/configuration.service.ts:425</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>project</td>
+                                    <td>
+                                                <code><a href="../classes/Project.html" target="_self" >Project</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;boolean&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="uploadRunSet"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            uploadRunSet
+                        </b>
+                        <a href="#uploadRunSet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>uploadRunSet(runSet: <a href="../classes/RunSet.html">RunSet</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="353"
+                            class="link-to-prism">src/app/services/configuration.service.ts:353</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>runSet</td>
+                                    <td>
+                                                <code><a href="../classes/RunSet.html" target="_self" >RunSet</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;boolean&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="URI_CONFIG"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            URI_CONFIG</b>
+                            <a href="#URI_CONFIG"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Settings.SERVER_API + &quot;/rad/jc.devops:api/configuration&quot;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/services/configuration.service.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="URI_TEMPLATES"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            URI_TEMPLATES</b>
+                            <a href="#URI_TEMPLATES"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Settings.SERVER_API + &quot;/rad/jc.devops:api/templates&quot;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/services/configuration.service.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } 	           	 			      from &#x27;@angular/core&#x27;;
+import { HttpClient, HttpHeaders,
+                                HttpResponse }  from &#x27;@angular/common/http&#x27;;
+import { Observable }               		        from &#x27;rxjs&#x27;;
+import { map } 						                      from &#x27;rxjs/operators&#x27;;
+
+import { NgxXml2jsonService } 					        from &#x27;ngx-xml2json&#x27;;
+import { Settings }                     		    from &#x27;../settings&#x27;;
+import {
+  Project, RunSet, Installer, ArgDisplayType,
+  Builder, DeploymentSet, Container }           from &#x27;../models/project&#x27;;
+
+@Injectable()
+export class ConfigurationService {
+
+    public static URI_CONFIG: string &#x3D; Settings.SERVER_API + &quot;/rad/jc.devops:api/configuration&quot;;
+    public static URI_TEMPLATES: string &#x3D; Settings.SERVER_API + &quot;/rad/jc.devops:api/templates&quot;;
+
+    constructor(private _settings: Settings, private _http: HttpClient, private _ngxXml2jsonService: NgxXml2jsonService) {
+
+    }
+
+    public generateJenkinsPipeline(project: Project, gitUri: string, gitRepo: string, gitUser: string, gitPassword: string): Observable&lt;any&gt; {
+
+      let url: string &#x3D; ConfigurationService.URI_CONFIG + &quot;/jenkins&quot;;
+
+      let headers &#x3D; new HttpHeaders()
+        .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;);
+        //.set(&#x27;Accept&#x27;, &#x27;text/plain&#x27;);
+
+      let wrapper &#x3D; {
+          definition: project,
+          gitUri: gitUri,
+          gitRepo: gitRepo,
+          gitUser: gitUser,
+          gitPassword: gitPassword
+      };
+
+      let body: string &#x3D; JSON.stringify(wrapper);
+
+      return this._http.post(url, body, { headers, responseType: &quot;blob&quot; as &quot;json&quot; }).pipe(map( (responseData) &#x3D;&gt; {
+
+            return responseData;
+          },
+          error &#x3D;&gt; {
+            return null;
+         }));
+    }
+
+    public installTemplate(product: string): Observable&lt;Installer&gt; {
+
+      let url: string &#x3D; ConfigurationService.URI_TEMPLATES + &quot;/install/&quot; + product;
+
+      let headers &#x3D; new HttpHeaders()
+        .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+        .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+
+      return this._http.get(url, { headers, observe: &#x27;response&#x27;, responseType: &#x27;text&#x27; }).pipe(map( (responseData) &#x3D;&gt; {
+
+            return Installer.parse(responseData.body);
+          },
+          error &#x3D;&gt; {
+            return null;
+      }));
+    }
+
+    public runtimeTemplate(product: string): Observable&lt;Container&gt; {
+
+      let url: string &#x3D; ConfigurationService.URI_TEMPLATES + &quot;/runtime/&quot; + product;
+
+      let headers &#x3D; new HttpHeaders()
+        .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+        .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+
+      return this._http.get(url, { headers }).pipe(map( (responseData) &#x3D;&gt; {
+
+            return Container.make((&lt;any&gt;responseData).container);
+          },
+          error &#x3D;&gt; {
+            return null;
+      }));
+    }
+
+    public displayTypes(): Observable&lt;ArgDisplayType[]&gt; {
+
+      let url: string &#x3D; ConfigurationService.URI_TEMPLATES + &quot;/display&quot;;
+
+      let headers &#x3D; new HttpHeaders()
+        .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+        .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+
+      return this._http.get(url, { headers }).pipe(map( (responseData) &#x3D;&gt; {
+
+            let types: ArgDisplayType[] &#x3D; [];
+
+            (&lt;any&gt; responseData).forEach((t) &#x3D;&gt; {
+              types.push(ArgDisplayType.make(t));
+            });
+
+              return types;
+          },
+          error &#x3D;&gt; {
+            return null;
+      }));
+    }
+
+    public deploymentSets(): Observable&lt;string[]&gt; {
+
+      let url: string &#x3D; ConfigurationService.URI_CONFIG + &quot;/deploysets&quot;;
+
+      let headers &#x3D; new HttpHeaders()
+        .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+        .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+
+      return this._http.get(url, { headers }).pipe(map( (responseData) &#x3D;&gt; {
+
+            return (&lt;any&gt;responseData).sets;
+          },
+          error &#x3D;&gt; {
+            return null;
+      }));
+    }
+
+    public deploymentSet(id: string): Observable&lt;DeploymentSet&gt; {
+
+      let url: string &#x3D; ConfigurationService.URI_CONFIG + &quot;/deployset/&quot; + encodeURIComponent(id);
+
+      let headers &#x3D; new HttpHeaders()
+        .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+        .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+
+      return this._http.get(url, { headers }).pipe(map( (responseData) &#x3D;&gt; {
+
+            return DeploymentSet.make((&lt;any&gt;responseData).build);
+          },
+          error &#x3D;&gt; {
+            return null;
+         }));
+    }
+
+    public uploadDeploymentSet(serviceSet: DeploymentSet): Observable&lt;boolean&gt; {
+
+      let url: string &#x3D; ConfigurationService.URI_CONFIG + &quot;/deployset&quot;;
+
+      let headers &#x3D; new HttpHeaders()
+        .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+        .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+
+      let body: string &#x3D; JSON.stringify(serviceSet);
+
+      return this._http.post(url, body, { headers }).pipe(map( (responseData) &#x3D;&gt; {
+
+            return true;
+          },
+          error &#x3D;&gt; {
+            return false;
+         }));
+    }
+
+    public deleteDeploymentSet(id: string): Observable&lt;boolean&gt; {
+
+      let url: string &#x3D; ConfigurationService.URI_CONFIG + &quot;/deployset/&quot; + encodeURIComponent(id);
+
+      let headers &#x3D; new HttpHeaders()
+        .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+        .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+
+      return this._http.delete(url, { headers }).pipe(map( (responseData) &#x3D;&gt; {
+
+            return true;
+          },
+          error &#x3D;&gt; {
+            return false;
+         }));
+    }
+
+    public installs(): Observable&lt;string[]&gt; {
+
+      let url: string &#x3D; ConfigurationService.URI_CONFIG + &quot;/installs&quot;;
+
+      let headers &#x3D; new HttpHeaders()
+        .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+        .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+
+      return this._http.get(url, { headers }).pipe(map( (responseData) &#x3D;&gt; {
+
+            return (&lt;any&gt;responseData).installs;
+          },
+          error &#x3D;&gt; {
+            return null;
+         }));
+    }
+
+    public install(id: string): Observable&lt;Installer&gt; {
+
+      let url: string &#x3D; ConfigurationService.URI_CONFIG + &quot;/install/&quot; + encodeURIComponent(id);
+
+      let headers &#x3D; new HttpHeaders()
+        .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+        .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+
+      return this._http.get(url, { headers, observe: &#x27;response&#x27;, responseType: &#x27;text&#x27; }).pipe(map( (response: HttpResponse&lt;any&gt;) &#x3D;&gt; {
+
+            return Installer.parse(response.body);
+          },
+          error &#x3D;&gt; {
+            return null;
+         }));
+    }
+
+    public uploadInstall(install: Installer): Observable&lt;boolean&gt; {
+
+      let url: string &#x3D; ConfigurationService.URI_CONFIG + &quot;/install&quot;;
+
+      let headers &#x3D; new HttpHeaders()
+        .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+        .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+
+      let body: string &#x3D; install.toString();
+
+      console.log(body);
+
+      return this._http.post(url, body, { headers }).pipe(map( (responseData) &#x3D;&gt; {
+
+            return true;
+          },
+          error &#x3D;&gt; {
+            return false;
+         }));
+    }
+
+    public deleteInstall(id: string): Observable&lt;boolean&gt; {
+
+      let url: string &#x3D; ConfigurationService.URI_CONFIG + &quot;/install/&quot; + encodeURIComponent(id);
+
+      let headers &#x3D; new HttpHeaders()
+        .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+        .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+
+      return this._http.delete(url, { headers }).pipe(map( (responseData) &#x3D;&gt; {
+
+            return true;
+          },
+          error &#x3D;&gt; {
+            return false;
+         }));
+    }
+
+    public builds(): Observable&lt;string[]&gt; {
+
+      let url: string &#x3D; ConfigurationService.URI_CONFIG + &quot;/builds&quot;;
+
+      let headers &#x3D; new HttpHeaders()
+        .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+        .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+
+      return this._http.get(url, { headers }).pipe(map( (responseData) &#x3D;&gt; {
+
+            return (&lt;any&gt;responseData).builds;
+          },
+          error &#x3D;&gt; {
+            return null;
+         }));
+    }
+
+    public build(id: string): Observable&lt;Builder&gt; {
+
+      let url: string &#x3D; ConfigurationService.URI_CONFIG + &quot;/build/&quot; + encodeURIComponent(id);
+
+      let headers &#x3D; new HttpHeaders()
+        .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+        .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+
+      return this._http.get(url, { headers }).pipe(map( (responseData) &#x3D;&gt; {
+
+            return Builder.make((&lt;any&gt;responseData).build.build || (&lt;any&gt;responseData).build);
+          },
+          error &#x3D;&gt; {
+            return null;
+         }));
+    }
+
+    public uploadBuild(build: Builder): Observable&lt;boolean&gt; {
+
+      let url: string &#x3D; ConfigurationService.URI_CONFIG + &quot;/build&quot;;
+
+      let headers &#x3D; new HttpHeaders()
+        .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+        .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+
+      let body: string &#x3D; JSON.stringify(build);
+
+      return this._http.post(url, body, { headers }).pipe(map( (responseData) &#x3D;&gt; {
+
+            return true;
+          },
+          error &#x3D;&gt; {
+            return false;
+         }));
+    }
+
+    public deleteBuild(id: string): Observable&lt;boolean&gt; {
+
+      let url: string &#x3D; ConfigurationService.URI_CONFIG + &quot;/build/&quot; + encodeURIComponent(id);
+
+      let headers &#x3D; new HttpHeaders()
+        .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+        .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+
+      return this._http.delete(url, { headers }).pipe(map( (responseData) &#x3D;&gt; {
+
+            return true;
+          },
+          error &#x3D;&gt; {
+            return false;
+         }));
+    }
+
+    public runSets(): Observable&lt;string[]&gt; {
+
+      let url: string &#x3D; ConfigurationService.URI_CONFIG + &quot;/runs&quot;;
+
+      let headers &#x3D; new HttpHeaders()
+        .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+        .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+
+      return this._http.get(url, { headers }).pipe(map( (responseData) &#x3D;&gt; {
+
+            return (&lt;any&gt;responseData).runs;
+          },
+          error &#x3D;&gt; {
+            return null;
+         }));
+    }
+
+    public runSet(id: string): Observable&lt;RunSet&gt; {
+
+      let url: string &#x3D; ConfigurationService.URI_CONFIG + &quot;/run/&quot; + encodeURIComponent(id);
+
+      let headers &#x3D; new HttpHeaders()
+        .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+        .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+
+      return this._http.get(url, { headers }).pipe(map( (responseData) &#x3D;&gt; {
+
+            return RunSet.make((&lt;any&gt;responseData).run);
+          },
+          error &#x3D;&gt; {
+            return null;
+         }));
+    }
+
+    public uploadRunSet(runSet: RunSet): Observable&lt;boolean&gt; {
+
+      let url: string &#x3D; ConfigurationService.URI_CONFIG + &quot;/run&quot;;
+
+      let headers &#x3D; new HttpHeaders()
+        .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+        .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+
+      let body: string &#x3D; JSON.stringify(runSet);
+
+      console.log(body);
+
+      return this._http.post(url, body, { headers }).pipe(map( (responseData) &#x3D;&gt; {
+
+            return true;
+          },
+          error &#x3D;&gt; {
+            return false;
+         }));
+    }
+
+    public deleteRunSet(id: string): Observable&lt;boolean&gt; {
+
+      let url: string &#x3D; ConfigurationService.URI_CONFIG + &quot;/run/&quot; + encodeURIComponent(id);
+
+      let headers &#x3D; new HttpHeaders()
+        .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+        .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+
+      return this._http.delete(url, { headers }).pipe(map( (responseData) &#x3D;&gt; {
+
+            return true;
+          },
+          error &#x3D;&gt; {
+            return false;
+         }));
+    }
+
+    public projects(): Observable&lt;string[]&gt; {
+
+      let url: string &#x3D; ConfigurationService.URI_CONFIG + &quot;/projects&quot;;
+
+      let headers &#x3D; new HttpHeaders()
+        .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+        .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+
+      return this._http.get(url, { headers }).pipe(map( (responseData) &#x3D;&gt; {
+
+            return (&lt;any&gt;responseData).projects;
+          },
+          error &#x3D;&gt; {
+            return null;
+         }));
+    }
+
+    public project(id: string): Observable&lt;Project&gt; {
+
+      let url: string &#x3D; ConfigurationService.URI_CONFIG + &quot;/project/&quot; + encodeURIComponent(id);
+
+      let headers &#x3D; new HttpHeaders()
+        .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+        .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+
+      return this._http.get(url, { headers }).pipe(map( (responseData) &#x3D;&gt; {
+
+            return Project.make((&lt;any&gt;responseData).project);
+          },
+          error &#x3D;&gt; {
+            return null;
+         }));
+    }
+
+    public uploadProject(project: Project): Observable&lt;boolean&gt; {
+
+      let url: string &#x3D; ConfigurationService.URI_CONFIG + &quot;/project&quot;;
+
+      let headers &#x3D; new HttpHeaders()
+        .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+        .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+
+      let body: string &#x3D; JSON.stringify(project);
+
+      return this._http.post(url, body, { headers }).pipe(map( (responseData) &#x3D;&gt; {
+
+            return true;
+          },
+          error &#x3D;&gt; {
+            return false;
+         }));
+    }
+
+    public deleteProject(id: string): Observable&lt;boolean&gt; {
+
+      let url: string &#x3D; ConfigurationService.URI_CONFIG + &quot;/project/&quot; + encodeURIComponent(id);
+
+      let headers &#x3D; new HttpHeaders()
+        .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+        .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+
+      return this._http.delete(url, { headers }).pipe(map( (responseData) &#x3D;&gt; {
+
+            return true;
+          },
+          error &#x3D;&gt; {
+            return false;
+         }));
+    }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'ConfigurationService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

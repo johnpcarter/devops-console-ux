@@ -1,0 +1,109 @@
+<mat-table id="img-table" [dataSource]="dataSource" class="mat-elevation-z8" style="width:100%; height:100%; overflow: scroll">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+    <ng-container matColumnDef="Name">
+      <mat-header-cell *matHeaderCellDef style="min-width: 200px"> Name</mat-header-cell>
+      <mat-cell *matCellDef="let element" style="min-width: 200px"> {{element.name()}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Type">
+      <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ productCodeLabel(element) }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Description">
+      <mat-header-cell *matHeaderCellDef style="min-width: 350px"> Description </mat-header-cell>
+      <mat-cell *matCellDef="let element" style="min-width: 350px"> {{element.description}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Comments">
+      <mat-header-cell *matHeaderCellDef> Comments </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.comments}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Author">
+      <mat-header-cell *matHeaderCellDef> Author </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.author}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Size">
+      <mat-header-cell *matHeaderCellDef> Size(GB) </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.sizeGb}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Last Updated">
+      <mat-header-cell *matHeaderCellDef> Created </mat-header-cell>
+      <mat-cell *matCellDef="let element" style="min-width: 140px"> {{element.createdDate | date: 'dd/MM/yyyy HH:mm'}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Version">
+      <mat-header-cell *matHeaderCellDef><span style="text-align: center;width:100%">Version</span> </mat-header-cell>
+      <mat-cell *matCellDef="let element" [ngStyle]="styleForVersionColumn(element)"> 
+        <span style="text-align: center; width:100%">{{element.version()}}</span>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Tested">
+      <mat-header-cell *matHeaderCellDef style="width:50px" > Test Status </mat-header-cell>
+      <mat-cell *matCellDef="let element" style="text-align: center;width:100%">
+        <button *ngIf="!haveTests(element)" mat-mini-fab disabled [matTooltip]="testLabelFor(element)"></button>
+        <div *ngIf="haveTests(element)">
+          <button mat-mini-fab [color]="colorForTest(element)" [matTooltip]="testLabelFor(element)" (click)="showTests(element)">
+            <fa-icon *ngIf="todoTests(element)" class="icon" [icon]="['fas', 'play']" style="color: gray: font-size: 12px"></fa-icon>
+            <fa-icon *ngIf="runningTests(element)" class="icon" [icon]="['fas', 'spinner']" style="color: gray: font-size: 12px"></fa-icon>
+            <fa-icon *ngIf="passedTests(element)" class="icon" [icon]="['fas', 'check']" style="color: green: font-size: 12px"></fa-icon>
+            <fa-icon *ngIf="failedTests(element)" class="icon" [icon]="['fas', 'bug']" style="color: red: font-size: 12px"></fa-icon>
+          </button>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="current">
+      <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <mat-checkbox (click)="$event.stopPropagation()" (change)="selectRow(element)" [disabled]="isCurrentVersion(element)" [checked]="isSelected(element)">
+        </mat-checkbox>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Status">
+      <mat-header-cell *matHeaderCellDef style="flex-grow: 1; width: 100%"> Status </mat-header-cell>
+      <mat-cell *matCellDef="let element" style="flex-grow: 1; width: 100%">
+        <span [ngStyle]="styleForStatus(element)">
+          {{localizedStatus(element.status)}} 
+        </span>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Edit Version">
+      <mat-header-cell *matHeaderCellDef> Edit Version </mat-header-cell>
+      <mat-cell *matCellDef="let element"> 
+        <button mat-raised-button (click)="updateVersion(element)" [color]="colorForEditButton(element)" pull="right">{{updateVersionButtonLabel(element)}}</button>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Push">
+      <mat-header-cell *matHeaderCellDef style="max-width:40px"> </mat-header-cell>
+      <mat-cell *matCellDef="let element" style="max-width:40px">
+        <button *ngIf="canPublish(element)" mat-button (click)="pushImage(element)"
+          matTooltip="Push image to remote repository" [matTooltipPosition]="'right'">
+            <fa-icon class="icon" [icon]="['fas', 'arrow-right']" size="sm"></fa-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Pull">
+      <mat-header-cell *matHeaderCellDef style="max-width:40px"> </mat-header-cell>
+      <mat-cell *matCellDef="let element" style="max-width:40px">
+        <button *ngIf="canPull(element)" mat-button (click)="pullImage(element)"
+          matTooltip="Pull latest update from remote repository" [matTooltipPosition]="'right'">
+            <fa-icon class="icon" [icon]="['fas', 'arrow-left']" size="sm"></fa-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns();sticky: true"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns();" (click)="selectRow(row)" [class.selected]="isCurrentVersion(row)"></mat-row>
+  </mat-table>

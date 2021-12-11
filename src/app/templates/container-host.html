@@ -1,0 +1,18 @@
+<form [formGroup]="formGroup">
+	<div style="float: right" (click)="closeDialog()"><fa-icon class="icon" [icon]="['fas', 'times-circle']" style="color: gray"></fa-icon></div>
+	<div style="display: flex; flex-direction: column">
+		<mat-slide-toggle formControlName="activeCtrl">Run Container</mat-slide-toggle>
+		<mat-form-field class="example-full-width" style="margin-top: 30px">
+	    	<input type="text" matInput [placeholder]="hostLabel" formControlName="hostCtrl" disabled="true">
+	  	</mat-form-field>
+	  	<mat-form-field>
+	    	<input type="number" matInput [placeholder]="portLabel" formControlName="portCtrl" disabled="true">
+	  	</mat-form-field>
+	  	<div *ngIf="activeCtrl.value" style="width: 100%">
+		  	<mat-form-field style="width: 100%">
+		    	<input type="text" matInput placeholder="Image" formControlName="imageCtrl" disabled="true">
+		  	</mat-form-field>
+	  	</div>	
+	  	<span style="font-size: 10px; color:gray">{{hint}}</span> 	
+	</div>
+</form>

@@ -1,0 +1,40 @@
+
+  <div class="page-content-wrapper">
+    <div class="page-scrollable-content">
+      <mat-accordion [hideToggle]='true' [multi]="'true'">
+        <mat-expansion-panel [expanded]="selectedDeployment" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header class="right-aligned-header">
+            <mat-panel-title style="line-height: 60px">
+             Deployment Details
+            </mat-panel-title>
+            <mat-panel-description>
+               <mat-form-field style="min-width: 250px; text-align: right">
+                <mat-label *ngIf="selectedDeployment == null">Select Deployment (required)</mat-label>
+                <mat-select #selectedDeploymentControl [(value)]="selectedDeployment" style="min-width: 200px" (selectionChange)="deploymentSelectionChanged($event)">
+                  <mat-option *ngFor="let deployment of deployments" [value]="deployment">
+                    {{deployment.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <jc-deployment-details *ngIf="selectedDeployment" [isRuntime]="true" [deployment]="selectedDeployment"></jc-deployment-details>
+        </mat-expansion-panel>
+        <mat-expansion-panel [expanded]="selectedDeployment != null">
+          <mat-expansion-panel-header class="right-aligned-header">
+            <mat-panel-title>
+              Pods
+            </mat-panel-title>
+            <mat-panel-description>
+              Runtime Environments
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <jc-pods *ngIf="selectedDeployment" [showActions]="false" [namespace]="namespace" [appId]="selectedDeployment.name" (podCountChanged)="updatePodCount($event)"></jc-pods>
+        </mat-expansion-panel>
+      </mat-accordion><br/>
+
+      <ng-template *ngIf="selectedDeployment" runtime-actions></ng-template>
+    </div>
+  </div>

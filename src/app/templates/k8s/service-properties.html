@@ -1,0 +1,46 @@
+<form [formGroup]="formGroup">
+  <mat-expansion-panel *ngIf="deployment" [expanded]="false" hideToggle
+                       style="margin:10px; box-shadow: none; background-color: orange">
+    <mat-expansion-panel-header>
+      <mat-panel-title style="color: white">Kubernetes</mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-card style="border: none; box-shadow: none; height: 40px;">
+      <div style="display: flow; align-items: space-between; margin-bottom: 20px">
+        <mat-form-field style="margin-left: 30px; min-width: 250px">
+          <input matInput type="text" placeholder="App Name" formControlName="appNameCtrl">
+          <mat-hint>Used to identify this deployment to Kubernetes</mat-hint>
+        </mat-form-field>
+        <mat-form-field style="margin-left: 30px; min-width: 250px; margin-bottom: 20px">
+          <input matInput type="text" placeholder="Host Name" formControlName="hostNameCtrl">
+          <mat-hint>Virtual host name assigned to all containers</mat-hint>
+        </mat-form-field>
+        <mat-form-field style="margin-left: 30px; min-width: 250px; margin-bottom: 20px">
+          <input matInput type="number" placeholder="Replicas" formControlName="replicasCtrl">
+          <mat-hint>Defines maximum number of pods that can be instantiated for this layer</mat-hint>
+        </mat-form-field>
+        <mat-form-field style="margin-left: 30px; min-width: 250px; margin-bottom: 20px">
+          <mat-select placeholder="Service Type" formControlName="serviceTypeCtrl">
+            <mat-option *ngFor="let state of serviceStates" [value]="state">{{state}}</mat-option>
+          </mat-select>
+          <mat-hint>Ensures that instances have their own persistent volumes rather than shared if stateful</mat-hint>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select placeholder="Restart Policy" formControlName="restartOnFailCtrl">
+            <mat-option *ngFor="let policy of restartPolicies" [value]="policy">{{policy}}</mat-option>
+          </mat-select>
+          <mat-hint>Specifies what to do with indidivual Pods if they become unresponsive</mat-hint>
+        </mat-form-field>
+        <mat-form-field style="margin-left: 30px; min-width: 250px">
+          <input matInput type="text" placeholder="Name space" formControlName="namespaceCtrl">
+          <mat-hint>Kubernetes namespace to deploy into</mat-hint>
+        </mat-form-field>
+          <mat-slide-toggle formControlName="requiresVersioningCtrl" style="margin-left: 30px; margin-top: 40px; color: gray"  (change)="requiresVersioningChanged($event)">
+            Include version in name
+          </mat-slide-toggle>
+          <mat-slide-toggle formControlName="requiresMonitoringCtrl" style="margin-left: 30px; margin-top: 40px; color: gray" (change)="requiresVersioningChanged($event)">
+            Monitor
+          </mat-slide-toggle>
+      </div>
+    </mat-card>
+  </mat-expansion-panel>
+</form>

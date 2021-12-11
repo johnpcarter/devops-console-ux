@@ -1,0 +1,20 @@
+ <div class="page-content-wrapper">
+    <div class="page-scrollable-content">
+    	<div style="width:100%;">
+	  		<div style="float:right; margin-top: -70px">
+	  			<mat-form-field style="min-width: 250px; text-align: right; margin-right: 40px">
+	                <mat-label *ngIf="namespace == null" style="margin-right: 25px">Select Name space</mat-label>
+	                <mat-select #selectedDeploymentControl placeholder="Name space" [(value)]="namespace" style="min-width: 200px" (selectionChange)="namespaceSelectionChanged()">
+	                  <mat-option *ngFor="let name of namespaces" [value]="name">
+	                    {{name}}
+	                  </mat-option>
+	                </mat-select>
+	              </mat-form-field>
+	  		</div>
+  		</div>
+  		<div style="width: 100%; margin-top: 60px">
+    		<jc-k8s-deployments [namespace]="namespace" [runningOnly]="true"></jc-k8s-deployments>
+    	</div>
+    </div>
+    <a mat-stroked-button href="{{k8sDashboardUrl}}" target="Kubernetes" color="primary" style="margin-top: 40px;"><img src="assets/_images/k8s-logo@3x.png" width=32 style="margin-bottom: 5px"></a>
+  </div>

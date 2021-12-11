@@ -1,0 +1,1805 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>wm-devops-console documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">wm-devops-console documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>StagingComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/staging.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnChanges" target="_blank" >OnChanges</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>staging</code></td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>../templates/stage.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_ignoreValueChanges">_ignoreValueChanges</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#apiMaturityList">apiMaturityList</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#buildServiceCtrl">buildServiceCtrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#containerNameCtrl">containerNameCtrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#runTypeCtrl">runTypeCtrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#stageNameCtrl">stageNameCtrl</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_save">_save</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_setupForm">_setupForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#actionChanged">actionChanged</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#activationChanged">activationChanged</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#colorForContainer">colorForContainer</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#editContainer">editContainer</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#haveAPIs">haveAPIs</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnChanges">ngOnChanges</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#removeAPI">removeAPI</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#removeContainer">removeContainer</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#updateForm">updateForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#form">form</a>
+                            </li>
+                            <li>
+                                <a href="#stage">stage</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#stageUpdated">stageUpdated</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                                <span class="modifier">Public</span>
+                        <code>constructor(_formBuilder: <a href="../classes/Builder.html">FormBuilder</a>, _dialog: MatDialog)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/components/staging.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_formBuilder</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/Builder.html" target="_self" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_dialog</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatDialog</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="form"></a>
+                        <b>form</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/staging.component.ts:30</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="stage"></a>
+                        <b>stage</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Stage.html" target="_self" >Stage</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/components/staging.component.ts:27</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="stageUpdated"></a>
+                        <b>stageUpdated</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Stage.html" target="_self" >EventEmitter&lt;Stage&gt;</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/components/staging.component.ts:33</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_save"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            _save
+                        </b>
+                        <a href="#_save"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_save()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="203"
+                            class="link-to-prism">src/app/components/staging.component.ts:203</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_setupForm"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            _setupForm
+                        </b>
+                        <a href="#_setupForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_setupForm()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="168"
+                            class="link-to-prism">src/app/components/staging.component.ts:168</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="actionChanged"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            actionChanged
+                        </b>
+                        <a href="#actionChanged"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>actionChanged(action: <a href="../classes/Action.html">Action</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">src/app/components/staging.component.ts:74</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>action</td>
+                                    <td>
+                                                <code><a href="../classes/Action.html" target="_self" >Action</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activationChanged"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            activationChanged
+                        </b>
+                        <a href="#activationChanged"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>activationChanged(obj: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="100"
+                            class="link-to-prism">src/app/components/staging.component.ts:100</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>obj</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="colorForContainer"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            colorForContainer
+                        </b>
+                        <a href="#colorForContainer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>colorForContainer(container: <a href="../classes/Container.html">Container</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="109"
+                            class="link-to-prism">src/app/components/staging.component.ts:109</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>container</td>
+                                    <td>
+                                                <code><a href="../classes/Container.html" target="_self" >Container</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>&quot;gray&quot; | &quot;accent&quot; | &quot;primary&quot;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editContainer"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            editContainer
+                        </b>
+                        <a href="#editContainer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>editContainer(container: <a href="../classes/Container.html">Container</a>, event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="119"
+                            class="link-to-prism">src/app/components/staging.component.ts:119</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>container</td>
+                                    <td>
+                                                <code><a href="../classes/Container.html" target="_self" >Container</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="haveAPIs"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            haveAPIs
+                        </b>
+                        <a href="#haveAPIs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>haveAPIs()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">src/app/components/staging.component.ts:59</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            ngOnChanges
+                        </b>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnChanges()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">src/app/components/staging.component.ts:54</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">src/app/components/staging.component.ts:47</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeAPI"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            removeAPI
+                        </b>
+                        <a href="#removeAPI"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeAPI(service: <a href="../classes/Deployment.html">Deployment</a>, api: <a href="../classes/APIDefinition.html">APIDefinition</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="141"
+                            class="link-to-prism">src/app/components/staging.component.ts:141</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>service</td>
+                                    <td>
+                                                <code><a href="../classes/Deployment.html" target="_self" >Deployment</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>api</td>
+                                    <td>
+                                                <code><a href="../classes/APIDefinition.html" target="_self" >APIDefinition</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeContainer"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            removeContainer
+                        </b>
+                        <a href="#removeContainer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeContainer(service: <a href="../classes/Deployment.html">Deployment</a>, container: <a href="../classes/Container.html">Container</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="147"
+                            class="link-to-prism">src/app/components/staging.component.ts:147</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>service</td>
+                                    <td>
+                                                <code><a href="../classes/Deployment.html" target="_self" >Deployment</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>container</td>
+                                    <td>
+                                                <code><a href="../classes/Container.html" target="_self" >Container</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateForm"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            updateForm
+                        </b>
+                        <a href="#updateForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateForm()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="153"
+                            class="link-to-prism">src/app/components/staging.component.ts:153</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_ignoreValueChanges"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _ignoreValueChanges</b>
+                            <a href="#_ignoreValueChanges"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/components/staging.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="apiMaturityList"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            apiMaturityList</b>
+                            <a href="#apiMaturityList"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&quot;Beta&quot;, &quot;Test&quot;, &quot;Production&quot;, &quot;Deprecated&quot;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/components/staging.component.ts:35</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="buildServiceCtrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            buildServiceCtrl</b>
+                            <a href="#buildServiceCtrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/components/staging.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="containerNameCtrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            containerNameCtrl</b>
+                            <a href="#containerNameCtrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/components/staging.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="runTypeCtrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            runTypeCtrl</b>
+                            <a href="#runTypeCtrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/components/staging.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="stageNameCtrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            stageNameCtrl</b>
+                            <a href="#stageNameCtrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/staging.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ChangeDetectorRef, EventEmitter,
+			OnInit, OnChanges, OnDestroy, Input, Inject,
+										Output }   		from &#x27;@angular/core&#x27;;
+
+import { Router }									  	from &#x27;@angular/router&#x27;;
+import {FormBuilder, FormGroup, FormControl, 
+								Validators} 			from &#x27;@angular/forms&#x27;;
+import { SelectionModel }                             	from &#x27;@angular/cdk/collections&#x27;;
+
+import { MediaMatcher }                               	from &#x27;@angular/cdk/layout&#x27;;
+import { MatAccordion }                               	from &#x27;@angular/material&#x27;;
+import { MatInput, MatButton }							from &#x27;@angular/material&#x27;;
+import { MatDialog, MatDialogRef, DialogPosition,
+					MAT_DIALOG_DATA }	  				from &#x27;@angular/material&#x27;;
+
+import { Stage, Deployment, Container, Action }         from &#x27;../models/project&#x27;;
+import { APIDefinition }               					from &#x27;../models/wm-package-info&#x27;;
+
+@Component({
+  selector: &#x27;staging&#x27;,
+  templateUrl: &#x27;../templates/stage.html&#x27;
+})
+
+export class StagingComponent implements OnInit, OnChanges {
+
+	@Input()
+	public stage: Stage;
+
+	@Input()
+	public form: FormGroup;
+
+	@Output()
+	public stageUpdated: EventEmitter&lt;Stage&gt; &#x3D; new EventEmitter();
+
+	public apiMaturityList: string[] &#x3D; [&quot;Beta&quot;, &quot;Test&quot;, &quot;Production&quot;, &quot;Deprecated&quot;];
+
+	public stageNameCtrl: FormControl;
+  	public containerNameCtrl: FormControl;
+  	public buildServiceCtrl: FormControl;
+  	public runTypeCtrl: FormControl;
+
+  	private _ignoreValueChanges: boolean;
+
+  	public constructor(private _formBuilder: FormBuilder, private _dialog: MatDialog) {
+  	}
+
+	public ngOnInit() {
+
+		console.log(&quot;stage is &quot; + this.stage.name);
+
+		this._setupForm();
+	}
+
+	public ngOnChanges() {
+		
+		this.updateForm();
+	}
+
+	public haveAPIs(): boolean {
+
+		var found: boolean &#x3D; false;
+
+		for (var i&#x3D;0; i &lt; this.stage.deployments.length; i++) {
+
+			if (this.stage.deployments[i].apis.length &gt; 0) {
+				found &#x3D; true;
+				break;
+			}
+		}
+
+		return found;
+	}
+
+	public actionChanged(action: Action) {
+
+		if (this.stage.onStart.runTests) {
+			if (!this.stage.onSuccess)
+				this.stage.onSuccess &#x3D; new Action();
+
+			if (!this.stage.onFail)
+				this.stage.onFail &#x3D; new Action();
+
+			this.stage.onSuccess.active &#x3D; &quot;true&quot;;
+			this.stage.onFail.active &#x3D; &quot;true&quot;;
+		} else {
+			if (this.stage.onSuccess.isActive()) {
+				this.stage.onSuccess &#x3D; new Action();
+				this.stage.onSuccess.active &#x3D; &quot;false&quot;;
+			}
+
+			if (this.stage.onFail.isActive()) {
+				this.stage.onFail &#x3D; new Action();
+				this.stage.onFail.active &#x3D; &quot;false&quot;;
+			}
+		}
+		
+		return this._save();
+	}
+
+	public activationChanged(obj: any) {
+
+		let ref: StagingComponent &#x3D; this;
+		setTimeout(() &#x3D;&gt; {
+			obj.active &#x3D; !obj.active;
+			ref._save();
+		});
+	}
+
+	public colorForContainer(container: Container) {
+
+		if (container.active &#x3D;&#x3D; &quot;true&quot;)
+			return &quot;primary&quot;;
+		else if (container.hostname) 
+			return &quot;accent&quot;;
+		else
+			return &quot;gray&quot;;
+	}
+
+	public editContainer(container: Container, event: any) {
+
+		let x &#x3D; event.pageX;
+		let y &#x3D; event.pageY;
+
+		let dialogRef &#x3D; this._dialog.open(EditContainerComponent, {
+			data: { container: container, formBuilder: this._formBuilder },
+			width: &#x27;360px&#x27;,
+  			height: &#x27;300px&#x27;,
+		});
+
+		console.log(&quot;left: &#x27;${x}px&#x27;, top: &#x27;${y}px&#x27;&quot;);
+
+		dialogRef.updatePosition({ left: x + &quot;px&quot;, top: y + &quot;px&quot; });
+
+		dialogRef.afterClosed().subscribe(container &#x3D;&gt; {
+  			console.log(&#x60;Dialog result: ${container}&#x60;);
+
+  			this._save();
+		});
+	}
+
+	public removeAPI(service: Deployment, api: APIDefinition) {
+
+		service.removeAPI(api);
+		this._save();
+	}
+
+	public removeContainer(service: Deployment, container: Container) {
+
+		service.removeContainer(container);
+		this._save();
+	}
+
+	private updateForm() {
+
+		if (this.stageNameCtrl) {
+
+			this._ignoreValueChanges &#x3D; true;
+
+			this.stageNameCtrl.setValue(this.stage ? this.stage.name : &quot;&quot;);
+	  		this.containerNameCtrl.setValue(this.stage ? this.stage.containerHost: &quot;&quot;);
+	  		this.runTypeCtrl.setValue(this.stage ? (this.stage.useKubernetes &#x3D;&#x3D; &quot;true&quot; ? &quot;k8s&quot; : &quot;docker&quot;) : &quot;docker&quot;);
+	  		this.buildServiceCtrl.setValue(this.stage ? this.stage.buildOnStart &#x3D;&#x3D; &quot;true&quot; ? true : false : false);
+
+	  		this._ignoreValueChanges &#x3D; false;
+  		}
+	}
+
+	private _setupForm() {
+
+  		this.stageNameCtrl &#x3D; new FormControl();
+  		this.containerNameCtrl &#x3D; new FormControl();
+  		this.runTypeCtrl &#x3D; new FormControl(&quot;docker&quot;);
+  		this.buildServiceCtrl &#x3D; new FormControl();
+
+  		this.form.addControl(&quot;stageNameCtrl&quot;, this.stageNameCtrl);
+  		this.form.addControl(&quot;containerNameCtrl&quot;, this.containerNameCtrl);
+  		this.form.addControl(&quot;runTypeCtrl&quot;, this.runTypeCtrl);
+  		this.form.addControl(&quot;buildServiceCtrl&quot;, this.buildServiceCtrl);
+
+  		this.updateForm();
+
+  		this.form.valueChanges.subscribe((d) &#x3D;&gt; {
+
+  			if (this._ignoreValueChanges)
+  				return;
+
+			if (this.stageNameCtrl.dirty)
+				this.stage.name &#x3D; this.stageNameCtrl.value;
+
+			if (this.containerNameCtrl.dirty)
+				this.stage.containerHost &#x3D; this.containerNameCtrl.value;
+
+			if (this.runTypeCtrl.dirty)
+				this.stage.useKubernetes &#x3D; &quot;&quot; + (this.runTypeCtrl.value &#x3D;&#x3D; &quot;k8s&quot;);
+
+			if (this.buildServiceCtrl.dirty)
+				this.stage.buildOnStart &#x3D; &quot;&quot; + this.buildServiceCtrl.value;
+			
+			this._save();
+		}); 
+  	}
+
+  	private _save() {
+
+  		if (this.stage.onStart.runTests &#x3D;&#x3D; &quot;false&quot;) {
+
+  			this.stage.onSuccess &#x3D; new Action();
+  			this.stage.onFail &#x3D; new Action();
+  		}
+
+  		this.stageUpdated.emit(this.stage);
+  	}
+}
+
+@Component({
+	selector: &#x27;edit-container&#x27;,
+  	templateUrl: &#x27;../templates/container-host.html&#x27;
+})
+export class EditContainerComponent {
+
+	public container: Container;
+
+	public formBuilder: FormBuilder;
+	public formGroup: FormGroup;
+	public activeCtrl: FormControl;
+	public hostCtrl: FormControl;
+	public portCtrl: FormControl;
+	public imageCtrl: FormControl;
+
+	public hint: string;
+
+	public hostLabel:  string;
+	public portLabel: string;
+	public publicHost: string;
+	public publicPort:  string;
+	public privateHost: string;
+	public privatePort:  string;
+
+	private _ignore: boolean &#x3D; false;
+
+	constructor(public dialogRef: MatDialogRef&lt;EditContainerComponent&gt;, @Inject(MAT_DIALOG_DATA) public data: any) { 
+
+		this.container &#x3D; data.container;
+		this.formBuilder &#x3D; data.formBuilder;
+
+		this.activeCtrl &#x3D; new FormControl(this.container.active &#x3D;&#x3D; &quot;true&quot; ? true : false);
+
+		if (this.activeCtrl.value) {
+
+			this.hostCtrl &#x3D; new FormControl(this.container.name);
+			this.portCtrl &#x3D; new  FormControl(this.container.ports[0].internal);
+		} else {
+
+			this.hostCtrl &#x3D; new FormControl(this.container.hostname);
+			this.portCtrl &#x3D; new  FormControl(this.container.ports[0].external);
+		}
+		
+		this.imageCtrl &#x3D; new FormControl(this.container.image);
+		this.imageCtrl.disable();
+		
+		this.formGroup &#x3D; this.formBuilder.group({
+			activeCtrl: this.activeCtrl,
+			hostCtrl: this.hostCtrl,
+			portCtrl: this.portCtrl,
+			imageCtrl: this.imageCtrl
+		});
+
+		this.formGroup.valueChanges.subscribe((d) &#x3D;&gt; {
+
+			if (this._ignore)
+				return;
+
+			if (((this.activeCtrl.value &amp;&amp; this.container.active &#x3D;&#x3D; &quot;false&quot;) 
+				|| !this.activeCtrl.value &amp;&amp; this.container.active &#x3D;&#x3D; &quot;true&quot;)) {
+
+				if (this.activeCtrl.value) {
+					this.container.active &#x3D; &quot;true&quot;;
+					this.container.hostname &#x3D; this.privateHost;
+				} else {
+					this.container.active &#x3D; &quot;false&quot;;
+					this.container.hostname &#x3D; this.publicHost;
+				}
+
+				this._ignore &#x3D; true;
+				this.enableControls();
+				this._ignore &#x3D; false;
+			} else {
+
+				this.container.active &#x3D; this.activeCtrl.value ? &quot;true&quot; : &quot;false&quot;;
+
+				if (!this.activeCtrl.value) {
+					if (this.hostCtrl.value &amp;&amp; this.hostCtrl.value.length &gt; 0)
+						this.container.hostname &#x3D; this.hostCtrl.value;
+					else
+						this.container.hostname &#x3D; null;
+
+					if (this.activeCtrl.value)
+						this.container.ports[0].internal &#x3D; &quot;&quot; + this.portCtrl.value;
+					else
+						this.container.ports[0].external &#x3D; &quot;&quot; + this.portCtrl.value;
+				} else {
+
+					this.container.hostname &#x3D; null;
+				}
+			}
+		});
+
+		if (this.container.hostname &amp;&amp; this.container.hostname.length &gt; 0)
+			this.publicHost &#x3D; this.container.hostname;
+
+		this.publicPort &#x3D; this.container.ports[0].external;
+
+		this.privateHost &#x3D; this.container.name;
+		this.privatePort &#x3D; this.container.ports[0].internal;
+
+		this.enableControls();
+	}
+
+	closeDialog() {
+
+    	this.dialogRef.close(this.container);
+  	}
+
+  	private enableControls() {
+  		
+  		if (this.activeCtrl.value) {
+			this.hostCtrl.disable();
+			this.portCtrl.disable();
+
+			this.hostLabel &#x3D; &quot;Docker network Host&quot;;
+			this.portLabel &#x3D; &quot;Internal Port&quot;;
+
+			this.hostCtrl.setValue(this.privateHost);
+			this.portCtrl.setValue(this.privatePort);
+
+			this.hint &#x3D; &quot;Container will be included in stage, intra container communication will be via private network and use container names as hosts&quot;
+
+		} else {
+			this.hostCtrl.enable();
+			this.portCtrl.enable();
+
+			this.hostLabel &#x3D; &quot;External Host&quot;;
+			this.portLabel &#x3D; &quot;Public Port&quot;;
+
+			this.hostCtrl.setValue(this.publicHost);
+			this.portCtrl.setValue(this.publicPort);
+
+			if (this.hostCtrl.value)
+				this.hint &#x3D; &quot;Not included in stage and if features are required will communicate with external application via host and port&quot;;
+			else
+				this.hint &#x3D; &quot;Not included in stage and features will not be available for any actions&quot;;
+		}
+
+  	}
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;form [formGroup]&#x3D;&quot;form&quot;&gt;
+	&lt;div style&#x3D;&quot;width:100%;display:flex;flex-direction: column; margin-bottom: 80px;&quot;&gt;
+		&lt;mat-form-field style&#x3D;&quot;margin-right:20px; flex-grow: 2&quot;&gt;
+			&lt;input matInput placeholder&#x3D;&quot;Stage Name&quot; formControlName&#x3D;&quot;stageNameCtrl&quot; required&gt;
+		&lt;/mat-form-field&gt;
+		&lt;div class&#x3D;&quot;group-panel&quot;&gt;
+			&lt;div class&#x3D;&quot;group-title&quot; style&#x3D;&quot;width: 70px&quot;&gt;Start Up&lt;/div&gt;
+			&lt;mat-form-field style&#x3D;&quot;margin-right:20px; flex-grow: 2&quot;&gt;
+				&lt;input matInput placeholder&#x3D;&quot;Container Host&quot; formControlName&#x3D;&quot;containerNameCtrl&quot; required&gt;
+			&lt;/mat-form-field&gt;
+			&lt;mat-checkbox formControlName&#x3D;&quot;buildServiceCtrl&quot; style&#x3D;&quot; margin-top: 20px; margin-right: 20px; float: right;&quot;&gt;Build MicroService Image&lt;/mat-checkbox&gt;
+			&lt;mat-radio-group class&#x3D;&quot;radio-group&quot; aria-label&#x3D;&quot;Type&quot; formControlName&#x3D;&quot;runTypeCtrl&quot;&gt;
+          		&lt;mat-radio-button class&#x3D;&quot;radio-button&quot; value&#x3D;&quot;docker&quot;&gt;Docker&lt;/mat-radio-button&gt;
+          	&lt;mat-radio-button class&#x3D;&quot;radio-button&quot; value&#x3D;&quot;k8s&quot;&gt;Kubernetes Deployment&lt;/mat-radio-button&gt;
+        	&lt;/mat-radio-group&gt;
+        	&lt;table style&#x3D;&quot;width:100%&quot;&gt;
+		        &lt;tr&gt;
+		          &lt;th style&#x3D;&quot;text-align:left&quot;&gt;Service&lt;/th&gt;
+		          &lt;th style&#x3D;&quot;text-align:left&quot;&gt;Containers&lt;/th&gt;
+		          &lt;th style&#x3D;&quot;text-align:left&quot;&gt;API&#x27;s&lt;/th&gt;
+		        &lt;/tr&gt;
+		        &lt;tr *ngFor&#x3D;&quot;let service of stage.deployments&quot;&gt;
+		          &lt;td style&#x3D;&quot;text-align:left&quot;&gt;{{service.name}}&lt;/td&gt;
+		          &lt;td style&#x3D;&quot;text-align:left&quot;&gt;
+		            &lt;mat-chip-list&gt;
+		              &lt;mat-chip [color]&#x3D;&quot;colorForContainer(container)&quot; *ngFor&#x3D;&quot;let container of service.containers&quot; selected (click)&#x3D;&quot;editContainer(container, $event)&quot;&gt;
+		              	&lt;span  style&#x3D;&quot;font-size: 12px&quot;&gt;{{container.description}} &lt;fa-icon class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;cog&#x27;]&quot; style&#x3D;&quot;margin-left: 10px&quot;&gt;&lt;/fa-icon&gt;&lt;/span&gt;
+		              &lt;/mat-chip&gt;
+		            &lt;/mat-chip-list&gt;
+		          &lt;/td&gt;
+		           &lt;td style&#x3D;&quot;text-align:left&quot;&gt;
+		            &lt;mat-chip-list&gt;
+		              &lt;mat-chip color&#x3D;&quot;warn&quot; *ngFor&#x3D;&quot;let api of service.apis&quot; selected&gt;
+		              	{{api.name}}
+		              &lt;/mat-chip&gt;
+		            &lt;/mat-chip-list&gt;
+		          &lt;/td&gt;
+		        &lt;/tr&gt;
+		        &lt;tr&gt;
+		        	&lt;td&gt;&lt;/td&gt;
+		        	&lt;td style&#x3D;&quot;font-size:11px;color: gray; height:30px;vertical-align: bottom&quot;&gt;&lt;span&gt;Click container to activate/deactivate and or specify alternative endpoint&lt;/span&gt;&lt;/td&gt;
+		    &lt;/table&gt;
+		&lt;/div&gt; 
+        &lt;div class&#x3D;&quot;group-panel&quot;&gt;
+			&lt;div class&#x3D;&quot;group-title&quot; style&#x3D;&quot;width: 70px&quot;&gt;On Start&lt;/div&gt;
+	        &lt;action [stage]&#x3D;&quot;stage&quot; [action]&#x3D;&quot;stage.onStart&quot; type&#x3D;&quot;start&quot; (change)&#x3D;&quot;actionChanged($event)&quot;&gt;&lt;/action&gt;
+	    &lt;/div&gt;
+        &lt;div *ngIf&#x3D;&quot;stage.onStart.runTests &#x3D;&#x3D; &#x27;true&#x27;&quot; class&#x3D;&quot;group-panel&quot;&gt;
+			&lt;div class&#x3D;&quot;group-title&quot; style&#x3D;&quot;width: 100px&quot;&gt;On Success&lt;/div&gt;
+	        &lt;action [stage]&#x3D;&quot;stage&quot; [action]&#x3D;&quot;stage.onSuccess&quot; type&#x3D;&quot;success&quot; (change)&#x3D;&quot;actionChanged()&quot;&gt;&lt;/action&gt;
+	    &lt;/div&gt;
+	    &lt;div *ngIf&#x3D;&quot;stage.onStart.runTests &#x3D;&#x3D; &#x27;true&#x27;&quot; class&#x3D;&quot;group-panel&quot;&gt;
+			&lt;div class&#x3D;&quot;group-title&quot; style&#x3D;&quot;width: 70px&quot;&gt;On Fail&lt;/div&gt;
+	        &lt;action [stage]&#x3D;&quot;stage&quot; [action]&#x3D;&quot;stage.onFail&quot; type&#x3D;&quot;fail&quot; (change)&#x3D;&quot;actionChanged()&quot;&gt;&lt;/action&gt;
+	    &lt;/div&gt;
+	&lt;/div&gt;
+&lt;/form&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><form [formGroup]="form">	<div style="width:100%;display:flex;flex-direction: column; margin-bottom: 80px;">		<mat-form-field style="margin-right:20px; flex-grow: 2">			<input matInput placeholder="Stage Name" formControlName="stageNameCtrl" required>		</mat-form-field>		<div class="group-panel">			<div class="group-title" style="width: 70px">Start Up</div>			<mat-form-field style="margin-right:20px; flex-grow: 2">				<input matInput placeholder="Container Host" formControlName="containerNameCtrl" required>			</mat-form-field>			<mat-checkbox formControlName="buildServiceCtrl" style=" margin-top: 20px; margin-right: 20px; float: right;">Build MicroService Image</mat-checkbox>			<mat-radio-group class="radio-group" aria-label="Type" formControlName="runTypeCtrl">          		<mat-radio-button class="radio-button" value="docker">Docker</mat-radio-button>          	<mat-radio-button class="radio-button" value="k8s">Kubernetes Deployment</mat-radio-button>        	</mat-radio-group>        	<table style="width:100%">		        <tr>		          <th style="text-align:left">Service</th>		          <th style="text-align:left">Containers</th>		          <th style="text-align:left">API\'s</th>		        </tr>		        <tr *ngFor="let service of stage.deployments">		          <td style="text-align:left">{{service.name}}</td>		          <td style="text-align:left">		            <mat-chip-list>		              <mat-chip [color]="colorForContainer(container)" *ngFor="let container of service.containers" selected (click)="editContainer(container, $event)">		              	<span  style="font-size: 12px">{{container.description}} <fa-icon class="icon" [icon]="[\'fas\', \'cog\']" style="margin-left: 10px"></fa-icon></span>		              </mat-chip>		            </mat-chip-list>		          </td>		           <td style="text-align:left">		            <mat-chip-list>		              <mat-chip color="warn" *ngFor="let api of service.apis" selected>		              	{{api.name}}		              </mat-chip>		            </mat-chip-list>		          </td>		        </tr>		        <tr>		        	<td></td>		        	<td style="font-size:11px;color: gray; height:30px;vertical-align: bottom"><span>Click container to activate/deactivate and or specify alternative endpoint</span></td>		    </table>		</div>         <div class="group-panel">			<div class="group-title" style="width: 70px">On Start</div>	        <action [stage]="stage" [action]="stage.onStart" type="start" (change)="actionChanged($event)"></action>	    </div>        <div *ngIf="stage.onStart.runTests == \'true\'" class="group-panel">			<div class="group-title" style="width: 100px">On Success</div>	        <action [stage]="stage" [action]="stage.onSuccess" type="success" (change)="actionChanged()"></action>	    </div>	    <div *ngIf="stage.onStart.runTests == \'true\'" class="group-panel">			<div class="group-title" style="width: 70px">On Fail</div>	        <action [stage]="stage" [action]="stage.onFail" type="fail" (change)="actionChanged()"></action>	    </div>	</div></form></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'about-app'},{'name': 'ActionComponent', 'selector': 'action'},{'name': 'ApiGatewayInstallerComponent', 'selector': 'jc-apigw-install'},{'name': 'ApiMicroGatewayInstallerComponent', 'selector': 'jc-apimg-install'},{'name': 'ApiPortalInstallerComponent', 'selector': 'jc-apipr-installer'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BuildCommandsComponent', 'selector': 'build-commands'},{'name': 'BuildComponent', 'selector': 'build'},{'name': 'BuildExeComponent', 'selector': 'build-exe'},{'name': 'BuildImageComponent', 'selector': 'build-solution'},{'name': 'BuildInstallComponent', 'selector': 'build-install'},{'name': 'BuildPackagesComponent', 'selector': 'build-package'},{'name': 'ContainerComponent', 'selector': 'container'},{'name': 'ContainersComponent', 'selector': 'app-containers'},{'name': 'DeploymentDetailsComponent', 'selector': 'jc-deployment-details'},{'name': 'DeploymentListComponent', 'selector': 'jc-k8s-deployments'},{'name': 'DockerImageChooserComponent', 'selector': 'docker-image-chooser'},{'name': 'DockerImageListComponent', 'selector': 'jc-docker-images'},{'name': 'DockerImageVersionsComponent', 'selector': 'jc-docker-image-versions'},{'name': 'EditContainerComponent', 'selector': 'edit-container'},{'name': 'GitSourcesComponent', 'selector': 'git-source'},{'name': 'HomeComponent', 'selector': 'home'},{'name': 'InstallerComponent', 'selector': 'jc-install'},{'name': 'MicroServiceBuilderComponent', 'selector': 'jc-msc-configure'},{'name': 'MicroServiceInstallerComponent', 'selector': 'jc-msc-install'},{'name': 'PodsListComponent', 'selector': 'jc-pods'},{'name': 'RuntimeContainersComponent', 'selector': 'runtime-containers'},{'name': 'RuntimeDeployComponent', 'selector': 'runtime-deploy'},{'name': 'RuntimeDetailsComponent', 'selector': ''},{'name': 'RuntimeK8sComponent', 'selector': 'runtime'},{'name': 'RuntimeScaleComponent', 'selector': 'jc-runtime-scale'},{'name': 'RuntimeStageComponent', 'selector': 'runtime-stage'},{'name': 'RuntimeUpdateComponent', 'selector': ''},{'name': 'SagImageAlerterComponent', 'selector': 'sag-image-alerter'},{'name': 'ServicePropertiesComponent', 'selector': 'k8s-props'},{'name': 'SettingsComponent', 'selector': 'home'},{'name': 'SimpleNameComponent', 'selector': 'name-dialog'},{'name': 'StagingComponent', 'selector': 'staging'},{'name': 'TestCaseComponent', 'selector': 'test-case'},{'name': 'TestDefinitionComponent', 'selector': 'test-definitions'},{'name': 'TestHistoryComponent', 'selector': 'test-history'},{'name': 'TestRunComponent', 'selector': 'test-reun'},{'name': 'UMInstallerComponent', 'selector': 'jc-um-install'},{'name': 'UploadButtonComponent', 'selector': 'file-uploader-button'}];
+    var DIRECTIVES = [{'name': 'BuildImageChooseDirective', 'selector': '[builder]'},{'name': 'CancelCdkDrag', 'selector': '[appCancelCdkDrag]'},{'name': 'NgFileDrop', 'selector': '[ng-file-drop]'},{'name': 'NgFileSelect', 'selector': '[ng-file-select]'},{'name': 'RuntimeActionsDirective', 'selector': '[runtime-actions]'}];
+    var ACTUAL_COMPONENT = {'name': 'StagingComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'StagingComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

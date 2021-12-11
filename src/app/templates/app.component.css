@@ -1,0 +1,143 @@
+h1 {
+	font-size: 14px;
+	line-height: 16px;
+}
+a {
+	color: white;
+}
+.app-page {
+	position: fixed;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+}
+.toolbar {
+	height: 50px;
+	background-color: rgb(23, 115, 187);
+	overflow: visible;
+}
+.toolbar-content {
+	display: flex;
+	align-items: stretch;
+	width: 100%;
+	height: 30px;
+	padding: 5px;
+}
+.toolbar-title-column {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 0;
+	width: 250px;
+	color: white;
+	font-size: 10px;
+}
+.toolbar-right-column {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: stretch;
+	flex-grow: 2;
+	color: white;
+}
+.toolbar-links {
+	font-size: 11px;
+	line-height: 21px;
+	padding: 1px;
+	border-radius: 10px;
+	display: inline-flex;
+}
+.toolbar-links-wm {
+	margin-right: 20px;
+	border-radius: 10px;
+	height:25px;
+}
+.toolbar-link {
+	background-color: rgba(255,255,255,0.1);
+	color: white !important;
+	border-radius: 0px;
+	padding-left: 6px;
+	padding-right: 6px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	margin-left: 5px;
+}
+.wm-prod {
+	background-color: rgba(255,12,45,0.1);
+}
+.toolbar-link:hover {
+	background-color: orange;
+}
+.toolbar-menu {
+	display: flex;
+	flex-direction: column;
+	font-size: 12px;
+}
+.toolbar-menu-link {
+	font-size: 13px;
+	padding: 5px;
+}
+.toolbar-menu-link:hover {
+	background-color: orange;
+}
+mat-sidenav {
+	background-color: rgb(23, 115, 187);
+	width: 230px;
+}
+mat-sidenav-container {
+	position: fixed;
+	left: 0px;
+	right: 0px;
+	top: 50px;
+	bottom: 0px;
+}
+mat-sidenav-content {
+	overflow: hidden;
+	height: 100%;
+}
+mat-panel-title {
+	font-size: 15px;
+	line-height: 18px;
+	color: white;
+}
+.ng-fa-icon.selected {
+	color: orange;
+}
+.mat-list-item.selected {
+  background-color: rgba(255,255,255,0.3);
+  color: orange;
+}
+.mat-list-item {
+	height: auto !important;
+	color: white;
+}
+.mat-list-item.selected {
+  background-color: rgba(255,255,255,0.3);
+  color: orange;
+}
+.mat-nav-list a {
+	color: white;
+	font-size: 14px;
+	line-height: 48px;
+}
+.mat-focused .mat-form-field-label {
+  color: red !important;
+  font-size: 20px;
+}
+.mat-expansion-panel-header {
+	padding: 0px;
+	width: 160px;
+}
+.mat-expansion-panel {
+	background-color: transparent;
+	box-shadow: none;
+	color: white;
+	width: 200px;
+}
+
+.menu-header > .mat-expansion-indicator, .mat-expansion-indicator:after {
+  color: red !important;
+}
+.icon {
+	padding-right: 10px
+}

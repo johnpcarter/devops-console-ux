@@ -1,0 +1,939 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>wm-devops-console documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">wm-devops-console documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>ServicePropertiesComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/k8s/service-properties.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>k8s-props</code></td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>../../templates/k8s/service-properties.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#appNameCtrl">appNameCtrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#formGroup">formGroup</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#hostNameCtrl">hostNameCtrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#replicasCtrl">replicasCtrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#requiresMonitoringCtrl">requiresMonitoringCtrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#restartOnFailCtrl">restartOnFailCtrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#restartPolicies">restartPolicies</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#serviceStates">serviceStates</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#serviceTypeCtrl">serviceTypeCtrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#typeCtrl">typeCtrl</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#service">service</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#serviceUpdated">serviceUpdated</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                                <span class="modifier">Public</span>
+                        <code>constructor(_formBuilder: <a href="../classes/Builder.html">FormBuilder</a>, _router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, _settings: <a href="../injectables/Settings.html">Settings</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/components/k8s/service-properties.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_formBuilder</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/Builder.html" target="_self" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_settings</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/Settings.html" target="_self" >Settings</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="service"></a>
+                        <b>service</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Deployment.html" target="_self" >Deployment</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/components/k8s/service-properties.component.ts:32</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="serviceUpdated"></a>
+                        <b>serviceUpdated</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Deployment.html" target="_self" >EventEmitter&lt;Deployment&gt;</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/components/k8s/service-properties.component.ts:35</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">src/app/components/k8s/service-properties.component.ts:52</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="appNameCtrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            appNameCtrl</b>
+                            <a href="#appNameCtrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/components/k8s/service-properties.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="formGroup"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            formGroup</b>
+                            <a href="#formGroup"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/components/k8s/service-properties.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="hostNameCtrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            hostNameCtrl</b>
+                            <a href="#hostNameCtrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/components/k8s/service-properties.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="replicasCtrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            replicasCtrl</b>
+                            <a href="#replicasCtrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/components/k8s/service-properties.component.ts:43</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="requiresMonitoringCtrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            requiresMonitoringCtrl</b>
+                            <a href="#requiresMonitoringCtrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/components/k8s/service-properties.component.ts:45</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="restartOnFailCtrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            restartOnFailCtrl</b>
+                            <a href="#restartOnFailCtrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/components/k8s/service-properties.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="restartPolicies"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            restartPolicies</b>
+                            <a href="#restartPolicies"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&#x27;Always&#x27;, &#x27;OnFailure&#x27;, &#x27;Never&#x27;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/components/k8s/service-properties.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="serviceStates"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            serviceStates</b>
+                            <a href="#serviceStates"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&#x27;Stateless&#x27;, &#x27;Stateful&#x27;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/k8s/service-properties.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="serviceTypeCtrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            serviceTypeCtrl</b>
+                            <a href="#serviceTypeCtrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/components/k8s/service-properties.component.ts:44</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="typeCtrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            typeCtrl</b>
+                            <a href="#typeCtrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/components/k8s/service-properties.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ChangeDetectorRef, OnInit, OnDestroy, 
+          Input, Output, EventEmitter }                           from &#x27;@angular/core&#x27;;
+import { Router }                                                 from &#x27;@angular/router&#x27;;
+import { animate, state, style, transition, trigger }             from &#x27;@angular/animations&#x27;;
+import { DataSource }                                             from &#x27;@angular/cdk/collections&#x27;;
+
+import {FormBuilder, FormGroup, FormControl, 
+                Validators}                                       from &#x27;@angular/forms&#x27;;
+
+import { Observable, of, pipe }                                   from &#x27;rxjs&#x27;;
+import { map }                                                    from &#x27;rxjs/operators&#x27;;
+
+import { Settings }                                               from &#x27;../../settings&#x27;;
+import { Deployment }                                             from &#x27;../../models/project&#x27;
+
+
+@Component({
+  selector: &#x27;k8s-props&#x27;,
+  templateUrl: &#x27;../../templates/k8s/service-properties.html&#x27;,
+  animations: [
+    trigger(&#x27;detailExpand&#x27;, [
+      state(&#x27;collapsed&#x27;, style({ height: &#x27;0px&#x27;, minHeight: &#x27;0&#x27;, visibility: &#x27;hidden&#x27; })),
+      state(&#x27;expanded&#x27;, style({ height: &#x27;*&#x27;, visibility: &#x27;visible&#x27; })),
+      transition(&#x27;expanded &lt;&#x3D;&gt; collapsed&#x27;, animate(&#x27;225ms cubic-bezier(0.4, 0.0, 0.2, 1)&#x27;)),
+    ]),
+  ]
+})
+
+export class ServicePropertiesComponent implements OnInit {
+
+    @Input()
+    public service: Deployment;
+
+    @Output()
+    public serviceUpdated: EventEmitter&lt;Deployment&gt; &#x3D; new EventEmitter();
+
+    public serviceStates: string[] &#x3D; [&#x27;Stateless&#x27;, &#x27;Stateful&#x27;];
+    public restartPolicies: string[] &#x3D; [&#x27;Always&#x27;, &#x27;OnFailure&#x27;, &#x27;Never&#x27;];
+    public formGroup: FormGroup;
+    public appNameCtrl: FormControl;
+    public hostNameCtrl: FormControl;
+    public typeCtrl: FormControl;
+    public replicasCtrl: FormControl;
+    public serviceTypeCtrl: FormControl;
+    public requiresMonitoringCtrl: FormControl;
+    public restartOnFailCtrl: FormControl;
+
+    public constructor(private _formBuilder: FormBuilder, private _router: Router, private _settings: Settings) {
+          this.formGroup &#x3D; this._formBuilder.group({});
+    }
+
+    public ngOnInit() {
+
+      this.appNameCtrl &#x3D; new FormControl(this.service.appName);
+      this.hostNameCtrl &#x3D; new FormControl(this.service.hostname);
+      this.replicasCtrl &#x3D; new FormControl(this.service.replicas || 1);
+      this.serviceTypeCtrl &#x3D; new FormControl(this.service.serviceType);
+      this.requiresMonitoringCtrl &#x3D; new FormControl(this.service.requiresMonitoring &#x3D;&#x3D; &#x27;true&#x27; ? true : false);
+      this.restartOnFailCtrl &#x3D; new FormControl(this.service.restartPolicy || &#x27;Always&#x27;);
+
+      this.formGroup.addControl(&quot;appNameCtrl&quot;, this.appNameCtrl);
+      this.formGroup.addControl(&quot;hostNameCtrl&quot;, this.hostNameCtrl);
+      this.formGroup.addControl(&quot;replicasCtrl&quot;, this.replicasCtrl);
+      this.formGroup.addControl(&quot;serviceTypeCtrl&quot;, this.serviceTypeCtrl);
+      this.formGroup.addControl(&quot;requiresMonitoringCtrl&quot;, this.requiresMonitoringCtrl);
+      this.formGroup.addControl(&quot;restartOnFailCtrl&quot;, this.restartOnFailCtrl);
+
+      this.formGroup.valueChanges.subscribe((v) &#x3D;&gt; {
+
+        if (this.appNameCtrl.dirty) {
+
+          this.service.appName &#x3D; this.appNameCtrl.value;
+          this.appNameCtrl.markAsPristine();
+        }
+
+        if (this.hostNameCtrl.dirty) {
+
+          this.service.hostname &#x3D; this.hostNameCtrl.value;
+          this.hostNameCtrl.markAsPristine();
+        }
+
+        if (this.replicasCtrl.dirty) {
+
+          this.service.replicas &#x3D; this.replicasCtrl.value;
+          this.replicasCtrl.markAsPristine();
+        }
+
+        if (this.serviceTypeCtrl.dirty) {
+
+          this.service.serviceType &#x3D; this.serviceTypeCtrl.value;
+          this.serviceTypeCtrl.markAsPristine();
+        }
+
+        if (this.restartOnFailCtrl.dirty) {
+
+          this.service.restartPolicy &#x3D; this.restartOnFailCtrl.value;
+          this.restartOnFailCtrl.markAsPristine();
+        }
+
+        if (this.requiresMonitoringCtrl.dirty) {
+
+          this.service.requiresMonitoring &#x3D; this.requiresMonitoringCtrl.value ? &quot;true&quot; : &quot;false&quot;;
+          this.requiresMonitoringCtrl.markAsPristine();
+        }
+
+        this.serviceUpdated.emit(this.service);
+      });
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;form [formGroup]&#x3D;&quot;formGroup&quot;&gt;
+	&lt;mat-expansion-panel *ngIf&#x3D;&quot;service&quot; [expanded]&#x3D;&quot;false&quot; hideToggle style&#x3D;&quot;margin:10px; box-shadow: none; background-color: orange&quot;&gt;
+		&lt;mat-expansion-panel-header&gt;
+			&lt;mat-panel-title style&#x3D;&quot;color: white&quot;&gt;Kubernetes&lt;/mat-panel-title&gt;
+		&lt;/mat-expansion-panel-header&gt;
+		&lt;mat-card style&#x3D;&quot;border: none; box-shadow: none&quot;&gt;
+			&lt;div style&#x3D;&quot;display: flow; align-items: space-between; margin-bottom: 20px&quot;&gt;
+				&lt;mat-form-field style&#x3D;&quot;margin-left: 30px; min-width: 250px&quot;&gt;
+					&lt;input matInput type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;App Name&quot; formControlName&#x3D;&quot;appNameCtrl&quot;&gt;
+					&lt;mat-hint&gt;Used to identify this deployment to Kubernetes&lt;/mat-hint&gt;
+                &lt;/mat-form-field&gt;
+                &lt;mat-form-field style&#x3D;&quot;margin-left: 30px; min-width: 250px; margin-bottom: 20px&quot;&gt;
+					&lt;input matInput type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;Host Name&quot; formControlName&#x3D;&quot;hostNameCtrl&quot;&gt;
+					&lt;mat-hint&gt;Virtual host name assigned to all containers&lt;/mat-hint&gt;
+                &lt;/mat-form-field&gt;
+                &lt;mat-form-field style&#x3D;&quot;margin-left: 30px; min-width: 250px; margin-bottom: 20px&quot;&gt;
+					&lt;input matInput type&#x3D;&quot;number&quot; placeholder&#x3D;&quot;Replicas&quot; formControlName&#x3D;&quot;replicasCtrl&quot;&gt;
+					&lt;mat-hint&gt;Defines maximum number of pods that can be instantiated for this layer&lt;/mat-hint&gt;
+                &lt;/mat-form-field&gt;
+                &lt;mat-form-field style&#x3D;&quot;margin-left: 30px; min-width: 250px; margin-bottom: 20px&quot;&gt;
+					&lt;mat-select placeholder&#x3D;&quot;Service Type&quot; formControlName&#x3D;&quot;serviceTypeCtrl&quot;&gt;
+						&lt;mat-option *ngFor&#x3D;&quot;let state of serviceStates&quot; [value]&#x3D;&quot;state&quot;&gt;{{state}}&lt;/mat-option&gt;
+					&lt;/mat-select&gt;
+					&lt;mat-hint&gt;Ensures that instances have their own persistent volumes rather than shared if stateful&lt;/mat-hint&gt;
+                &lt;/mat-form-field&gt;
+                &lt;mat-form-field&gt;
+                	&lt;mat-select placeholder&#x3D;&quot;Restart Policy&quot; formControlName&#x3D;&quot;restartOnFailCtrl&quot;&gt;
+						&lt;mat-option *ngFor&#x3D;&quot;let policy of restartPolicies&quot; [value]&#x3D;&quot;policy&quot;&gt;{{policy}}&lt;/mat-option&gt;
+					&lt;/mat-select&gt;
+					&lt;mat-hint&gt;Specifies what to do with indidivual Pods if they become unresponsive&lt;/mat-hint&gt;
+				&lt;/mat-form-field&gt;
+                &lt;mat-slide-toggle formControlName&#x3D;&quot;requiresMonitoringCtrl&quot; style&#x3D;&quot;margin-left: 30px; margin-bottom: 20px; color: gray&quot;&gt;Requires Monitoring&lt;/mat-slide-toggle&gt;
+			&lt;/div&gt;
+		&lt;/mat-card&gt;
+	&lt;/mat-expansion-panel&gt;
+&lt;/form&gt;</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><form [formGroup]="formGroup">	<mat-expansion-panel *ngIf="service" [expanded]="false" hideToggle style="margin:10px; box-shadow: none; background-color: orange">		<mat-expansion-panel-header>			<mat-panel-title style="color: white">Kubernetes</mat-panel-title>		</mat-expansion-panel-header>		<mat-card style="border: none; box-shadow: none">			<div style="display: flow; align-items: space-between; margin-bottom: 20px">				<mat-form-field style="margin-left: 30px; min-width: 250px">					<input matInput type="text" placeholder="App Name" formControlName="appNameCtrl">					<mat-hint>Used to identify this deployment to Kubernetes</mat-hint>                </mat-form-field>                <mat-form-field style="margin-left: 30px; min-width: 250px; margin-bottom: 20px">					<input matInput type="text" placeholder="Host Name" formControlName="hostNameCtrl">					<mat-hint>Virtual host name assigned to all containers</mat-hint>                </mat-form-field>                <mat-form-field style="margin-left: 30px; min-width: 250px; margin-bottom: 20px">					<input matInput type="number" placeholder="Replicas" formControlName="replicasCtrl">					<mat-hint>Defines maximum number of pods that can be instantiated for this layer</mat-hint>                </mat-form-field>                <mat-form-field style="margin-left: 30px; min-width: 250px; margin-bottom: 20px">					<mat-select placeholder="Service Type" formControlName="serviceTypeCtrl">						<mat-option *ngFor="let state of serviceStates" [value]="state">{{state}}</mat-option>					</mat-select>					<mat-hint>Ensures that instances have their own persistent volumes rather than shared if stateful</mat-hint>                </mat-form-field>                <mat-form-field>                	<mat-select placeholder="Restart Policy" formControlName="restartOnFailCtrl">						<mat-option *ngFor="let policy of restartPolicies" [value]="policy">{{policy}}</mat-option>					</mat-select>					<mat-hint>Specifies what to do with indidivual Pods if they become unresponsive</mat-hint>				</mat-form-field>                <mat-slide-toggle formControlName="requiresMonitoringCtrl" style="margin-left: 30px; margin-bottom: 20px; color: gray">Requires Monitoring</mat-slide-toggle>			</div>		</mat-card>	</mat-expansion-panel></form></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'about-app'},{'name': 'ActionComponent', 'selector': 'action'},{'name': 'ApiGatewayInstallerComponent', 'selector': 'jc-apigw-install'},{'name': 'ApiMicroGatewayInstallerComponent', 'selector': 'jc-apimg-install'},{'name': 'ApiPortalInstallerComponent', 'selector': 'jc-apipr-installer'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BuildCommandsComponent', 'selector': 'build-commands'},{'name': 'BuildComponent', 'selector': 'build'},{'name': 'BuildExeComponent', 'selector': 'build-exe'},{'name': 'BuildImageComponent', 'selector': 'build-solution'},{'name': 'BuildInstallComponent', 'selector': 'build-install'},{'name': 'BuildPackagesComponent', 'selector': 'build-package'},{'name': 'ContainerComponent', 'selector': 'container'},{'name': 'ContainersComponent', 'selector': 'app-containers'},{'name': 'DeploymentDetailsComponent', 'selector': 'jc-deployment-details'},{'name': 'DeploymentListComponent', 'selector': 'jc-k8s-deployments'},{'name': 'DockerImageChooserComponent', 'selector': 'docker-image-chooser'},{'name': 'DockerImageListComponent', 'selector': 'jc-docker-images'},{'name': 'DockerImageVersionsComponent', 'selector': 'jc-docker-image-versions'},{'name': 'EditContainerComponent', 'selector': 'edit-container'},{'name': 'GitSourcesComponent', 'selector': 'git-source'},{'name': 'HomeComponent', 'selector': 'home'},{'name': 'InstallerComponent', 'selector': 'jc-install'},{'name': 'MicroServiceBuilderComponent', 'selector': 'jc-msc-configure'},{'name': 'MicroServiceInstallerComponent', 'selector': 'jc-msc-install'},{'name': 'PodsListComponent', 'selector': 'jc-pods'},{'name': 'RuntimeContainersComponent', 'selector': 'runtime-containers'},{'name': 'RuntimeDeployComponent', 'selector': 'runtime-deploy'},{'name': 'RuntimeDetailsComponent', 'selector': ''},{'name': 'RuntimeK8sComponent', 'selector': 'runtime'},{'name': 'RuntimeScaleComponent', 'selector': 'jc-runtime-scale'},{'name': 'RuntimeStageComponent', 'selector': 'runtime-stage'},{'name': 'RuntimeUpdateComponent', 'selector': ''},{'name': 'SagImageAlerterComponent', 'selector': 'sag-image-alerter'},{'name': 'ServicePropertiesComponent', 'selector': 'k8s-props'},{'name': 'SettingsComponent', 'selector': 'home'},{'name': 'SimpleNameComponent', 'selector': 'name-dialog'},{'name': 'StagingComponent', 'selector': 'staging'},{'name': 'TestCaseComponent', 'selector': 'test-case'},{'name': 'TestDefinitionComponent', 'selector': 'test-definitions'},{'name': 'TestHistoryComponent', 'selector': 'test-history'},{'name': 'TestRunComponent', 'selector': 'test-reun'},{'name': 'UMInstallerComponent', 'selector': 'jc-um-install'},{'name': 'UploadButtonComponent', 'selector': 'file-uploader-button'}];
+    var DIRECTIVES = [{'name': 'BuildImageChooseDirective', 'selector': '[builder]'},{'name': 'CancelCdkDrag', 'selector': '[appCancelCdkDrag]'},{'name': 'NgFileDrop', 'selector': '[ng-file-drop]'},{'name': 'NgFileSelect', 'selector': '[ng-file-select]'},{'name': 'RuntimeActionsDirective', 'selector': '[runtime-actions]'}];
+    var ACTUAL_COMPONENT = {'name': 'ServicePropertiesComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ServicePropertiesComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

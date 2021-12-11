@@ -1,0 +1,1002 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>wm-devops-console documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">wm-devops-console documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li>PackagesService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/services/packages.service.ts</code>
+        </p>
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#URI">URI</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_makePackage">_makePackage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#checkDependenciesForPackages">checkDependenciesForPackages</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#index">index</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#packageDetails">packageDetails</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#packages">packages</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#servicesForPackage">servicesForPackage</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(_settings: <a href="../injectables/Settings.html">Settings</a>, _http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>, _ngxXml2jsonService: NgxXml2jsonService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/services/packages.service.ts:32</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_settings</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/Settings.html" target="_self" >Settings</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_http</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_ngxXml2jsonService</td>
+                                                  
+                                                        <td>
+                                                                    <code>NgxXml2jsonService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_makePackage"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            _makePackage
+                        </b>
+                        <a href="#_makePackage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_makePackage(responseData: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="171"
+                            class="link-to-prism">src/app/services/packages.service.ts:171</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>responseData</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/WmPackageInfo.html" target="_self" >WmPackageInfo[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkDependenciesForPackages"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            checkDependenciesForPackages
+                        </b>
+                        <a href="#checkDependenciesForPackages"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>checkDependenciesForPackages(packages: string[], packagesDir?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="129"
+                            class="link-to-prism">src/app/services/packages.service.ts:129</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>packages</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>packagesDir</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/DependencyWrapper.html" target="_self" >Observable&lt;DependencyWrapper&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="index"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            index
+                        </b>
+                        <a href="#index"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>index(deploymentSetName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, packagesDir: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, sources: <a href="../classes/Source.html">Source</a>, forceReindex: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="104"
+                            class="link-to-prism">src/app/services/packages.service.ts:104</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>deploymentSetName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>packagesDir</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>sources</td>
+                                    <td>
+                                                <code><a href="../classes/Source.html" target="_self" >Source</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>forceReindex</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/WmPackageInfo.html" target="_self" >Observable&lt;WmPackageInfo[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="packageDetails"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            packageDetails
+                        </b>
+                        <a href="#packageDetails"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>packageDetails(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, packagesDir?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">src/app/services/packages.service.ts:84</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>packagesDir</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/WmPackageInfo.html" target="_self" >Observable&lt;WmPackageInfo&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="packages"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            packages
+                        </b>
+                        <a href="#packages"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>packages(packagesDir?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">src/app/services/packages.service.ts:38</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>packagesDir</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/WmPackageInfo.html" target="_self" >Observable&lt;WmPackageInfo[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="servicesForPackage"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            servicesForPackage
+                        </b>
+                        <a href="#servicesForPackage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>servicesForPackage(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, packagesDir?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">src/app/services/packages.service.ts:64</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>packagesDir</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;string[]&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="URI"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            URI</b>
+                            <a href="#URI"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Settings.SERVER_API + &quot;/rad/jc.devops:api/package&quot;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/services/packages.service.ts:32</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } 	           	 			      from &#x27;@angular/core&#x27;;
+import { HttpClient, HttpHeaders, HttpParams }  from &#x27;@angular/common/http&#x27;;
+import { Observable, of }               		    from &#x27;rxjs&#x27;;
+import { switchMap, map } 						          from &#x27;rxjs/operators&#x27;;
+
+import { NgxXml2jsonService } 					        from &#x27;ngx-xml2json&#x27;;
+
+import { Settings }                     		    from &#x27;../settings&#x27;;
+import { WmPackageInfo }                        from &#x27;../models/wm-package-info&#x27;;
+import { DeploymentSet }                        from &#x27;../models/project&#x27;;
+import {Source} from &#x27;../models/git-source&#x27;;
+
+export class DependencyWrapper {
+  public packages: WmPackageInfo[];
+  public dependencies: WmPackageInfo[];
+}
+
+export class Sources {
+
+  public gitURI: string;
+  public gitRepository: string;
+  public gitUser: string;
+  public gitPassword: string;
+  public type: string;
+  public include: string[];
+  public targetDir: string;
+}
+
+@Injectable()
+export class PackagesService {
+
+    public static URI: string &#x3D; Settings.SERVER_API + &quot;/rad/jc.devops:api/package&quot;;
+
+    constructor(private _settings: Settings, private _http: HttpClient, private _ngxXml2jsonService: NgxXml2jsonService) {
+
+    }
+
+    public packages(packagesDir?: string): Observable&lt;WmPackageInfo[]&gt; {
+
+      let url: string &#x3D; PackagesService.URI
+
+      let headers &#x3D; new HttpHeaders()
+        .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+        .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+
+       if (packagesDir)
+         headers &#x3D; headers.set(&#x27;packagesDir&#x27;, packagesDir);
+
+      return this._http.get(url, { headers }).pipe(map( (responseData) &#x3D;&gt; {
+
+          let packages: WmPackageInfo[] &#x3D; [];
+
+          (&lt;any&gt; responseData).packages.forEach((p) &#x3D;&gt; {
+            packages.push(WmPackageInfo.make(p));
+          });
+
+           return packages;
+        },
+        error &#x3D;&gt; {
+            return [];
+        }));
+    }
+
+    public servicesForPackage(name: string, packagesDir?: string): Observable&lt;string[]&gt; {
+
+      let url: string &#x3D; PackagesService.URI + &quot;/&quot; + name + &quot;/services&quot;;
+
+      let headers &#x3D; new HttpHeaders()
+        .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+        .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+
+        if (name)
+          headers &#x3D; headers.set(&#x27;packagesDir&#x27;, packagesDir);
+
+      return this._http.get(url, { headers }).pipe(map( (responseData) &#x3D;&gt; {
+
+          return (&lt;any&gt; responseData).services;
+        },
+        error &#x3D;&gt; {
+            return [];
+        }));
+    }
+
+    public packageDetails(name: string, packagesDir?: string): Observable&lt;WmPackageInfo&gt; {
+
+      let url: string &#x3D; PackagesService.URI + &quot;/&quot; + name
+
+      let headers &#x3D; new HttpHeaders()
+        .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+        .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+
+      if (packagesDir)
+         headers &#x3D; headers.set(&#x27;packagesDir&#x27;, packagesDir);
+
+      return this._http.get(url, { headers }).pipe(map( (responseData) &#x3D;&gt; {
+
+           return WmPackageInfo.make((&lt;any&gt; responseData).packages[0]);
+        },
+        error &#x3D;&gt; {
+            return null;
+        }));
+    }
+
+    public index(deploymentSetName: string, packagesDir: string, sources: Source, forceReindex: boolean): Observable&lt;WmPackageInfo[]&gt; {
+
+      if (packagesDir.startsWith(&quot;/&quot;))
+        packagesDir &#x3D; packagesDir.substring(packagesDir.indexOf(&quot;/&quot;)+1);
+
+		  let url: string &#x3D; PackagesService.URI + &quot;/&quot; + deploymentSetName + &quot;/index?repository&#x3D;&quot; + encodeURI(sources.gitRepository) + &quot;&amp;packagesDir&#x3D;&quot; + encodeURI(packagesDir);
+
+		  let headers &#x3D; new HttpHeaders()
+				.set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+				.set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+
+      if (forceReindex)
+        (&lt;any&gt; sources).forceReindex &#x3D; forceReindex;
+
+		  let body: string &#x3D; JSON.stringify(sources);
+
+      return this._http.post(url, body, { headers }).pipe(map( (responseData) &#x3D;&gt; {
+
+            return this._makePackage(responseData);
+          },
+          error &#x3D;&gt; {
+            return [];
+       	}));
+    }
+
+    public checkDependenciesForPackages(packages: string[], packagesDir?: string): Observable&lt;DependencyWrapper&gt; {
+
+      var packs: string &#x3D; &quot;&quot;;
+      packages.forEach((p) &#x3D;&gt; {
+
+        if (packs !&#x3D; &quot;&quot;)
+          packs &#x3D; packs + &quot;,&quot; + p;
+        else
+          packs &#x3D; p;
+      });
+
+      let url: string &#x3D; PackagesService.URI + &quot;/dependencies/&quot; + encodeURIComponent(packs);
+
+      let headers &#x3D; new HttpHeaders()
+        .set(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+        .set(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+
+        if (packagesDir)
+          headers &#x3D; headers.set(&#x27;packagesDir&#x27;, packagesDir);
+
+      return this._http.get(url, { headers }).pipe(map( (responseData) &#x3D;&gt; {
+
+          let packages: WmPackageInfo[] &#x3D; [];
+          (&lt;any&gt;responseData).packages.forEach((p) &#x3D;&gt; {
+            if (p !&#x3D; null)
+              packages.push(WmPackageInfo.make(p));
+            else
+              console.log(&quot;** WARNING ** - invalid null dependencies found for &#x27;&quot; + packs + &quot;&#x27; in &quot; + packagesDir);
+           });
+
+          let dependencies: WmPackageInfo[] &#x3D; [];
+          (&lt;any&gt;responseData).dependencies.forEach((p) &#x3D;&gt; {
+            dependencies.push(WmPackageInfo.make(p))
+           });
+
+           return {packages: packages, dependencies: dependencies};
+        },
+        error &#x3D;&gt; {
+            return null;
+        }));
+    }
+
+    private _makePackage(responseData: any): WmPackageInfo[] {
+
+      let packages: WmPackageInfo[] &#x3D; [];
+
+      responseData.packages.forEach((p) &#x3D;&gt; {
+        packages.push(WmPackageInfo.make(p));
+      });
+
+      return packages;
+    }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'PackagesService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

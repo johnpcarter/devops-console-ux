@@ -1,0 +1,3846 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>wm-devops-console documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">wm-devops-console documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>RuntimeStageComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/runtime-stage.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>runtime-stage</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>../templates/runtime-stage.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>../templates/runtime-stage.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_downloadLink">_downloadLink</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_gitPassword">_gitPassword</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_gitRepo">_gitRepo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_gitUri">_gitUri</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_gitUser">_gitUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_ignoreValuesChange">_ignoreValuesChange</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_stageForms">_stageForms</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#currentProject">currentProject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#finaliseFormGroup">finaliseFormGroup</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#gits">gits</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#gitURI">gitURI</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isLinearStepper">isLinearStepper</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#projects">projects</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#repositories">repositories</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#runListCtrl">runListCtrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#runSets">runSets</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectedGitCtrl">selectedGitCtrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectedGitRepoCtrl">selectedGitRepoCtrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#stageCtrl">stageCtrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#stageTemplateFormGroup">stageTemplateFormGroup</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#starting">starting</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#useGitCtrl">useGitCtrl</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_save">_save</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#addStage">addStage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#addStageToProject">addStageToProject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#addTemplate">addTemplate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#borderStyleForPostAction">borderStyleForPostAction</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#buttonLabel">buttonLabel</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deleteTemplate">deleteTemplate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#download">download</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#formGroupForStage">formGroupForStage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#goRunPage">goRunPage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#haveRunTemplates">haveRunTemplates</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#indexOfStageInProject">indexOfStageInProject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#indexOfTemplate">indexOfTemplate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isExistingTemplate">isExistingTemplate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isFailEnd">isFailEnd</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isNotFirstStage">isNotFirstStage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isNotLastStage">isNotLastStage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isNotLastStageFail">isNotLastStageFail</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isSuccessEnd">isSuccessEnd</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#labelForBuild">labelForBuild</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#loadGitRepositories">loadGitRepositories</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#postActionDescription">postActionDescription</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#refresh">refresh</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#removeStage">removeStage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#restoreStageContainersToBuild">restoreStageContainersToBuild</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setRunTemplateForStage">setRunTemplateForStage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setTemplate">setTemplate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#stageInProject">stageInProject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#stageUpdated">stageUpdated</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#updateForms">updateForms</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                                <span class="modifier">Public</span>
+                        <code>constructor(_router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, _settings: <a href="../injectables/Settings.html">Settings</a>, _formBuilder: <a href="../classes/Builder.html">FormBuilder</a>, _resources: <a href="../injectables/ResourceService.html">ResourceService</a>, _configService: <a href="../injectables/ConfigurationService.html">ConfigurationService</a>, _gitService: <a href="../injectables/GitSourceService.html">GitSourceService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/components/runtime-stage.component.ts:54</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_settings</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/Settings.html" target="_self" >Settings</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_formBuilder</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/Builder.html" target="_self" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_resources</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ResourceService.html" target="_self" >ResourceService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_configService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ConfigurationService.html" target="_self" >ConfigurationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_gitService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GitSourceService.html" target="_self" >GitSourceService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_save"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            _save
+                        </b>
+                        <a href="#_save"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_save()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="408"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:408</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addStage"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            addStage
+                        </b>
+                        <a href="#addStage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addStage(currentStage: <a href="../classes/Stage.html">Stage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="173"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:173</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentStage</td>
+                                    <td>
+                                                <code><a href="../classes/Stage.html" target="_self" >Stage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addStageToProject"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            addStageToProject
+                        </b>
+                        <a href="#addStageToProject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addStageToProject(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="428"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:428</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addTemplate"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            addTemplate
+                        </b>
+                        <a href="#addTemplate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addTemplate(event)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="218"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:218</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="borderStyleForPostAction"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            borderStyleForPostAction
+                        </b>
+                        <a href="#borderStyleForPostAction"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>borderStyleForPostAction(stage: <a href="../classes/Stage.html">Stage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="287"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:287</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>stage</td>
+                                    <td>
+                                                <code><a href="../classes/Stage.html" target="_self" >Stage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buttonLabel"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            buttonLabel
+                        </b>
+                        <a href="#buttonLabel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>buttonLabel()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="164"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:164</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>&quot;Commit to repository&quot; | &quot;Download Jenkins file&quot;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteTemplate"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            deleteTemplate
+                        </b>
+                        <a href="#deleteTemplate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteTemplate(event)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="227"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:227</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="download"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            download
+                        </b>
+                        <a href="#download"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>download()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="325"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:325</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formGroupForStage"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            formGroupForStage
+                        </b>
+                        <a href="#formGroupForStage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>formGroupForStage(stage: <a href="../classes/Stage.html">Stage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="235"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:235</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>stage</td>
+                                    <td>
+                                                <code><a href="../classes/Stage.html" target="_self" >Stage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goRunPage"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            goRunPage
+                        </b>
+                        <a href="#goRunPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>goRunPage()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="151"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:151</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="haveRunTemplates"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            haveRunTemplates
+                        </b>
+                        <a href="#haveRunTemplates"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>haveRunTemplates()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="146"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:146</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="indexOfStageInProject"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            indexOfStageInProject
+                        </b>
+                        <a href="#indexOfStageInProject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>indexOfStageInProject(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="470"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:470</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="indexOfTemplate"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            indexOfTemplate
+                        </b>
+                        <a href="#indexOfTemplate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>indexOfTemplate(name)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="485"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:485</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isExistingTemplate"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            isExistingTemplate
+                        </b>
+                        <a href="#isExistingTemplate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isExistingTemplate()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="213"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:213</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isFailEnd"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            isFailEnd
+                        </b>
+                        <a href="#isFailEnd"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isFailEnd(stage: <a href="../classes/Stage.html">Stage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="277"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:277</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>stage</td>
+                                    <td>
+                                                <code><a href="../classes/Stage.html" target="_self" >Stage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isNotFirstStage"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            isNotFirstStage
+                        </b>
+                        <a href="#isNotFirstStage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isNotFirstStage(stage: <a href="../classes/Stage.html">Stage</a>, type: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="247"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:247</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>stage</td>
+                                    <td>
+                                                <code><a href="../classes/Stage.html" target="_self" >Stage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>type</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isNotLastStage"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            isNotLastStage
+                        </b>
+                        <a href="#isNotLastStage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isNotLastStage(stage: <a href="../classes/Stage.html">Stage</a>, isPostAction)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="271"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:271</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>stage</td>
+                                    <td>
+                                                <code><a href="../classes/Stage.html" target="_self" >Stage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>isPostAction</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isNotLastStageFail"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            isNotLastStageFail
+                        </b>
+                        <a href="#isNotLastStageFail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isNotLastStageFail(stage: <a href="../classes/Stage.html">Stage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="263"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:263</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>stage</td>
+                                    <td>
+                                                <code><a href="../classes/Stage.html" target="_self" >Stage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSuccessEnd"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            isSuccessEnd
+                        </b>
+                        <a href="#isSuccessEnd"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isSuccessEnd(stage: <a href="../classes/Stage.html">Stage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="282"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:282</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>stage</td>
+                                    <td>
+                                                <code><a href="../classes/Stage.html" target="_self" >Stage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="labelForBuild"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            labelForBuild
+                        </b>
+                        <a href="#labelForBuild"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>labelForBuild()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="317"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:317</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadGitRepositories"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            loadGitRepositories
+                        </b>
+                        <a href="#loadGitRepositories"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadGitRepositories()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="156"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:156</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="91"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:91</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="postActionDescription"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            postActionDescription
+                        </b>
+                        <a href="#postActionDescription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>postActionDescription(stage: <a href="../classes/Stage.html">Stage</a>, type: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="306"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:306</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>stage</td>
+                                    <td>
+                                                <code><a href="../classes/Stage.html" target="_self" >Stage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>type</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refresh"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            refresh
+                        </b>
+                        <a href="#refresh"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>refresh()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="399"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:399</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeStage"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            removeStage
+                        </b>
+                        <a href="#removeStage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeStage(currentStage: <a href="../classes/Stage.html">Stage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="197"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:197</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentStage</td>
+                                    <td>
+                                                <code><a href="../classes/Stage.html" target="_self" >Stage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="restoreStageContainersToBuild"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            restoreStageContainersToBuild
+                        </b>
+                        <a href="#restoreStageContainersToBuild"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>restoreStageContainersToBuild(stage: <a href="../classes/Stage.html">Stage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="445"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:445</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>stage</td>
+                                    <td>
+                                                <code><a href="../classes/Stage.html" target="_self" >Stage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setRunTemplateForStage"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            setRunTemplateForStage
+                        </b>
+                        <a href="#setRunTemplateForStage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setRunTemplateForStage(runTemplateName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="365"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:365</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>runTemplateName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setTemplate"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            setTemplate
+                        </b>
+                        <a href="#setTemplate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setTemplate(stageName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="383"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:383</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>stageName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stageInProject"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            stageInProject
+                        </b>
+                        <a href="#stageInProject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>stageInProject(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="460"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:460</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Stage.html" target="_self" >Stage</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stageUpdated"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            stageUpdated
+                        </b>
+                        <a href="#stageUpdated"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>stageUpdated(stage: <a href="../classes/Stage.html">Stage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="208"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:208</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>stage</td>
+                                    <td>
+                                                <code><a href="../classes/Stage.html" target="_self" >Stage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateForms"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            updateForms
+                        </b>
+                        <a href="#updateForms"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateForms()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="418"
+                            class="link-to-prism">src/app/components/runtime-stage.component.ts:418</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_downloadLink"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _downloadLink</b>
+                            <a href="#_downloadLink"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;downloadLink&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/components/runtime-stage.component.ts:54</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_gitPassword"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _gitPassword</b>
+                            <a href="#_gitPassword"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/components/runtime-stage.component.ts:51</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_gitRepo"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _gitRepo</b>
+                            <a href="#_gitRepo"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/components/runtime-stage.component.ts:49</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_gitUri"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _gitUri</b>
+                            <a href="#_gitUri"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/components/runtime-stage.component.ts:48</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_gitUser"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _gitUser</b>
+                            <a href="#_gitUser"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/components/runtime-stage.component.ts:50</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_ignoreValuesChange"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _ignoreValuesChange</b>
+                            <a href="#_ignoreValuesChange"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/components/runtime-stage.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_stageForms"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _stageForms</b>
+                            <a href="#_stageForms"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Map&lt;string | FormGroup&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Map()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/components/runtime-stage.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="currentProject"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            currentProject</b>
+                            <a href="#currentProject"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Project.html" target="_self" >Project</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/runtime-stage.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="finaliseFormGroup"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            finaliseFormGroup</b>
+                            <a href="#finaliseFormGroup"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/runtime-stage.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="gits"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            gits</b>
+                            <a href="#gits"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/components/runtime-stage.component.ts:45</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="gitURI"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            gitURI</b>
+                            <a href="#gitURI"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/components/runtime-stage.component.ts:44</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isLinearStepper"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            isLinearStepper</b>
+                            <a href="#isLinearStepper"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>true</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/runtime-stage.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="projects"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            projects</b>
+                            <a href="#projects"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/components/runtime-stage.component.ts:35</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="repositories"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            repositories</b>
+                            <a href="#repositories"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/GitRepo.html" target="_self" >GitRepo[]</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/components/runtime-stage.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="runListCtrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            runListCtrl</b>
+                            <a href="#runListCtrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/components/runtime-stage.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="runSets"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            runSets</b>
+                            <a href="#runSets"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/components/runtime-stage.component.ts:34</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedGitCtrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            selectedGitCtrl</b>
+                            <a href="#selectedGitCtrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/components/runtime-stage.component.ts:31</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedGitRepoCtrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            selectedGitRepoCtrl</b>
+                            <a href="#selectedGitRepoCtrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/components/runtime-stage.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="stageCtrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            stageCtrl</b>
+                            <a href="#stageCtrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/runtime-stage.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="stageTemplateFormGroup"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            stageTemplateFormGroup</b>
+                            <a href="#stageTemplateFormGroup"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/runtime-stage.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="starting"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            starting</b>
+                            <a href="#starting"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/components/runtime-stage.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="useGitCtrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            useGitCtrl</b>
+                            <a href="#useGitCtrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/runtime-stage.component.ts:30</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ChangeDetectorRef, ViewChild,
+			OnInit, OnDestroy }   						            from &#x27;@angular/core&#x27;;
+import { Router }					   								from &#x27;@angular/router&#x27;;
+
+import {FormBuilder, FormGroup, FormControl,
+								Validators} 			            from &#x27;@angular/forms&#x27;;
+
+import { Project, RunSet, Builder, DeploymentSet, Deployment, Probe,
+	Port, Arg, Stage, Container }       				          	from &#x27;../models/project&#x27;;
+
+import { Settings }                                   				from &#x27;../settings&#x27;;
+import { ConfigurationService }                    		  			from &#x27;../services/configuration.service&#x27;;
+import { ResourceService }                            				from &#x27;../services/resources.service&#x27;;
+import { GitSourceService, GitRepo }									from &#x27;../services/git-source-control.service&#x27;;
+
+@Component({
+  selector: &#x27;runtime-stage&#x27;,
+  templateUrl: &#x27;../templates/runtime-stage.html&#x27;,
+  styleUrls: [&#x27;../templates/runtime-stage.css&#x27;]
+})
+
+export class RuntimeStageComponent implements OnInit {
+
+	public stageTemplateFormGroup: FormGroup;
+	public finaliseFormGroup: FormGroup;
+	public isLinearStepper: boolean &#x3D; true;
+
+	public runListCtrl: FormControl;
+    public stageCtrl: FormControl;
+    public useGitCtrl: FormControl;
+    public selectedGitCtrl: FormControl;
+    public selectedGitRepoCtrl: FormControl;
+
+    public runSets: string[];
+    public projects: string[];
+
+    public currentProject: Project;
+
+    public starting: boolean;
+
+    private _ignoreValuesChange &#x3D; false;
+    private _stageForms: Map&lt;string, FormGroup&gt; &#x3D; new Map();
+
+	public gitURI: string;
+	public gits: string[];
+	public repositories: GitRepo[];
+
+	private _gitUri: string; // selected by user
+    private _gitRepo: string; // selected by user
+	private _gitUser: string;
+	private _gitPassword: string;
+
+    @ViewChild(&quot;downloadLink&quot;)
+    private _downloadLink;
+
+	public constructor(private _router: Router, private _settings: Settings, private _formBuilder: FormBuilder, private _resources: ResourceService, private _configService: ConfigurationService, private _gitService: GitSourceService) {
+
+		this.runSets &#x3D; []
+		this._configService.runSets().subscribe((p) &#x3D;&gt; {
+          this.runSets &#x3D; p;
+        });
+
+        this._configService.projects().subscribe((p) &#x3D;&gt; {
+          this.projects &#x3D; p;
+        });
+
+        this.selectedGitCtrl &#x3D; new FormControl();
+		this.selectedGitRepoCtrl &#x3D; new FormControl(&quot;Use Project Name&quot;);
+
+        this._settings.values().subscribe((v) &#x3D;&gt; {
+
+        	this._gitUser &#x3D; v.gitUser;
+        	this._gitPassword &#x3D; v.gitPassword;
+
+			if (v.gitName)
+				this.gits &#x3D; [ v.gitName ]
+			else
+				this.gits &#x3D; [ v.gitUser ];
+
+			if (this.repositories)
+				this.repositories.unshift(new GitRepo(&quot;Use Project Name&quot;, &quot;Use Project Name&quot;));
+			else
+				this.repositories &#x3D; [new GitRepo(&quot;Use Project Name&quot;, &quot;Use Project Name&quot;)];
+
+			this.loadGitRepositories();
+
+			this._settings.setCurrentPage(&quot;stage&quot;);
+        });
+	}
+
+	public ngOnInit() {
+
+		this.currentProject &#x3D; new Project();
+		let stage: Stage &#x3D; this.addStageToProject(&quot;local&quot;);
+		stage.containerHost &#x3D; &quot;localhost&quot;;
+
+		this.runListCtrl &#x3D; new FormControl();
+    	this.stageCtrl &#x3D; new FormControl();
+
+		this.stageTemplateFormGroup &#x3D; this._formBuilder.group({
+			runListCtrl: this.runListCtrl,
+			stageCtrl: this.stageCtrl
+		});
+
+		this.useGitCtrl &#x3D; new FormControl();
+
+		this.finaliseFormGroup &#x3D; this._formBuilder.group({
+			useGitCtrl: this.useGitCtrl,
+			selectedGitCtrl: this.selectedGitCtrl,
+			selectedGitRepoCtrl: this.selectedGitRepoCtrl
+		});
+
+		this.stageTemplateFormGroup.valueChanges.subscribe((d) &#x3D;&gt; {
+
+			if (this._ignoreValuesChange)
+    			return;
+
+    		if (this.stageCtrl.dirty &amp;&amp; this.stageCtrl.value.length &gt; 0 &amp;&amp; this.stageCtrl.value !&#x3D; this.currentProject.name) {
+
+				this.setTemplate(this.stageCtrl.value);
+			} else if (this.runListCtrl.dirty) {
+        		this.setRunTemplateForStage(this.runListCtrl.value);
+      		}
+
+		});
+
+		this.finaliseFormGroup.valueChanges.subscribe((d) &#x3D;&gt; {
+
+			if (this.useGitCtrl.value) {
+
+				this._gitUri &#x3D; this.gitURI + &quot;/&quot; + this.selectedGitCtrl.value;
+
+				if (this.selectedGitRepoCtrl.value !&#x3D; &quot;Use Project Name&quot;)
+					this._gitRepo &#x3D; this.selectedGitRepoCtrl.value;
+				else
+					this._gitRepo &#x3D; null;
+
+				this.loadGitRepositories();
+			} else {
+				this._gitUri &#x3D; null;
+				this._gitRepo &#x3D; null;
+			}
+		});
+	}
+
+	public haveRunTemplates() {
+
+    	return this.runSets &amp;&amp; this.runSets.length &gt; 0;
+  	}
+
+  	public goRunPage() {
+
+    	this._router.navigate([&#x27;/run&#x27;]);
+  	}
+
+	public loadGitRepositories() {
+
+		this._gitService.repositories(this.selectedGitCtrl.value).subscribe((r) &#x3D;&gt; {
+			this.repositories &#x3D; r;
+			this.repositories.unshift(new GitRepo(&quot;Use Project Name&quot;, &quot;Use Project Name&quot;));
+		});
+	}
+
+	public buttonLabel() {
+
+		if (this.useGitCtrl.value) {
+			return &quot;Commit to repository&quot;;
+		} else {
+			return &quot;Download Jenkins file&quot;;
+		}
+	}
+
+	public addStage(currentStage: Stage) {
+
+		let i: number &#x3D; this.indexOfStageInProject(currentStage.name);
+
+		if (i !&#x3D; -1) {
+			let copy: Stage &#x3D; currentStage.copy();
+			this.currentProject.stages.splice(i, 1, currentStage, copy);
+
+			copy.deployments &#x3D; [];
+			this.currentProject.run.deployments.forEach((s) &#x3D;&gt; {
+				let serviceCopy: Deployment &#x3D; s.copy();
+
+				serviceCopy.containers.forEach((c) &#x3D;&gt; {
+					c.active &#x3D; &quot;true&quot;;
+				});
+
+				copy.deployments.push(serviceCopy);
+			});
+
+			this._save();
+			this.updateForms();
+		}
+	}
+
+	public removeStage(currentStage: Stage) {
+
+		let i: number &#x3D; this.indexOfStageInProject(currentStage.name);
+
+		if (i !&#x3D; -1 &amp;&amp; this.currentProject.stages.length &gt; 1) {
+			this.currentProject.stages.splice(i, 1);
+			this._save();
+			this.updateForms();
+		}
+	}
+
+	public stageUpdated(stage: Stage) {
+
+		this._save();
+	}
+
+	public isExistingTemplate(): boolean {
+
+      return this.currentProject &amp;&amp; this.indexOfTemplate(this.currentProject.name) !&#x3D; -1;
+    }
+
+    public addTemplate(event) {
+
+    	this.currentProject.name &#x3D; this.stageCtrl.value;
+      	let stage: Stage &#x3D; this.addStageToProject(&quot;local&quot;);
+      	this._configService.uploadProject(this.currentProject).subscribe((success) &#x3D;&gt; {
+		this.projects.push(this.currentProject.name);
+      });
+    }
+
+  	public deleteTemplate(event) {
+
+      this._configService.deleteProject(this.currentProject.name).subscribe((success) &#x3D;&gt; {
+        this.projects.splice(this.indexOfTemplate(this.currentProject.name), 1);
+        this.currentProject &#x3D; new Project();
+      });
+  	}
+
+  	public formGroupForStage(stage: Stage): FormGroup {
+
+  		var form: FormGroup &#x3D; this._stageForms.get(stage.id);
+
+  		if (!form) {
+  			form &#x3D; this._formBuilder.group({});
+  			this._stageForms.set(stage.id, form);
+  		}
+
+  		return form;
+  	}
+
+  	public isNotFirstStage(stage: Stage, type: string): boolean {
+
+  		if (type.startsWith(&#x27;build&#x27;)) {
+
+  			if (type &#x3D;&#x3D; &#x27;build&#x27;)
+  				return stage.buildOnStart &#x3D;&#x3D; &quot;true&quot;;
+  			else
+  				return this.currentProject.stages[0] !&#x3D; stage;
+
+  		} else {
+
+  			return (type &#x3D;&#x3D; &quot;start&quot; &amp;&amp; (stage.buildOnStart &#x3D;&#x3D; &quot;true&quot; || stage.onStart.runTests &#x3D;&#x3D; &quot;true&quot; || (stage.onStart.apiDeployType !&#x3D; null &amp;&amp; stage.onStart.apiDeployType !&#x3D; &#x27;none&#x27;))) || this.currentProject.stages[0] !&#x3D; stage;
+
+  		}
+  	}
+
+  	public isNotLastStageFail(stage: Stage) {
+
+  		if ((!stage.onFail.pipelineAction || stage.onFail.pipelineAction &#x3D;&#x3D; &#x27;stop&#x27;) || (stage.onSuccess.pipelineAction  &amp;&amp; stage.onSuccess.pipelineAction &#x3D;&#x3D; &#x27;stop&#x27;))
+  			return false;
+  		else
+  			return this.isNotLastStage(stage, true);
+  	}
+
+	public isNotLastStage(stage: Stage, isPostAction): boolean {
+
+		return (!isPostAction &amp;&amp; ((stage.onSuccess.pipelineAction !&#x3D; &#x27;stop&#x27; || !isPostAction) &amp;&amp; (this.postActionDescription(stage, &#x27;success&#x27;) !&#x3D; null || this.postActionDescription(stage, &#x27;fail&#x27;) !&#x3D; null))) ||
+				((stage.onSuccess.pipelineAction !&#x3D; &#x27;stop&#x27; || !isPostAction) &amp;&amp; this.currentProject.stages[this.currentProject.stages.length-1] !&#x3D; stage);
+  	}
+
+  	public isFailEnd(stage: Stage): boolean {
+
+  		return !stage.onFail.pipelineAction || stage.onFail.pipelineAction &#x3D;&#x3D; &#x27;stop&#x27;;
+  	}
+
+  	public isSuccessEnd(stage: Stage): boolean {
+
+  		return stage.onSuccess.pipelineAction &amp;&amp; stage.onSuccess.pipelineAction &#x3D;&#x3D; &#x27;stop&#x27;;
+  	}
+
+  	public borderStyleForPostAction(stage: Stage): any {
+
+  		let style: any &#x3D; {};
+
+  		let s: string &#x3D; this.postActionDescription(stage,&#x27;success&#x27;);
+  		let f: string &#x3D; this.postActionDescription(stage,&#x27;fail&#x27;);
+
+  		if (s &amp;&amp; f) {
+
+  			style[&#x27;border-left&#x27;] &#x3D; &#x27;0.5px solid #ff0000&#x27;;
+
+  			if (this.currentProject.stages[this.currentProject.stages.length-1] !&#x3D; stage) {
+  				style[&#x27;border-right&#x27;] &#x3D; &#x27;0.5px solid #ff0000&#x27;;
+  			}
+  		}
+
+  		return style;
+  	}
+
+  	public postActionDescription(stage: Stage, type: string): string {
+
+  		if (type &#x3D;&#x3D; &quot;start&quot;) {
+  			return stage.onStart ? stage.onStart.summary() : null;
+  		} else if (type &#x3D;&#x3D; &quot;success&quot;) {
+  			return stage.onSuccess ? stage.onSuccess.summary() : null;
+  		} else {
+  			return stage.onFail ? stage.onFail.summary() : null;
+  		}
+  	}
+
+  	public labelForBuild() {
+
+  		if (this.currentProject.run.builds.length &gt; 0)
+  			return this.currentProject.run.builds[0].name;
+  		else
+  			return &quot;&quot;;
+  	}
+
+  	public download() {
+
+  		this.starting &#x3D; true;
+
+  		this.currentProject.stages.forEach((s) &#x3D;&gt; {
+
+  			s.onSuccess.active &#x3D; s.onSuccess.isActive() ? &quot;true&quot; : &quot;false&quot;;
+  			s.onFail.active &#x3D; s.onFail.isActive() ? &quot;true&quot; : &quot;false&quot;;
+  		});
+
+  		this._save();
+
+    	this._configService.generateJenkinsPipeline(this.currentProject, this._gitUri, this._gitRepo, this._gitUser, this._gitPassword).subscribe((file) &#x3D;&gt; {
+
+      		this.starting &#x3D; false;
+
+      		if (this._gitUri) {
+
+      			// do nothing
+
+      		} else {
+
+      			// allow file to be downloaded
+      			if (file) {
+      				let url &#x3D; window.URL.createObjectURL(file);
+	      			//window.open(&#x27;data:text/plain,&#x27; + encodeURIComponent(file));
+
+	      			const link &#x3D; this._downloadLink.nativeElement;
+  					link.href &#x3D; url;
+  					link.download &#x3D; &#x27;Jenkinsfile-&#x27; + this.currentProject.name;
+  					link.click();
+
+  					window.URL.revokeObjectURL(url);
+	      		} else {
+	        		window.alert(&quot;Oops, geeneration failed, refer to Integration Server log for more info&quot;)
+	      		}
+      		}
+	    });
+  	}
+
+	private setRunTemplateForStage(runTemplateName: string) {
+
+		this._configService.runSet(runTemplateName).subscribe((r) &#x3D;&gt; {
+			this.currentProject.run &#x3D; r;
+
+			if (this.currentProject.stages.length &#x3D;&#x3D; 0) {
+				this.addStageToProject(&quot;local&quot;).containerHost &#x3D; &quot;localhost&quot;;
+			}
+
+			this.currentProject.stages.forEach((s) &#x3D;&gt; {
+				this.restoreStageContainersToBuild(s);
+			});
+
+			this.updateForms();
+			this._save();
+		});
+	}
+
+	private setTemplate(stageName: string) {
+
+		if (this.indexOfTemplate(stageName) &#x3D;&#x3D; -1) {
+
+			this.currentProject.name &#x3D; name;
+		} else {
+
+			this._configService.project(stageName).subscribe((p) &#x3D;&gt; {
+				this.isLinearStepper &#x3D; false;
+				this.currentProject &#x3D; p;
+
+				this.refresh();
+			});
+		}
+	}
+
+	private refresh() {
+
+		this._configService.runSet(this.currentProject.run.name).subscribe((runSet) &#x3D;&gt; {
+			this.currentProject.run &#x3D; runSet;
+			this.updateForms();
+			this._save();
+		});
+	}
+
+	private _save() {
+
+		if (!this.currentProject.name)
+			return;
+
+		this._configService.uploadProject(this.currentProject).subscribe((status) &#x3D;&gt; {
+
+		});
+	}
+
+	private updateForms() {
+
+		this._ignoreValuesChange &#x3D; true;
+
+		if (this.currentProject.run.name)
+			this.runListCtrl.setValue(this.currentProject.run.name);
+
+		this._ignoreValuesChange &#x3D; false;
+	}
+
+	private addStageToProject(id: string) {
+
+		var stage: Stage &#x3D; this.stageInProject(id);
+
+		if (!stage) {
+			stage &#x3D; new Stage();
+			stage.id &#x3D; id;
+			stage.name &#x3D; id;
+
+			this.restoreStageContainersToBuild(stage);
+
+			this.currentProject.stages.push(stage);
+		}
+
+		return stage;
+	}
+
+	private restoreStageContainersToBuild(stage: Stage) {
+
+		stage.deployments &#x3D; [];
+		this.currentProject.run.deployments.forEach((s) &#x3D;&gt; {
+			stage.deployments.push(s.copy());
+		});
+
+		stage.deployments.forEach((s) &#x3D;&gt; {
+			s.containers.forEach((c) &#x3D;&gt; {
+				c.active &#x3D; &quot;true&quot;;
+				c.hostname &#x3D; null;
+			})
+		});
+	}
+
+	private stageInProject(id: string): Stage {
+
+		let found: number &#x3D; this.indexOfStageInProject(id);
+
+		if (found !&#x3D; -1)
+			return this.currentProject.stages[found];
+		else
+			return null;
+	}
+
+	private indexOfStageInProject(id: string): number {
+
+		var found: number &#x3D; -1;
+
+     	for (var i&#x3D;0; i &lt; this.currentProject.stages.length; i++) {
+
+        if (this.currentProject.stages[i].name &#x3D;&#x3D; id) {
+        	found &#x3D; i;
+          	break;
+        }
+      }
+
+      return found;
+	}
+
+	private indexOfTemplate(name): number {
+
+    	var found: number &#x3D; -1;
+
+      	if (this.projects) {
+
+      		for (var i&#x3D;0; i &lt; this.projects.length; i++) {
+
+        		if (this.projects[i] &#x3D;&#x3D; name) {
+          			found &#x3D; i;
+          			break;
+        		}
+      		}
+  	   }
+
+      return found;
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;page-wrapper&quot;&gt;
+  &lt;h1 class&#x3D;&quot;page-content-title&quot;&gt;Staging&lt;/h1&gt;
+  &lt;div id&#x3D;&quot;spinner&quot; class&#x3D;&quot;spinner&quot; [hidden]&#x3D;&quot;!starting&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;page-content-wrapper&quot;&gt;
+    &lt;div class&#x3D;&quot;page-scrollable-content&quot;&gt;
+      &lt;mat-horizontal-stepper [linear]&#x3D;&quot;isLinearStepper&quot; #stepper&gt;
+        &lt;mat-step [stepControl]&#x3D;&quot;stageTemplateFormGroup&quot;&gt;
+          &lt;mat-card style&#x3D;&quot;min-height: 520px&quot;&gt;
+            &lt;form [formGroup]&#x3D;&quot;stageTemplateFormGroup&quot;&gt;
+              &lt;ng-template matStepLabel&gt;Select Run Template&lt;/ng-template&gt;
+              &lt;div style&#x3D;&quot;display: flex; flex-direction: row; align-items: flex-start;&quot;&gt;
+                  &lt;div style&#x3D;&quot;display: flex; flex-direction: column; align-items: flex-start; flex-grow: 2&quot;&gt;
+                    &lt;mat-form-field style&#x3D;&quot;min-width: 250px&quot;&gt;
+                      &lt;mat-select #selectedProjectControl placeholder&#x3D;&quot;Select Run Template&quot; formControlName&#x3D;&quot;runListCtrl&quot; required&gt;
+                        &lt;mat-option *ngFor&#x3D;&quot;let run of runSets&quot; [value]&#x3D;&quot;run&quot;&gt;
+                          {{run}}
+                        &lt;/mat-option&gt;
+                      &lt;/mat-select&gt;
+                      &lt;mat-hint *ngIf&#x3D;&quot;!haveRunTemplates()&quot; style&#x3D;&quot;color: red&quot;&gt;You need to define a &lt;span style&#x3D;&quot;color: red; font-weight: bold; cursor: pointer&quot; (click)&#x3D;&quot;goRunPage()&quot;&gt;deployment template&lt;/span&gt; for the basis of each stage!&lt;/mat-hint&gt;
+                    &lt;/mat-form-field&gt;
+                    &lt;div style&#x3D;&quot;display: inline-flex; justify-content: space-between; width:100%; margin-top: 60px&quot;&gt;
+                      &lt;mat-form-field style&#x3D;&quot;margin-right:20px; flex-grow: 2&quot;&gt;
+                        &lt;input matInput placeholder&#x3D;&quot;Identify template&quot; formControlName&#x3D;&quot;stageCtrl&quot; [matAutocomplete]&#x3D;&quot;auto&quot;&gt;
+                        &lt;mat-autocomplete #auto&#x3D;&quot;matAutocomplete&quot;&gt;
+                            &lt;mat-option *ngFor&#x3D;&quot;let stage of projects&quot; [value]&#x3D;&quot;stage&quot;&gt;
+                              {{stage}}
+                            &lt;/mat-option&gt;
+                        &lt;/mat-autocomplete&gt;
+                        &lt;mat-hint align&#x3D;&quot;start&quot;&gt;Optional, Use this if you want save your run parameters for later to avoid having to re-enter all of your choices. &lt;/mat-hint&gt;
+                      &lt;/mat-form-field&gt;
+                      &lt;div [hidden]&#x3D;&quot;!stageCtrl.value&quot; style&#x3D;&quot;flex-grow: 1; display: inline-flex; justify-content: flex-start; align-items: center&quot;&gt;
+                        &lt;button mat-flat-button color&#x3D;&quot;accent&quot; (click)&#x3D;&quot;addTemplate($event)&quot; [disabled]&#x3D;&quot;isExistingTemplate()&quot; style&#x3D;&quot;margin-right: 10px&quot;&gt;Add&lt;/button&gt;
+                        &lt;button mat-flat-button color&#x3D;&quot;warn&quot; (click)&#x3D;&quot;deleteTemplate($event)&quot; [disabled]&#x3D;&quot;!isExistingTemplate()&quot; style&#x3D;&quot;margin-left: 10px&quot;&gt;Delete&lt;/button&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div *ngIf&#x3D;&quot;stageCtrl.value&quot; style&#x3D;&quot;display:flex;flex-direction: column; flex-grow: 1&quot;&gt;
+                    &lt;mat-form-field *ngIf&#x3D;&quot;currentProject.name&quot;&gt;
+                        &lt;input matInput placeholder&#x3D;&quot;Stage Name&quot; [value]&#x3D;&quot;currentProject.name&quot; disabled&#x3D;&quot;true&quot;&gt;
+                    &lt;/mat-form-field&gt;
+                  &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;mat-card-actions&gt;
+                &lt;button mat-raised-button matStepperNext color&#x3D;&quot;primary&quot; [disabled]&#x3D;&quot;!stageTemplateFormGroup.valid&quot;&gt;Next&lt;/button&gt;
+              &lt;/mat-card-actions&gt;
+            &lt;/form&gt;
+          &lt;/mat-card&gt;
+        &lt;/mat-step&gt;
+	        &lt;mat-step [stepControl]&#x3D;&quot;formGroupForStage(stage)&quot; *ngFor&#x3D;&quot;let stage of currentProject.stages&quot;&gt;
+	          &lt;mat-card style&#x3D;&quot;min-height: 520px&quot;&gt;
+	              &lt;ng-template matStepLabel&gt;{{stage.name}}&lt;/ng-template&gt;
+	                &lt;staging [form]&#x3D;&quot;formGroupForStage(stage)&quot; [stage]&#x3D;&quot;stage&quot; (stageUpdated)&#x3D;&quot;stageUpdated(stage)&quot;&gt;&lt;/staging&gt;
+	              &lt;mat-card-actions style&#x3D;&quot;width:100%; margin-bottom: 20px&quot;&gt;
+	              	  &lt;button mat-raised-button matStepperNext (click)&#x3D;&quot;removeStage(stage)&quot; color&#x3D;&quot;warn&quot; style&#x3D;&quot;margin-left: 30px&quot;&gt;Remove&lt;/button&gt;
+	              	  &lt;button mat-raised-button matStepperNext (click)&#x3D;&quot;addStage(stage)&quot; color&#x3D;&quot;accent&quot; style&#x3D;&quot;margin-left: 60px&quot;&gt;Add Stage&lt;/button&gt;
+	                  &lt;button mat-raised-button matStepperNext color&#x3D;&quot;primary&quot; [disabled]&#x3D;&quot;!formGroupForStage(stage).valid&quot; style&#x3D;&quot;float: right&quot;&gt;Next&lt;/button&gt;
+	                  &lt;button mat-raised-button matStepperPrevious style&#x3D;&quot;float: right&quot;&gt;Back&lt;/button&gt;
+	                &lt;/mat-card-actions&gt;
+	            &lt;/mat-card&gt;
+	        &lt;/mat-step&gt;
+        &lt;mat-step [stepControl]&#x3D;&quot;finaliseFormGroup&quot;&gt;
+          &lt;mat-card style&#x3D;&quot;min-height: 520px&quot;&gt;
+            &lt;form [formGroup]&#x3D;&quot;finaliseFormGroup&quot;&gt;
+              &lt;ng-template matStepLabel&gt;Deploy&lt;/ng-template&gt;
+                &lt;div&gt;
+                  &lt;h3&gt;Pipeline to Generate&lt;/h3&gt;
+                  	&lt;div style&#x3D;&quot;display: flex; flex-direction: row; flex-wrap: wrap; justify-content: flex-start&quot;&gt;
+                  		&lt;div *ngFor&#x3D;&quot;let stage of currentProject.stages&quot; style&#x3D;&quot;display: flex; flex-direction: row; flex-wrap: wrap&quot;&gt;
+	                  		&lt;div *ngIf&#x3D;&quot;isNotFirstStage(stage, &#x27;build&#x27;)&quot; style&#x3D;&quot;flex-grow: 2; display: flex; flex-direction: row; align-items: center; min-height: 100px; margin: 0px&quot;&gt;
+	                  			&lt;div *ngIf&#x3D;&quot;isNotFirstStage(stage, &#x27;startend&#x27;)&quot; style&#x3D;&quot;min-width: 30px; height: 1px; border-bottom: 0.5px solid #ff0000;&quot;&gt;&lt;/div&gt;
+	                  			&lt;button mat-flat-button color&#x3D;&quot;primary&quot; style&#x3D;&quot;background-color: orange; color: white; min-width: 120px; flex-grow: 2&quot;&gt;Build &#x27;{{labelForBuild()}}&#x27;&lt;/button&gt;
+	                  			&lt;div style&#x3D;&quot;min-width: 30px; height: 1px; border-bottom: 0.5px solid #ff0000;&quot;&gt;&lt;/div&gt;
+	                  		&lt;/div&gt;
+	                  		&lt;div style&#x3D;&quot;flex-grow: 2; display: flex; flex-direction: row; align-items: center; min-height: 100px; margin: 0px&quot;&gt;
+	                  			&lt;div *ngIf&#x3D;&quot;isNotFirstStage(stage, &#x27;start&#x27;)&quot; style&#x3D;&quot;min-width: 30px; height: 1px; border-bottom: 0.5px solid #ff0000;&quot;&gt;&lt;/div&gt;
+	                  			&lt;button mat-flat-button color&#x3D;&quot;primary&quot; style&#x3D;&quot;min-width: 120px; flex-grow: 2&quot;&gt;Start {{stage.name}}&lt;/button&gt;
+	                  			&lt;div *ngIf&#x3D;&quot;isNotLastStage(stage, false)&quot; style&#x3D;&quot;min-width: 30px; height: 1px; border-bottom: 0.5px solid #ff0000;&quot;&gt;&lt;/div&gt;
+	                  		&lt;/div&gt;
+	                  		&lt;div *ngIf&#x3D;&quot;postActionDescription(stage, &#x27;start&#x27;)&quot; style&#x3D;&quot;flex-grow: 2; display: flex; flex-direction: row; align-items: center; min-height: 100px; margin: 0px&quot;&gt;
+	                  			&lt;div style&#x3D;&quot;min-width: 30px; height: 1px; border-bottom: 0.5px solid #ff0000;&quot;&gt;&lt;/div&gt;
+	                  			&lt;button mat-flat-button style&#x3D;&quot;color: white; background-color: green; min-width: 120px; flex-grow: 2&quot;&gt;{{postActionDescription(stage, &#x27;start&#x27;)}}&lt;/button&gt;
+	                  			&lt;div *ngIf&#x3D;&quot;isNotLastStage(stage, false)&quot; style&#x3D;&quot;min-width: 30px; height: 1px; border-bottom: 0.5px solid #ff0000;&quot;&gt;&lt;/div&gt;
+	                  		&lt;/div&gt;
+	                  		&lt;div [ngStyle]&#x3D;&quot;borderStyleForPostAction(stage)&quot;&gt;
+		                  		&lt;div *ngIf&#x3D;&quot;postActionDescription(stage, &#x27;fail&#x27;)&quot; style&#x3D;&quot;display: flex; flex-direction: row; align-items: center; min-height: 100px&quot;&gt;
+		                  			&lt;div style&#x3D;&quot;width: 30px; flex-grow: 1; height: 1px; border-bottom: 0.5px solid #ff0000;&quot;&gt;&lt;/div&gt;
+		                  			&lt;button mat-flat-button color&#x3D;&quot;warn&quot; style&#x3D;&quot;min-width: 120px; flex-grow: 2;font-size: 10px&quot;&gt;{{postActionDescription(stage, &#x27;fail&#x27;)}}&lt;/button&gt;
+		                  			&lt;div *ngIf&#x3D;&quot;isNotLastStageFail(stage)&quot; style&#x3D;&quot;min-width: 30px; flex-grow: 1; height: 1px; border-bottom: 0.5px solid #ff0000;&quot;&gt;&lt;/div&gt;
+		                  			&lt;div *ngIf&#x3D;&quot;isFailEnd(stage)&quot; style&#x3D;&quot;min-width: 30px; flex-grow: 1; height: 1px;&quot;&gt; &lt;/div&gt;
+		                  		&lt;/div&gt;
+		                  		&lt;div *ngIf&#x3D;&quot;postActionDescription(stage, &#x27;success&#x27;)&quot; style&#x3D;&quot;display: flex; flex-direction: row; align-items: center; min-height: 100px&quot;&gt;
+		                  			&lt;div style&#x3D;&quot;width: 30px; flex-grow: 1; height: 1px; border-bottom: 0.5px solid #ff0000;&quot;&gt;&lt;/div&gt;
+		                  			&lt;button mat-flat-button color&#x3D;&quot;primary&quot; style&#x3D;&quot;min-width: 120px; flex-grow: 2;font-size: 10px&quot;&gt;{{postActionDescription(stage, &#x27;success&#x27;)}}&lt;/button&gt;
+		                  			&lt;div *ngIf&#x3D;&quot;isNotLastStage(stage, true)&quot; style&#x3D;&quot;min-width: 30px; flex-grow: 1; height: 1px; border-bottom: 0.5px solid #ff0000;&quot;&gt;&lt;/div&gt;
+		                  			&lt;div *ngIf&#x3D;&quot;isSuccessEnd(stage)&quot; style&#x3D;&quot;min-width: 30px; flex-grow: 1; height: 1px;&quot;&gt; &lt;/div&gt;
+		                  		&lt;/div&gt;
+	                  		&lt;/div&gt;
+                  		&lt;/div&gt;
+                  	&lt;/div&gt;
+                    &lt;div style&#x3D;&quot;margin-top: 30px; width: 400px; height: 200px; display: flex; flex-direction: column; background-color: #eeeeee; border-radius: 5px; padding: 20px&quot;&gt;
+                      &lt;mat-checkbox formControlName&#x3D;&quot;useGitCtrl&quot; style&#x3D;&quot;margin-top: 20px&quot;&gt;Deploy Via Git&lt;/mat-checkbox&gt;
+                      &lt;mat-form-field style&#x3D;&quot;min-width: 350px&quot;&gt;
+                        &lt;span matPrefix style&#x3D;&quot;color: gray&quot;&gt;{{gitURI}}&lt;/span&gt;
+                          &lt;mat-select #selectedSourceCtrl placeholder&#x3D;&quot;GIT Source&quot; formControlName&#x3D;&quot;selectedGitCtrl&quot; [disabled]&#x3D;&quot;!useGitCtrl.value&quot; [required]&#x3D;&quot;useGitCtrl.value&quot;&gt;
+                            &lt;mat-option *ngFor&#x3D;&quot;let gitsource of gits&quot; [value]&#x3D;&quot;gitsource&quot;&gt;
+                                {{gitsource}}
+                            &lt;/mat-option&gt;
+                        &lt;/mat-select&gt;
+                      &lt;/mat-form-field&gt;
+                      &lt;mat-form-field style&#x3D;&quot;min-width: 250px&quot;&gt;
+                        &lt;mat-select #selectedRepoCtrl placeholder&#x3D;&quot;Repo&quot; formControlName&#x3D;&quot;selectedGitRepoCtrl&quot;  [disabled]&#x3D;&quot;!useGitCtrl.value&quot; [required]&#x3D;&quot;useGitCtrl.value&quot;&gt;
+                          &lt;mat-option *ngFor&#x3D;&quot;let repo of repositories&quot; [value]&#x3D;&quot;repo.id&quot;&gt;
+                            {{repo.name}}
+                          &lt;/mat-option&gt;
+                        &lt;/mat-select&gt;
+                      &lt;/mat-form-field&gt;
+                    &lt;/div&gt;
+               	&lt;/div&gt;
+              &lt;mat-card-actions&gt;
+                  &lt;button mat-raised-button matStepperPrevious&gt;Back&lt;/button&gt;
+                  &lt;button mat-raised-button matStepperNext color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;download()&quot; [disabled]&#x3D;&quot;!finaliseFormGroup.valid&quot;&gt;{{buttonLabel()}}&lt;/button&gt;
+                  &lt;a #downloadLink class&#x3D;&quot;download-link&quot;&gt;&lt;/a&gt;
+                &lt;/mat-card-actions&gt;
+              &lt;/form&gt;
+            &lt;/mat-card&gt;
+        &lt;/mat-step&gt;
+      &lt;/mat-horizontal-stepper&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>../templates/runtime-stage.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">a {
+	text-decoration: none !important;
+	color: white !important;
+	background-color: rgba(255,255,255,0.1);
+	border-radius: 10px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	margin-left: 10px;
+}
+a:visited {
+	color: white;
+}
+a:hover {
+	background-color: gray;
+}
+
+.toolbar {
+	height: 50px;
+	background-color: rgb(23, 115, 187);
+}
+.toolbar-content {
+	display: flex;
+	align-items: stretch;
+	width: 100%;
+	height: 30px;
+	padding: 5px;
+}
+.toolbar-title-column {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 0;
+	width: 250px;
+	color: white;
+	font-size: 10px;
+}
+.toolbar-right-column {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	flex-grow: 2;
+	color: white;
+}
+.toolbar-links {
+	font-size: 11px;
+	line-height: 21px;
+}
+mat-card-actions {
+	position: absolute;
+	right:20px;
+	bottom: 0px;
+}
+.horizontal-line:after {
+  width:20px;
+  content: &quot;&quot;;
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  top: 50%;
+  border: 0.5px solid #ff0000;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="page-wrapper">  <h1 class="page-content-title">Staging</h1>  <div id="spinner" class="spinner" [hidden]="!starting">  </div>  <div class="page-content-wrapper">    <div class="page-scrollable-content">      <mat-horizontal-stepper [linear]="isLinearStepper" #stepper>        <mat-step [stepControl]="stageTemplateFormGroup">          <mat-card style="min-height: 520px">            <form [formGroup]="stageTemplateFormGroup">              <ng-template matStepLabel>Select Run Template</ng-template>              <div style="display: flex; flex-direction: row; align-items: flex-start;">                  <div style="display: flex; flex-direction: column; align-items: flex-start; flex-grow: 2">                    <mat-form-field style="min-width: 250px">                      <mat-select #selectedProjectControl placeholder="Select Run Template" formControlName="runListCtrl" required>                        <mat-option *ngFor="let run of runSets" [value]="run">                          {{run}}                        </mat-option>                      </mat-select>                      <mat-hint *ngIf="!haveRunTemplates()" style="color: red">You need to define a <span style="color: red; font-weight: bold; cursor: pointer" (click)="goRunPage()">deployment template</span> for the basis of each stage!</mat-hint>                    </mat-form-field>                    <div style="display: inline-flex; justify-content: space-between; width:100%; margin-top: 60px">                      <mat-form-field style="margin-right:20px; flex-grow: 2">                        <input matInput placeholder="Identify template" formControlName="stageCtrl" [matAutocomplete]="auto">                        <mat-autocomplete #auto="matAutocomplete">                            <mat-option *ngFor="let stage of projects" [value]="stage">                              {{stage}}                            </mat-option>                        </mat-autocomplete>                        <mat-hint align="start">Optional, Use this if you want save your run parameters for later to avoid having to re-enter all of your choices. </mat-hint>                      </mat-form-field>                      <div [hidden]="!stageCtrl.value" style="flex-grow: 1; display: inline-flex; justify-content: flex-start; align-items: center">                        <button mat-flat-button color="accent" (click)="addTemplate($event)" [disabled]="isExistingTemplate()" style="margin-right: 10px">Add</button>                        <button mat-flat-button color="warn" (click)="deleteTemplate($event)" [disabled]="!isExistingTemplate()" style="margin-left: 10px">Delete</button>                      </div>                    </div>                  </div>                  <div *ngIf="stageCtrl.value" style="display:flex;flex-direction: column; flex-grow: 1">                    <mat-form-field *ngIf="currentProject.name">                        <input matInput placeholder="Stage Name" [value]="currentProject.name" disabled="true">                    </mat-form-field>                  </div>              </div>              <mat-card-actions>                <button mat-raised-button matStepperNext color="primary" [disabled]="!stageTemplateFormGroup.valid">Next</button>              </mat-card-actions>            </form>          </mat-card>        </mat-step>	        <mat-step [stepControl]="formGroupForStage(stage)" *ngFor="let stage of currentProject.stages">	          <mat-card style="min-height: 520px">	              <ng-template matStepLabel>{{stage.name}}</ng-template>	                <staging [form]="formGroupForStage(stage)" [stage]="stage" (stageUpdated)="stageUpdated(stage)"></staging>	              <mat-card-actions style="width:100%; margin-bottom: 20px">	              	  <button mat-raised-button matStepperNext (click)="removeStage(stage)" color="warn" style="margin-left: 30px">Remove</button>	              	  <button mat-raised-button matStepperNext (click)="addStage(stage)" color="accent" style="margin-left: 60px">Add Stage</button>	                  <button mat-raised-button matStepperNext color="primary" [disabled]="!formGroupForStage(stage).valid" style="float: right">Next</button>	                  <button mat-raised-button matStepperPrevious style="float: right">Back</button>	                </mat-card-actions>	            </mat-card>	        </mat-step>        <mat-step [stepControl]="finaliseFormGroup">          <mat-card style="min-height: 520px">            <form [formGroup]="finaliseFormGroup">              <ng-template matStepLabel>Deploy</ng-template>                <div>                  <h3>Pipeline to Generate</h3>                  	<div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: flex-start">                  		<div *ngFor="let stage of currentProject.stages" style="display: flex; flex-direction: row; flex-wrap: wrap">	                  		<div *ngIf="isNotFirstStage(stage, \'build\')" style="flex-grow: 2; display: flex; flex-direction: row; align-items: center; min-height: 100px; margin: 0px">	                  			<div *ngIf="isNotFirstStage(stage, \'startend\')" style="min-width: 30px; height: 1px; border-bottom: 0.5px solid #ff0000;"></div>	                  			<button mat-flat-button color="primary" style="background-color: orange; color: white; min-width: 120px; flex-grow: 2">Build \'{{labelForBuild()}}\'</button>	                  			<div style="min-width: 30px; height: 1px; border-bottom: 0.5px solid #ff0000;"></div>	                  		</div>	                  		<div style="flex-grow: 2; display: flex; flex-direction: row; align-items: center; min-height: 100px; margin: 0px">	                  			<div *ngIf="isNotFirstStage(stage, \'start\')" style="min-width: 30px; height: 1px; border-bottom: 0.5px solid #ff0000;"></div>	                  			<button mat-flat-button color="primary" style="min-width: 120px; flex-grow: 2">Start {{stage.name}}</button>	                  			<div *ngIf="isNotLastStage(stage, false)" style="min-width: 30px; height: 1px; border-bottom: 0.5px solid #ff0000;"></div>	                  		</div>	                  		<div *ngIf="postActionDescription(stage, \'start\')" style="flex-grow: 2; display: flex; flex-direction: row; align-items: center; min-height: 100px; margin: 0px">	                  			<div style="min-width: 30px; height: 1px; border-bottom: 0.5px solid #ff0000;"></div>	                  			<button mat-flat-button style="color: white; background-color: green; min-width: 120px; flex-grow: 2">{{postActionDescription(stage, \'start\')}}</button>	                  			<div *ngIf="isNotLastStage(stage, false)" style="min-width: 30px; height: 1px; border-bottom: 0.5px solid #ff0000;"></div>	                  		</div>	                  		<div [ngStyle]="borderStyleForPostAction(stage)">		                  		<div *ngIf="postActionDescription(stage, \'fail\')" style="display: flex; flex-direction: row; align-items: center; min-height: 100px">		                  			<div style="width: 30px; flex-grow: 1; height: 1px; border-bottom: 0.5px solid #ff0000;"></div>		                  			<button mat-flat-button color="warn" style="min-width: 120px; flex-grow: 2;font-size: 10px">{{postActionDescription(stage, \'fail\')}}</button>		                  			<div *ngIf="isNotLastStageFail(stage)" style="min-width: 30px; flex-grow: 1; height: 1px; border-bottom: 0.5px solid #ff0000;"></div>		                  			<div *ngIf="isFailEnd(stage)" style="min-width: 30px; flex-grow: 1; height: 1px;"> </div>		                  		</div>		                  		<div *ngIf="postActionDescription(stage, \'success\')" style="display: flex; flex-direction: row; align-items: center; min-height: 100px">		                  			<div style="width: 30px; flex-grow: 1; height: 1px; border-bottom: 0.5px solid #ff0000;"></div>		                  			<button mat-flat-button color="primary" style="min-width: 120px; flex-grow: 2;font-size: 10px">{{postActionDescription(stage, \'success\')}}</button>		                  			<div *ngIf="isNotLastStage(stage, true)" style="min-width: 30px; flex-grow: 1; height: 1px; border-bottom: 0.5px solid #ff0000;"></div>		                  			<div *ngIf="isSuccessEnd(stage)" style="min-width: 30px; flex-grow: 1; height: 1px;"> </div>		                  		</div>	                  		</div>                  		</div>                  	</div>                    <div style="margin-top: 30px; width: 400px; height: 200px; display: flex; flex-direction: column; background-color: #eeeeee; border-radius: 5px; padding: 20px">                      <mat-checkbox formControlName="useGitCtrl" style="margin-top: 20px">Deploy Via Git</mat-checkbox>                      <mat-form-field style="min-width: 350px">                        <span matPrefix style="color: gray">{{gitURI}}</span>                          <mat-select #selectedSourceCtrl placeholder="GIT Source" formControlName="selectedGitCtrl" [disabled]="!useGitCtrl.value" [required]="useGitCtrl.value">                            <mat-option *ngFor="let gitsource of gits" [value]="gitsource">                                {{gitsource}}                            </mat-option>                        </mat-select>                      </mat-form-field>                      <mat-form-field style="min-width: 250px">                        <mat-select #selectedRepoCtrl placeholder="Repo" formControlName="selectedGitRepoCtrl"  [disabled]="!useGitCtrl.value" [required]="useGitCtrl.value">                          <mat-option *ngFor="let repo of repositories" [value]="repo.id">                            {{repo.name}}                          </mat-option>                        </mat-select>                      </mat-form-field>                    </div>               	</div>              <mat-card-actions>                  <button mat-raised-button matStepperPrevious>Back</button>                  <button mat-raised-button matStepperNext color="primary" (click)="download()" [disabled]="!finaliseFormGroup.valid">{{buttonLabel()}}</button>                  <a #downloadLink class="download-link"></a>                </mat-card-actions>              </form>            </mat-card>        </mat-step>      </mat-horizontal-stepper>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'about-app'},{'name': 'ActionComponent', 'selector': 'action'},{'name': 'ApiGatewayInstallerComponent', 'selector': 'jc-apigw-install'},{'name': 'ApiMicroGatewayInstallerComponent', 'selector': 'jc-apimg-install'},{'name': 'ApiPortalInstallerComponent', 'selector': 'jc-apipr-installer'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BuildCommandsComponent', 'selector': 'build-commands'},{'name': 'BuildComponent', 'selector': 'build'},{'name': 'BuildExeComponent', 'selector': 'build-exe'},{'name': 'BuildImageComponent', 'selector': 'build-solution'},{'name': 'BuildInstallComponent', 'selector': 'build-install'},{'name': 'BuildPackagesComponent', 'selector': 'build-package'},{'name': 'ContainerComponent', 'selector': 'container'},{'name': 'ContainersComponent', 'selector': 'app-containers'},{'name': 'DeploymentDetailsComponent', 'selector': 'jc-deployment-details'},{'name': 'DeploymentListComponent', 'selector': 'jc-k8s-deployments'},{'name': 'DockerImageChooserComponent', 'selector': 'docker-image-chooser'},{'name': 'DockerImageListComponent', 'selector': 'jc-docker-images'},{'name': 'DockerImageVersionsComponent', 'selector': 'jc-docker-image-versions'},{'name': 'EditContainerComponent', 'selector': 'edit-container'},{'name': 'GitSourcesComponent', 'selector': 'git-source'},{'name': 'HomeComponent', 'selector': 'home'},{'name': 'InstallerComponent', 'selector': 'jc-install'},{'name': 'MicroServiceBuilderComponent', 'selector': 'jc-msc-configure'},{'name': 'MicroServiceInstallerComponent', 'selector': 'jc-msc-install'},{'name': 'PodsListComponent', 'selector': 'jc-pods'},{'name': 'RuntimeContainersComponent', 'selector': 'runtime-containers'},{'name': 'RuntimeDeployComponent', 'selector': 'runtime-deploy'},{'name': 'RuntimeDetailsComponent', 'selector': ''},{'name': 'RuntimeK8sComponent', 'selector': 'runtime'},{'name': 'RuntimeScaleComponent', 'selector': 'jc-runtime-scale'},{'name': 'RuntimeStageComponent', 'selector': 'runtime-stage'},{'name': 'RuntimeUpdateComponent', 'selector': ''},{'name': 'SagImageAlerterComponent', 'selector': 'sag-image-alerter'},{'name': 'ServicePropertiesComponent', 'selector': 'k8s-props'},{'name': 'SettingsComponent', 'selector': 'home'},{'name': 'SimpleNameComponent', 'selector': 'name-dialog'},{'name': 'StagingComponent', 'selector': 'staging'},{'name': 'TestCaseComponent', 'selector': 'test-case'},{'name': 'TestDefinitionComponent', 'selector': 'test-definitions'},{'name': 'TestHistoryComponent', 'selector': 'test-history'},{'name': 'TestRunComponent', 'selector': 'test-reun'},{'name': 'UMInstallerComponent', 'selector': 'jc-um-install'},{'name': 'UploadButtonComponent', 'selector': 'file-uploader-button'}];
+    var DIRECTIVES = [{'name': 'BuildImageChooseDirective', 'selector': '[builder]'},{'name': 'CancelCdkDrag', 'selector': '[appCancelCdkDrag]'},{'name': 'NgFileDrop', 'selector': '[ng-file-drop]'},{'name': 'NgFileSelect', 'selector': '[ng-file-select]'},{'name': 'RuntimeActionsDirective', 'selector': '[runtime-actions]'}];
+    var ACTUAL_COMPONENT = {'name': 'RuntimeStageComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'RuntimeStageComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

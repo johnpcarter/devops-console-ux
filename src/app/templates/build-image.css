@@ -1,0 +1,29 @@
+mat-card {
+	padding-bottom: 75px;
+}
+
+mat-card-actions {
+	position: absolute;
+	right:10px;
+	bottom: 0px;
+}
+
+mat-expansion-panel {
+  background: transparent;
+}
+mat-expansion-panel-header {
+  padding: 0px !important;
+}
+.content {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-content: stretch;
+	align-items: flex-start;
+}
+.content-block {
+	display: flex;
+	flex-direction: column;
+	align-content: stretch;
+	align-items: stretch;
+}

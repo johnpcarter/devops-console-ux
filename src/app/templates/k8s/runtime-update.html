@@ -1,0 +1,10 @@
+<mat-card>
+  <mat-panel-title>
+    Images
+  </mat-panel-title><br/>
+  <jc-docker-images [type]="'edit'" [namespace]="selectedDeployment.namespace" [references]="references" (haveChanges)="flagHaveActions($event)" (onAction)="implementAction($event)"></jc-docker-images>
+  <mat-card-actions *ngIf="haveActions || rollbackPossible" align="right">
+    <button *ngIf="rollbackPossible" #rollbackButton mat-raised-button color="primary" (click)="rollback()">Rollback</button>
+    <button #updateButton mat-raised-button color="warn" (click)="commitUpdate()">Update</button>
+  </mat-card-actions>
+</mat-card>

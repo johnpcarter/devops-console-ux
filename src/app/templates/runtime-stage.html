@@ -1,0 +1,128 @@
+ <div id="spinner" class="spinner" [hidden]="!starting">
+  </div>
+  <div class="page-content-wrapper">
+    <div class="page-scrollable-content">
+      <mat-horizontal-stepper [linear]="isLinearStepper" #stepper>
+        <mat-step [stepControl]="stageTemplateFormGroup">
+          <mat-card style="min-height: 520px">
+            <form [formGroup]="stageTemplateFormGroup">
+              <ng-template matStepLabel>Select Run Template</ng-template>
+              <div style="display: flex; flex-direction: row; align-items: flex-start;">
+                  <div style="display: flex; flex-direction: column; align-items: flex-start; flex-grow: 2">
+                    <mat-form-field style="min-width: 250px">
+                      <mat-select #selectedProjectControl placeholder="Select Run Template" formControlName="runListCtrl" required>
+                        <mat-option *ngFor="let run of runSets" [value]="run">
+                          {{run}}
+                        </mat-option>
+                      </mat-select>
+                      <mat-hint *ngIf="!haveRunTemplates()" style="color: red">You need to define a <span style="color: red; font-weight: bold; cursor: pointer" (click)="goRunPage()">deployment template</span> for the basis of each stage!</mat-hint>
+                    </mat-form-field>
+                    <div style="display: inline-flex; justify-content: space-between; width:100%; margin-top: 60px">
+                      <mat-form-field style="margin-right:20px; flex-grow: 2">
+                        <input matInput placeholder="Identify template" formControlName="stageCtrl" [matAutocomplete]="auto">
+                        <mat-autocomplete #auto="matAutocomplete">
+                            <mat-option *ngFor="let stage of projects" [value]="stage">
+                              {{stage}}
+                            </mat-option>
+                        </mat-autocomplete>
+                        <mat-hint align="start">Optional, Use this if you want save your run parameters for later to avoid having to re-enter all of your choices. </mat-hint>
+                      </mat-form-field>
+                      <div [hidden]="!stageCtrl.value" style="flex-grow: 1; display: inline-flex; justify-content: flex-start; align-items: center">
+                        <button mat-flat-button color="accent" (click)="addTemplate($event)" [disabled]="isExistingTemplate()" style="margin-right: 10px">Add</button>
+                        <button mat-flat-button color="warn" (click)="deleteTemplate($event)" [disabled]="!isExistingTemplate()" style="margin-left: 10px">Delete</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="stageCtrl.value" style="display:flex;flex-direction: column; flex-grow: 1">
+                    <mat-form-field *ngIf="currentProject.name">
+                        <input matInput placeholder="Stage Name" [value]="currentProject.name" disabled="true">
+                    </mat-form-field>
+                  </div>
+              </div>
+              <mat-card-actions>
+                <button mat-raised-button matStepperNext color="primary" [disabled]="!stageTemplateFormGroup.valid">Next</button>
+              </mat-card-actions>
+            </form>
+          </mat-card>
+        </mat-step>
+	        <mat-step [stepControl]="formGroupForStage(stage)" *ngFor="let stage of currentProject.stages">
+	          <mat-card style="min-height: 520px">
+	              <ng-template matStepLabel>{{stage.name}}</ng-template>
+	                <staging [form]="formGroupForStage(stage)" [stage]="stage" (stageUpdated)="stageUpdated(stage)"></staging>
+	              <mat-card-actions style="width:100%; margin-bottom: 20px">
+	              	  <button mat-raised-button matStepperNext (click)="removeStage(stage)" color="warn" style="margin-left: 30px">Remove</button>
+	              	  <button mat-raised-button matStepperNext (click)="addStage(stage)" color="accent" style="margin-left: 60px">Add Stage</button>
+	                  <button mat-raised-button matStepperNext color="primary" [disabled]="!formGroupForStage(stage).valid" style="float: right">Next</button>
+	                  <button mat-raised-button matStepperPrevious style="float: right">Back</button>
+	                </mat-card-actions>
+	            </mat-card>
+	        </mat-step>
+        <mat-step [stepControl]="finaliseFormGroup">
+          <mat-card style="min-height: 520px">
+            <form [formGroup]="finaliseFormGroup">
+              <ng-template matStepLabel>Deploy</ng-template>
+                <div>
+                  <h3>Pipeline to Generate</h3>
+                  	<div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: flex-start">
+                  		<div *ngFor="let stage of currentProject.stages" style="display: flex; flex-direction: row; flex-wrap: wrap">
+	                  		<div *ngIf="isNotFirstStage(stage, 'build')" style="flex-grow: 2; display: flex; flex-direction: row; align-items: center; min-height: 100px; margin: 0px">
+	                  			<div *ngIf="isNotFirstStage(stage, 'startend')" style="min-width: 30px; height: 1px; border-bottom: 0.5px solid #ff0000;"></div>
+	                  			<button mat-flat-button color="primary" style="background-color: orange; color: white; min-width: 120px; flex-grow: 2">Build '{{labelForBuild()}}'</button>
+	                  			<div style="min-width: 30px; height: 1px; border-bottom: 0.5px solid #ff0000;"></div>
+	                  		</div>
+	                  		<div style="flex-grow: 2; display: flex; flex-direction: row; align-items: center; min-height: 100px; margin: 0px">
+	                  			<div *ngIf="isNotFirstStage(stage, 'start')" style="min-width: 30px; height: 1px; border-bottom: 0.5px solid #ff0000;"></div>
+	                  			<button mat-flat-button color="primary" style="min-width: 120px; flex-grow: 2">Start {{stage.name}}</button>
+	                  			<div *ngIf="isNotLastStage(stage, false)" style="min-width: 30px; height: 1px; border-bottom: 0.5px solid #ff0000;"></div>
+	                  		</div>
+	                  		<div *ngIf="postActionDescription(stage, 'start')" style="flex-grow: 2; display: flex; flex-direction: row; align-items: center; min-height: 100px; margin: 0px">
+	                  			<div style="min-width: 30px; height: 1px; border-bottom: 0.5px solid #ff0000;"></div>
+	                  			<button mat-flat-button style="color: white; background-color: green; min-width: 120px; flex-grow: 2">{{postActionDescription(stage, 'start')}}</button>
+	                  			<div *ngIf="isNotLastStage(stage, false)" style="min-width: 30px; height: 1px; border-bottom: 0.5px solid #ff0000;"></div>
+	                  		</div>
+	                  		<div [ngStyle]="borderStyleForPostAction(stage)">
+		                  		<div *ngIf="postActionDescription(stage, 'fail')" style="display: flex; flex-direction: row; align-items: center; min-height: 100px">
+		                  			<div style="width: 30px; flex-grow: 1; height: 1px; border-bottom: 0.5px solid #ff0000;"></div>
+		                  			<button mat-flat-button color="warn" style="min-width: 120px; flex-grow: 2;font-size: 10px">{{postActionDescription(stage, 'fail')}}</button>
+		                  			<div *ngIf="isNotLastStageFail(stage)" style="min-width: 30px; flex-grow: 1; height: 1px; border-bottom: 0.5px solid #ff0000;"></div>
+		                  			<div *ngIf="isFailEnd(stage)" style="min-width: 30px; flex-grow: 1; height: 1px;"> </div>
+		                  		</div>
+		                  		<div *ngIf="postActionDescription(stage, 'success')" style="display: flex; flex-direction: row; align-items: center; min-height: 100px">
+		                  			<div style="width: 30px; flex-grow: 1; height: 1px; border-bottom: 0.5px solid #ff0000;"></div>
+		                  			<button mat-flat-button color="primary" style="min-width: 120px; flex-grow: 2;font-size: 10px">{{postActionDescription(stage, 'success')}}</button>
+		                  			<div *ngIf="isNotLastStage(stage, true)" style="min-width: 30px; flex-grow: 1; height: 1px; border-bottom: 0.5px solid #ff0000;"></div>
+		                  			<div *ngIf="isSuccessEnd(stage)" style="min-width: 30px; flex-grow: 1; height: 1px;"> </div>
+		                  		</div>
+	                  		</div>
+                  		</div>
+                  	</div>
+                    <div style="margin-top: 30px; width: 400px; height: 200px; display: flex; flex-direction: column; background-color: #eeeeee; border-radius: 5px; padding: 20px">
+                      <mat-checkbox formControlName="useGitCtrl" style="margin-top: 20px">Deploy Via Git</mat-checkbox>
+                      <mat-form-field style="min-width: 350px">
+                        <span matPrefix style="color: gray">{{gitURI}}</span>
+                          <mat-select #selectedSourceCtrl placeholder="GIT Source" formControlName="selectedGitCtrl" [disabled]="!useGitCtrl.value" [required]="useGitCtrl.value">
+                            <mat-option *ngFor="let gitsource of gits" [value]="gitsource">
+                                {{gitsource}}
+                            </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <mat-form-field style="min-width: 250px">
+                        <mat-select #selectedRepoCtrl placeholder="Repo" formControlName="selectedGitRepoCtrl"  [disabled]="!useGitCtrl.value" [required]="useGitCtrl.value">
+                          <mat-option *ngFor="let repo of repositories" [value]="repo.id">
+                            {{repo.name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+               	</div>
+              <mat-card-actions>
+                  <button mat-raised-button matStepperPrevious>Back</button>
+                  <button mat-raised-button matStepperNext color="primary" (click)="download()" [disabled]="!finaliseFormGroup.valid">{{buttonLabel()}}</button>
+                  <a #downloadLink class="download-link"></a>
+                </mat-card-actions>
+              </form>
+            </mat-card>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </div>
+  </div>

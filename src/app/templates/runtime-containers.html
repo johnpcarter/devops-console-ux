@@ -1,0 +1,31 @@
+ <div class="page-content-wrapper">
+    <div class="page-scrollable-content">
+      <div style="display: flex; justify-content: space-between;">
+        <mat-form-field style="width:75%">
+          <mat-select [(value)]="selectedDeploymentName" style="font-weight: lighter" (selectionChange)="deploymentSelectionChanged()">
+            <mat-option *ngFor="let template of templates" [value]="template" style=" font-weight: lighter">
+              {{template}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-button-toggle-group name="viewType" aria-label="View Type" [(value)]="viewType" style="flex-grow: 0; margin-left: 20px">
+          <mat-button-toggle value="list"><fa-icon class="icon" [icon]="['fas', 'list']"></fa-icon></mat-button-toggle>
+          <mat-button-toggle value="graph"><fa-icon class="icon" [icon]="['fas', 'project-diagram']"></fa-icon></mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+      <div id="spinner" class="spinner" [hidden]="!spinner"></div>
+      <runtime-containers-list *ngIf="viewType == 'list'" [containers]="containers" [selectedDeploymentName]="selectedDeploymentName" (stopContainerEvent)="stopContainer($event)"></runtime-containers-list>
+      <runtime-containers-graph *ngIf="viewType == 'graph'" [containers]="containers" [selectedDeployment]="selectedRuntime" (stopContainerEvent)="stopContainer($event)"></runtime-containers-graph>
+
+      <div *ngIf="selectedDeploymentName != 'All containers'" style="margin-top: 100px; display: flex; flex-direction: column">
+        <mat-checkbox [formControl]="includeTestsCtrl" (change)="setIncludeTests($event)">Run tests on startup</mat-checkbox>
+        <mat-checkbox id="run.deploy.uploadAPIs" *ngIf="haveSelectedAPIGateway()" (change)="uploadAPIs($event)">Upload API's to gateway after startup</mat-checkbox>
+
+      </div>
+      <div *ngIf="selectedDeploymentName != 'All containers'" style="width:100%; margin-top: 30px">
+        <button mat-raised-button color="accent" (click)="stopContainers()" [disabled]="!haveRunningContainers()">Stop</button>
+        <button mat-raised-button color="primary" (click)="startContainers()" [disabled]="!haveMissingContainer()" style="margin-left: 50px">Start</button>
+        <!-- <button mat-raised-button color="warning" (click)="edit()" style="float: right; margin-right: 50px">Configure <fa-icon class="icon" [icon]="['fas', 'tools']"></fa-icon></button> -->
+      </div>
+    </div>
+  </div>

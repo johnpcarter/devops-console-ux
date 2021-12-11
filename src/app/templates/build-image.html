@@ -1,0 +1,215 @@
+ <div id="spinner" class="spinner" [hidden]="!isBuilding || !settingsLoaded">
+  </div>
+  <div class="page-content-wrapper">
+    <div class="page-scrollable-content">
+      <mat-horizontal-stepper [linear]="isLinearStepper" #stepper>
+        <mat-step [stepControl]="baseImageFormGroup">
+          <mat-card style="min-height: 380px">
+            <form [formGroup]="baseImageFormGroup">
+              <ng-template matStepLabel>{{productCodeLabel()}}</ng-template>
+                <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                  <input id="build.image.baseImage" type="hidden" formControlName="baseImageCtrl" required>
+                  <docker-image-chooser title="Select Base Image" [dockerImages]="baseImages" [value]="currentBaseImage()" (selectedImage)="baseImageSelected($event)" allowPull="true"></docker-image-chooser>
+                  <span *ngIf="this.baseImageCtrl.value && this.baseImageCtrl.value.length > 0 && this.currentBuild.sourceImage.id == null" style="font-size: 11px; color: red; font-weight: bold">
+                    No such image exists locally, will attempt to pull from remote repository!!
+                  </span>
+                  <mat-form-field style="margin-top: 30px; min-width: 300px">
+                    <mat-select id="build.image.baseImageType" placeholder="Image Type" formControlName="baseImageTypeCtrl" [disabled]="!this.baseImageCtrl.value">
+                      <mat-option value="msr">Edge Integration Server (MSR)</mat-option>
+                      <mat-option value="is">Integration Server</mat-option>
+                      <mat-option value="b2b">Trading Networks Server</mat-option>
+                      <mat-option value="apigw">API Gateway</mat-option>
+                      <mat-option value="apimg">API Micro Gateway</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <div style="display: inline-flex; justify-content: space-between; width:50%; margin-top: 60px">
+                    <mat-form-field style="margin-right:20px; flex-grow: 2">
+                      <input id="build.image.template" matInput placeholder="Identify template" formControlName="buildCtrl" [matAutocomplete]="auto">
+                      <mat-autocomplete #auto="matAutocomplete">
+                          <mat-option *ngFor="let build of builds" [value]="build">
+                            {{build}}
+                          </mat-option>
+                      </mat-autocomplete>
+                      <button mat-button mat-icon-button matSuffix (click)="clearTemplate()" *ngIf="buildCtrl.value">
+                        <fa-icon class="icon" [icon]="['fas', 'times-circle']"></fa-icon>
+                      </button>
+                      <mat-hint align="start">Optional, Use this to save your build parameters for future reference and to enable automatic builds. </mat-hint>
+                    </mat-form-field>
+                    <div [hidden]="!buildCtrl.value" style="flex-grow: 1; display: inline-flex; justify-content: flex-start; align-items: center">
+                      <button id="build.image.addTemplateButton" mat-flat-button color="accent" (click)="addTemplate($event)" [disabled]="buildCtrl.value == null || isExistingTemplate()" style="margin-right: 10px">Add</button>
+                      <button id="build.image.deleteTemplateButton" mat-flat-button color="warn" (click)="deleteTemplate($event)" [disabled]="!isExistingTemplate()" style="margin-left: 10px">Delete</button>
+                    </div>
+                  </div>
+                </div>
+                <mat-card-actions>
+                    <button id="build.image.baseImageNextButton" mat-raised-button matStepperNext color="primary" [disabled]="!baseImageFormGroup.valid">Next</button>
+                </mat-card-actions>
+            </form>
+          </mat-card>
+        </mat-step>
+        <mat-step [stepControl]="propertiesFormGroup">
+          <mat-card style="min-height: 380px">
+            <form [formGroup]="propertiesFormGroup">
+              <ng-template matStepLabel>Image Properties</ng-template>
+              <div style="display:flex; flex-direction: column; justify-content: flex-start;">
+                <div>
+                  <mat-card-title>License</mat-card-title>
+                  <mat-form-field style="min-width: 450px; margin-right: 20px" floatLabel="never">
+                      <mat-select id="build.image.licenseFile" placeholder="License File (Optional)" formControlName="licCtrl">
+                        <mat-option *ngFor="let lic of licenceFiles" [value]="lic">
+                          {{lic}}
+                        </mat-option>
+                      </mat-select>
+                  </mat-form-field>
+                  <file-uploader-button id="build.image.uploadLicenseButton" alias="license" type="licenses" uploadURL="/invoke/jc.devops.console.resources_.services:uploadMultipartForm" title="Add License" (onCompletion)="licenseFileAdded($event)"></file-uploader-button>
+                </div>
+                <div style="display: block; margin-top: 50px">
+                  <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title class="mat-card-title" style="margin-right: -30px">
+                        Advanced
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div style="display: flex; flex-direction: column; justify-content: flex-start;">
+                      <mat-form-field style="width: 300px">
+                        <input id="build.image.buildUser" matInput placeholder="User for Docker build" formControlName="buildUserCtrl" [disabled]="true">
+                      </mat-form-field>
+                      <mat-form-field style="width: 300px">
+                        <mat-select id="build.image.scriptUser" placeholder="User for Entry Script" formControlName="entryUserCtrl">
+                          <mat-option *ngFor="let user of userTypes" [value]="user">
+                            {{user}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </mat-expansion-panel>
+                </div>
+              </div>
+
+              <mat-card-actions>
+                <button mat-raised-button matStepperPrevious>Back</button>
+                <button id="build.image.propertiesNextButton" mat-raised-button matStepperNext color="primary" [disabled]="!propertiesFormGroup.valid">Next</button>
+              </mat-card-actions>
+            </form>
+          </mat-card>
+        </mat-step>
+        <mat-step [stepControl]="builderFormGroup">
+          <mat-card style="min-height: 380px">
+            <form [formGroup]="builderFormGroup">
+              <ng-template matStepLabel>Configure</ng-template>
+                <ng-template builder></ng-template>
+              <mat-card-actions>
+                <button mat-raised-button matStepperPrevious>Back</button>
+                <button id="build.image.customPropsNextButton" mat-raised-button matStepperNext color="primary" [disabled]="!builderFormGroup.valid">Next</button>
+              </mat-card-actions>
+            </form>
+          </mat-card>
+        </mat-step>
+        <mat-step [stepControl]="commandsFormGroup">
+          <mat-card style="min-height: 380px">
+            <ng-template matStepLabel>Build Commands</ng-template>
+            <mat-card-title>Commands to be included in Dockerfile</mat-card-title>
+            <build-commands [commands]="currentBuild.buildCommands" [form]="commandsFormGroup" (commandsChanged)="commandsUpdated($event)"></build-commands>
+            <mat-card-actions>
+              <button mat-raised-button matStepperPrevious>Back</button>
+              <button id="build.image.buildCommandsNextButton" mat-raised-button matStepperNext color="primary" [disabled]="!commandsFormGroup.valid">Next</button>
+            </mat-card-actions>
+          </mat-card>
+        </mat-step>
+        <mat-step [stepControl]="targetImageFormGroup">
+          <mat-card style="min-height: 380px">
+            <form [formGroup]="targetImageFormGroup">
+              <ng-template matStepLabel>Target Image</ng-template>
+              <mat-card-title>Set Target Image</mat-card-title>
+              <mat-form-field style="width: 4em; margin-right: 40px; min-width: 250px">
+                  <input id="build.image.targetRepo" matInput placeholder="Repository" formControlName="targetRepoCtrl">
+                </mat-form-field>
+              <mat-form-field style="min-width: 250px; margin-right: 10px; margin-top: 20px">
+                  <input id="build.image.targetImage" matInput formControlName="targetImageCtrl" placeholder="Image name" [matAutocomplete]="selectedDockerControl" oninput="this.value = this.value.toLowerCase()" required>
+                  <mat-autocomplete #selectedDockerControl="matAutocomplete" [displayWith]="imageName">
+                    <mat-option *ngFor="let image of filteredCustomImages | async" [value]="image">
+                      {{image.name()}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+                <mat-form-field style="width: 4em; margin-right: 40px">
+                  <input id="build.image.targetVersion" matInput placeholder="Version" formControlName="targetVersionCtrl" required>
+                </mat-form-field><br>
+                <mat-form-field style="width: 8em; margin-right: 40px">
+                  <mat-select id="build.image.buildType" placeholder="Build Reason" formControlName="versionTypeCtrl">
+                    <mat-option *ngFor="let type of versionTypes" [value]="type">
+                      {{type}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-checkbox id="build.image.dedicatedRepo" formControlName="dedicatedRepoCtrl" [disabled]="!targetRepoCtrl.value">Dedicated Repository</mat-checkbox>
+                <div style="margin-top: 50px"><label *ngIf="currentBuild.targetImage" style="color:gray;">{{targetTag()}}</label></div>
+              <mat-card-actions>
+                <button mat-raised-button matStepperPrevious>Back</button>
+                <button id="build.image.targetImageNextButton" mat-raised-button matStepperNext color="primary" [disabled]="!targetImageFormGroup.valid">Next</button>
+              </mat-card-actions>
+           </form>
+          </mat-card>
+        </mat-step>
+
+        <mat-step [stepControl]="commitFormGroup">
+          <mat-card style="min-height: 550px">
+            <form [formGroup]="commitFormGroup">
+              <ng-template matStepLabel>Build</ng-template>
+              <h3>Image</h3>
+              <div *ngIf="currentBuild.targetImage" class="content-block">
+                <mat-form-field *ngIf="currentBuild.sourceImage" style="width: 50%; margin-left: 40px">
+                    <input matInput style="color: gray;" placeholder="Source Image" [value]="sourceTag()" readonly="true">
+                </mat-form-field>
+                <mat-form-field *ngIf="currentBuild.targetImage" style="width: 50%; margin-left: 40px">
+                    <input matInput style="color: gray;" placeholder="Target Image" [value]="targetTag()" readonly="true">
+                </mat-form-field><br/>
+                 <mat-form-field *ngIf="currentBuild.assignedLicense()" style="width: 50%; margin-left: 40px">
+                    <input matInput style="color: gray;" placeholder="License" [value]="currentBuild.assignedLicense()" readonly="true">
+                </mat-form-field>
+                <div *ngIf="builderDisplayableKeys()">
+                  <h3>Features to include</h3>
+                  <table style="width:100%; margin-left: 40px">
+                    <tr>
+                      <th style="text-align:left">Asset</th>
+                      <th style="text-align:left" *ngFor="let attr of builderDisplayableKeys()">{{attr}}</th>
+                    </tr>
+                    <tr *ngFor="let prop of builderDisplayableEntries">
+                      <td style="text-align:left">{{prop}}</td>
+                      <td style="text-align:left" *ngFor="let attr of propertiesFor(prop)">
+                        <mat-chip-list>
+                          <mat-chip *ngFor="let value of attr.values">{{value}}</mat-chip>
+                        </mat-chip-list>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <mat-form-field style="width: 100%; margin-top: 40px">
+                  <textarea id="build.image.comments" matInput placeholder="Build Comments" formControlName="commentsCtrl" required></textarea>
+                  <mat-hint align="start">Comments will be included in {{targetName()}} build history</mat-hint>
+                </mat-form-field>
+                 <mat-form-field style="width: 100%; margin-top: 40px">
+                  <input matInput placeholder="Save as template" formControlName="buildNameCtrl" [readonly]="currentBuild.name != null">
+                  <mat-hint align="start">Save configuration as template for future builds</mat-hint>
+                </mat-form-field>
+              </div>
+              <div style="width: 100%; height: 30px; margin-top: 40px;">
+                <div style="float: right">
+                  <mat-checkbox id="build.image.buildOnServer" formControlName="downloadCtrl">Build On Server ?</mat-checkbox>
+                </div>
+              </div>
+              <mat-card-actions style="width:100%">
+                  <button *ngIf="!currentBuild.name" #saveButton mat-raised-button (click)="saveTemplate()" color="accent" [disabled]="buildTemplateName == null" style="margin-left: 20px"><fa-icon class="icon" [icon]="['fas', 'file-upload']" style="color: white"></fa-icon> Save </button>
+                 <div style="float:right">
+                  <button mat-raised-button matStepperPrevious style="margin-right: 40px;">Back</button>
+                  <button *ngIf="downloadRef" mat-raised-button #downloadButton color="primary" (click)="downloadNow(downloadRef)" style="width: 140px"><fa-icon class="icon" [icon]="['fas', 'file-download']" style="color: white"></fa-icon> DOWNLOAD </button>
+                  <button *ngIf="isBuilding" mat-raised-button #waitButton color="warn" class="pulseButton" style="width: 140px"><fa-icon class="icon" [icon]="['fas', 'rocket']" style="color: white"></fa-icon> {{labelForPreparingButton()}} </button>
+                  <button id="build.image.buildButton" *ngIf="!downloadRef && !isBuilding" mat-raised-button #buildButton (click)="build()" [disabled]="!commitFormGroup.valid" color="warn" style="width:140px"><fa-icon class="icon" [icon]="['fas', 'rocket']" style="color: white"></fa-icon> {{labelForGoButton()}} </button>
+                </div>
+              </mat-card-actions>
+            </form>
+          </mat-card>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </div>
+  </div>

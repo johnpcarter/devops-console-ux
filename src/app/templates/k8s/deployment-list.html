@@ -1,0 +1,95 @@
+<mat-table #table [dataSource]="dataSource">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+   <ng-container matColumnDef="remove">
+    <th mat-header-cell *matHeaderCellDef style="width:30px">  </th>
+    <td mat-cell *matCellDef="let element" style="width:30px"> <button mat-button class="red-on-hover" (click)="deleteDeployment(element)"><fa-icon class="icon" [icon]="['fas', 'trash-alt']"></fa-icon></button> </td>
+  </ng-container>
+
+  <ng-container matColumnDef="enable">
+    <mat-header-cell *matHeaderCellDef style="flex-grow: 2" style="width:30px"> </mat-header-cell>
+    <mat-cell *matCellDef="let element" style="flex-grow: 1; width: 30px"> <mat-slide-toggle toggle [checked]="!isDeploymentSuspened(element)" (change)="enableDeployment($event, element)"></mat-slide-toggle></mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Name">
+    <mat-header-cell *matHeaderCellDef style="flex-grow: 2"> Name</mat-header-cell>
+    <mat-cell *matCellDef="let element" style="flex-grow: 2"> {{element.name}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Description">
+    <mat-header-cell *matHeaderCellDef style="flex-grow: 4"> Description </mat-header-cell>
+    <mat-cell *matCellDef="let element" style="flex-grow: 4"> {{element.description}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Version">
+    <mat-header-cell *matHeaderCellDef style="flex-grow: 1;"> Version </mat-header-cell>
+    <mat-cell *matCellDef="let element" style="flex-grow: 1;"> {{element.version}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Replicas">
+    <mat-header-cell *matHeaderCellDef style="flex-grow: 1;"> Replicas </mat-header-cell>
+    <mat-cell *matCellDef="let element" style="flex-grow: 1;"> {{element.replicas}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Pods">
+    <mat-header-cell *matHeaderCellDef style="flex-grow: 1"> Pods</mat-header-cell>
+    <mat-cell *matCellDef="let element" style="flex-grow: 1; text-align: center">
+      <span style="background-color: green; color: white; border-radius: 3px; padding: 10px; margin-right: 5px">
+        {{element.readyReplicas}} 
+      </span>
+      <span style="background-color: orange; color: white; border-radius: 3px; padding: 10px; margin-right: 5px">
+        {{element.availableReplicas}} 
+      </span>
+       <span style="background-color: red; color: white; border-radius: 3px; padding: 10px; margin-right: 5px">
+        {{element.unavailableReplicas}} 
+      </span>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Last Updated">
+    <mat-header-cell *matHeaderCellDef style="flex-grow: 2"> Last Updated </mat-header-cell>
+    <mat-cell *matCellDef="let element" style="flex-grow: 2"> {{element.lastUpdated | date: 'dd/MM/yyyy HH:mm'}} </mat-cell>
+  </ng-container>
+
+   <ng-container matColumnDef="Status">
+    <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+    	<span [ngStyle]="styleForStatus(element)">
+        {{element.status}} 
+      </span>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="expand">
+    <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
+    <mat-cell *matCellDef="let element" (click)="showExpandedAreaForRow(element)" style="align-self: flex-end; flex-grow: 1; text-align: right">
+      <span *ngIf="expandedElement != element" style="width:100%; color: rgb(23, 115, 187);"><fa-icon class="icon" [icon]="['fas', 'caret-square-down']" size="lg"></fa-icon></span>
+      <span *ngIf="expandedElement == element" style="width:100%; color: rgb(23, 115, 187);"><fa-icon class="icon" [icon]="['fas', 'caret-square-up']" size="lg"></fa-icon></span>
+    </mat-cell>
+  </ng-container>
+
+ <!-- Expanded Content Column - The detail row is made up of this one column -->
+  <ng-container matColumnDef="expandedDetail">
+    <mat-cell *matCellDef="let detail">
+      <div style="display: flex; flex-direction: column; width:100%; align-items: stretch; padding: 10px; background-color: rgba(0,0,100,0.09)">
+        <jc-pods [showActions]="false" [namespace]="namespace" [appId]="detail.element.description" (podCountChanged)="updatePodCount($event)"></jc-pods>
+        <div style="display: inline-flex; justify-content: space-between; padding: 10px">
+          <div style="display: inline-flex;">
+           
+          </div>
+          <div style="display: inline-flex;">
+            <button mat-raised-button color="primary" (click)="scalePerformance(detail.element)" style="margin-right: 10px;"><fa-icon class="icon" [icon]="['fab', 'cloudscale']"></fa-icon> Scale</button>
+            <button mat-raised-button color="warn" (click)="updateVersion(detail.element)"><fa-icon class="icon" [icon]="['fas', 'code-branch']"></fa-icon> Update</button>
+          </div>
+        </div>
+      </div>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns()"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns();" class="element-row" [class.expanded]="expandedElement == row"></mat-row>
+  <mat-row *matRowDef="let row; columns: ['expandedDetail']; when: isExpansionDetailRow" [@detailExpand]="isExpanded(row)" style="overflow: hidden"></mat-row>
+
+</mat-table>

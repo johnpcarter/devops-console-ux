@@ -1,0 +1,3846 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>wm-devops-console documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">wm-devops-console documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>BuildPackagesComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/build-packages.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>build-package</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>../templates/build-packages.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>../templates/build-packages.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_freshReload">_freshReload</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_gitSelectionModel">_gitSelectionModel</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_selectedGit">_selectedGit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#apiEnabled">apiEnabled</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#apiReadOnlyDisplayedColumns">apiReadOnlyDisplayedColumns</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dependencies">dependencies</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dependencyDisplayedColumns">dependencyDisplayedColumns</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dependentsTable">dependentsTable</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deploymentNameCtrl">deploymentNameCtrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deploymentSet">deploymentSet</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deploymentSetAPIsTable">deploymentSetAPIsTable</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deploymentSets">deploymentSets</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#form">form</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#indexing">indexing</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectedDependencies">selectedDependencies</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#values">values</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_isExistingDeploymentSet">_isExistingDeploymentSet</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#addDeploymentSet">addDeploymentSet</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#addSelectedDependentsToIgnore">addSelectedDependentsToIgnore</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#addSelectedDependentsToSource">addSelectedDependentsToSource</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#checkDependencies">checkDependencies</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#clear">clear</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#convertToStringList">convertToStringList</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deleteDeploymentSet">deleteDeploymentSet</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#dependenciesSelectionChanged">dependenciesSelectionChanged</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deploymentSetAPIs">deploymentSetAPIs</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deploymentSetChanged">deploymentSetChanged</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deploymentSetExcludedPackages">deploymentSetExcludedPackages</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deploymentSetNotConfigured">deploymentSetNotConfigured</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deploymentSetPackages">deploymentSetPackages</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#gitAPIActivated">gitAPIActivated</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#haveDependencies">haveDependencies</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#haveSelectedSomeDependents">haveSelectedSomeDependents</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#indexOnServer">indexOnServer</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isAllDependenciesSelected">isAllDependenciesSelected</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isExistingDeploymentSet">isExistingDeploymentSet</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadDeploymentSet">loadDeploymentSet</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#makeDeploymentSet">makeDeploymentSet</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#masterDependenciesToggle">masterDependenciesToggle</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#nameDidChange">nameDidChange</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#notInAPIList">notInAPIList</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#rebuildAPIList">rebuildAPIList</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#reindexDeploymentSet">reindexDeploymentSet</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#removeDependency">removeDependency</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#saveDeploymentSet">saveDeploymentSet</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectDependencyRow">selectDependencyRow</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectedGitRepoChanged">selectedGitRepoChanged</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectedRepoName">selectedRepoName</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectedSourcesDidChange">selectedSourcesDidChange</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectedSourcesDidLoad">selectedSourcesDidLoad</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#selectPackagesForCurrentDeploymentSet">selectPackagesForCurrentDeploymentSet</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#whichTabToShow">whichTabToShow</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                                <span class="modifier">Public</span>
+                        <code>constructor(_formBuilder: <a href="../classes/Builder.html">FormBuilder</a>, _settings: <a href="../injectables/Settings.html">Settings</a>, _configService: <a href="../injectables/ConfigurationService.html">ConfigurationService</a>, _packagesService: <a href="../injectables/PackagesService.html">PackagesService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/components/build-packages.component.ts:50</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_formBuilder</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/Builder.html" target="_self" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_settings</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/Settings.html" target="_self" >Settings</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_configService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ConfigurationService.html" target="_self" >ConfigurationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_packagesService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PackagesService.html" target="_self" >PackagesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_isExistingDeploymentSet"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            _isExistingDeploymentSet
+                        </b>
+                        <a href="#_isExistingDeploymentSet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_isExistingDeploymentSet(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="128"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:128</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addDeploymentSet"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            addDeploymentSet
+                        </b>
+                        <a href="#addDeploymentSet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addDeploymentSet(event)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="103"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:103</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addSelectedDependentsToIgnore"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            addSelectedDependentsToIgnore
+                        </b>
+                        <a href="#addSelectedDependentsToIgnore"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addSelectedDependentsToIgnore()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="272"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:272</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addSelectedDependentsToSource"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            addSelectedDependentsToSource
+                        </b>
+                        <a href="#addSelectedDependentsToSource"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addSelectedDependentsToSource()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="258"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:258</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkDependencies"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            checkDependencies
+                        </b>
+                        <a href="#checkDependencies"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>checkDependencies()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="372"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:372</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clear"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            clear
+                        </b>
+                        <a href="#clear"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>clear()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="436"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:436</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="convertToStringList"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            convertToStringList
+                        </b>
+                        <a href="#convertToStringList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>convertToStringList(source: <a href="../classes/Source.html">Source</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="444"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:444</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>source</td>
+                                    <td>
+                                                <code><a href="../classes/Source.html" target="_self" >Source</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>string[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteDeploymentSet"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            deleteDeploymentSet
+                        </b>
+                        <a href="#deleteDeploymentSet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteDeploymentSet(event)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="113"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:113</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dependenciesSelectionChanged"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            dependenciesSelectionChanged
+                        </b>
+                        <a href="#dependenciesSelectionChanged"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>dependenciesSelectionChanged()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="209"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:209</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deploymentSetAPIs"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            deploymentSetAPIs
+                        </b>
+                        <a href="#deploymentSetAPIs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deploymentSetAPIs()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="173"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:173</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>APIDefinition[]</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deploymentSetChanged"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            deploymentSetChanged
+                        </b>
+                        <a href="#deploymentSetChanged"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deploymentSetChanged(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="92"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:92</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deploymentSetExcludedPackages"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            deploymentSetExcludedPackages
+                        </b>
+                        <a href="#deploymentSetExcludedPackages"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deploymentSetExcludedPackages()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="165"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:165</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>string[]</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deploymentSetNotConfigured"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            deploymentSetNotConfigured
+                        </b>
+                        <a href="#deploymentSetNotConfigured"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deploymentSetNotConfigured()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="118"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:118</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deploymentSetPackages"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            deploymentSetPackages
+                        </b>
+                        <a href="#deploymentSetPackages"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deploymentSetPackages()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="157"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:157</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>string[]</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gitAPIActivated"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            gitAPIActivated
+                        </b>
+                        <a href="#gitAPIActivated"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>gitAPIActivated(active: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="217"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:217</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>active</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="haveDependencies"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            haveDependencies
+                        </b>
+                        <a href="#haveDependencies"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>haveDependencies()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="248"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:248</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="haveSelectedSomeDependents"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            haveSelectedSomeDependents
+                        </b>
+                        <a href="#haveSelectedSomeDependents"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>haveSelectedSomeDependents()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="253"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:253</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="indexOnServer"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            indexOnServer
+                        </b>
+                        <a href="#indexOnServer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>indexOnServer(reindex: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, button?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="355"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:355</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>reindex</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>button</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isAllDependenciesSelected"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            isAllDependenciesSelected
+                        </b>
+                        <a href="#isAllDependenciesSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isAllDependenciesSelected()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="185"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:185</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Whether the number of selected elements matches the total number of rows. </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isExistingDeploymentSet"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            isExistingDeploymentSet
+                        </b>
+                        <a href="#isExistingDeploymentSet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isExistingDeploymentSet()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="123"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:123</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadDeploymentSet"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            loadDeploymentSet
+                        </b>
+                        <a href="#loadDeploymentSet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadDeploymentSet(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="315"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:315</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="makeDeploymentSet"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            makeDeploymentSet
+                        </b>
+                        <a href="#makeDeploymentSet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>makeDeploymentSet(name?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="454"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:454</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/DeploymentSet.html" target="_self" >DeploymentSet</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="masterDependenciesToggle"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            masterDependenciesToggle
+                        </b>
+                        <a href="#masterDependenciesToggle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>masterDependenciesToggle()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="200"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:200</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Selects all rows if they are not all selected; otherwise clear selectedDependencies. </p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nameDidChange"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            nameDidChange
+                        </b>
+                        <a href="#nameDidChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>nameDidChange(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="77"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:77</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:68</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="notInAPIList"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            notInAPIList
+                        </b>
+                        <a href="#notInAPIList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>notInAPIList(a: <a href="../classes/APIDefinition.html">APIDefinition</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="418"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:418</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>a</td>
+                                    <td>
+                                                <code><a href="../classes/APIDefinition.html" target="_self" >APIDefinition</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rebuildAPIList"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            rebuildAPIList
+                        </b>
+                        <a href="#rebuildAPIList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>rebuildAPIList(packages: <a href="../classes/WmPackageInfo.html">WmPackageInfo[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="402"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:402</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>packages</td>
+                                    <td>
+                                                <code><a href="../classes/WmPackageInfo.html" target="_self" >WmPackageInfo[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reindexDeploymentSet"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            reindexDeploymentSet
+                        </b>
+                        <a href="#reindexDeploymentSet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>reindexDeploymentSet(event)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="293"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:293</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeDependency"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            removeDependency
+                        </b>
+                        <a href="#removeDependency"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeDependency(o: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="300"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:300</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>o</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/WmPackageInfo.html" target="_self" >WmPackageInfo</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saveDeploymentSet"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            saveDeploymentSet
+                        </b>
+                        <a href="#saveDeploymentSet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>saveDeploymentSet(indexOnCompletion: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="343"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:343</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>indexOnCompletion</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectDependencyRow"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            selectDependencyRow
+                        </b>
+                        <a href="#selectDependencyRow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>selectDependencyRow(row)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="192"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:192</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>row</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedGitRepoChanged"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            selectedGitRepoChanged
+                        </b>
+                        <a href="#selectedGitRepoChanged"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>selectedGitRepoChanged(repo: <a href="../classes/GitRepo.html">GitRepo</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="221"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:221</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>repo</td>
+                                    <td>
+                                                <code><a href="../classes/GitRepo.html" target="_self" >GitRepo</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedRepoName"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            selectedRepoName
+                        </b>
+                        <a href="#selectedRepoName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>selectedRepoName()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="149"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:149</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedSourcesDidChange"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            selectedSourcesDidChange
+                        </b>
+                        <a href="#selectedSourcesDidChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>selectedSourcesDidChange(sourceWrapper: <a href="../classes/SourceWrapper.html">SourceWrapper</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="237"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:237</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>sourceWrapper</td>
+                                    <td>
+                                                <code><a href="../classes/SourceWrapper.html" target="_self" >SourceWrapper</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedSourcesDidLoad"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            selectedSourcesDidLoad
+                        </b>
+                        <a href="#selectedSourcesDidLoad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>selectedSourcesDidLoad(sourceWrapper: <a href="../classes/SourceWrapper.html">SourceWrapper</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="232"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:232</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>sourceWrapper</td>
+                                    <td>
+                                                <code><a href="../classes/SourceWrapper.html" target="_self" >SourceWrapper</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectPackagesForCurrentDeploymentSet"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            selectPackagesForCurrentDeploymentSet
+                        </b>
+                        <a href="#selectPackagesForCurrentDeploymentSet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>selectPackagesForCurrentDeploymentSet()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="329"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:329</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="whichTabToShow"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            whichTabToShow
+                        </b>
+                        <a href="#whichTabToShow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>whichTabToShow()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="285"
+                            class="link-to-prism">src/app/components/build-packages.component.ts:285</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>0 | 1</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_freshReload"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _freshReload</b>
+                            <a href="#_freshReload"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/components/build-packages.component.ts:50</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_gitSelectionModel"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _gitSelectionModel</b>
+                            <a href="#_gitSelectionModel"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>SelectionModel&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/components/build-packages.component.ts:49</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_selectedGit"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _selectedGit</b>
+                            <a href="#_selectedGit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/GitRepo.html" target="_self" >GitRepo</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/components/build-packages.component.ts:48</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="apiEnabled"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            apiEnabled</b>
+                            <a href="#apiEnabled"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>true</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/components/build-packages.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="apiReadOnlyDisplayedColumns"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            apiReadOnlyDisplayedColumns</b>
+                            <a href="#apiReadOnlyDisplayedColumns"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&#x27;name&#x27;, &#x27;package&#x27;, &#x27;swagger&#x27;, &#x27;description&#x27;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/components/build-packages.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dependencies"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            dependencies</b>
+                            <a href="#dependencies"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/WmPackageInfo.html" target="_self" >WmPackageInfo[]</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/build-packages.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dependencyDisplayedColumns"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            dependencyDisplayedColumns</b>
+                            <a href="#dependencyDisplayedColumns"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&#x27;select&#x27;, &#x27;package&#x27;, &#x27;description&#x27;, &#x27;tests&#x27;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/build-packages.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dependentsTable"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            dependentsTable</b>
+                            <a href="#dependentsTable"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>MatTable&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;dependentsTable&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/components/build-packages.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="deploymentNameCtrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            deploymentNameCtrl</b>
+                            <a href="#deploymentNameCtrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/components/build-packages.component.ts:44</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="deploymentSet"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            deploymentSet</b>
+                            <a href="#deploymentSet"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/DeploymentSet.html" target="_self" >DeploymentSet</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/components/build-packages.component.ts:35</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="deploymentSetAPIsTable"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            deploymentSetAPIsTable</b>
+                            <a href="#deploymentSetAPIsTable"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>MatTable&lt;APIDefinition&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;readonlyAPIs&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/components/build-packages.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="deploymentSets"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            deploymentSets</b>
+                            <a href="#deploymentSets"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/build-packages.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="form"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            form</b>
+                            <a href="#form"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/components/build-packages.component.ts:43</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="indexing"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            indexing</b>
+                            <a href="#indexing"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>true</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/components/build-packages.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedDependencies"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            selectedDependencies</b>
+                            <a href="#selectedDependencies"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/WmPackageInfo.html" target="_self" >SelectionModel&lt;WmPackageInfo&gt;</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new SelectionModel&lt;WmPackageInfo&gt;(true, [])</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/build-packages.component.ts:30</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="values"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            values</b>
+                            <a href="#values"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Values.html" target="_self" >Values</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/components/build-packages.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, ViewChild }   from &#x27;@angular/core&#x27;;
+import { SelectionModel } 							  from &#x27;@angular/cdk/collections&#x27;;
+import { FormBuilder, FormControl, FormGroup } from &#x27;@angular/forms&#x27;;
+
+import { MatTable } 					 			      from &#x27;@angular/material/table&#x27;;
+import { Settings, Values } 			 	      from &#x27;../settings&#x27;;
+
+import { ConfigurationService } 			 		from &#x27;../services/configuration.service&#x27;;
+import { PackagesService } 						 	  from &#x27;../services/packages.service&#x27;;
+import { DeploymentSet }							    from &#x27;../models/project&#x27;
+import { Source } 									      from &#x27;../models/git-source&#x27;;
+import { WmPackageInfo, APIDefinition }	  from &#x27;../models/wm-package-info&#x27;;
+
+import { SourceWrapper }						 	     from &#x27;./elements/git-sources.component&#x27;;
+import { GitRepo }                         from &#x27;../services/git-source-control.service&#x27;;
+
+@Component({
+  selector: &#x27;build-package&#x27;,
+  templateUrl: &#x27;../templates/build-packages.html&#x27;,
+  styleUrls: [&#x27;../templates/build-packages.css&#x27;]
+})
+
+export class BuildPackagesComponent implements OnInit {
+
+	public deploymentSets: string[] &#x3D; [];
+	public dependencyDisplayedColumns: string[] &#x3D; [&#x27;select&#x27;, &#x27;package&#x27;, &#x27;description&#x27;, &#x27;tests&#x27;];
+	public apiReadOnlyDisplayedColumns: string[] &#x3D; [&#x27;name&#x27;, &#x27;package&#x27;, &#x27;swagger&#x27;, &#x27;description&#x27;];
+
+	public dependencies: WmPackageInfo[];
+	public selectedDependencies: SelectionModel&lt;WmPackageInfo&gt; &#x3D; new SelectionModel&lt;WmPackageInfo&gt;(true, []);
+
+	public indexing: boolean &#x3D; true;
+  public apiEnabled: boolean &#x3D; true;
+
+	public deploymentSet: DeploymentSet;
+
+	@ViewChild(&quot;dependentsTable&quot;)
+	public dependentsTable: MatTable&lt;any&gt;;
+
+	@ViewChild(&quot;readonlyAPIs&quot;)
+	public deploymentSetAPIsTable: MatTable&lt;APIDefinition&gt;;
+
+	public form: FormGroup;
+	public deploymentNameCtrl: FormControl;
+
+	public values: Values;
+
+	private _selectedGit: GitRepo;
+	private _gitSelectionModel: SelectionModel&lt;any&gt;;
+  private _freshReload &#x3D; false;
+
+	public constructor(private _formBuilder: FormBuilder, private  _settings: Settings, private _configService: ConfigurationService ,private _packagesService: PackagesService) {
+
+		this._settings.values().subscribe((v) &#x3D;&gt; {
+
+			this.values &#x3D; v;
+
+			this._configService.deploymentSets().subscribe((r) &#x3D;&gt; {
+
+				this.deploymentSets &#x3D; r;
+				this.indexing &#x3D; false;
+			});
+
+			this._settings.setCurrentPage(&quot;package&quot;);
+		});
+	}
+
+	public ngOnInit() {
+
+	    this.form &#x3D; this._formBuilder.group({
+        deploymentNameCtrl: this.deploymentNameCtrl
+	    });
+
+	    this.deploymentNameCtrl &#x3D; new FormControl();
+	}
+
+	public nameDidChange(event: any) {
+
+		if (event.target.value &amp;&amp; (!this.deploymentSet || this.deploymentSet.name !&#x3D; event.target.value)) {
+
+			this.clear();
+			this.deploymentSet.name &#x3D; event.target.value;
+
+			if (this._isExistingDeploymentSet(this.deploymentSet.name))
+				this.loadDeploymentSet(this.deploymentSet.name);
+
+		} else if (!event.target.value &amp;&amp; this.deploymentSet.name) {
+		   this.clear();
+    }
+	}
+
+	public deploymentSetChanged(event: any) {
+
+		if (event.option.value &amp;&amp; (!this.deploymentSet || this.deploymentSet.name !&#x3D; event.option.value)) {
+
+			this.clear();
+			this.deploymentSet.name &#x3D; event.option.value;
+
+			this.loadDeploymentSet(this.deploymentSet.name);
+		}
+	}
+
+	public addDeploymentSet(event) {
+
+		event.target.label &#x3D; &quot;Adding&quot;;
+		event.target.disabled &#x3D; true;
+
+		this.deploymentSet &#x3D; this.makeDeploymentSet(this.deploymentSet.name);
+
+		this.saveDeploymentSet(true);
+	}
+
+	public deleteDeploymentSet(event) {
+
+		this._configService.deleteDeploymentSet(this.deploymentSet.name);
+	}
+
+	public deploymentSetNotConfigured() {
+
+		return this.deploymentSet &amp;&amp; this.deploymentSet.name !&#x3D; null &amp;&amp; (this.deploymentSet.source &#x3D;&#x3D; null || this.deploymentSet.source.include.length &#x3D;&#x3D; 0);
+	}
+
+	public isExistingDeploymentSet(): boolean {
+
+		return this.deploymentSet &amp;&amp; this._isExistingDeploymentSet(this.deploymentSet.name);
+	}
+
+	public _isExistingDeploymentSet(name: string): boolean {
+
+		if (this.deploymentSet.name) {
+
+			var found &#x3D; false;
+
+			for (var i&#x3D;0;i&lt;this.deploymentSets.length;i++) {
+
+				if (this.deploymentSets[i] &#x3D;&#x3D; name)
+				{
+					found &#x3D; true;
+					break;
+				}
+			}
+
+			return found;
+		} else {
+			return false;
+		}
+	}
+
+	public selectedRepoName(): string {
+
+	  if (this.deploymentSet)
+      return this.deploymentSet.source.gitRepository;
+	  else
+	    return null;
+	}
+
+	public deploymentSetPackages(): string[] {
+
+		if (this.deploymentSet &amp;&amp; this.deploymentSet.source.include !&#x3D; null &amp;&amp; this.deploymentSet.source.include.length &gt; 0)
+			return this.deploymentSet.source.include;
+		else
+			return null;
+	}
+
+	public deploymentSetExcludedPackages(): string[] {
+
+		if (this.deploymentSet &amp;&amp; this.deploymentSet.source &amp;&amp; this.deploymentSet.source.exclude &amp;&amp; this.deploymentSet.source.exclude.length &gt; 0)
+			return this.deploymentSet.source.exclude;
+		else
+			return null;
+	}
+
+	public deploymentSetAPIs(): APIDefinition[] {
+
+		if (this.deploymentSet &amp;&amp; this.deploymentSet.apis &amp;&amp; this.deploymentSet.apis.length &gt; 0) {
+
+			return this.deploymentSet.apis;
+
+		} else {
+			return null;
+		}
+	}
+
+	/** Whether the number of selected elements matches the total number of rows. */
+  	public isAllDependenciesSelected() {
+    	const numSelected &#x3D; this.selectedDependencies.selected.length;
+    	const numRows &#x3D; this.dependencies.length;
+
+    	return numSelected &#x3D;&#x3D;&#x3D; numRows;
+  	}
+
+  	public selectDependencyRow(row) {
+
+  		this.selectedDependencies.toggle(row);
+
+  		this.dependenciesSelectionChanged();
+  	}
+
+  /** Selects all rows if they are not all selected; otherwise clear selectedDependencies. */
+	public masterDependenciesToggle() {
+
+	    this.isAllDependenciesSelected() ?
+	        this.selectedDependencies.clear() :
+	        this.dependencies.forEach(row &#x3D;&gt; this.selectedDependencies.select(row));
+
+	    this.dependenciesSelectionChanged();
+	}
+
+	private dependenciesSelectionChanged() {
+
+		this.selectedDependencies.selected.forEach((p) &#x3D;&gt; {
+
+			this.deploymentSet.source.include.push(p.name);
+		});
+	}
+
+	public gitAPIActivated(active: boolean) {
+	  this.apiEnabled &#x3D; active;
+  }
+
+	public selectedGitRepoChanged(repo: GitRepo) {
+
+		if (!this.deploymentSet || this._selectedGit !&#x3D; repo) {
+
+		  this._selectedGit &#x3D; repo;
+
+			if (this.deploymentSet)
+			  this.deploymentSet &#x3D; this.makeDeploymentSet(this.deploymentSet.name);
+		}
+	}
+
+	public selectedSourcesDidLoad(sourceWrapper: SourceWrapper) {
+
+		this._gitSelectionModel &#x3D; sourceWrapper.model;
+	}
+
+	public selectedSourcesDidChange(sourceWrapper: SourceWrapper) {
+
+	  this._freshReload &#x3D; false;
+
+		this.deploymentSet.source &#x3D; sourceWrapper.source;
+		this._gitSelectionModel &#x3D; sourceWrapper.model;
+
+		if (this.deploymentSet.name)
+			this.checkDependencies();
+	}
+
+	public haveDependencies(): boolean {
+
+		return this.dependencies &amp;&amp; this.dependencies.length &gt; 0;
+	}
+
+	public haveSelectedSomeDependents(): boolean {
+
+		return (this.selectedDependencies.selected.length &gt; 0);
+	}
+
+	public addSelectedDependentsToSource() {
+
+		var p: WmPackageInfo &#x3D; null;
+
+		while(p&#x3D;this.selectedDependencies.selected.pop()) {
+
+			this.removeDependency(p)
+			this._gitSelectionModel.select(p.name);
+		};
+
+		this.checkDependencies();
+		this.dependentsTable.renderRows();
+	}
+
+	public addSelectedDependentsToIgnore() {
+
+		let p: WmPackageInfo &#x3D; null;
+
+		while(p&#x3D;this.selectedDependencies.selected.pop()) {
+
+			this.removeDependency(p);
+			this.deploymentSet.source.exclude.push(p.name);
+		};
+
+		this.saveDeploymentSet(false);
+	}
+
+	public whichTabToShow() {
+
+	  if (this._freshReload &amp;&amp; this.deploymentSet &amp;&amp; this.deploymentSet.source.include.length &gt; 0)
+	    return 0;
+	  else
+	    return 1;
+  }
+
+  public reindexDeploymentSet(event) {
+
+		event.target.disabled &#x3D; true;
+		this.indexing &#x3D; true;
+		this.indexOnServer(true, event.target);
+	}
+
+	private removeDependency(o: any): WmPackageInfo {
+
+		let p: WmPackageInfo &#x3D; null;
+
+		for (let i &#x3D; 0; i &lt; this.dependencies.length; i++) {
+			if (this.dependencies[i].name &#x3D;&#x3D; o.name) {
+				p &#x3D; this.dependencies.splice(i, 1)[0];
+				break;
+			}
+		}
+
+		this.selectedDependencies.deselect(o);
+		return p;
+	}
+
+	private loadDeploymentSet(name: string) {
+
+	  let gitURI: string &#x3D; this.deploymentSet.source.gitURI;
+
+		this._configService.deploymentSet(name).subscribe((d) &#x3D;&gt; {
+			this._freshReload &#x3D; true;
+			this.deploymentSet &#x3D; d;
+		  this.deploymentSet.source.gitURI &#x3D; gitURI;
+      this.deploymentNameCtrl.setValue(d.name, {onlySelf: true, emitEvent: false});
+
+			this.indexOnServer(false);
+		});
+	}
+
+	private selectPackagesForCurrentDeploymentSet() {
+
+		if (this.deploymentSet.source &amp;&amp; this.deploymentSet.source.include) {
+
+			if (this._gitSelectionModel) {
+				this.deploymentSet.source.include.forEach((r) &#x3D;&gt; {
+					this._gitSelectionModel.select(r);
+				});
+			}
+
+			this.checkDependencies();
+		}
+	}
+
+	private saveDeploymentSet(indexOnCompletion: boolean) {
+
+		this._configService.uploadDeploymentSet(this.deploymentSet).subscribe((d) &#x3D;&gt; {
+
+			if (indexOnCompletion)
+				this.indexOnServer(false);
+
+			if (!this.isExistingDeploymentSet())
+				this.deploymentSets.push(this.deploymentSet.name);
+		})
+	}
+
+	private indexOnServer(reindex: boolean, button?: any) {
+
+		this.indexing &#x3D; true;
+
+		this._packagesService.index(this.deploymentSet.name, this._selectedGit.config.packages, this.deploymentSet.source, reindex).subscribe((packages) &#x3D;&gt; {
+
+			this.indexing &#x3D; false;
+
+			if (button)
+			  button.disabled &#x3D; false;
+
+			if (this.deploymentSet.source.include.length &gt; 0)
+				this.checkDependencies();
+			  this.selectPackagesForCurrentDeploymentSet();
+		});
+	}
+
+	private checkDependencies() {
+
+		let l: string[] &#x3D; this.convertToStringList(this.deploymentSet.source);
+
+		if (l.length &gt; 0) {
+
+		  let dir: string &#x3D; this.deploymentSet.source.gitRepository;
+
+		  if (this._selectedGit.config.packages.startsWith(&quot;/&quot;))
+        dir +&#x3D; this._selectedGit.config.packages;
+		  else
+		    dir +&#x3D; &quot;/&quot; + this._selectedGit.config.packages;
+
+			this._packagesService.checkDependenciesForPackages(l, dir).subscribe((r) &#x3D;&gt; {
+
+				this.dependencies &#x3D; r.dependencies;
+
+				this.rebuildAPIList(r.packages);
+
+				if (this.deploymentSetAPIsTable)
+					this.deploymentSetAPIsTable.renderRows();
+			});
+
+			this.saveDeploymentSet(false);
+
+		} else {
+			this.dependencies &#x3D; [];
+		}
+	}
+
+	private rebuildAPIList(packages: WmPackageInfo[]) {
+
+		this.deploymentSet.apis &#x3D; [];
+
+		packages.forEach((p) &#x3D;&gt; {
+
+			if (p.apis) {
+				p.apis.forEach((a) &#x3D;&gt; {
+					if (this.notInAPIList(a)) {
+						this.deploymentSet.apis.push(a);
+					}
+				});
+			}
+		});
+	}
+
+	private notInAPIList(a: APIDefinition): boolean {
+
+		if (!this.deploymentSet.apis || this.deploymentSet.apis.length &#x3D;&#x3D; 0)
+			return true;
+
+		var notFound: boolean &#x3D; true;
+
+		for (var i&#x3D;0; i &lt; this.deploymentSet.apis.length; i++) {
+
+			if (this.deploymentSet.apis[i].name &#x3D;&#x3D; a.name) {
+				notFound &#x3D; false;
+				break;
+			}
+		}
+
+		return notFound;
+	}
+
+	private clear() {
+
+		this.deploymentSet &#x3D; this.makeDeploymentSet();
+		if (this._gitSelectionModel) {
+			this._gitSelectionModel.clear();
+		}
+	}
+
+	private convertToStringList(source: Source): string[] {
+
+		var out: string[] &#x3D; [];
+		source.include.forEach((p) &#x3D;&gt; {
+				out.push(p);
+		});
+
+		return out;
+	}
+
+	private  makeDeploymentSet(name?: string): DeploymentSet {
+
+		let deploymentSet: DeploymentSet &#x3D; new DeploymentSet();
+		deploymentSet.name &#x3D; name ? name : null;
+		let s: Source &#x3D; new Source();
+		s.type &#x3D; &quot;package&quot;;
+
+		let values &#x3D; this._settings.values().subscribe((v) &#x3D;&gt; {
+
+			if (!v.gitUri.endsWith(&quot;/&quot;))
+				v.gitUri &#x3D; v.gitUri + &quot;/&quot;;
+
+			s.gitURI &#x3D; v.gitUri + v.gitUser + &quot;/&quot; + this._selectedGit.name + &quot;.git&quot;;
+
+			s.gitUser &#x3D; v.gitUser;
+			s.gitPassword &#x3D; v.gitPassword;
+			s.gitRepository &#x3D; this._selectedGit.id;
+		});
+
+		deploymentSet.source &#x3D; s;
+
+		return deploymentSet;
+	}
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;page-wrapper&quot;&gt;
+  &lt;h1 class&#x3D;&quot;page-content-title&quot;&gt;Define Source Set&lt;/h1&gt;
+  &lt;div id&#x3D;&quot;spinner&quot; class&#x3D;&quot;spinner&quot; *ngIf&#x3D;&quot;indexing&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;page-content-wrapper&quot;&gt;
+      &lt;form [formGroup]&#x3D;&quot;form&quot;&gt;
+        &lt;div style&#x3D;&quot;display: inline-flex; justify-content: space-between; width:100%;height: 100%&quot;&gt;
+          &lt;mat-form-field style&#x3D;&quot;margin-right:20px; flex-grow: 2&quot;&gt;
+            &lt;input matInput placeholder&#x3D;&quot;Deployment Name&quot; [formControl]&#x3D;&quot;deploymentNameCtrl&quot; (change)&#x3D;&quot;nameDidChange($event)&quot; [matAutocomplete]&#x3D;&quot;auto&quot;&gt;
+            &lt;span matSuffix *ngIf&#x3D;&quot;isExistingDeploymentSet() &amp;&amp; !indexing &amp;&amp; apiEnabled&quot;&gt;
+              &lt;button mat-button color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;reindexDeploymentSet($event)&quot; style&#x3D;&quot;margin-left: 20px&quot; aria-label&#x3D;&quot;reindex package dependencies&quot; matTooltip&#x3D;&quot;reindex package dependencies, use this if your source code has changed since creating deployment set&quot;&gt;
+                &lt;fa-icon class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;sync-alt&#x27;]&quot; style&#x3D;&quot;color: orange&quot;&gt;&lt;/fa-icon&gt;
+              &lt;/button&gt;
+            &lt;/span&gt;
+            &lt;mat-autocomplete #auto&#x3D;&quot;matAutocomplete&quot; (optionSelected)&#x3D;&quot;deploymentSetChanged($event)&quot;&gt;
+                &lt;mat-option *ngFor&#x3D;&quot;let set of deploymentSets&quot; [value]&#x3D;&quot;set&quot;&gt;
+                  {{set}}
+                &lt;/mat-option&gt;
+            &lt;/mat-autocomplete&gt;
+          &lt;/mat-form-field&gt;
+          &lt;div *ngIf&#x3D;&quot;deploymentNameCtrl.value&quot; style&#x3D;&quot;flex-grow: 1; display: inline-flex; justify-content: flex-end; align-items: center&quot;&gt;
+            &lt;button mat-flat-button color&#x3D;&quot;accent&quot; (click)&#x3D;&quot;addDeploymentSet($event)&quot; [disabled]&#x3D;&quot;isExistingDeploymentSet()&quot; style&#x3D;&quot;margin-right: 10px&quot;&gt;Add&lt;/button&gt;
+            &lt;button mat-flat-button color&#x3D;&quot;warn&quot; (click)&#x3D;&quot;deleteDeploymentSet($event)&quot; [disabled]&#x3D;&quot;!isExistingDeploymentSet()&quot; style&#x3D;&quot;margin-left: 10px&quot;&gt;Delete&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+  		&lt;mat-tab-group #tabGroup [selectedIndex]&#x3D;&quot;whichTabToShow()&quot; style&#x3D;&quot;position: absolute; top: 140px; bottom: 0px; left: 0px; right: 0px&quot; [hidden]&#x3D;&quot;indexing&quot;&gt;
+  			&lt;mat-tab label&#x3D;&quot;Contents&quot; [disabled]&#x3D;&quot;!isExistingDeploymentSet()&quot;&gt;
+  				&lt;div *ngIf&#x3D;&quot;deploymentSetNotConfigured()&quot; style&#x3D;&quot;text-align:center;width:100%;&quot;&gt;
+  					&lt;div style&#x3D;&quot;background-color: #EEEEEE; padding: 10px; border-radius: 10px; margin-top:60px&quot;&gt;&lt;h2&gt;No packages have been added&lt;/h2&gt;&lt;/div&gt;
+				&lt;/div&gt;
+  				&lt;div style&#x3D;&quot;width:100%; padding:10px; height:100%&quot; *ngIf&#x3D;&quot;!deploymentSetNotConfigured()&quot;&gt;
+  					&lt;div style&#x3D;&quot;width:100%; margin-top: 10px;&quot; *ngIf&#x3D;&quot;deploymentSetPackages()&quot;&gt;
+	      				&lt;mat-card-title style&#x3D;&quot;line-height: 60px&quot;&gt;Included Packages&lt;/mat-card-title&gt;
+	      				&lt;mat-chip-list&gt;
+	      					&lt;mat-chip *ngFor&#x3D;&quot;let package of deploymentSetPackages()&quot; color&#x3D;&quot;primary&quot; selected&gt;{{package}}&lt;/mat-chip&gt;
+	      				&lt;/mat-chip-list&gt;
+				  	&lt;/div&gt;
+
+				  	&lt;div style&#x3D;&quot;width:100%; margin-top: 50px;&quot; *ngIf&#x3D;&quot;deploymentSetExcludedPackages()&quot;&gt;
+				  		&lt;mat-card-title style&#x3D;&quot;line-height: 60px&quot;&gt;Ignored Packages&lt;/mat-card-title&gt;
+	      				&lt;mat-chip-list&gt;
+	      					&lt;mat-chip *ngFor&#x3D;&quot;let package of deploymentSetExcludedPackages()&quot; color&#x3D;&quot;accent&quot; selected&gt;{{package}}&lt;/mat-chip&gt;
+	      				&lt;/mat-chip-list&gt;
+					&lt;/div&gt;
+
+	  				&lt;div style&#x3D;&quot;width:100%; margin-top: 50px;&quot; *ngIf&#x3D;&quot;deploymentSetAPIs()&quot;&gt;
+	  					&lt;mat-card-title style&#x3D;&quot;line-height: 60px&quot;&gt;Discovered API&#x27;s&lt;/mat-card-title&gt;
+
+		  				 &lt;table #readonlyAPIs mat-table [dataSource]&#x3D;&quot;deploymentSetAPIs()&quot; class&#x3D;&quot;mat-elevation-z8&quot; style&#x3D;&quot;width:100%;&quot;&gt;
+
+						    &lt;ng-container matColumnDef&#x3D;&quot;name&quot;&gt;
+						      &lt;th mat-header-cell *matHeaderCellDef&gt; API&#x27;s&lt;/th&gt;
+						      &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;  &lt;mat-chip color&#x3D;&quot;warn&quot; selected&gt;{{element.name}}&lt;/mat-chip&gt; &lt;/td&gt;
+						    &lt;/ng-container&gt;
+
+						     &lt;ng-container matColumnDef&#x3D;&quot;package&quot;&gt;
+						      &lt;th mat-header-cell *matHeaderCellDef&gt; Package &lt;/th&gt;
+						      &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.package}} &lt;/td&gt;
+						    &lt;/ng-container&gt;
+
+						    &lt;ng-container matColumnDef&#x3D;&quot;swagger&quot;&gt;
+						      &lt;th mat-header-cell *matHeaderCellDef&gt; Swagger &lt;/th&gt;
+						      &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.swaggerEndPoint}} &lt;/td&gt;
+						    &lt;/ng-container&gt;
+
+						    &lt;ng-container matColumnDef&#x3D;&quot;description&quot;&gt;
+						      &lt;th mat-header-cell *matHeaderCellDef&gt; Description &lt;/th&gt;
+						      &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.description}} &lt;/td&gt;
+						    &lt;/ng-container&gt;
+
+						    &lt;tr mat-header-row *matHeaderRowDef&#x3D;&quot;apiReadOnlyDisplayedColumns&quot;&gt;&lt;/tr&gt;
+						    &lt;tr mat-row *matRowDef&#x3D;&quot;let row; columns: apiReadOnlyDisplayedColumns;&quot;&gt;
+						    &lt;/tr&gt;
+					  	&lt;/table&gt;
+				  	&lt;/div&gt;
+				&lt;/div&gt;
+  			&lt;/mat-tab&gt;
+  			&lt;mat-tab label&#x3D;&quot;Configure&quot;&gt;
+		    	&lt;div style&#x3D;&quot;display: flex; flex-direction: row; overflow-y: scroll; height: 100%&quot;&gt;
+		    		&lt;div style&#x3D;&quot;flex-grow: 1;padding: 10px&quot;&gt;
+		      			&lt;h3&gt;Choose packages to include&lt;/h3&gt;
+		        		&lt;git-source *ngIf&#x3D;&quot;values&quot; [selectedRepoName]&#x3D;&quot;selectedRepoName()&quot; [showSource]&#x3D;&quot;true&quot; [selected]&#x3D;&quot;deploymentSetPackages()&quot; [disabled]&#x3D;&quot;!isExistingDeploymentSet()&quot; (selectedGitRepoChanged)&#x3D;&quot;selectedGitRepoChanged($event)&quot; (selectedSourcesLoaded)&#x3D;&quot;selectedSourcesDidLoad($event)&quot; (selectedSourcesChanged)&#x3D;&quot;selectedSourcesDidChange($event)&quot; (apiActivated)&#x3D;&quot;gitAPIActivated($event)&quot; style&#x3D;&quot;width:100%; margin-top: 60px&quot;&gt;&lt;/git-source&gt;
+		      		&lt;/div&gt;
+		      		&lt;div style&#x3D;&quot;flex-grow: 1; min-width: 250px; padding: 10px; padding-left: 30px&quot;&gt;
+	      				&lt;h3&gt;Dependent Package(s)&lt;/h3&gt;
+	      				&lt;div style&#x3D;&quot;width:100%;margin-top: 98px&quot;&gt;
+		      			    &lt;div style&#x3D;&quot;width:100%; overflow: scroll&quot; *ngIf&#x3D;&quot;haveDependencies()&quot;&gt;
+			      				&lt;table #dependentsTable mat-table [dataSource]&#x3D;&quot;dependencies&quot; class&#x3D;&quot;mat-elevation-z8&quot; style&#x3D;&quot;width:100%;&quot;&gt;
+
+							    &lt;!-- Checkbox Column --&gt;
+							    &lt;ng-container matColumnDef&#x3D;&quot;select&quot;&gt;
+							      &lt;th mat-header-cell *matHeaderCellDef&gt;
+							        &lt;mat-checkbox (change)&#x3D;&quot;$event ? masterDependenciesToggle() : null&quot;
+							                      [checked]&#x3D;&quot;selectedDependencies.hasValue() &amp;&amp; isAllDependenciesSelected()&quot;
+							                      [indeterminate]&#x3D;&quot;selectedDependencies.hasValue() &amp;&amp; !isAllDependenciesSelected()&quot;&gt;
+							        &lt;/mat-checkbox&gt;
+							      &lt;/th&gt;
+							      &lt;td mat-cell *matCellDef&#x3D;&quot;let row&quot;&gt;
+							        &lt;mat-checkbox (click)&#x3D;&quot;$event.stopPropagation()&quot;
+							                      (change)&#x3D;&quot;$event ? selectDependencyRow(row) : null&quot;
+							                      [checked]&#x3D;&quot;selectedDependencies.isSelected(row)&quot;&gt;
+							        &lt;/mat-checkbox&gt;
+							      &lt;/td&gt;
+							    &lt;/ng-container&gt;
+
+							    &lt;ng-container matColumnDef&#x3D;&quot;package&quot;&gt;
+							      &lt;th mat-header-cell *matHeaderCellDef&gt; Package Name&lt;/th&gt;
+							      &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.name}} &lt;/td&gt;
+							    &lt;/ng-container&gt;
+
+							    &lt;ng-container matColumnDef&#x3D;&quot;description&quot;&gt;
+							      &lt;th mat-header-cell *matHeaderCellDef&gt; Description &lt;/th&gt;
+							      &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.description}} &lt;/td&gt;
+							    &lt;/ng-container&gt;
+
+							    &lt;ng-container matColumnDef&#x3D;&quot;tests&quot;&gt;
+							      &lt;th mat-header-cell *matHeaderCellDef&gt; Test Suite Included &lt;/th&gt;
+							      &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.hasTestCases}} &lt;/td&gt;
+							    &lt;/ng-container&gt;
+
+							    &lt;tr mat-header-row *matHeaderRowDef&#x3D;&quot;dependencyDisplayedColumns&quot;&gt;&lt;/tr&gt;
+							    &lt;tr mat-row *matRowDef&#x3D;&quot;let row; columns: dependencyDisplayedColumns;&quot;
+							        (click)&#x3D;&quot;selectedDependencies.toggle(row)&quot;&gt;
+							    &lt;/tr&gt;
+							  &lt;/table&gt;
+							&lt;/div&gt;
+							&lt;div style&#x3D;&quot;float: right; padding: 10px&quot; *ngIf&#x3D;&quot;haveDependencies()&quot;&gt;
+								&lt;button mat-flat-button color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;addSelectedDependentsToSource()&quot; [disabled]&#x3D;&quot;!haveSelectedSomeDependents()&quot; style&#x3D;&quot;margin-right: 10px&quot;&gt;Add ({{this.selectedDependencies.selected.length}})&lt;/button&gt;
+								&lt;button mat-flat-button color&#x3D;&quot;accent&quot; (click)&#x3D;&quot;addSelectedDependentsToIgnore()&quot; [disabled]&#x3D;&quot;!haveSelectedSomeDependents()&quot;&gt;Ignore ({{this.selectedDependencies.selected.length}})&lt;/button&gt;
+							&lt;/div&gt;
+						&lt;/div&gt;
+		      		&lt;/div&gt;
+		  		&lt;/div&gt;
+  			&lt;/mat-tab&gt;
+  		&lt;/mat-tab-group&gt;
+   &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>../templates/build-packages.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">a {
+	text-decoration: none !important;
+	color: white !important;
+	background-color: rgba(255,255,255,0.1);
+	border-radius: 10px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	margin-left: 10px;
+}
+a:visited {
+	color: white;
+}
+a:hover {
+	background-color: gray;
+}
+.toolbar {
+	height: 50px;
+	background-color: rgb(23, 115, 187);
+}
+.toolbar-content {
+	display: flex;
+	align-items: stretch;
+	width: 100%;
+	height: 30px;
+	padding: 5px;
+}
+.toolbar-title-column {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 0;
+	width: 250px;
+	color: white;
+	font-size: 10px;
+}
+.toolbar-right-column {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	flex-grow: 2;
+	color: white;
+}
+.toolbar-links {
+	font-size: 11px;
+	line-height: 21px;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="page-wrapper">  <h1 class="page-content-title">Define Source Set</h1>  <div id="spinner" class="spinner" *ngIf="indexing">  </div>  <div class="page-content-wrapper">      <form [formGroup]="form">        <div style="display: inline-flex; justify-content: space-between; width:100%;height: 100%">          <mat-form-field style="margin-right:20px; flex-grow: 2">            <input matInput placeholder="Deployment Name" [formControl]="deploymentNameCtrl" (change)="nameDidChange($event)" [matAutocomplete]="auto">            <span matSuffix *ngIf="isExistingDeploymentSet() && !indexing && apiEnabled">              <button mat-button color="primary" (click)="reindexDeploymentSet($event)" style="margin-left: 20px" aria-label="reindex package dependencies" matTooltip="reindex package dependencies, use this if your source code has changed since creating deployment set">                <fa-icon class="icon" [icon]="[\'fas\', \'sync-alt\']" style="color: orange"></fa-icon>              </button>            </span>            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="deploymentSetChanged($event)">                <mat-option *ngFor="let set of deploymentSets" [value]="set">                  {{set}}                </mat-option>            </mat-autocomplete>          </mat-form-field>          <div *ngIf="deploymentNameCtrl.value" style="flex-grow: 1; display: inline-flex; justify-content: flex-end; align-items: center">            <button mat-flat-button color="accent" (click)="addDeploymentSet($event)" [disabled]="isExistingDeploymentSet()" style="margin-right: 10px">Add</button>            <button mat-flat-button color="warn" (click)="deleteDeploymentSet($event)" [disabled]="!isExistingDeploymentSet()" style="margin-left: 10px">Delete</button>          </div>        </div>      </form>  		<mat-tab-group #tabGroup [selectedIndex]="whichTabToShow()" style="position: absolute; top: 140px; bottom: 0px; left: 0px; right: 0px" [hidden]="indexing">  			<mat-tab label="Contents" [disabled]="!isExistingDeploymentSet()">  				<div *ngIf="deploymentSetNotConfigured()" style="text-align:center;width:100%;">  					<div style="background-color: #EEEEEE; padding: 10px; border-radius: 10px; margin-top:60px"><h2>No packages have been added</h2></div>				</div>  				<div style="width:100%; padding:10px; height:100%" *ngIf="!deploymentSetNotConfigured()">  					<div style="width:100%; margin-top: 10px;" *ngIf="deploymentSetPackages()">	      				<mat-card-title style="line-height: 60px">Included Packages</mat-card-title>	      				<mat-chip-list>	      					<mat-chip *ngFor="let package of deploymentSetPackages()" color="primary" selected>{{package}}</mat-chip>	      				</mat-chip-list>				  	</div>				  	<div style="width:100%; margin-top: 50px;" *ngIf="deploymentSetExcludedPackages()">				  		<mat-card-title style="line-height: 60px">Ignored Packages</mat-card-title>	      				<mat-chip-list>	      					<mat-chip *ngFor="let package of deploymentSetExcludedPackages()" color="accent" selected>{{package}}</mat-chip>	      				</mat-chip-list>					</div>	  				<div style="width:100%; margin-top: 50px;" *ngIf="deploymentSetAPIs()">	  					<mat-card-title style="line-height: 60px">Discovered API\'s</mat-card-title>		  				 <table #readonlyAPIs mat-table [dataSource]="deploymentSetAPIs()" class="mat-elevation-z8" style="width:100%;">						    <ng-container matColumnDef="name">						      <th mat-header-cell *matHeaderCellDef> API\'s</th>						      <td mat-cell *matCellDef="let element">  <mat-chip color="warn" selected>{{element.name}}</mat-chip> </td>						    </ng-container>						     <ng-container matColumnDef="package">						      <th mat-header-cell *matHeaderCellDef> Package </th>						      <td mat-cell *matCellDef="let element"> {{element.package}} </td>						    </ng-container>						    <ng-container matColumnDef="swagger">						      <th mat-header-cell *matHeaderCellDef> Swagger </th>						      <td mat-cell *matCellDef="let element"> {{element.swaggerEndPoint}} </td>						    </ng-container>						    <ng-container matColumnDef="description">						      <th mat-header-cell *matHeaderCellDef> Description </th>						      <td mat-cell *matCellDef="let element"> {{element.description}} </td>						    </ng-container>						    <tr mat-header-row *matHeaderRowDef="apiReadOnlyDisplayedColumns"></tr>						    <tr mat-row *matRowDef="let row; columns: apiReadOnlyDisplayedColumns;">						    </tr>					  	</table>				  	</div>				</div>  			</mat-tab>  			<mat-tab label="Configure">		    	<div style="display: flex; flex-direction: row; overflow-y: scroll; height: 100%">		    		<div style="flex-grow: 1;padding: 10px">		      			<h3>Choose packages to include</h3>		        		<git-source *ngIf="values" [selectedRepoName]="selectedRepoName()" [showSource]="true" [selected]="deploymentSetPackages()" [disabled]="!isExistingDeploymentSet()" (selectedGitRepoChanged)="selectedGitRepoChanged($event)" (selectedSourcesLoaded)="selectedSourcesDidLoad($event)" (selectedSourcesChanged)="selectedSourcesDidChange($event)" (apiActivated)="gitAPIActivated($event)" style="width:100%; margin-top: 60px"></git-source>		      		</div>		      		<div style="flex-grow: 1; min-width: 250px; padding: 10px; padding-left: 30px">	      				<h3>Dependent Package(s)</h3>	      				<div style="width:100%;margin-top: 98px">		      			    <div style="width:100%; overflow: scroll" *ngIf="haveDependencies()">			      				<table #dependentsTable mat-table [dataSource]="dependencies" class="mat-elevation-z8" style="width:100%;">							    <!-- Checkbox Column -->							    <ng-container matColumnDef="select">							      <th mat-header-cell *matHeaderCellDef>							        <mat-checkbox (change)="$event ? masterDependenciesToggle() : null"							                      [checked]="selectedDependencies.hasValue() && isAllDependenciesSelected()"							                      [indeterminate]="selectedDependencies.hasValue() && !isAllDependenciesSelected()">							        </mat-checkbox>							      </th>							      <td mat-cell *matCellDef="let row">							        <mat-checkbox (click)="$event.stopPropagation()"							                      (change)="$event ? selectDependencyRow(row) : null"							                      [checked]="selectedDependencies.isSelected(row)">							        </mat-checkbox>							      </td>							    </ng-container>							    <ng-container matColumnDef="package">							      <th mat-header-cell *matHeaderCellDef> Package Name</th>							      <td mat-cell *matCellDef="let element"> {{element.name}} </td>							    </ng-container>							    <ng-container matColumnDef="description">							      <th mat-header-cell *matHeaderCellDef> Description </th>							      <td mat-cell *matCellDef="let element"> {{element.description}} </td>							    </ng-container>							    <ng-container matColumnDef="tests">							      <th mat-header-cell *matHeaderCellDef> Test Suite Included </th>							      <td mat-cell *matCellDef="let element"> {{element.hasTestCases}} </td>							    </ng-container>							    <tr mat-header-row *matHeaderRowDef="dependencyDisplayedColumns"></tr>							    <tr mat-row *matRowDef="let row; columns: dependencyDisplayedColumns;"							        (click)="selectedDependencies.toggle(row)">							    </tr>							  </table>							</div>							<div style="float: right; padding: 10px" *ngIf="haveDependencies()">								<button mat-flat-button color="primary" (click)="addSelectedDependentsToSource()" [disabled]="!haveSelectedSomeDependents()" style="margin-right: 10px">Add ({{this.selectedDependencies.selected.length}})</button>								<button mat-flat-button color="accent" (click)="addSelectedDependentsToIgnore()" [disabled]="!haveSelectedSomeDependents()">Ignore ({{this.selectedDependencies.selected.length}})</button>							</div>						</div>		      		</div>		  		</div>  			</mat-tab>  		</mat-tab-group>   </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'about-app'},{'name': 'ActionComponent', 'selector': 'action'},{'name': 'ApiGatewayInstallerComponent', 'selector': 'jc-apigw-install'},{'name': 'ApiMicroGatewayInstallerComponent', 'selector': 'jc-apimg-install'},{'name': 'ApiPortalInstallerComponent', 'selector': 'jc-apipr-installer'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BuildCommandsComponent', 'selector': 'build-commands'},{'name': 'BuildComponent', 'selector': 'build'},{'name': 'BuildExeComponent', 'selector': 'build-exe'},{'name': 'BuildImageComponent', 'selector': 'build-solution'},{'name': 'BuildInstallComponent', 'selector': 'build-install'},{'name': 'BuildPackagesComponent', 'selector': 'build-package'},{'name': 'ContainerComponent', 'selector': 'container'},{'name': 'ContainersComponent', 'selector': 'app-containers'},{'name': 'DeploymentDetailsComponent', 'selector': 'jc-deployment-details'},{'name': 'DeploymentListComponent', 'selector': 'jc-k8s-deployments'},{'name': 'DockerImageChooserComponent', 'selector': 'docker-image-chooser'},{'name': 'DockerImageListComponent', 'selector': 'jc-docker-images'},{'name': 'DockerImageVersionsComponent', 'selector': 'jc-docker-image-versions'},{'name': 'EditContainerComponent', 'selector': 'edit-container'},{'name': 'GitSourcesComponent', 'selector': 'git-source'},{'name': 'HomeComponent', 'selector': 'home'},{'name': 'InstallerComponent', 'selector': 'jc-install'},{'name': 'MicroServiceBuilderComponent', 'selector': 'jc-msc-configure'},{'name': 'MicroServiceInstallerComponent', 'selector': 'jc-msc-install'},{'name': 'PodsListComponent', 'selector': 'jc-pods'},{'name': 'RuntimeContainersComponent', 'selector': 'runtime-containers'},{'name': 'RuntimeDeployComponent', 'selector': 'runtime-deploy'},{'name': 'RuntimeDetailsComponent', 'selector': ''},{'name': 'RuntimeK8sComponent', 'selector': 'runtime'},{'name': 'RuntimeScaleComponent', 'selector': 'jc-runtime-scale'},{'name': 'RuntimeStageComponent', 'selector': 'runtime-stage'},{'name': 'RuntimeUpdateComponent', 'selector': ''},{'name': 'SagImageAlerterComponent', 'selector': 'sag-image-alerter'},{'name': 'ServicePropertiesComponent', 'selector': 'k8s-props'},{'name': 'SettingsComponent', 'selector': 'home'},{'name': 'SimpleNameComponent', 'selector': 'name-dialog'},{'name': 'StagingComponent', 'selector': 'staging'},{'name': 'TestCaseComponent', 'selector': 'test-case'},{'name': 'TestDefinitionComponent', 'selector': 'test-definitions'},{'name': 'TestHistoryComponent', 'selector': 'test-history'},{'name': 'TestRunComponent', 'selector': 'test-reun'},{'name': 'UMInstallerComponent', 'selector': 'jc-um-install'},{'name': 'UploadButtonComponent', 'selector': 'file-uploader-button'}];
+    var DIRECTIVES = [{'name': 'BuildImageChooseDirective', 'selector': '[builder]'},{'name': 'CancelCdkDrag', 'selector': '[appCancelCdkDrag]'},{'name': 'NgFileDrop', 'selector': '[ng-file-drop]'},{'name': 'NgFileSelect', 'selector': '[ng-file-select]'},{'name': 'RuntimeActionsDirective', 'selector': '[runtime-actions]'}];
+    var ACTUAL_COMPONENT = {'name': 'BuildPackagesComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'BuildPackagesComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

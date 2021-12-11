@@ -1,0 +1,37 @@
+<div>
+  <div class="toolbar " style="height: 64px; background-color: #1776BF">
+    <a routerLink="/home"><img src="assets/_images/wm-devops-logo.svg" height="64px"/></a>
+    <a routerLink="build" class="toolbar-item" [ngClass]="classForMenuItem('build')">Build</a>
+    <a routerLink="/deploy" class="toolbar-item" [ngClass]="classForMenuItem('deploy')">Deploy</a>
+    <a routerLink="/test" class="toolbar-item" [ngClass]="classForMenuItem('test')">Test</a>
+    <a routerLink="/k8s" class="toolbar-item" [ngClass]="classForMenuItem('k8s')">Kubernetes</a>
+    <div class="toolbar-right-column">
+      <div>
+        <mat-form-field *ngIf="settings._environments.length > 1" style="padding: 10px 5px 5px 5px; width: 110px;">
+          <mat-select placeholder="Environment" [(value)]="settings.currentEnvironment"
+                      style="font-weight: lighter; color: white" (selectionChange)="selectedEnvironmentChanged($event)">
+            <mat-option style="font-size: 8pt;" *ngFor="let env of environments" [value]="env">
+              {{env}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <a routerLink="/settings" style="line-height: 60px; margin-left: 20px">
+          <fa-icon class="icon" [icon]="['fas', 'cog']"></fa-icon>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="page-header">
+    <div class="page-title-navigation">
+      <h1>{{currentMenu.label}} : </h1>
+      <div *ngIf="currentMenu.children" class="page-title-nav-bar">
+        <a routerLink="{{item}}" *ngFor="let item of currentMenu.children"
+           [ngClass]="classForSubmenuItem(item)">{{labelForSubmenu(item)}} </a>
+      </div>
+    </div>
+    <span class="page-description">{{currentMenu.description}}</span>
+  </div>
+  <div class="page-wrapper">
+    <router-outlet #outlet="outlet"></router-outlet>
+  </div>
+</div>

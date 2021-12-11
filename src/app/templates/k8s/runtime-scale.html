@@ -1,0 +1,9 @@
+<mat-card>
+    <mat-card-title>
+      Manage Pod instances
+    </mat-card-title><br/>
+  <mat-slider thumbLabel tickInterval="1" min="1" max="10" style="width:100%" [(value)]="podsCount" (change)="podCountChange($event)"></mat-slider>
+  <mat-card-actions *ngIf="haveChanges" align="right">
+      <button #updateButton mat-raised-button color="warn" (click)="update()">Update</button>
+  </mat-card-actions>
+</mat-card>

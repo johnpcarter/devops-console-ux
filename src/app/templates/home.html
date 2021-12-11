@@ -1,0 +1,79 @@
+<div id="home-page" style="top: 50px" class="page-wrapper" (mouseleave)="hideExtraInfo()">
+  <div id="page-content" class="page-content-wrapper">
+    <div id="scroller" class="page-scrollable-content">
+    	<div id="top-doc" class="row">
+    		<div class="stack-vertical">
+    			<fa-icon class="icon" [icon]="['fas', 'box']" size="4x" style="color: rgb(23, 118,191); padding-bottom: 10px"></fa-icon>
+    			<div id="build-block" class="block" (mouseenter)="showDetailsInfo('#buildextra')">
+    				<div class="title">Build</div>
+    				<span class="subject">Build Docker images comprising both Software AG base Products with your Micro Services.</span>
+    				<button class="learn-more" (click)="goBuild()">Build Summary</button>
+    			</div>
+    		</div>
+    		<svg width="150" height="75"><line x1="0" y1="32" x2="150" y2="32" stroke="gray"/></svg>
+    		<div class="stack-vertical">
+    			<fa-icon class="icon" [icon]="['fas', 'rocket']" size="4x" style="color: rgb(246, 113, 46); padding-bottom: 10px"></fa-icon>
+    			<div id="deploy-block" class="block" style="background-color: rgb(246, 113, 46)" (mouseenter)="showDetailsInfo('#deployextra')">
+    				<div class="title">Deploy</div>
+    				<span class="subject">Run and deploy your Micro Services using docker compose or through Kubernetes</span>
+    				<button class="learn-more" (click)="goDeploy()">Deployments</button>
+    			</div>
+    		</div>
+    		<svg width="150" height="75"><line x1="0" y1="32" x2="150" y2="32" stroke="gray"/></svg>
+    		<div class="stack-vertical">
+    			<fa-icon class="icon" [icon]="['fas', 'vial']" size="4x" style="color: rgb(179, 210, 13); padding-bottom: 10px"></fa-icon>
+    			<div id="test-block" class="block" style="background-color: rgb(179, 210, 13)" (mouseenter)="showDetailsInfo('#testextra')">
+    				<div class="title">Test</div>
+    				<span class="subject">execute test cases, automate and review results</span>
+    				<button class="learn-more" (click)="goTest()">Test Results</button>
+    			</div>
+    		</div>
+    	</div>
+    	<div>
+	    	<div id="buildextra" class="extra">
+		    	<div class="stack-vertical">
+
+		    		<svg width="150" height="20"><line x1="75" y1="0" x2="75" y2="20" stroke="gray"/></svg>
+					<div class="blockextra">
+		    			<span class="subjectExtra">Identify your webMethods packages and services to be deployed</span>
+	    				<button class="go" (click)="goSource()">Identify Source</button>
+		    		</div>
+		    		<svg width="150" height="20"><line x1="75" y1="0" x2="75" y2="20" stroke="gray"/></svg>
+					<div class="blockextra">
+		    			<span class="subjectExtra">Combine your webMethods & Services into single deployable image</span>
+	    				<button class="go" (click)="goMake()">Make Docker Image</button>
+		    		</div>
+		    	</div>
+		    </div>
+		    <div id="deployextra" class="extra">
+		    	<div class="stack-vertical">
+		    		<svg width="150" height="20"><line x1="75" y1="0" x2="75" y2="20" stroke="gray"/></svg>
+		    		<div class="blockextra" style="background-color: rgba(246, 113, 46, 0.96)">
+		    			<span class="subjectExtra">Select image & settings necessary to run your micro service</span>
+	    				<button class="go" (click)="goRun()">Run Containers</button>
+		    		</div>
+		    		<svg width="150" height="20"><line x1="75" y1="0" x2="75" y2="20" stroke="gray"/></svg>
+					<div class="blockextra" style="background-color: rgba(246, 113, 46, 0.96)">
+		    			<span class="subjectExtra">Generate jenkins pipeline to automate startup, testing and deployment</span>
+	    				<button class="go" (click)="goStage()">Staging</button>
+		    		</div>
+		    	</div>
+		    </div>
+		    <div id="testextra" class="extra">
+		    	<div class="stack-vertical">
+		    		<svg width="150" height="20"><line x1="75" y1="0" x2="75" y2="20" stroke="gray"/></svg>
+		    		<div class="blockextra" style="background-color: rgba(179, 210, 13, 0.96)">
+		    			<span class="subjectExtra">Query running containers for test results</span>
+	    				<button class="go" (click)="goTestResults()">Results</button>
+		    		</div>
+		    		<svg width="150" height="20"><line x1="75" y1="0" x2="75" y2="20" stroke="gray"/></svg>
+					<div class="blockextra" style="background-color: rgba(179, 210, 13, 0.96)">
+		    			<span class="subjectExtra">Archived test results</span>
+	    				<button class="go" (click)="goTestArchives()">Archives</button>
+		    		</div>
+		    	</div>
+		    </div>
+		</div>
+    </div>
+  </div>
+</div>

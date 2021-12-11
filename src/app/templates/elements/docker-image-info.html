@@ -1,0 +1,49 @@
+<div style="float: right; display: flex; flex-direction: column">
+  <fa-icon (click)="closeDialog()" class="icon" [icon]="['fas', 'times-circle']" style="color: gray"></fa-icon>
+  <fa-icon (click)="push()" class="icon" [icon]="['fas', 'cloud-upload-alt']" style="color: blue; margin-top: 270px"></fa-icon>
+  <fa-icon (click)="pull()" class="icon" [icon]="['fas', 'cloud-download-alt']" style="color: blue; margin-top: 20px"></fa-icon>
+</div>
+<div style="display: flex; flex-direction: column">
+    <div style="width: 50%;padding-bottom: 20px">
+      <!-- <span (click)="delete()"><fa-icon class="icon" [icon]="['fas', 'trash-alt']" style="color: red"></fa-icon></span> -->
+    </div>
+    <div>
+      <span>{{image.uniqueName()}}</span>
+    </div>
+    <div style="margin-top: 10px">
+      <span class="label">Created: </span>
+      <span>{{image.createdDate}}</span>
+    </div>
+    <div>
+      <span class="label">Latest Version: </span>
+      <span>{{image.latestVersion().version()}}</span>
+    </div>
+    <div>
+      <span class="label">Author: </span>
+      <span>{{image.author}}</span>
+    </div>
+    <div>
+      <span class="label">Size (Gb): </span>
+      <span>{{image.sizeGb}}</span>
+    </div>
+    <div>
+      <span class="label">Description: </span>
+      <span>{{image.description}}</span>
+    </div>
+    <span class="label">Comments </span>
+    <span>{{image.comments}}</span>
+    <div  *ngIf="image.isCustom">
+      <div>
+        <span class="label">Status: </span>
+        <span>{{image.status}}</span>
+      </div>
+      <div>
+        <span class="label">Test Status: </span>
+        <span>{{image.testStatus}}</span>
+      </div>
+      <div>
+        <span class="label">Primary Port: </span>
+        <span>{{image.primaryPort}}</span>
+      </div>
+    </div>
+	</div>

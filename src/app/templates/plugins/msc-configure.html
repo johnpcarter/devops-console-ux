@@ -1,0 +1,46 @@
+  <form [formGroup]="formGroup">
+  <div style="display:flex; flex-direction: row">
+      <div style="display:flex;flex-direction: column;margin-top:17px; flex-grow: 2">
+        <mat-card-title>Choose Deployment Set</mat-card-title>
+        <mat-form-field style="min-width: 450px" floatLabel="never">
+          <mat-select id="build.image.msr.deploymentSets" placeholder="Select at least one" [formControl]="setsCtrl" multiple required>
+            <mat-option *ngFor="let set of deploymentSets" [value]="set">{{set}}</mat-option>
+          </mat-select>
+          <mat-hint *ngIf="!haveSets()" style="color: red">You need to define your  <span style="color: red; font-weight: bold; cursor: pointer" (click)="goSourcePage()">deployment set</span> first!</mat-hint>
+        </mat-form-field>
+        <mat-slide-toggle id="build.image.msr.includeAcls" formControlName="includeACLsCtrl" style="margin-top: 20px">Include ACL's</mat-slide-toggle>
+        <mat-slide-toggle id="build.image.msr.includeWebMethodsIo" formControlName="includeWmIOCtrl" style="margin-top: 20px">Include webMethods.io Settings</mat-slide-toggle>
+        <div style="display: flex; flex-direction: column; align-items: flex-start; margin-top: 60px">
+          <mat-card-title>Server Properties</mat-card-title>
+          <div style="display: flex; flex-direction: row; align-items: flex-start; justify-content: flex-start;" *ngFor="let props of buildProperties">
+            <mat-form-field style="min-width: 450px; margin-right: 10px" floatLabel="never">
+                <mat-select id="build.image.msr.propertiesFile" placeholder="Select File (optional)" formControlName="propsCtrl" multiple>
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let file of propertyFiles" [value]="file">
+                    {{file}}
+                  </mat-option>
+                </mat-select>
+                <span matPrefix>
+                  <a href="" onclick="window.open('http://localhost:5555', '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes'); return false" matTooltip="Opens a link to Service Runtime Admin console from where you can configure and export your propertiesFor" style="width:15px"> <fa-icon class="icon" [icon]="['fas', 'tools']" style="color: red; margin-right: 20px"> </fa-icon> </a>
+                </span>
+              <mat-hint>ATTENTION: You can select multiple properties files to be included in the image. At runtime the correct file will be used by matching the run-type environment attribute with one of the files.
+                This requires that you prefix your file with the name of the environment surrounded by underscores '_' e.g. _uat_app-props.properties.</mat-hint>
+            </mat-form-field>
+            <button id="build.image.msr.downloadPropertiesButton" mat-raised-button color="primary" (click)="downloadProperties($event)" [disabled]="!propsCtrl.value" style="margin-left: 50px; margin-right: 10px;"><fa-icon class="icon" [icon]="['fas', 'file-download']" style="color: white"></fa-icon> Download</button>
+            <file-uploader-button id="build.image.msr.uploadPropertiesButton" alias="properties" type="properties" uploadURL="/invoke/jc.devops.console.resources_.services:uploadMultipartForm" title="Upload Properties" (onCompletion)="propertiesFileAdded($event)"></file-uploader-button>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="atLeastOneDeploymentSetSelected" style="display:block;margin-top:17px; flex-grow: 1; padding-left: 20px">
+        <mat-card-title style="line-height: 60px">Included Packages</mat-card-title>
+        <mat-chip-list *ngFor="let set of currentBuild.deployments">
+          <mat-chip *ngFor="let package of packages(set)" color="primary" selected>{{package}}</mat-chip>
+        </mat-chip-list>
+
+         <mat-card-title style="line-height: 60px">Included APIs</mat-card-title>
+        <mat-chip-list *ngFor="let set of currentBuild.deployments">
+          <mat-chip *ngFor="let api of apis(set)" color="accent" selected>{{api.name}}</mat-chip>
+        </mat-chip-list>
+      </div>
+  </div>
+</form>

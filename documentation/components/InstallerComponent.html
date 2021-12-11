@@ -1,0 +1,3256 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>wm-devops-console documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">wm-devops-console documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>InstallerComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/plugins/installer.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="../interfaces/BuilderComponent.html" target="_self" >BuilderComponent</a></code>
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>jc-install</code></td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>../../templates/plugins/jc-install.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_allArgs">_allArgs</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_allCommands">_allCommands</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_displayTypes">_displayTypes</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_files">_files</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_ignoreChanges">_ignoreChanges</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_showHidden">_showHidden</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#args">args</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#buildCommands">buildCommands</a>
+                            </li>
+                            <li>
+                                <a href="#commandsTable">commandsTable</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#commandTypes">commandTypes</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#formGroup">formGroup</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#formLabels">formLabels</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#install">install</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#owner">owner</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_args">_args</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_buildCommands">_buildCommands</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_isRequired">_isRequired</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_removeBuildCommand">_removeBuildCommand</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_updateBuildCommand">_updateBuildCommand</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#availableFiles">availableFiles</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#commandTypeChanged">commandTypeChanged</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#controlForPanelElement">controlForPanelElement</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#displayInfo">displayInfo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#displayType">displayType</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#downloadFile">downloadFile</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#fileUploaded">fileUploaded</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#flagChanges">flagChanges</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#indexOfElement">indexOfElement</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isEditable">isEditable</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#matchBuild">matchBuild</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mergeInstallTemplate">mergeInstallTemplate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#refreshArgs">refreshArgs</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#refreshBuildCommands">refreshBuildCommands</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setLicenseFile">setLicenseFile</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#translateValueForDropDown">translateValueForDropDown</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#updatedArgValue">updatedArgValue</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#updateElementWithControlValue">updateElementWithControlValue</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                                <span class="modifier">Public</span>
+                        <code>constructor(_configService: <a href="../injectables/ConfigurationService.html">ConfigurationService</a>, _resources: <a href="../injectables/ResourceService.html">ResourceService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/components/plugins/installer.component.ts:43</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_configService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ConfigurationService.html" target="_self" >ConfigurationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_resources</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ResourceService.html" target="_self" >ResourceService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_args"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            _args
+                        </b>
+                        <a href="#_args"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_args(show: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="198"
+                            class="link-to-prism">src/app/components/plugins/installer.component.ts:198</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>show</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>any[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_buildCommands"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            _buildCommands
+                        </b>
+                        <a href="#_buildCommands"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_buildCommands(show: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="260"
+                            class="link-to-prism">src/app/components/plugins/installer.component.ts:260</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>show</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_isRequired"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            _isRequired
+                        </b>
+                        <a href="#_isRequired"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_isRequired(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="319"
+                            class="link-to-prism">src/app/components/plugins/installer.component.ts:319</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_removeBuildCommand"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            _removeBuildCommand
+                        </b>
+                        <a href="#_removeBuildCommand"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_removeBuildCommand(b: <a href="../classes/BuildCommand.html">BuildCommand</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="375"
+                            class="link-to-prism">src/app/components/plugins/installer.component.ts:375</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>b</td>
+                                    <td>
+                                                <code><a href="../classes/BuildCommand.html" target="_self" >BuildCommand</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_updateBuildCommand"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            _updateBuildCommand
+                        </b>
+                        <a href="#_updateBuildCommand"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_updateBuildCommand(b: <a href="../classes/BuildCommand.html">BuildCommand</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="356"
+                            class="link-to-prism">src/app/components/plugins/installer.component.ts:356</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>b</td>
+                                    <td>
+                                                <code><a href="../classes/BuildCommand.html" target="_self" >BuildCommand</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="availableFiles"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            availableFiles
+                        </b>
+                        <a href="#availableFiles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>availableFiles(type: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="160"
+                            class="link-to-prism">src/app/components/plugins/installer.component.ts:160</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>type</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>string[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="commandTypeChanged"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            commandTypeChanged
+                        </b>
+                        <a href="#commandTypeChanged"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>commandTypeChanged(element: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="284"
+                            class="link-to-prism">src/app/components/plugins/installer.component.ts:284</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>element</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="controlForPanelElement"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            controlForPanelElement
+                        </b>
+                        <a href="#controlForPanelElement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>controlForPanelElement(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, element: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="334"
+                            class="link-to-prism">src/app/components/plugins/installer.component.ts:334</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>key</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>element</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>value</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="displayInfo"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            displayInfo
+                        </b>
+                        <a href="#displayInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>displayInfo(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="324"
+                            class="link-to-prism">src/app/components/plugins/installer.component.ts:324</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/ArgDisplayType.html" target="_self" >ArgDisplayType</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="displayType"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            displayType
+                        </b>
+                        <a href="#displayType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>displayType(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="309"
+                            class="link-to-prism">src/app/components/plugins/installer.component.ts:309</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="downloadFile"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            downloadFile
+                        </b>
+                        <a href="#downloadFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>downloadFile(type: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="150"
+                            class="link-to-prism">src/app/components/plugins/installer.component.ts:150</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>type</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fileUploaded"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            fileUploaded
+                        </b>
+                        <a href="#fileUploaded"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>fileUploaded(element: <a href="../classes/BuildCommand.html">BuildCommand</a>, filename: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="165"
+                            class="link-to-prism">src/app/components/plugins/installer.component.ts:165</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>element</td>
+                                    <td>
+                                                <code><a href="../classes/BuildCommand.html" target="_self" >BuildCommand</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>filename</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="flagChanges"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            flagChanges
+                        </b>
+                        <a href="#flagChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>flagChanges()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="452"
+                            class="link-to-prism">src/app/components/plugins/installer.component.ts:452</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="indexOfElement"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            indexOfElement
+                        </b>
+                        <a href="#indexOfElement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>indexOfElement(element: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="496"
+                            class="link-to-prism">src/app/components/plugins/installer.component.ts:496</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>element</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isEditable"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            isEditable
+                        </b>
+                        <a href="#isEditable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isEditable(command: <a href="../classes/BuildCommand.html">BuildCommand</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="155"
+                            class="link-to-prism">src/app/components/plugins/installer.component.ts:155</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>command</td>
+                                    <td>
+                                                <code><a href="../classes/BuildCommand.html" target="_self" >BuildCommand</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="matchBuild"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            matchBuild
+                        </b>
+                        <a href="#matchBuild"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>matchBuild(b: <a href="../classes/BuildCommand.html">BuildCommand</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="482"
+                            class="link-to-prism">src/app/components/plugins/installer.component.ts:482</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>b</td>
+                                    <td>
+                                                <code><a href="../classes/BuildCommand.html" target="_self" >BuildCommand</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mergeInstallTemplate"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            mergeInstallTemplate
+                        </b>
+                        <a href="#mergeInstallTemplate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mergeInstallTemplate(r: <a href="../classes/Installer.html">Installer</a>, types: ArgDisplayType[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="392"
+                            class="link-to-prism">src/app/components/plugins/installer.component.ts:392</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>r</td>
+                                    <td>
+                                                <code><a href="../classes/Installer.html" target="_self" >Installer</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>types</td>
+                                    <td>
+                                            <code>ArgDisplayType[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="101"
+                            class="link-to-prism">src/app/components/plugins/installer.component.ts:101</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refreshArgs"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            refreshArgs
+                        </b>
+                        <a href="#refreshArgs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>refreshArgs(show: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="193"
+                            class="link-to-prism">src/app/components/plugins/installer.component.ts:193</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>show</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refreshBuildCommands"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            refreshBuildCommands
+                        </b>
+                        <a href="#refreshBuildCommands"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>refreshBuildCommands(show: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="242"
+                            class="link-to-prism">src/app/components/plugins/installer.component.ts:242</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>show</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setLicenseFile"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            setLicenseFile
+                        </b>
+                        <a href="#setLicenseFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setLicenseFile(license: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="119"
+                            class="link-to-prism">src/app/components/plugins/installer.component.ts:119</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>license</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="translateValueForDropDown"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            translateValueForDropDown
+                        </b>
+                        <a href="#translateValueForDropDown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>translateValueForDropDown(v: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="228"
+                            class="link-to-prism">src/app/components/plugins/installer.component.ts:228</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>v</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updatedArgValue"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            updatedArgValue
+                        </b>
+                        <a href="#updatedArgValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updatedArgValue(arg: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="272"
+                            class="link-to-prism">src/app/components/plugins/installer.component.ts:272</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>arg</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateElementWithControlValue"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            updateElementWithControlValue
+                        </b>
+                        <a href="#updateElementWithControlValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateElementWithControlValue(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, element: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="292"
+                            class="link-to-prism">src/app/components/plugins/installer.component.ts:292</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>key</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>element</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_allArgs"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _allArgs</b>
+                            <a href="#_allArgs"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Map&lt;string | string&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Map()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/components/plugins/installer.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_allCommands"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _allCommands</b>
+                            <a href="#_allCommands"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/BuildCommand.html" target="_self" >BuildCommand[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/components/plugins/installer.component.ts:35</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_displayTypes"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _displayTypes</b>
+                            <a href="#_displayTypes"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Map&lt;string | ArgDisplayType&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Map()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/plugins/installer.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_files"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _files</b>
+                            <a href="#_files"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Map&lt;string | string[]&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Map()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/components/plugins/installer.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_ignoreChanges"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _ignoreChanges</b>
+                            <a href="#_ignoreChanges"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/components/plugins/installer.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_showHidden"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _showHidden</b>
+                            <a href="#_showHidden"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/components/plugins/installer.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="args"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            args</b>
+                            <a href="#args"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>any[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/components/plugins/installer.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="buildCommands"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            buildCommands</b>
+                            <a href="#buildCommands"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/BuildCommand.html" target="_self" >BuildCommand[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/components/plugins/installer.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="commandsTable"></a>
+                        <span class="name">
+                            <b>
+                            commandsTable</b>
+                            <a href="#commandsTable"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Arg.html" target="_self" >MatTable&lt;Arg&gt;</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;commandsTable&#x27;, {read: MatTable})<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/components/plugins/installer.component.ts:43</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="commandTypes"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            commandTypes</b>
+                            <a href="#commandTypes"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&quot;file&quot;, &quot;run&quot;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/components/plugins/installer.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="formGroup"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            formGroup</b>
+                            <a href="#formGroup"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/components/plugins/installer.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="formLabels"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            formLabels</b>
+                            <a href="#formLabels"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&quot;description&quot;, &quot;source&quot;, &quot;target&quot;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/plugins/installer.component.ts:30</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="install"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            install</b>
+                            <a href="#install"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/Installer.html" target="_self" >Installer</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/plugins/installer.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="owner"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            owner</b>
+                            <a href="#owner"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/PropertiesChangedOwner.html" target="_self" >PropertiesChangedOwner</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/plugins/installer.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, ViewChild }                       from &#x27;@angular/core&#x27;;
+
+import { combineLatest }                                      from &#x27;rxjs&#x27;;
+import { FormControl, FormGroup, Validators }                 from &#x27;@angular/forms&#x27;;
+
+import { MatTable }                                           from &#x27;@angular/material&#x27;;
+
+import { BuilderComponent, BuilderProperties,
+                    PropertiesChangedOwner }                  from &#x27;../elements/build-image-choose.directive&#x27;;
+
+import { Arg, ArgDisplayType, BuildCommand, DisplayType,
+                                    Installer }               from &#x27;../../models/project&#x27;;
+import { ConfigurationService }                               from &#x27;../../services/configuration.service&#x27;;
+import { ResourceService }                                    from &#x27;../../services/resources.service&#x27;;
+
+@Component({
+  selector: &#x27;jc-install&#x27;,
+  templateUrl: &#x27;../../templates/plugins/jc-install.html&#x27;
+})
+
+export class InstallerComponent implements BuilderComponent, OnInit {
+
+    public formGroup: FormGroup;
+    public owner: PropertiesChangedOwner;
+
+    public install: Installer;
+
+    public commandTypes &#x3D; [&quot;file&quot;, &quot;run&quot;];
+
+    public formLabels: string[] &#x3D; [&quot;description&quot;, &quot;source&quot;, &quot;target&quot;];
+
+    public args: any[] &#x3D; [];
+    public buildCommands: BuildCommand[] &#x3D; [];
+
+    private _allCommands: BuildCommand[] &#x3D; [];
+    private _allArgs: Map&lt;string, string&gt; &#x3D; new Map();
+    private _displayTypes: Map&lt;string, ArgDisplayType&gt; &#x3D; new Map();
+    private _files: Map&lt;string, string[]&gt; &#x3D; new Map();
+
+    private _showHidden: boolean;
+    private _ignoreChanges: boolean &#x3D; false;
+
+    @ViewChild(&#x27;commandsTable&#x27;, {read: MatTable}) commandsTable: MatTable&lt;Arg&gt;;
+
+    public constructor(private _configService: ConfigurationService, private _resources: ResourceService) {
+
+      this._resources.resourcesForType(&quot;other&quot;).subscribe((p) &#x3D;&gt; {
+
+          let files: string[] &#x3D; [];
+          p.forEach((f) &#x3D;&gt; {
+            files.push(f.filename);
+          });
+
+          this._files.set(&quot;resources&quot;, files);
+      });
+
+      this._resources.resourcesForType(&quot;properties&quot;).subscribe((p) &#x3D;&gt; {
+
+          let files: string[] &#x3D; [];
+            p.forEach((f) &#x3D;&gt; {
+              files.push(f.name.replace(/\s+/g, &quot;-&quot;));
+            });
+
+            this._files.set(&quot;properties&quot;, files);
+      });
+
+      this._resources.resourcesForType(&quot;licenses&quot;).subscribe((p) &#x3D;&gt; {
+
+            let files: string[] &#x3D; [];
+            p.forEach((f) &#x3D;&gt; {
+              files.push(f.name.replace(/\s+/g, &quot;-&quot;));
+            });
+
+            this._files.set(&quot;licenses&quot;, files);
+      });
+
+       this._resources.resourcesForType(&quot;product&quot;).subscribe((p) &#x3D;&gt; {
+
+            let files: string[] &#x3D; [];
+            p.forEach((f) &#x3D;&gt; {
+              files.push(f.filename);
+            });
+
+            this._files.set(&quot;product&quot;, files);
+       });
+
+       this._resources.resourcesForType(&quot;resources&quot;).subscribe((p) &#x3D;&gt; {
+
+            let files: string[] &#x3D; [];
+
+            if (p) {
+              p.forEach((f) &#x3D;&gt; {
+                files.push(f.filename);
+              });
+            }
+
+            this._files.set(&quot;resources&quot;, files);
+       });
+    }
+
+    public ngOnInit(): void {
+
+      this.install &#x3D; this.owner.initialProperties();
+
+      combineLatest(this._configService.installTemplate(this.install.productType),
+                               this._configService.displayTypes()).subscribe(([r, t]) &#x3D;&gt; {
+
+          // merge template with install
+
+          this.mergeInstallTemplate(r, t);
+
+          this.owner.installerTemplateLoaded(r);
+
+          this.flagChanges();
+        }
+      );
+    }
+
+    public setLicenseFile(license: string) {
+
+      let file: BuildCommand &#x3D; this.install.fileWithDescription(&quot;licenses&quot;, &quot;Product License&quot;);
+
+      if (!file) {
+          file &#x3D; new BuildCommand();
+          file.description &#x3D; &quot;Product License&quot;;
+          file.commandType &#x3D; &quot;file&quot;;
+          file.buildTarget &#x3D; &quot;install&quot;;
+          file.fileType &#x3D; &quot;licenses&quot;;
+          file.target &#x3D; &quot;/software/licenseKey.xml&quot;;
+          file.display &#x3D; DisplayType.hidden;
+
+          //ensures that the build-components view gets updated
+          this.install.buildCommands &#x3D; Object.assign([], this.install.buildCommands);
+          this.install.buildCommands.push(file);
+
+          this.refreshBuildCommands(false);
+      }
+
+      file.source &#x3D; license.replace(/\s/g, &quot;-&quot;);
+
+      // check other phases too
+
+      this.install.buildCommands.forEach((b) &#x3D;&gt; {
+        if (b.fileType &#x3D;&#x3D; &#x27;licenses&#x27; &amp;&amp; b.buildTarget !&#x3D; &#x27;install&#x27;) {
+          b.source &#x3D; file.source;
+        }
+      });
+    }
+
+    public downloadFile(type: string, name: string) {
+
+		  this._resources.downloadResource(type, name);
+	  }
+
+	  public isEditable(command: BuildCommand): boolean {
+
+        return command.display &#x3D;&#x3D; DisplayType.editable;
+    }
+
+    public availableFiles(type: string): string[] {
+
+		  return this._files.get(type);
+	  }
+
+	  public fileUploaded(element: BuildCommand, filename: string) {
+
+      let fileList: string[] &#x3D; this._files.get(element.fileType);
+
+      let matched: number &#x3D; -1;
+
+      for (let i &#x3D; 0; i &lt; fileList.length; i++) {
+
+        if (fileList[i].endsWith(filename)) {
+          matched &#x3D; i;
+          break;
+        }
+      }
+
+      if (matched &#x3D;&#x3D; -1) {
+        matched &#x3D; fileList.length;
+        fileList.push(filename.substring(filename.lastIndexOf(&quot;/&quot;)+1));
+      }
+
+      element.source &#x3D; fileList[matched];
+      let ctrl: FormControl &#x3D; this.controlForPanelElement(&quot;source&quot;, element, fileList[matched]);
+
+      if (ctrl)
+        ctrl.setValue(fileList[matched]);
+
+      this.flagChanges();
+	  }
+
+	  public refreshArgs(show: boolean) {
+
+      this.args &#x3D; this._args(show);
+    }
+
+	  private _args(show: boolean): any[] {
+
+      let args: any[] &#x3D; [];
+
+      this._allArgs.forEach((v, k)&#x3D;&gt; {
+
+          if (this._isRequired(k)) {
+
+            let ctrl: FormControl &#x3D; null;
+            let value &#x3D; this.install.args.get(k) || v;
+
+            if (!this.formGroup.contains(k)) {
+              ctrl &#x3D; new FormControl(this.translateValueForDropDown(value), this.displayInfo(k).required ? Validators.required : null);
+              this.formGroup.addControl(k, ctrl);
+            } else {
+              ctrl &#x3D; &lt;FormControl&gt; this.formGroup.controls[k];
+            }
+
+            args.push({label: k, control: ctrl});
+            this.install.args.set(k, value);
+
+          } else if (this.formGroup.contains(k)) {
+            this.formGroup.removeControl(k);
+            this.install.args.delete(k);
+          }
+       });
+
+      return args;
+    }
+
+    private translateValueForDropDown(v: string): string {
+
+       let value: string &#x3D; null;
+
+       if (typeof v &#x3D;&#x3D; &#x27;boolean&#x27;)
+         value &#x3D; v ? &quot;yes&quot; : &quot;no&quot;;
+       else if (v &#x3D;&#x3D; &quot;true&quot; || v &#x3D;&#x3D; &quot;false&quot;)
+         value &#x3D; v &#x3D;&#x3D; &quot;true&quot; ? &quot;yes&quot; : &quot;no&quot;;
+       else
+         value &#x3D; v;
+
+       return value;
+    }
+
+    public refreshBuildCommands(show: boolean) {
+
+      this._showHidden &#x3D; show;
+
+      this.refreshArgs(this._showHidden);
+
+      this._buildCommands(show);
+
+      this.buildCommands &#x3D; [];
+      this.install.buildCommands.forEach((b) &#x3D;&gt; {
+        if (show || b.display !&#x3D; DisplayType.hidden)
+          this.buildCommands.push(b);
+      });
+
+      if (this.commandsTable)
+        this.commandsTable.renderRows();
+    }
+
+    private _buildCommands(show: boolean) {
+
+      this._allCommands.forEach((b) &#x3D;&gt; {
+
+        if (b.matchConditions(this.install.args)) {
+          this._updateBuildCommand(b);
+        } else {
+          this._removeBuildCommand(b);
+        }
+      });
+    }
+
+    public updatedArgValue(arg: any) {
+
+      if (arg.control.value &#x3D;&#x3D; &#x27;yes&#x27; || arg.control.value &#x3D;&#x3D; &#x27;no&#x27;)
+        this.install.args.set(arg.label, &quot;&quot; + (arg.control.value &#x3D;&#x3D; &quot;yes&quot;));
+      else
+        this.install.args.set(arg.label, arg.control.value);
+
+      this.refreshBuildCommands(this._showHidden);
+
+      this.flagChanges();
+    }
+
+    public commandTypeChanged(element: any) {
+
+		  this.updateElementWithControlValue(&quot;commandType&quot;, element);
+
+		  //this.table.renderRows();
+      this.flagChanges();
+	  }
+
+    public updateElementWithControlValue(key: string, element: any) {
+
+		if (this._ignoreChanges)
+			return;
+
+		element[key] &#x3D; this.controlForPanelElement(key, element,  null).value;
+
+		if (key &#x3D;&#x3D; &quot;commandType&quot;) {
+			if (element.commandType &#x3D;&#x3D; &quot;run&quot;)
+				element.fileType &#x3D; null;
+			else
+				element.fileType &#x3D; &quot;resource&quot;;
+		}
+
+		this.flagChanges();
+	}
+
+  public displayType(name: string): string {
+
+      let d: ArgDisplayType &#x3D; this.displayInfo(name);
+
+    if (d.display &#x3D;&#x3D; DisplayType.editable)
+      return &quot;text&quot;;
+    else
+      return d.display.toString();
+  }
+
+	private _isRequired(name: string): boolean {
+
+      return this.displayInfo(name).matchConditions(this.install.args);
+  }
+
+  public displayInfo(name: string): ArgDisplayType {
+
+      let d: ArgDisplayType &#x3D; this._displayTypes.get(name);
+
+      if (!d)
+        d &#x3D; new ArgDisplayType(name);
+
+      return d;
+  }
+
+	public controlForPanelElement(key: string, element: any, value: string): FormControl {
+
+		let ctrl: FormControl &#x3D; null;
+
+		if (!element.position)
+			element.position &#x3D; this.indexOfElement(element);
+
+		let name: string &#x3D; key + &quot;:&quot; + element.position;
+
+		if (this.formGroup.controls[name]) {
+			ctrl &#x3D; &lt;FormControl&gt; this.formGroup.controls[name];
+
+			if (this._ignoreChanges)
+				ctrl.setValue(value);
+		} else {
+			ctrl &#x3D; new FormControl(value, element.required ? Validators.required : null);
+			this.formGroup.addControl(name, ctrl);
+		}
+
+		return ctrl;
+	}
+
+	private _updateBuildCommand(b: BuildCommand) {
+
+      let x: BuildCommand &#x3D; null;
+      let i: number &#x3D; 0;
+      while(x &#x3D;&#x3D; null &amp;&amp; i &lt; this.install.buildCommands.length) {
+        if (this.install.buildCommands[i].equals(b))
+          x &#x3D; this.install.buildCommands[i];
+
+        i+&#x3D; 1;
+      }
+
+      if (x) {
+        // do nowt
+
+      } else {
+        this.install.buildCommands.push(b);
+      }
+    }
+
+    private _removeBuildCommand(b: BuildCommand) {
+
+      let x: number &#x3D; -1;
+      let i: number &#x3D; 0;
+      while(x &#x3D;&#x3D; -1 &amp;&amp; i &lt; this.install.buildCommands.length) {
+        if (this.install.buildCommands[i].equals(b))
+          x &#x3D; i;
+
+        i+&#x3D; 1;
+      }
+
+      if (x !&#x3D; -1) {
+        this.install.buildCommands.splice(x, 1);
+
+      }
+    }
+
+	  private mergeInstallTemplate(r: Installer, types: ArgDisplayType[]) {
+
+      this._allCommands &#x3D; r.buildCommands;
+
+      if (!r.args || r.args.size &gt; 0) {
+        this._allArgs &#x3D; r.args;
+
+        this._displayTypes.clear();
+        types.forEach((a) &#x3D;&gt; {
+
+          if (a.display &#x3D;&#x3D; DisplayType.yesno) {
+            a &#x3D; a.copy();
+            a.display &#x3D; DisplayType.dropdown;
+            a.choices &#x3D; [&quot;yes&quot;, &quot;no&quot;];
+
+            this._displayTypes.set(a.name, a);
+          } else {
+            this._displayTypes.set(a.name, a);
+          }
+        });
+     }
+
+     if (r.primaryPort)
+        this.install.primaryPort &#x3D; r.primaryPort;
+
+      this.install.isSAGProduct &#x3D; r.isSAGProduct;
+
+      if (r.entryPoint)
+        this.install.entryPoint &#x3D; r.entryPoint;
+
+      if (r.exitPoint)
+        this.install.exitPoint &#x3D; r.exitPoint;
+
+      if (r.healthCheck)
+        this.install.healthCheck &#x3D; r.healthCheck;
+
+       if (r.hostName)
+        this.install.hostName &#x3D; r.hostName;
+
+       if (!this.install.sourceImageTag &amp;&amp; r.sourceImageTag)
+        this.install.sourceImageTag &#x3D; r.sourceImageTag;
+
+      if (r.targetImage &amp;&amp; !this.install.targetImage.tag())
+        this.install.targetImage &#x3D; r.targetImage;
+
+      // configure installer UI based on template &amp; install
+
+      this.refreshBuildCommands(this._showHidden);
+
+      // remove build commands that don&#x27;t belong
+
+      for (let i&#x3D;0; i &lt; this.install.buildCommands.length; i++) {
+
+        if (this.install.buildCommands[i].description !&#x3D; &quot;Product License&quot; &amp;&amp; !this.matchBuild(this.install.buildCommands[i])) {
+          this.install.buildCommands.splice(i, 1);
+          i &#x3D; -1; // reset loop counter
+        }
+      }
+  }
+
+	private flagChanges() {
+
+		let features: Map&lt;string, BuilderProperties[]&gt; &#x3D; new Map();
+
+		let cmds: BuilderProperties[] &#x3D; [];
+		let props: BuilderProperties[] &#x3D; [];
+
+		let i:number &#x3D; 0;
+
+		this.install.args.forEach((v, k) &#x3D;&gt; {
+		  if (this.displayInfo(k).display !&#x3D; DisplayType.hidden) {
+		    if (v &amp;&amp; i++ &lt; 5)
+		      props.push(new BuilderProperties(&quot;&quot;, [k, v]));
+      }
+    });
+
+		i &#x3D; 0;
+		this.install.buildCommands.forEach((b) &#x3D;&gt; {
+		  if (b.display &#x3D;&#x3D; DisplayType.editable) {
+		    if (b.source &amp;&amp; i++ &lt; 5)
+		      cmds.push(new BuilderProperties(&quot;&quot;, [b.description, b.source]));
+      }
+    });
+
+		features.set(&quot;Properties&quot;, props);
+		features.set(&quot;commands&quot;, cmds);
+
+		this.owner.propertiesChangedInBuilder(this.install.name, features, this.install);
+	}
+
+	private matchBuild(b: BuildCommand): boolean {
+
+      let found: boolean &#x3D; false;
+
+      for (let i &#x3D; 0; i &lt; this._allCommands.length; i++)  {
+        if (this._allCommands[i].equals(b)) {
+          found &#x3D; true;
+          break;
+        }
+      }
+
+      return found;
+  }
+
+	private indexOfElement(element: any): number {
+
+		var found: number &#x3D; -1;
+
+		for (let i &#x3D; 0; i &lt; this.install.buildCommands.length; i++) {
+
+			if (this.install.buildCommands[i] &#x3D;&#x3D; element || this.install.buildCommands[i].description &#x3D;&#x3D;&#x3D; element) {
+				found &#x3D; i;
+				break;
+			}
+		}
+
+		return found;
+	}
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;form [formGroup]&#x3D;&quot;formGroup&quot;&gt;
+  &lt;mat-card *ngIf&#x3D;&quot;args.length &gt; 0&quot; style&#x3D;&quot;border: none; box-shadow: none&quot;&gt;
+    &lt;mat-card-title&gt;Installation Properties&lt;/mat-card-title&gt;
+    &lt;div style&#x3D;&quot;margin-top: 30px; display: flex; flex-direction: column;&quot;&gt;
+      &lt;div  *ngFor&#x3D;&quot;let arg of args&quot; style&#x3D;&quot;margin-top: 10px&quot;&gt;
+        &lt;mat-form-field *ngIf&#x3D;&quot;displayType(arg.label) &#x3D;&#x3D; &#x27;text&#x27; || displayType(arg.label) &#x3D;&#x3D; &#x27;password&#x27;&quot; style&#x3D;&quot;width: 100%&quot;&gt;
+          &lt;input matInput [type]&#x3D;&quot;displayType(arg.label)&quot; [placeholder]&#x3D;&quot;displayInfo(arg.label).description&quot; [formControl]&#x3D;&quot;arg.control&quot; (change)&#x3D;&quot;updatedArgValue(arg)&quot;&gt;
+        &lt;/mat-form-field&gt;
+        &lt;div  *ngIf&#x3D;&quot;displayType(arg.label) &#x3D;&#x3D; &#x27;dropdown&#x27;&quot; style&#x3D;&quot;margin-top: 10px; margin-bottom: 15px; max-width: 50%&quot;&gt;
+          &lt;label class&#x3D;&quot;placeholder&quot;&gt;{{displayInfo(arg.label).description}}&lt;/label&gt;
+          &lt;mat-select style&#x3D;&quot;margin-top: 15px&quot; [formControl]&#x3D;&quot;arg.control&quot; (selectionChange)&#x3D;&quot;updatedArgValue(arg)&quot;&gt;
+            &lt;mat-option *ngFor&#x3D;&quot;let item of displayInfo(arg.label).choices&quot; [value]&#x3D;&quot;item&quot;&gt;{{item}}&lt;/mat-option&gt;
+          &lt;/mat-select&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/mat-card&gt;
+	&lt;mat-card *ngIf&#x3D;&quot;install.buildCommands.length &gt; 0&quot; style&#x3D;&quot;border: none; box-shadow: none&quot;&gt;
+    &lt;mat-card-title&gt;Actions &amp; Files be included in installation&lt;/mat-card-title&gt;
+		&lt;table id&#x3D;&quot;formTable&quot; #commandsTable mat-table [dataSource]&#x3D;&quot;buildCommands&quot; class&#x3D;&quot;mat-elevation-z8&quot; style&#x3D;&quot;width:100%&quot;&gt;
+
+		   &lt;ng-container matColumnDef&#x3D;&quot;commandType&quot;&gt;
+		    &lt;th mat-header-cell *matHeaderCellDef style&#x3D;&quot;width:100px&quot;&gt; Action &lt;/th&gt;
+		    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;
+		   		&lt;mat-select *ngIf&#x3D;&quot;isEditable(element)&quot; placeholder&#x3D;&quot;Command&quot; [formControl]&#x3D;&quot;controlForPanelElement(&#x27;commandType&#x27;, element, element.commandType)&quot; (selectionChange)&#x3D;&quot;commandTypeChanged(element)&quot;&gt;
+            &lt;mat-option *ngFor&#x3D;&quot;let cmd of commandTypes&quot; [value]&#x3D;&quot;cmd&quot;&gt;{{cmd}}&lt;/mat-option&gt;
+          &lt;/mat-select&gt;
+          &lt;span *ngIf&#x3D;&quot;!isEditable(element)&quot;&gt;{{element.commandType}}&lt;/span&gt;
+		  &lt;/ng-container&gt;
+
+       &lt;ng-container matColumnDef&#x3D;&quot;description&quot;&gt;
+		    &lt;th mat-header-cell *matHeaderCellDef&gt; Description &lt;/th&gt;
+         &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;
+          &lt;span&gt;{{element.description}}&lt;/span&gt;
+         &lt;/td&gt;
+		  &lt;/ng-container&gt;
+
+      &lt;ng-container matColumnDef&#x3D;&quot;source&quot;&gt;
+		    &lt;th mat-header-cell *matHeaderCellDef style&#x3D;&quot;width:350px&quot;&gt; Source &lt;/th&gt;
+		    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;
+          &lt;div *ngIf&#x3D;&quot;isEditable(element) else readonly&quot;&gt;
+            &lt;div *ngIf&#x3D;&quot;element.commandType !&#x3D; &#x27;run&#x27; &amp;&amp; element.fileType !&#x3D; &#x27;source&#x27; &amp;&amp; element.fileType !&#x3D; &#x27;config&#x27; else stdinput&quot; style&#x3D;&quot;display: flex; flex-direction: row; justify-content: flex-start; align-items: center&quot;&gt;
+              &lt;mat-select style&#x3D;&quot;width:300px&quot; placeholder&#x3D;&quot;Please Choose&quot; [formControl]&#x3D;&quot;controlForPanelElement(&#x27;source&#x27;, element, element.source)&quot; (selectionChange)&#x3D;&quot;updateElementWithControlValue(&#x27;source&#x27;, element)&quot;&gt;
+                &lt;mat-option *ngFor&#x3D;&quot;let file of availableFiles(element.fileType)&quot; [value]&#x3D;&quot;file&quot;&gt;
+                  {{file}}
+                &lt;/mat-option&gt;
+              &lt;/mat-select&gt;
+              &lt;file-uploader-button [small]&#x3D;&quot;true&quot; title&#x3D;&quot;Upload&quot; [alias]&#x3D;&quot;element.fileType&quot; type&#x3D;&quot;support&quot; uploadURL&#x3D;&quot;/invoke/jc.devops.console.resources_.services:uploadMultipartForm&quot; (onCompletion)&#x3D;&quot;fileUploaded(element, $event)&quot;&gt;&lt;/file-uploader-button&gt;
+            &lt;/div&gt;
+            &lt;ng-template #stdinput&gt;
+              &lt;input *ngIf&#x3D;&quot;element.commandType !&#x3D; &#x27;run&#x27;&quot; type&#x3D;&quot;text&quot; [formControl]&#x3D;&quot;controlForPanelElement(&#x27;source&#x27;, element, element.source)&quot; (change)&#x3D;&quot;updateElementWithControlValue(&#x27;source&#x27;, element)&quot; style&#x3D;&quot;width: 80%; line-height: 24px&quot;&gt;
+            &lt;/ng-template&gt;
+          &lt;/div&gt;
+          &lt;ng-template #readonly&gt;
+            {{ element.source }}
+          &lt;/ng-template&gt;
+		    &lt;/td&gt;
+		  &lt;/ng-container&gt;
+
+		  &lt;ng-container matColumnDef&#x3D;&quot;target&quot;&gt;
+		    &lt;th mat-header-cell *matHeaderCellDef&gt; Target &lt;/th&gt;
+		    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;
+          &lt;span *ngIf&#x3D;&quot;(isEditable(element) &amp;&amp; element.commandType &#x3D;&#x3D; &#x27;run&#x27;) else readonly&quot;&gt;
+            &lt;input type&#x3D;&quot;text&quot; [formControl]&#x3D;&quot;controlForPanelElement(&#x27;target&#x27;, element, element.target)&quot; (change)&#x3D;&quot;updateElementWithControlValue(&#x27;target&#x27;, element)&quot; style&#x3D;&quot;width: 80%; line-height: 24px&quot;&gt;
+          &lt;/span&gt;
+          &lt;ng-template #readonly&gt;
+            &lt;span&gt;{{element.target}}&lt;/span&gt;
+          &lt;/ng-template&gt;
+        &lt;/td&gt;
+		  &lt;/ng-container&gt;
+
+		  &lt;tr mat-header-row *matHeaderRowDef&#x3D;&quot;formLabels&quot;&gt;&lt;/tr&gt;
+		  &lt;tr mat-row *matRowDef&#x3D;&quot;let row; columns: formLabels;&quot;&gt;&lt;/tr&gt;
+		&lt;/table&gt;
+	&lt;/mat-card&gt;
+&lt;/form&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><form [formGroup]="formGroup">  <mat-card *ngIf="args.length > 0" style="border: none; box-shadow: none">    <mat-card-title>Installation Properties</mat-card-title>    <div style="margin-top: 30px; display: flex; flex-direction: column;">      <div  *ngFor="let arg of args" style="margin-top: 10px">        <mat-form-field *ngIf="displayType(arg.label) == \'text\' || displayType(arg.label) == \'password\'" style="width: 100%">          <input matInput [type]="displayType(arg.label)" [placeholder]="displayInfo(arg.label).description" [formControl]="arg.control" (change)="updatedArgValue(arg)">        </mat-form-field>        <div  *ngIf="displayType(arg.label) == \'dropdown\'" style="margin-top: 10px; margin-bottom: 15px; max-width: 50%">          <label class="placeholder">{{displayInfo(arg.label).description}}</label>          <mat-select style="margin-top: 15px" [formControl]="arg.control" (selectionChange)="updatedArgValue(arg)">            <mat-option *ngFor="let item of displayInfo(arg.label).choices" [value]="item">{{item}}</mat-option>          </mat-select>        </div>      </div>    </div>  </mat-card>	<mat-card *ngIf="install.buildCommands.length > 0" style="border: none; box-shadow: none">    <mat-card-title>Actions & Files be included in installation</mat-card-title>		<table id="formTable" #commandsTable mat-table [dataSource]="buildCommands" class="mat-elevation-z8" style="width:100%">		   <ng-container matColumnDef="commandType">		    <th mat-header-cell *matHeaderCellDef style="width:100px"> Action </th>		    <td mat-cell *matCellDef="let element">		   		<mat-select *ngIf="isEditable(element)" placeholder="Command" [formControl]="controlForPanelElement(\'commandType\', element, element.commandType)" (selectionChange)="commandTypeChanged(element)">            <mat-option *ngFor="let cmd of commandTypes" [value]="cmd">{{cmd}}</mat-option>          </mat-select>          <span *ngIf="!isEditable(element)">{{element.commandType}}</span>		  </ng-container>       <ng-container matColumnDef="description">		    <th mat-header-cell *matHeaderCellDef> Description </th>         <td mat-cell *matCellDef="let element">          <span>{{element.description}}</span>         </td>		  </ng-container>      <ng-container matColumnDef="source">		    <th mat-header-cell *matHeaderCellDef style="width:350px"> Source </th>		    <td mat-cell *matCellDef="let element">          <div *ngIf="isEditable(element) else readonly">            <div *ngIf="element.commandType != \'run\' && element.fileType != \'source\' && element.fileType != \'config\' else stdinput" style="display: flex; flex-direction: row; justify-content: flex-start; align-items: center">              <mat-select style="width:300px" placeholder="Please Choose" [formControl]="controlForPanelElement(\'source\', element, element.source)" (selectionChange)="updateElementWithControlValue(\'source\', element)">                <mat-option *ngFor="let file of availableFiles(element.fileType)" [value]="file">                  {{file}}                </mat-option>              </mat-select>              <file-uploader-button [small]="true" title="Upload" [alias]="element.fileType" type="support" uploadURL="/invoke/jc.devops.console.resources_.services:uploadMultipartForm" (onCompletion)="fileUploaded(element, $event)"></file-uploader-button>            </div>            <ng-template #stdinput>              <input *ngIf="element.commandType != \'run\'" type="text" [formControl]="controlForPanelElement(\'source\', element, element.source)" (change)="updateElementWithControlValue(\'source\', element)" style="width: 80%; line-height: 24px">            </ng-template>          </div>          <ng-template #readonly>            {{ element.source }}          </ng-template>		    </td>		  </ng-container>		  <ng-container matColumnDef="target">		    <th mat-header-cell *matHeaderCellDef> Target </th>		    <td mat-cell *matCellDef="let element">          <span *ngIf="(isEditable(element) && element.commandType == \'run\') else readonly">            <input type="text" [formControl]="controlForPanelElement(\'target\', element, element.target)" (change)="updateElementWithControlValue(\'target\', element)" style="width: 80%; line-height: 24px">          </span>          <ng-template #readonly>            <span>{{element.target}}</span>          </ng-template>        </td>		  </ng-container>		  <tr mat-header-row *matHeaderRowDef="formLabels"></tr>		  <tr mat-row *matRowDef="let row; columns: formLabels;"></tr>		</table>	</mat-card></form></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'about-app'},{'name': 'ActionComponent', 'selector': 'action'},{'name': 'ApiGatewayInstallerComponent', 'selector': 'jc-apigw-install'},{'name': 'ApiMicroGatewayInstallerComponent', 'selector': 'jc-apimg-install'},{'name': 'ApiPortalInstallerComponent', 'selector': 'jc-apipr-installer'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BuildCommandsComponent', 'selector': 'build-commands'},{'name': 'BuildComponent', 'selector': 'build'},{'name': 'BuildExeComponent', 'selector': 'build-exe'},{'name': 'BuildImageComponent', 'selector': 'build-solution'},{'name': 'BuildInstallComponent', 'selector': 'build-install'},{'name': 'BuildPackagesComponent', 'selector': 'build-package'},{'name': 'ContainerComponent', 'selector': 'container'},{'name': 'ContainersComponent', 'selector': 'app-containers'},{'name': 'DeploymentDetailsComponent', 'selector': 'jc-deployment-details'},{'name': 'DeploymentListComponent', 'selector': 'jc-k8s-deployments'},{'name': 'DockerImageChooserComponent', 'selector': 'docker-image-chooser'},{'name': 'DockerImageListComponent', 'selector': 'jc-docker-images'},{'name': 'DockerImageVersionsComponent', 'selector': 'jc-docker-image-versions'},{'name': 'EditContainerComponent', 'selector': 'edit-container'},{'name': 'GitSourcesComponent', 'selector': 'git-source'},{'name': 'HomeComponent', 'selector': 'home'},{'name': 'InstallerComponent', 'selector': 'jc-install'},{'name': 'MicroServiceBuilderComponent', 'selector': 'jc-msc-configure'},{'name': 'MicroServiceInstallerComponent', 'selector': 'jc-msc-install'},{'name': 'PodsListComponent', 'selector': 'jc-pods'},{'name': 'RuntimeContainersComponent', 'selector': 'runtime-containers'},{'name': 'RuntimeDeployComponent', 'selector': 'runtime-deploy'},{'name': 'RuntimeDetailsComponent', 'selector': ''},{'name': 'RuntimeK8sComponent', 'selector': 'runtime'},{'name': 'RuntimeScaleComponent', 'selector': 'jc-runtime-scale'},{'name': 'RuntimeStageComponent', 'selector': 'runtime-stage'},{'name': 'RuntimeUpdateComponent', 'selector': ''},{'name': 'SagImageAlerterComponent', 'selector': 'sag-image-alerter'},{'name': 'ServicePropertiesComponent', 'selector': 'k8s-props'},{'name': 'SettingsComponent', 'selector': 'home'},{'name': 'SimpleNameComponent', 'selector': 'name-dialog'},{'name': 'StagingComponent', 'selector': 'staging'},{'name': 'TestCaseComponent', 'selector': 'test-case'},{'name': 'TestDefinitionComponent', 'selector': 'test-definitions'},{'name': 'TestHistoryComponent', 'selector': 'test-history'},{'name': 'TestRunComponent', 'selector': 'test-reun'},{'name': 'UMInstallerComponent', 'selector': 'jc-um-install'},{'name': 'UploadButtonComponent', 'selector': 'file-uploader-button'}];
+    var DIRECTIVES = [{'name': 'BuildImageChooseDirective', 'selector': '[builder]'},{'name': 'CancelCdkDrag', 'selector': '[appCancelCdkDrag]'},{'name': 'NgFileDrop', 'selector': '[ng-file-drop]'},{'name': 'NgFileSelect', 'selector': '[ng-file-select]'},{'name': 'RuntimeActionsDirective', 'selector': '[runtime-actions]'}];
+    var ACTUAL_COMPONENT = {'name': 'InstallerComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'InstallerComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

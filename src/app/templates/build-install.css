@@ -1,0 +1,20 @@
+mat-card-actions {
+	position: absolute;
+	right: 10px;
+	bottom: 0px;
+}
+.content {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-content: stretch;
+	align-items: flex-start;
+}
+.content-block {
+	display: flex;
+	flex-direction: column;
+	align-content: stretch;
+	align-items: stretch;
+}
+
+

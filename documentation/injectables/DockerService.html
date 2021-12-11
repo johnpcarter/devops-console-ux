@@ -1,0 +1,4145 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>wm-devops-console documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">wm-devops-console documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li>DockerService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/services/docker.service.ts</code>
+        </p>
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#__allImages">__allImages</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_baseImages">_baseImages</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_customImages">_customImages</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_dockerEmail">_dockerEmail</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_dockerHost">_dockerHost</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_dockerPassword">_dockerPassword</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_dockerUserId">_dockerUserId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_keyedImages">_keyedImages</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_sagImages">_sagImages</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#BUILD">BUILD</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#CONTAINERS">CONTAINERS</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#IMAGE">IMAGE</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#IMAGES">IMAGES</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#INSTALL">INSTALL</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#RUN">RUN</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#RUNKS8">RUNKS8</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#STOP">STOP</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_allImages">_allImages</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_filterAllList">_filterAllList</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_groupImagesByVersion">_groupImagesByVersion</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_image">_image</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_makeContainerFromDockerResponse">_makeContainerFromDockerResponse</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_mapContainerResponse">_mapContainerResponse</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_mapImagesResponse">_mapImagesResponse</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_versions">_versions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#baseImages">baseImages</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#build">build</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#closeLog">closeLog</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#containerLog">containerLog</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#containers">containers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#customImages">customImages</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#downloadBuild">downloadBuild</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#downloadInstall">downloadInstall</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleError">handleError</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleErrorBool">handleErrorBool</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#headers">headers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#image">image</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#images">images</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#install">install</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#pullImage">pullImage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#pushImage">pushImage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#run">run</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#sagImages">sagImages</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setup">setup</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#stop">stop</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#stopContainer">stopContainer</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#versions">versions</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(_settings: <a href="../injectables/Settings.html">Settings</a>, _http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>, _ngxXml2jsonService: NgxXml2jsonService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/services/docker.service.ts:45</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_settings</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/Settings.html" target="_self" >Settings</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_http</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_ngxXml2jsonService</td>
+                                                  
+                                                        <td>
+                                                                    <code>NgxXml2jsonService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_allImages"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            _allImages
+                        </b>
+                        <a href="#_allImages"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_allImages(refresh: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, filterType: <a href="../undefineds/DockerFilterType.html">DockerFilterType</a>, dockerHost?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="518"
+                            class="link-to-prism">src/app/services/docker.service.ts:518</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>refresh</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>filterType</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/enumerations.html#DockerFilterType" target="_self" >DockerFilterType</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>dockerHost</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/DockerImage.html" target="_self" >Observable&lt;DockerImage[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_filterAllList"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            _filterAllList
+                        </b>
+                        <a href="#_filterAllList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_filterAllList(type: <a href="../undefineds/DockerFilterType.html">DockerFilterType</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="578"
+                            class="link-to-prism">src/app/services/docker.service.ts:578</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>type</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/enumerations.html#DockerFilterType" target="_self" >DockerFilterType</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/DockerImage.html" target="_self" >DockerImage[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_groupImagesByVersion"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            _groupImagesByVersion
+                        </b>
+                        <a href="#_groupImagesByVersion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_groupImagesByVersion(dockerList: <a href="../classes/DockerImage.html">DockerImage[]</a>, type: <a href="../undefineds/DockerFilterType.html">DockerFilterType</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="540"
+                            class="link-to-prism">src/app/services/docker.service.ts:540</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>dockerList</td>
+                                    <td>
+                                                <code><a href="../classes/DockerImage.html" target="_self" >DockerImage[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>type</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/enumerations.html#DockerFilterType" target="_self" >DockerFilterType</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/DockerImage.html" target="_self" >DockerImage[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_image"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            _image
+                        </b>
+                        <a href="#_image"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_image(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="513"
+                            class="link-to-prism">src/app/services/docker.service.ts:513</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_makeContainerFromDockerResponse"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            _makeContainerFromDockerResponse
+                        </b>
+                        <a href="#_makeContainerFromDockerResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_makeContainerFromDockerResponse(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="614"
+                            class="link-to-prism">src/app/services/docker.service.ts:614</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>data</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Container.html" target="_self" >Container</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_mapContainerResponse"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            _mapContainerResponse
+                        </b>
+                        <a href="#_mapContainerResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_mapContainerResponse(filter: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, responseData: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="476"
+                            class="link-to-prism">src/app/services/docker.service.ts:476</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>filter</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>responseData</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Container.html" target="_self" >Container[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_mapImagesResponse"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            _mapImagesResponse
+                        </b>
+                        <a href="#_mapImagesResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_mapImagesResponse(filter: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, responseData: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="597"
+                            class="link-to-prism">src/app/services/docker.service.ts:597</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>filter</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>responseData</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/DockerImage.html" target="_self" >DockerImage[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_versions"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            _versions
+                        </b>
+                        <a href="#_versions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_versions(uniqueName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="489"
+                            class="link-to-prism">src/app/services/docker.service.ts:489</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>uniqueName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/DockerImage.html" target="_self" >DockerImage[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="baseImages"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            baseImages
+                        </b>
+                        <a href="#baseImages"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>baseImages(refresh: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, dockerHost?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="143"
+                            class="link-to-prism">src/app/services/docker.service.ts:143</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>refresh</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>dockerHost</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/DockerImage.html" target="_self" >Observable&lt;DockerImage[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="build"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            build
+                        </b>
+                        <a href="#build"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>build(builder: <a href="../classes/Builder.html">Builder</a>, version: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, comments: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="288"
+                            class="link-to-prism">src/app/services/docker.service.ts:288</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>builder</td>
+                                    <td>
+                                                <code><a href="../classes/Builder.html" target="_self" >Builder</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>version</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>comments</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeLog"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            closeLog
+                        </b>
+                        <a href="#closeLog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>closeLog()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="330"
+                            class="link-to-prism">src/app/services/docker.service.ts:330</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="containerLog"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            containerLog
+                        </b>
+                        <a href="#containerLog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>containerLog(containerId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="214"
+                            class="link-to-prism">src/app/services/docker.service.ts:214</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>containerId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;string&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="containers"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            containers
+                        </b>
+                        <a href="#containers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>containers(filterValue?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="196"
+                            class="link-to-prism">src/app/services/docker.service.ts:196</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>filterValue</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Container.html" target="_self" >Observable&lt;Container[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="customImages"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            customImages
+                        </b>
+                        <a href="#customImages"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>customImages(refresh: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, dockerHost?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="171"
+                            class="link-to-prism">src/app/services/docker.service.ts:171</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>refresh</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>dockerHost</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/DockerImage.html" target="_self" >Observable&lt;DockerImage[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="downloadBuild"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            downloadBuild
+                        </b>
+                        <a href="#downloadBuild"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>downloadBuild(builder: <a href="../classes/Builder.html">Builder</a>, version: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, comments: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="358"
+                            class="link-to-prism">src/app/services/docker.service.ts:358</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>builder</td>
+                                    <td>
+                                                <code><a href="../classes/Builder.html" target="_self" >Builder</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>version</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>comments</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;string&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="downloadInstall"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            downloadInstall
+                        </b>
+                        <a href="#downloadInstall"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>downloadInstall(installer: <a href="../classes/Installer.html">Installer</a>, comments: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, user?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, password?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, encryptedPassword?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="335"
+                            class="link-to-prism">src/app/services/docker.service.ts:335</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>installer</td>
+                                    <td>
+                                                <code><a href="../classes/Installer.html" target="_self" >Installer</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>comments</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>password</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>encryptedPassword</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;string&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleError"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            handleError
+                        </b>
+                        <a href="#handleError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleError(error)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="462"
+                            class="link-to-prism">src/app/services/docker.service.ts:462</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>error</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleErrorBool"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            handleErrorBool
+                        </b>
+                        <a href="#handleErrorBool"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleErrorBool(error)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="469"
+                            class="link-to-prism">src/app/services/docker.service.ts:469</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>error</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;boolean&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="headers"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            headers
+                        </b>
+                        <a href="#headers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>headers(altDockerHost?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="652"
+                            class="link-to-prism">src/app/services/docker.service.ts:652</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>altDockerHost</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://angular.io/api/common/http/HttpHeaders" target="_blank" >HttpHeaders</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="image"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            image
+                        </b>
+                        <a href="#image"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>image(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="110"
+                            class="link-to-prism">src/app/services/docker.service.ts:110</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/DockerImage.html" target="_self" >Observable&lt;DockerImage&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="images"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            images
+                        </b>
+                        <a href="#images"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>images(useCache: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, filterKey?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, filterValue?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, dockerHost?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="122"
+                            class="link-to-prism">src/app/services/docker.service.ts:122</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>useCache</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>filterKey</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>filterValue</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>dockerHost</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/DockerImage.html" target="_self" >Observable&lt;DockerImage[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="install"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            install
+                        </b>
+                        <a href="#install"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>install(installer: <a href="../classes/Installer.html">Installer</a>, comments: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, user?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, password?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, encryptedPassword?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, archiveWmImage?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="241"
+                            class="link-to-prism">src/app/services/docker.service.ts:241</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>installer</td>
+                                    <td>
+                                                <code><a href="../classes/Installer.html" target="_self" >Installer</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>comments</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>password</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>encryptedPassword</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>archiveWmImage</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pullImage"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            pullImage
+                        </b>
+                        <a href="#pullImage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>pullImage(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, version?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">src/app/services/docker.service.ts:69</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>version</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/DockerImage.html" target="_self" >Observable&lt;DockerImage&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pushImage"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            pushImage
+                        </b>
+                        <a href="#pushImage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>pushImage(image: <a href="../classes/DockerImage.html">DockerImage</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">src/app/services/docker.service.ts:90</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>image</td>
+                                    <td>
+                                                <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;boolean&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="run"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            run
+                        </b>
+                        <a href="#run"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>run(run: <a href="../classes/RunSet.html">RunSet</a>, runAsKS8: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, includeTests: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, download: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, uploadAPI: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="382"
+                            class="link-to-prism">src/app/services/docker.service.ts:382</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>run</td>
+                                    <td>
+                                                <code><a href="../classes/RunSet.html" target="_self" >RunSet</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>runAsKS8</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>includeTests</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>download</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>uploadAPI</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sagImages"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            sagImages
+                        </b>
+                        <a href="#sagImages"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>sagImages(refresh: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, dockerHost?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="157"
+                            class="link-to-prism">src/app/services/docker.service.ts:157</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>refresh</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>dockerHost</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/DockerImage.html" target="_self" >Observable&lt;DockerImage[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setup"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            setup
+                        </b>
+                        <a href="#setup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setup(v: <a href="../classes/Values.html">Values</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">src/app/services/docker.service.ts:59</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>v</td>
+                                    <td>
+                                                <code><a href="../classes/Values.html" target="_self" >Values</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stop"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            stop
+                        </b>
+                        <a href="#stop"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>stop(run: <a href="../classes/RunSet.html">RunSet</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="432"
+                            class="link-to-prism">src/app/services/docker.service.ts:432</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>run</td>
+                                    <td>
+                                                <code><a href="../classes/RunSet.html" target="_self" >RunSet</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;boolean&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stopContainer"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            stopContainer
+                        </b>
+                        <a href="#stopContainer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>stopContainer(containerId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="447"
+                            class="link-to-prism">src/app/services/docker.service.ts:447</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>containerId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;boolean&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="versions"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            versions
+                        </b>
+                        <a href="#versions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>versions(uniqueName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="185"
+                            class="link-to-prism">src/app/services/docker.service.ts:185</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>uniqueName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/DockerImage.html" target="_self" >Observable&lt;DockerImage[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="__allImages"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            __allImages</b>
+                            <a href="#__allImages"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/DockerImage.html" target="_self" >DockerImage[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/services/docker.service.ts:35</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_baseImages"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _baseImages</b>
+                            <a href="#_baseImages"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/DockerImage.html" target="_self" >DockerImage[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/services/docker.service.ts:36</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_customImages"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _customImages</b>
+                            <a href="#_customImages"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/DockerImage.html" target="_self" >DockerImage[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/services/docker.service.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_dockerEmail"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _dockerEmail</b>
+                            <a href="#_dockerEmail"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/services/docker.service.ts:43</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_dockerHost"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _dockerHost</b>
+                            <a href="#_dockerHost"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/services/docker.service.ts:42</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_dockerPassword"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _dockerPassword</b>
+                            <a href="#_dockerPassword"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/services/docker.service.ts:45</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_dockerUserId"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _dockerUserId</b>
+                            <a href="#_dockerUserId"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/services/docker.service.ts:44</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_keyedImages"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _keyedImages</b>
+                            <a href="#_keyedImages"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/DockerImage.html" target="_self" >Map&lt;string | DockerImage&gt;</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new Map()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/services/docker.service.ts:40</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_sagImages"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _sagImages</b>
+                            <a href="#_sagImages"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/DockerImage.html" target="_self" >DockerImage[]</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/services/docker.service.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="BUILD"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            BUILD</b>
+                            <a href="#BUILD"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Settings.SERVER_API + &quot;/rad/jc.devops:api/docker/build&quot;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/services/docker.service.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="CONTAINERS"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            CONTAINERS</b>
+                            <a href="#CONTAINERS"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Settings.SERVER_API + &quot;/rad/jc.devops:api/docker/containers&quot;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/services/docker.service.ts:31</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="IMAGE"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            IMAGE</b>
+                            <a href="#IMAGE"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Settings.SERVER_API + &quot;/rad/jc.devops:api/docker/image/&quot;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/services/docker.service.ts:33</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="IMAGES"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            IMAGES</b>
+                            <a href="#IMAGES"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Settings.SERVER_API + &quot;/rad/jc.devops:api/docker/images/&quot;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/services/docker.service.ts:32</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="INSTALL"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            INSTALL</b>
+                            <a href="#INSTALL"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Settings.SERVER_API + &quot;/rad/jc.devops:api/docker/install&quot;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/services/docker.service.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="RUN"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            RUN</b>
+                            <a href="#RUN"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Settings.SERVER_API + &quot;/rad/jc.devops:api/docker/run&quot;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/services/docker.service.ts:28</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="RUNKS8"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            RUNKS8</b>
+                            <a href="#RUNKS8"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Settings.SERVER_API + &quot;/rad/jc.devops:api/k8s/run&quot;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/services/docker.service.ts:29</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="STOP"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            STOP</b>
+                            <a href="#STOP"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Settings.SERVER_API + &quot;/rad/jc.devops:api/docker/stop&quot;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/services/docker.service.ts:30</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } 	           	 			        from &#x27;@angular/core&#x27;;
+import { HttpClient, HttpHeaders, HttpParams }  	from &#x27;@angular/common/http&#x27;;
+import { Observer, Observable, of }               from &#x27;rxjs&#x27;;
+import { switchMap, map, catchError } 						from &#x27;rxjs/operators&#x27;;
+
+import { NgxXml2jsonService } 					  	      from &#x27;ngx-xml2json&#x27;;
+
+import { Source }									                from &#x27;../models/git-source&#x27;;
+import { Installer, Builder, RunSet }             from &#x27;../models/project&#x27;;
+
+import { Settings,Values }                        from &#x27;../settings&#x27;;
+import { Container, Port }                        from &#x27;../models/project&#x27;;
+import { DockerImage, VersionType }               from &#x27;../models/docker-image&#x27;;
+
+import { WebSocketService }                       from &#x27;./websocket.service&#x27;;
+
+export enum DockerFilterType {
+ all,
+ sag,
+ custom
+}
+
+@Injectable()
+export class DockerService {
+
+    public static INSTALL: string &#x3D; Settings.SERVER_API + &quot;/rad/jc.devops:api/docker/install&quot;;
+    public static BUILD: string &#x3D; Settings.SERVER_API + &quot;/rad/jc.devops:api/docker/build&quot;;
+    public static RUN: string &#x3D; Settings.SERVER_API + &quot;/rad/jc.devops:api/docker/run&quot;;
+    public static RUNKS8: string &#x3D; Settings.SERVER_API + &quot;/rad/jc.devops:api/k8s/run&quot;;
+    public static STOP: string &#x3D; Settings.SERVER_API + &quot;/rad/jc.devops:api/docker/stop&quot;;
+    public static CONTAINERS: string &#x3D; Settings.SERVER_API + &quot;/rad/jc.devops:api/docker/containers&quot;;
+    public static IMAGES: string &#x3D; Settings.SERVER_API + &quot;/rad/jc.devops:api/docker/images/&quot;;
+    public static IMAGE: string &#x3D; Settings.SERVER_API + &quot;/rad/jc.devops:api/docker/image/&quot;;
+
+    private __allImages: DockerImage[] &#x3D; [];
+    private _baseImages: DockerImage[] &#x3D; [];
+    private _sagImages: DockerImage[] &#x3D; [];
+    private _customImages: DockerImage[] &#x3D; [];
+
+    private _keyedImages: Map&lt;string, DockerImage&gt; &#x3D; new Map();
+
+    private _dockerHost: string;
+    private _dockerEmail: string;
+    private _dockerUserId: string;
+    private _dockerPassword: string;
+
+    constructor(private _settings: Settings, private _http: HttpClient, private _ngxXml2jsonService: NgxXml2jsonService) {
+
+        this._keyedImages &#x3D; new Map();
+
+        console.log(&quot;getting setting for docker service&quot;);
+
+        this._settings.values().subscribe((v) &#x3D;&gt; {
+
+          this.setup(v);
+        });
+    }
+
+    public setup(v: Values) {
+
+      console.log(&quot;settings loaded in docker service&quot;);
+
+      this._dockerHost &#x3D; v.dockerHost;
+      this._dockerEmail &#x3D; v.dockerEmail;
+      this._dockerUserId &#x3D; v.dockerUserId;
+      this._dockerPassword &#x3D; v.dockerPassword;
+    }
+
+    public pullImage(name: string, version?: string): Observable&lt;DockerImage&gt; {
+
+      let url: string &#x3D; DockerService.IMAGE + encodeURIComponent(name) + &quot;/&quot;
+
+      if (version)
+        url +&#x3D; &quot;?version&#x3D;&quot; + version;
+
+      let headers &#x3D; this.headers();
+
+       let options: any &#x3D; { headers };
+
+       return this._http.get(url, options).pipe(map( (responseData) &#x3D;&gt; {
+
+            return DockerImage.make((&lt;any&gt;responseData).image);
+
+          },
+          error &#x3D;&gt; {
+            return null;
+        }));
+    }
+
+    public pushImage(image: DockerImage): Observable&lt;boolean&gt; {
+
+      let url: string &#x3D; DockerService.IMAGE + encodeURIComponent(image.tag()) + &quot;/&quot;
+
+      //if (image.version())
+       // url +&#x3D; &quot;?version&#x3D;&quot; + image.version();
+
+      let headers &#x3D; this.headers();
+
+       let options: any &#x3D; { headers };
+
+       return this._http.put(url, options).pipe(map( (responseData) &#x3D;&gt; {
+
+            return true;
+
+          }), catchError(error &#x3D;&gt; {
+            return of(false);
+        }));
+    }
+
+    public image(name: string):Observable&lt;DockerImage&gt; {
+
+      if (this._keyedImages.size &#x3D;&#x3D; 0) {
+
+        return this.customImages(false, this._dockerHost).pipe(map( (images) &#x3D;&gt; {
+          return this._image(name);
+        }));
+      } else {
+        return of(this._image(name));
+      }
+    }
+
+    public images(useCache: boolean, filterKey?: string, filterValue?: string, dockerHost?: string): Observable&lt;DockerImage[]&gt; {
+
+    let url: string &#x3D; DockerService.IMAGES;
+    let headers &#x3D; this.headers(dockerHost);
+
+    let options: any &#x3D; { headers };
+
+    if (filterValue) {
+        options &#x3D; { headers, params: new HttpParams().append(&quot;filter&quot;, &quot;{ label: [ &quot; +  filterKey + &quot;&#x3D;&quot; + filterValue  + &quot;]}&quot;) };
+    }
+
+    return this._http.get(url, options).pipe(map( (responseData) &#x3D;&gt; {
+
+        return this._mapImagesResponse(filterValue, responseData);
+
+      },
+      error &#x3D;&gt; {
+        return null;
+     }));
+    }
+
+    public baseImages(refresh: boolean, dockerHost?: string): Observable&lt;DockerImage[]&gt; {
+
+         if (this._baseImages.length &gt; 0 &amp;&amp; !refresh) {
+             return of(this._baseImages);
+         } else {
+             return this._allImages(refresh, DockerFilterType.all, dockerHost).pipe(map((results) &#x3D;&gt; {
+
+                 this._baseImages &#x3D; this._groupImagesByVersion(results, DockerFilterType.all);
+
+                 return this._baseImages;
+             }));
+         }
+    }
+
+    public sagImages(refresh: boolean, dockerHost?: string): Observable&lt;DockerImage[]&gt; {
+
+         if (this._sagImages.length &gt; 0 &amp;&amp; !refresh) {
+             return of(this._sagImages);
+         } else {
+             return this._allImages(refresh, DockerFilterType.sag, dockerHost).pipe(map((results) &#x3D;&gt; {
+
+                 this._sagImages &#x3D; this._groupImagesByVersion(results, DockerFilterType.sag);
+
+                 return this._sagImages;
+             }));
+         }
+    }
+
+    public customImages(refresh: boolean, dockerHost?: string): Observable&lt;DockerImage[]&gt; {
+
+        if (this._customImages.length &gt; 0 &amp;&amp; !refresh) {
+             return of(this._customImages);
+        } else {
+             return this._allImages(refresh, DockerFilterType.custom, dockerHost).pipe(map((results) &#x3D;&gt; {
+
+                 this._customImages &#x3D; this._groupImagesByVersion(results, DockerFilterType.custom);
+
+                 return this._customImages;
+             }));
+        }
+    }
+
+    public versions(uniqueName: string): Observable&lt;DockerImage[]&gt; {
+
+        if (this._customImages.length &#x3D;&#x3D; 0) {
+           return this.customImages(true).pipe(map((imgs) &#x3D;&gt; {
+                return this._versions(uniqueName);
+            }));
+        } else {
+            return of(this._versions(uniqueName));
+        }
+    }
+
+    public containers(filterValue?: string): Observable&lt;Container[]&gt; {
+
+        let url: string &#x3D; DockerService.CONTAINERS;
+
+        let headers &#x3D; this.headers();
+
+        let options: any &#x3D; { headers };
+
+        return this._http.get(url, options).pipe(map( (responseData) &#x3D;&gt; {
+
+            return this._mapContainerResponse(filterValue, responseData);
+
+          },
+          error &#x3D;&gt; {
+            return null;
+           }));
+    }
+
+    public containerLog(containerId: string): Observable&lt;string&gt; {
+
+       let ws: WebSocketService &#x3D; WebSocketService.default(&quot;docker/container&quot;, containerId);
+
+       console.log(&quot;ws &quot; + ws.isActive());
+
+       let def: any &#x3D; {&quot;containerId&quot;: containerId};
+
+       if (this._dockerHost)
+         def[&#x27;dockerHost&#x27;] &#x3D; this._dockerHost;
+
+       return Observable.create((observer: Observer&lt;string&gt;) &#x3D;&gt; {
+
+          ws.send(JSON.stringify(def)).subscribe((result) &#x3D;&gt; {
+
+         if (result) {
+           return ws.listen().subscribe((log) &#x3D;&gt; {
+             observer.next(log);
+           });
+         }
+         else {
+           observer.complete();
+         }
+         });
+       });
+    }
+
+    public install(installer: Installer, comments: string, user?: string, password?: string, encryptedPassword?: string, archiveWmImage?: boolean): Observable&lt;any&gt; {
+
+      let url: string &#x3D; DockerService.INSTALL;
+
+      let headers &#x3D; this.headers();
+
+      headers &#x3D; headers.append(&quot;dedicatedRepo&quot;, &quot;&quot; + installer.targetImage.dedicatedRepository());
+
+      if (archiveWmImage)
+        headers &#x3D; headers.append(&quot;archiveWmImage&quot;, &quot;&quot; + archiveWmImage);
+
+      //installer.version &#x3D; version;
+      installer.targetImage.id &#x3D; null;
+
+      let wrapper &#x3D; {install: installer, comments: comments, downloadOnly: &quot;false&quot;};
+      let body: string &#x3D; JSON.stringify(wrapper, stringifyReplacer);
+
+      let obs: Observable&lt;Result&gt; &#x3D;  this._http.post(url, body, { headers }).pipe(map( (responseData) &#x3D;&gt; {
+
+          let targetImage: DockerImage &#x3D; this._keyedImages.get(installer.targetImage.uniqueName());
+
+          if (!targetImage) {
+            targetImage &#x3D; installer.targetImage;
+            this._keyedImages.set(targetImage.uniqueName(), targetImage);
+            this._sagImages.push(targetImage);
+            this.__allImages.push(targetImage);
+          }
+
+          targetImage.availableVersions.unshift(installer.targetImage);
+
+          installer.targetImage.id &#x3D; (&lt;any&gt;responseData).imageId;
+          this._baseImages.unshift(installer.targetImage);
+
+          if ((&lt;any&gt;responseData).imageId) {
+            if (archiveWmImage)
+              return new Result(true, (&lt;any&gt;responseData).imageId, (&lt;any&gt;responseData).wmImageName);
+            else
+              return new Result(true, (&lt;any&gt;responseData).imageId);
+          } else {
+            return new Result(false);
+          }
+
+        }));
+
+      return WebSocketService.default(&quot;docker/log&quot;).listen(obs);
+    }
+
+    public build(builder: Builder, version: string, comments: string): Observable&lt;any&gt; {
+
+  		let url: string &#x3D; DockerService.BUILD;
+
+  		let headers &#x3D; this.headers();
+
+      headers &#x3D; headers.append(&quot;dedicatedRepo&quot;, &quot;&quot; + builder.targetImage.dedicatedRepository());
+
+      builder.version &#x3D; version;
+      builder.targetImage.id &#x3D; null;
+
+      let wrapper &#x3D; {build: builder, comments: comments, downloadOnly: &quot;false&quot;};
+  		let body: string &#x3D; JSON.stringify(wrapper, stringifyReplacer);
+
+  		let obs: Observable&lt;Result&gt; &#x3D; this._http.post(url, body, { headers }).pipe(
+
+        map( (responseData) &#x3D;&gt; {
+
+          let targetImage: DockerImage &#x3D; this._keyedImages.get(builder.targetImage.uniqueName());
+
+          if (!targetImage) {
+            targetImage &#x3D; builder.targetImage.copy();
+            this._keyedImages.set(targetImage.uniqueName(), targetImage);
+            this._customImages.push(targetImage);
+            this.__allImages.push(targetImage);
+          }
+
+          targetImage.availableVersions.unshift(builder.targetImage);
+
+           builder.targetImage.id &#x3D; (&lt;any&gt;responseData).imageId;
+           this._customImages.unshift(builder.targetImage);
+
+           if ((&lt;any&gt;responseData).imageId) {
+              return new Result(true, (&lt;any&gt;responseData).imageId);
+           } else {
+             return new Result(false);
+           }
+        }));
+
+      return WebSocketService.default(&quot;docker/log&quot;).listen(obs);
+    }
+
+    public closeLog() {
+
+      WebSocketService.closeDefault();
+    }
+
+     public downloadInstall(installer: Installer, comments: string, user?: string, password?: string, encryptedPassword?: string): Observable&lt;string&gt; {
+
+      let url: string &#x3D; DockerService.INSTALL;
+
+      let headers &#x3D; this.headers();
+
+      headers &#x3D; headers.append(&quot;dedicatedRepo&quot;, &quot;&quot; + installer.targetImage.dedicatedRepository());
+
+      //installer.version &#x3D; version;
+      installer.targetImage.id &#x3D; null;
+
+      let wrapper &#x3D; {install: installer, comments: comments, downloadOnly: &quot;true&quot;};
+      let body: string &#x3D; JSON.stringify(wrapper, stringifyReplacer);
+
+      return this._http.post(url, body, { headers }).pipe(
+
+        map( (responseData) &#x3D;&gt; {
+
+          return (&lt;any&gt;responseData).zipFile;
+
+        }));
+    }
+
+    public downloadBuild(builder: Builder, version: string, comments: string): Observable&lt;string&gt; {
+
+      let url: string &#x3D; DockerService.BUILD;
+
+      let headers &#x3D; this.headers();
+
+      headers &#x3D; headers.append(&quot;dedicatedRepo&quot;, &quot;&quot; + builder.targetImage.dedicatedRepository());
+
+      builder.version &#x3D; version;
+      builder.targetImage.id &#x3D; null;
+
+      let wrapper &#x3D; {build: builder, comments: comments, downloadOnly: &quot;true&quot;};
+      let body: string &#x3D; JSON.stringify(wrapper, stringifyReplacer);
+
+      return this._http.post(url, body, { headers }).pipe(
+
+        map( (responseData) &#x3D;&gt; {
+
+          return (&lt;any&gt;responseData).zipFile;
+
+        }));
+    }
+
+
+    public run(run: RunSet, runAsKS8: boolean, includeTests: boolean, download: boolean, uploadAPI: boolean): Observable&lt;any&gt; {
+
+      let url: string;
+
+      if (runAsKS8)
+        url &#x3D; DockerService.RUNKS8;
+      else
+        url &#x3D; DockerService.RUN;
+
+      let headers &#x3D; this.headers();
+
+      if (includeTests !&#x3D; null) {
+        headers &#x3D; headers.append(&quot;test&quot;, &quot;&quot; + includeTests);
+      }
+
+      if (uploadAPI !&#x3D; null) {
+        headers &#x3D; headers.append(&quot;uploadAPIs&quot;, &quot;&quot; + uploadAPI);
+      }
+
+      if (download) {
+        headers &#x3D; headers.append(&quot;generateOnly&quot;, &quot;true&quot;);
+      }
+
+      let wrapper &#x3D; {definition: run};
+
+      let body: string &#x3D; JSON.stringify(run);
+
+      console.log(body);
+
+      let obs: Observable&lt;any&gt; &#x3D; this._http.post(url, body, { headers, responseType: &quot;blob&quot; as &quot;json&quot; }).pipe(
+
+        map( (responseData) &#x3D;&gt; {
+
+          if (download)
+            return responseData;
+          else
+            return &quot;ok&quot;;
+
+        }),
+        catchError((error) &#x3D;&gt; {
+          console.log(error.message);
+          return of(error.message);
+        }));
+
+      if (download)
+        return obs;
+      else
+        return WebSocketService.default(&quot;docker/log&quot;).listen(obs);
+    }
+
+    public stop(run: RunSet): Observable&lt;boolean&gt; {
+
+      let url: string &#x3D; DockerService.STOP + &quot;/&quot; + encodeURIComponent(run.name);
+
+      let headers &#x3D; this.headers();
+
+      return this._http.get(url, { headers }).pipe(
+
+        map( (responseData) &#x3D;&gt; {
+
+          return true;
+
+        }), catchError(this.handleErrorBool));
+    }
+
+    public stopContainer(containerId: string): Observable&lt;boolean&gt; {
+
+      let url: string &#x3D; DockerService.STOP + &quot;/&quot; + containerId + &quot;?isContainerId&#x3D;true&quot;;
+
+      let headers &#x3D; this.headers();
+
+      return this._http.get(url, { headers }).pipe(
+
+        map( (responseData) &#x3D;&gt; {
+
+          return true;
+
+        }), catchError(this.handleErrorBool));
+    }
+
+    private handleError(error): string {
+
+      console.log(&quot;intercepted error: &quot; + JSON.stringify(error));
+
+      return error;//of(&quot;&quot;);
+    }
+
+    private handleErrorBool(error): Observable&lt;boolean&gt; {
+
+      console.log(&quot;intercepted error: &quot; + JSON.stringify(error));
+
+      return of(false);
+    }
+
+    private _mapContainerResponse(filter: string, responseData: any): Container[]
+    {
+ // data is returned as list called references or as a single entity
+
+         let containers: Container[] &#x3D; [];
+
+         responseData.containers.forEach((c) &#x3D;&gt; {
+            containers.push(this._makeContainerFromDockerResponse(c));
+         });
+
+         return containers;
+    }
+
+    private _versions(uniqueName: string): DockerImage[] {
+
+        if (this._keyedImages.get(uniqueName)) {
+
+            let img: DockerImage &#x3D; this._keyedImages.get(uniqueName);
+            let versions: DockerImage[] &#x3D; img.availableVersions;
+
+            let out: DockerImage[] &#x3D; [];
+
+            if (versions.length &#x3D;&#x3D; 0) {
+              out.push(img);
+            } else {
+                 versions.forEach((v) &#x3D;&gt; {
+                    out.push(v);
+                });
+            }
+
+            return out;
+        }
+        else {
+            return [];
+        }
+    }
+
+    private _image(name: string): DockerImage {
+
+      return this._keyedImages.get(name);
+    }
+
+    private _allImages(refresh: boolean, filterType: DockerFilterType, dockerHost?: string): Observable&lt;DockerImage[]&gt; {
+
+        if (!refresh &amp;&amp; this.__allImages.length &gt; 0) {
+
+            return of(this._filterAllList(filterType));
+
+        } else {
+            // fetch
+
+            return this.images(false, null, null, dockerHost).pipe(map((results) &#x3D;&gt; {
+
+                this.__allImages &#x3D; [];
+
+                results.forEach((a) &#x3D;&gt; {
+                    this.__allImages.push(a);
+                });
+
+                return this._filterAllList(filterType);
+            }));
+        }
+    }
+
+    private _groupImagesByVersion(dockerList: DockerImage[], type: DockerFilterType): DockerImage[] {
+
+        dockerList.forEach((d) &#x3D;&gt; {
+
+          if (!d.repository().startsWith(&quot;test-&quot;)) {
+            let matchedImage: DockerImage &#x3D; this._keyedImages.get(d.uniqueName());
+
+            if (matchedImage &#x3D;&#x3D; null) {
+                this._keyedImages.set(d.uniqueName(), d);
+                matchedImage &#x3D; d;
+            }
+
+            // add to version huistory too
+
+            if (!matchedImage.hasVersionAlready(d)) {
+              matchedImage.addVersion(d);
+            }
+          }
+        });
+
+        let it: IterableIterator&lt;DockerImage&gt; &#x3D; this._keyedImages.values();
+
+        let groupedList: DockerImage[] &#x3D; [];
+        let itObj: IteratorResult&lt;DockerImage&gt;;
+
+        while (!(itObj&#x3D;it.next()).done) {
+
+            if (type &#x3D;&#x3D; DockerFilterType.custom &amp;&amp; itObj.value.isCustom)
+              groupedList.push(itObj.value);
+            else if (type &#x3D;&#x3D; DockerFilterType.sag &amp;&amp; itObj.value.isSagImage &amp;&amp; !itObj.value.isCustom)
+               groupedList.push(itObj.value);
+            else if (type &#x3D;&#x3D; DockerFilterType.all)
+               groupedList.push(itObj.value);
+        }
+
+        return groupedList;
+    }
+
+    private _filterAllList(type: DockerFilterType): DockerImage[] {
+
+        let out: DockerImage[] &#x3D; [];
+
+        this.__allImages.forEach((a) &#x3D;&gt; {
+
+            if (a.name) {
+                if (type &#x3D;&#x3D; DockerFilterType.custom &amp;&amp; a.isCustom)
+                  out.push(a);
+                else if (type &#x3D;&#x3D; DockerFilterType.sag &amp;&amp; a.isSagImage &amp;&amp; !a.isCustom)
+                  out.push(a);
+                else  if (type &#x3D;&#x3D; DockerFilterType.all)
+                  out.push(a);
+            }
+        });
+
+        return out;
+    }
+
+    private _mapImagesResponse(filter: string, responseData: any): DockerImage[]
+    {
+ // data is returned as list called references or as a single entity
+
+     let images: DockerImage[] &#x3D; [];
+
+     responseData.images.forEach((i) &#x3D;&gt; {
+
+            let image: DockerImage &#x3D; DockerImage.make(i);
+
+            if (image.name() &amp;&amp; image.tag() &amp;&amp; image.tag() !&#x3D; &#x27;none&#x27;)
+             images.push(image);
+     });
+
+     return images;
+    }
+
+    private _makeContainerFromDockerResponse(data: any): Container {
+
+        let c: Container &#x3D; new Container();
+
+        c.id &#x3D; data.id.substring(0, 8);
+        c.names &#x3D; data.names;
+        c.image &#x3D; data.image; // key
+        c.status &#x3D; data.status;
+        c.state &#x3D; data.state;
+
+        if (c.names) {
+          for (var i &#x3D;0; i &lt; c.names.length; i++) {
+            if (c.names[i].startsWith(&quot;/&quot;))
+              c.names[i] &#x3D; c.names[i].substring(1);
+          }
+        }
+        if (c.names)
+          c.name &#x3D; c.names[0];
+
+        if (data.Created)
+          c.created &#x3D; new Date(+data.Created)//*1000);
+        else
+          c.created &#x3D; data.createdDate;
+
+        if (data.names)
+            c.description &#x3D; data.names[0];
+
+        if (data.ports) {
+            c.ports &#x3D; [];
+
+            data.ports.forEach((p) &#x3D;&gt; {
+                if (p.external)
+                    c.ports.push(new Port(p.internal, p.external,  p.external, p.type));
+            });
+        }
+        return c;
+    }
+
+    private headers(altDockerHost?: string): HttpHeaders {
+
+      console.log(&quot;gettings headers for docker service &quot; + this._dockerHost);
+
+      let headers: HttpHeaders &#x3D; new HttpHeaders()
+          .append(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;)
+          .append(&#x27;Accept&#x27;, &#x27;application/json&#x27;)
+          .append(&#x27;Cache-Control&#x27;, &#x27;no-cache&#x27;)
+          .append(&#x27;Cache-Control&#x27;, &#x27;no-store&#x27;)
+          .append(&#x27;Pragma&#x27;,&#x27;no-cache&#x27;)
+          .append(&#x27;Expires&#x27;, &#x27;0&#x27;)
+          .append(&#x27;Accept&#x27;, &#x27;application/json&#x27;);
+         // .append(&#x27;dockerHost&#x27;, altDockerHost !&#x3D; null ? altDockerHost : this._dockerHost !&#x3D; null ? this._dockerHost : &quot;&quot;);
+
+     // if (this._dockerEmail) {
+     //   headers &#x3D; headers.append(&#x27;dockerEmail&#x27;, this._dockerEmail).append(&#x27;dockerUser&#x27;, this._dockerUserId).append(&#x27;dockerPassword&#x27;, this._dockerPassword);
+     // }
+
+      return headers;
+    }
+}
+
+export class Result {
+
+  public constructor(public success: boolean, public imageId?: string, public otherId?: string) {
+
+  }
+}
+
+function stringifyReplacer(key, value) {
+  const originalObject &#x3D; this[key];
+  if(originalObject instanceof Map) {
+    return {
+      dataType: &#x27;Map&#x27;,
+      value: Array.from(originalObject.entries()), // or with spread: value: [...originalObject]
+    };
+  } else {
+    return value;
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'DockerService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,2427 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>wm-devops-console documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">wm-devops-console documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>BuildCommandsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/build-commands.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>build-commands</code></td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>../templates/build-commands.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_displayedArgColumnsEdit">_displayedArgColumnsEdit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_displayedArgColumnsEditMin">_displayedArgColumnsEditMin</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_displayedArgColumnsReadOnly">_displayedArgColumnsReadOnly</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_displayedArgColumnsReadOnlyMin">_displayedArgColumnsReadOnlyMin</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_hasChanged">_hasChanged</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_ignoreChanges">_ignoreChanges</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_panelStatus">_panelStatus</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#commandTypes">commandTypes</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#editMode">editMode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#fileTypes">fileTypes</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#licenseFiles">licenseFiles</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#propertyFiles">propertyFiles</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#resourceFiles">resourceFiles</a>
+                            </li>
+                            <li>
+                                <a href="#table">table</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#addRow">addRow</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#availableFiles">availableFiles</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#commandTypeChanged">commandTypeChanged</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#controlForPanelElement">controlForPanelElement</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#displayedColumns">displayedColumns</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#downloadFile">downloadFile</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#elementType">elementType</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#fileTypeChanged">fileTypeChanged</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#fileUploaded">fileUploaded</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#flagChanges">flagChanges</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#flagEdit">flagEdit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#indexOfElement">indexOfElement</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#removeRow">removeRow</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#updateElementWithControlValue">updateElementWithControlValue</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#commands">commands</a>
+                            </li>
+                            <li>
+                                <a href="#form">form</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#commandsChanged">commandsChanged</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                                <span class="modifier">Public</span>
+                        <code>constructor(_formBuilder: <a href="../classes/Builder.html">FormBuilder</a>, _resources: <a href="../injectables/ResourceService.html">ResourceService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/components/build-commands.component.ts:59</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_formBuilder</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/Builder.html" target="_self" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_resources</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ResourceService.html" target="_self" >ResourceService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="commands"></a>
+                        <b>commands</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/BuildCommand.html" target="_self" >BuildCommand[]</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/components/build-commands.component.ts:33</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="form"></a>
+                        <b>form</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/build-commands.component.ts:30</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="commandsChanged"></a>
+                        <b>commandsChanged</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/BuildCommand.html" target="_self" >EventEmitter&lt;BuildCommand[]&gt;</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/components/build-commands.component.ts:36</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addRow"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            addRow
+                        </b>
+                        <a href="#addRow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addRow(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="200"
+                            class="link-to-prism">src/app/components/build-commands.component.ts:200</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="availableFiles"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            availableFiles
+                        </b>
+                        <a href="#availableFiles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>availableFiles(type: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="124"
+                            class="link-to-prism">src/app/components/build-commands.component.ts:124</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>type</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>string[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="commandTypeChanged"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            commandTypeChanged
+                        </b>
+                        <a href="#commandTypeChanged"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>commandTypeChanged(element: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="186"
+                            class="link-to-prism">src/app/components/build-commands.component.ts:186</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>element</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="controlForPanelElement"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            controlForPanelElement
+                        </b>
+                        <a href="#controlForPanelElement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>controlForPanelElement(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, element: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="248"
+                            class="link-to-prism">src/app/components/build-commands.component.ts:248</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>key</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>element</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>value</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="displayedColumns"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            displayedColumns
+                        </b>
+                        <a href="#displayedColumns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>displayedColumns()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="103"
+                            class="link-to-prism">src/app/components/build-commands.component.ts:103</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>{}</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="downloadFile"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            downloadFile
+                        </b>
+                        <a href="#downloadFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>downloadFile(type: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="143"
+                            class="link-to-prism">src/app/components/build-commands.component.ts:143</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>type</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="elementType"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            elementType
+                        </b>
+                        <a href="#elementType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>elementType(type: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="135"
+                            class="link-to-prism">src/app/components/build-commands.component.ts:135</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>type</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fileTypeChanged"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            fileTypeChanged
+                        </b>
+                        <a href="#fileTypeChanged"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>fileTypeChanged(element: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="193"
+                            class="link-to-prism">src/app/components/build-commands.component.ts:193</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>element</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fileUploaded"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            fileUploaded
+                        </b>
+                        <a href="#fileUploaded"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>fileUploaded(element: <a href="../classes/BuildCommand.html">BuildCommand</a>, filename: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="148"
+                            class="link-to-prism">src/app/components/build-commands.component.ts:148</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>element</td>
+                                    <td>
+                                                <code><a href="../classes/BuildCommand.html" target="_self" >BuildCommand</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>filename</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="flagChanges"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            flagChanges
+                        </b>
+                        <a href="#flagChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>flagChanges()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="97"
+                            class="link-to-prism">src/app/components/build-commands.component.ts:97</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="flagEdit"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            flagEdit
+                        </b>
+                        <a href="#flagEdit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>flagEdit(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="117"
+                            class="link-to-prism">src/app/components/build-commands.component.ts:117</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="indexOfElement"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            indexOfElement
+                        </b>
+                        <a href="#indexOfElement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>indexOfElement(element: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="270"
+                            class="link-to-prism">src/app/components/build-commands.component.ts:270</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>element</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="92"
+                            class="link-to-prism">src/app/components/build-commands.component.ts:92</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeRow"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            removeRow
+                        </b>
+                        <a href="#removeRow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeRow(element: <a href="../classes/BuildCommand.html">BuildCommand</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="212"
+                            class="link-to-prism">src/app/components/build-commands.component.ts:212</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>element</td>
+                                    <td>
+                                                <code><a href="../classes/BuildCommand.html" target="_self" >BuildCommand</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateElementWithControlValue"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            updateElementWithControlValue
+                        </b>
+                        <a href="#updateElementWithControlValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateElementWithControlValue(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, element: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="231"
+                            class="link-to-prism">src/app/components/build-commands.component.ts:231</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>key</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>element</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_displayedArgColumnsEdit"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _displayedArgColumnsEdit</b>
+                            <a href="#_displayedArgColumnsEdit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&quot;cmdEdit&quot;, &quot;typeEdit&quot;, &quot;srcEdit&quot;, &quot;srcEditUpload&quot;, &quot;tgtEdit&quot;, &quot;descriptionEdit&quot;, &quot;remove&quot;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/components/build-commands.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_displayedArgColumnsEditMin"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _displayedArgColumnsEditMin</b>
+                            <a href="#_displayedArgColumnsEditMin"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&quot;cmdEdit&quot;, &quot;typeEdit&quot;, &quot;srcEdit&quot;, &quot;srcEditUpload&quot;, &quot;tgtEdit&quot;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/components/build-commands.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_displayedArgColumnsReadOnly"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _displayedArgColumnsReadOnly</b>
+                            <a href="#_displayedArgColumnsReadOnly"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&quot;cmd&quot;, &quot;type&quot;, &quot;src&quot;, &quot;tgt&quot;, &quot;description&quot;, &quot;srcDownload&quot;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/components/build-commands.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_displayedArgColumnsReadOnlyMin"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _displayedArgColumnsReadOnlyMin</b>
+                            <a href="#_displayedArgColumnsReadOnlyMin"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&quot;cmd&quot;, &quot;type&quot;, &quot;src&quot;, &quot;srcDownload&quot;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/components/build-commands.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_hasChanged"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _hasChanged</b>
+                            <a href="#_hasChanged"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/components/build-commands.component.ts:57</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_ignoreChanges"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _ignoreChanges</b>
+                            <a href="#_ignoreChanges"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/components/build-commands.component.ts:56</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_panelStatus"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _panelStatus</b>
+                            <a href="#_panelStatus"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Map&lt;string | boolean&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/components/build-commands.component.ts:55</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="commandTypes"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            commandTypes</b>
+                            <a href="#commandTypes"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&quot;file&quot;, &quot;run&quot;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/components/build-commands.component.ts:44</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="editMode"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            editMode</b>
+                            <a href="#editMode"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/components/build-commands.component.ts:47</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="fileTypes"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            fileTypes</b>
+                            <a href="#fileTypes"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&quot;licenses&quot;, &quot;properties&quot;, &quot;source&quot;, &quot;config&quot;, &quot;resource&quot;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/components/build-commands.component.ts:45</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="licenseFiles"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            licenseFiles</b>
+                            <a href="#licenseFiles"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/components/build-commands.component.ts:50</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="propertyFiles"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            propertyFiles</b>
+                            <a href="#propertyFiles"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/components/build-commands.component.ts:51</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="resourceFiles"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            resourceFiles</b>
+                            <a href="#resourceFiles"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/components/build-commands.component.ts:49</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="table"></a>
+                        <span class="name">
+                            <b>
+                            table</b>
+                            <a href="#table"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/BuildCommand.html" target="_self" >MatTable&lt;BuildCommand&gt;</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;commandsTable&#x27;, {read: MatTable})<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/components/build-commands.component.ts:59</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ChangeDetectorRef, EventEmitter,
+			OnInit, OnChanges, OnDestroy, Input,
+			ViewChild, Output }   						from &#x27;@angular/core&#x27;;
+
+import { Router }									  	from &#x27;@angular/router&#x27;;
+import {FormBuilder, FormGroup, FormControl,
+		 AbstractControl, Validators} 					from &#x27;@angular/forms&#x27;;
+import { SelectionModel }                             	from &#x27;@angular/cdk/collections&#x27;;
+
+import { MediaMatcher }                               	from &#x27;@angular/cdk/layout&#x27;;
+import { MatAccordion, MatTable }                       from &#x27;@angular/material&#x27;;
+import { MatInput, MatButton }							from &#x27;@angular/material&#x27;;
+import { MatDialog, MatDialogRef,
+					MAT_DIALOG_DATA }	  				from &#x27;@angular/material&#x27;;
+
+import { Stage, BuildCommand }            				from &#x27;../models/project&#x27;;
+
+import { ResourceService }                            	from &#x27;../services/resources.service&#x27;;
+
+import * as $ from &#x27;jquery&#x27;;
+
+@Component({
+  selector: &#x27;build-commands&#x27;,
+  templateUrl: &#x27;../templates/build-commands.html&#x27;
+})
+
+export class BuildCommandsComponent implements OnInit {
+
+	@Input()
+	public form: FormGroup;
+
+	@Input()
+	public commands: BuildCommand[];
+
+	@Output()
+	public commandsChanged: EventEmitter&lt;BuildCommand[]&gt; &#x3D; new EventEmitter();
+
+	public _displayedArgColumnsEdit: string[] &#x3D; [&quot;cmdEdit&quot;, &quot;typeEdit&quot;, &quot;srcEdit&quot;, &quot;srcEditUpload&quot;, &quot;tgtEdit&quot;, &quot;descriptionEdit&quot;, &quot;remove&quot;];
+	public _displayedArgColumnsEditMin: string[] &#x3D; [&quot;cmdEdit&quot;, &quot;typeEdit&quot;, &quot;srcEdit&quot;, &quot;srcEditUpload&quot;, &quot;tgtEdit&quot;];
+
+	public _displayedArgColumnsReadOnly: string[] &#x3D; [&quot;cmd&quot;, &quot;type&quot;, &quot;src&quot;, &quot;tgt&quot;, &quot;description&quot;, &quot;srcDownload&quot;];
+	public _displayedArgColumnsReadOnlyMin: string[] &#x3D; [&quot;cmd&quot;, &quot;type&quot;, &quot;src&quot;, &quot;srcDownload&quot;];
+
+	public commandTypes &#x3D; [&quot;file&quot;, &quot;run&quot;];
+	public fileTypes &#x3D; [&quot;licenses&quot;, &quot;properties&quot;, &quot;source&quot;, &quot;config&quot;, &quot;resource&quot;];
+
+	public editMode: boolean &#x3D; false;
+
+	public resourceFiles: string[];
+	public licenseFiles: string[];
+	public propertyFiles: string[];
+
+	//private _allVersions: DockerImage[] &#x3D; [];
+
+	private _panelStatus: Map&lt;string,boolean&gt;;
+	private _ignoreChanges: boolean &#x3D; false;
+	private _hasChanged: boolean &#x3D; false;
+
+	@ViewChild(&#x27;commandsTable&#x27;, {read: MatTable}) table: MatTable&lt;BuildCommand&gt;;
+
+	public constructor(private _formBuilder: FormBuilder,  private _resources: ResourceService) {
+
+		this.resourceFiles &#x3D; [];
+		this.licenseFiles &#x3D; [];
+		this.propertyFiles &#x3D; [];
+
+		this._resources.resourcesForType(&quot;other&quot;).subscribe((p) &#x3D;&gt; {
+
+          this.resourceFiles &#x3D; [];
+          p.forEach((f) &#x3D;&gt; {
+            this.resourceFiles.push(f.filename);
+          });
+		});
+
+		this._resources.resourcesForType(&quot;properties&quot;).subscribe((p) &#x3D;&gt; {
+
+          this.propertyFiles &#x3D; [];
+          p.forEach((f) &#x3D;&gt; {
+            this.propertyFiles.push(f.name.replace(/\s+/g, &quot;-&quot;));
+          });
+		});
+
+		this._resources.resourcesForType(&quot;licenses&quot;).subscribe((p) &#x3D;&gt; {
+
+          this.licenseFiles &#x3D; [];
+          p.forEach((f) &#x3D;&gt; {
+            this.licenseFiles.push(f.name.replace(/\s+/g, &quot;-&quot;));
+          });
+		});
+	}
+
+	public ngOnInit() {
+
+		this._panelStatus &#x3D; new Map();
+	}
+
+	public flagChanges() {
+
+		this._hasChanged &#x3D; true;
+		this.commandsChanged.emit(this.commands);
+	}
+
+	public displayedColumns() {
+
+		 let wide: boolean &#x3D; false;
+
+      if ($(&#x27;#commands-table&#x27;).width() &gt; 950)
+        wide &#x3D; true;
+
+	    if (this.editMode) {
+	    	return wide ? this._displayedArgColumnsEdit : this._displayedArgColumnsEditMin;
+	    } else {
+	    	return wide ? this._displayedArgColumnsReadOnly : this._displayedArgColumnsReadOnlyMin;
+	    }
+	}
+
+	public flagEdit(event: any) {
+
+		this.editMode &#x3D; !this.editMode;
+
+		event.stopPropagation();
+	}
+
+	public availableFiles(type: string): string[] {
+
+		if (type &#x3D;&#x3D; &#x27;resource&#x27;) {
+			return this.resourceFiles;
+		} else if (type &#x3D;&#x3D; &#x27;properties&#x27;) {
+			return this.propertyFiles;
+		} else  {
+			return this.licenseFiles;
+		}
+	}
+
+	public elementType(type: string): string {
+
+		if (type &#x3D;&#x3D; &quot;resource&quot;)
+			return &quot;other&quot;;
+		else
+			return type;
+	}
+
+	public downloadFile(type: string, name: string) {
+
+		this._resources.downloadResource(type, name);
+	}
+
+	public fileUploaded(element: BuildCommand, filename: string) {
+
+		let fileList: string[];
+
+		if (element.fileType &#x3D;&#x3D; &#x27;resource&#x27;) {
+			fileList &#x3D; this.resourceFiles;
+		} else if (element.fileType &#x3D;&#x3D; &#x27;properties&#x27;) {
+			fileList &#x3D; this.propertyFiles
+		} else  {
+			fileList &#x3D; this.licenseFiles;
+		}
+
+		let matched: number &#x3D; -1;
+
+		for (var i &#x3D; 0; i &lt; fileList.length; i++) {
+
+			if (fileList[i].endsWith(filename)) {
+				matched &#x3D; i;
+				break;
+			}
+		}
+
+		if (matched &#x3D;&#x3D; -1) {
+			matched &#x3D; fileList.length;
+			fileList.push(filename.substring(filename.lastIndexOf(&quot;/&quot;)+1));
+		}
+
+		element.source &#x3D; fileList[matched];
+		let ctrl: FormControl &#x3D; this.controlForPanelElement(&quot;source&quot;, element, fileList[matched]);
+
+		if (ctrl)
+			ctrl.setValue(fileList[matched]);
+
+		this.table.renderRows();
+
+		this.flagChanges();
+	}
+
+	public commandTypeChanged(element: any) {
+
+		this.updateElementWithControlValue(&quot;commandType&quot;, element);
+
+		this.table.renderRows();
+	}
+
+	public fileTypeChanged(element: any) {
+
+		this.updateElementWithControlValue(&quot;fileType&quot;, element);
+
+		this.table.renderRows();
+	}
+
+	public addRow(event: any) {
+
+		let arg: BuildCommand &#x3D; new BuildCommand();
+		arg.commandType &#x3D; &quot;file&quot;;
+		arg.fileType &#x3D; &quot;resource&quot;;
+
+		this.commands.push(arg);
+		this.table.renderRows();
+
+		event.stopPropagation();
+	}
+
+	public removeRow(element: BuildCommand) {
+
+		var found &#x3D; -1;
+
+		for (var i&#x3D;0; i &lt; this.commands.length; i++) {
+
+			if (this.commands[i] &#x3D;&#x3D; element) {
+				found &#x3D; i;
+			}
+		}
+
+		if (found !&#x3D; -1) {
+			this.commands.splice(found, 1);
+			this.table.renderRows();
+
+			this.flagChanges();
+		}
+	}
+
+	public updateElementWithControlValue(key: string, element: any) {
+
+		if (this._ignoreChanges)
+			return;
+
+		element[key] &#x3D; this.controlForPanelElement(key, element,  null).value;
+
+		if (key &#x3D;&#x3D; &quot;commandType&quot;) {
+			if (element.commandType &#x3D;&#x3D; &quot;run&quot;)
+				element.fileType &#x3D; null;
+			else
+				element.fileType &#x3D; &quot;resource&quot;;
+		}
+
+		this.flagChanges();
+	}
+
+	public controlForPanelElement(key: string, element: any, value: string): FormControl {
+
+		let ctrl: FormControl &#x3D; null;
+
+		if (!element.position)
+			element.position &#x3D; this.indexOfElement(element);
+
+		let name: string &#x3D; key + &quot;:&quot; + element.position;
+
+		if (this.form.controls[name]) {
+			ctrl &#x3D; &lt;FormControl&gt; this.form.controls[name];
+
+			if (this._ignoreChanges)
+				ctrl.setValue(value);
+		} else {
+			ctrl &#x3D; new FormControl(value);
+			this.form.addControl(name, ctrl);
+		}
+
+		return ctrl;
+	}
+
+	private indexOfElement(element: any): number {
+
+		let list: any[] &#x3D; this.commands;
+		var found: number &#x3D; 0;
+
+		for (var i &#x3D; 0; i &lt; list.length; i++) {
+
+			if (list[i] &#x3D;&#x3D; element) {
+				found &#x3D; i;
+				break;
+			}
+		}
+
+		return found;
+	}
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;form [formGroup]&#x3D;&quot;form&quot;&gt;
+	&lt;mat-card *ngIf&#x3D;&quot;commands.length &gt; 0&quot; style&#x3D;&quot;border: none; box-shadow: none&quot;&gt;
+		&lt;mat-card-title&gt;
+			&lt;div (click)&#x3D;&quot;flagEdit($event)&quot; style&#x3D;&quot;float:right; color: red&quot;&gt;&lt;fa-icon class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;pen&#x27;]&quot;&gt;&lt;/fa-icon&gt; Edit&lt;/div&gt;
+		&lt;/mat-card-title&gt;
+
+		&lt;table id&#x3D;&quot;commands-table&quot; #commandsTable mat-table [dataSource]&#x3D;&quot;commands&quot; class&#x3D;&quot;mat-elevation-z8&quot; style&#x3D;&quot;width:100%&quot;&gt;
+
+		  &lt;ng-container matColumnDef&#x3D;&quot;remove&quot;&gt;
+		    &lt;th mat-header-cell *matHeaderCellDef style&#x3D;&quot;width:30px&quot;&gt;  &lt;/th&gt;
+		    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; &lt;button mat-button class&#x3D;&quot;red-on-hover&quot; (click)&#x3D;&quot;removeRow(element)&quot;&gt;&lt;fa-icon class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;trash-alt&#x27;]&quot;&gt;&lt;/fa-icon&gt;&lt;/button&gt; &lt;/td&gt;
+		  &lt;/ng-container&gt;
+
+		  &lt;ng-container matColumnDef&#x3D;&quot;cmd&quot;&gt;
+		    &lt;th mat-header-cell *matHeaderCellDef style&#x3D;&quot;width:100px&quot;&gt; Action &lt;/th&gt;
+		    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.commandType}} &lt;/td&gt;
+		  &lt;/ng-container&gt;
+
+		  &lt;ng-container matColumnDef&#x3D;&quot;type&quot;&gt;
+		    &lt;th mat-header-cell *matHeaderCellDef style&#x3D;&quot;width:100px&quot;&gt; Type &lt;/th&gt;
+		    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.fileType}} &lt;/td&gt;
+		  &lt;/ng-container&gt;
+		  &lt;ng-container matColumnDef&#x3D;&quot;src&quot;&gt;
+		    &lt;th mat-header-cell *matHeaderCellDef style&#x3D;&quot;width:300px&quot;&gt; Source &lt;/th&gt;
+		    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.source}} &lt;/td&gt;
+		  &lt;/ng-container&gt;
+		   &lt;ng-container matColumnDef&#x3D;&quot;srcDownload&quot;&gt;
+		    &lt;th mat-header-cell *matHeaderCellDef style&#x3D;&quot;min-width:90px&quot;&gt;  &lt;/th&gt;
+		    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;
+		    	&lt;span *ngIf&#x3D;&quot;element.commandType &#x3D;&#x3D; &#x27;file&#x27; &amp;&amp; element.fileType !&#x3D; &#x27;source&#x27; &amp;&amp; element.fileType !&#x3D; &#x27;config&#x27;&quot; id&#x3D;&quot;props&quot; class&#x3D;&quot;small-button&quot; color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;downloadFile(element.fileType, element.source)&quot;&gt;&lt;fa-icon class&#x3D;&quot;icon&quot; [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;file-download&#x27;]&quot; style&#x3D;&quot;color: white&quot;&gt;&lt;/fa-icon&gt; download&lt;/span&gt;
+		    &lt;/td&gt;
+		  &lt;/ng-container&gt;
+		  &lt;ng-container matColumnDef&#x3D;&quot;tgt&quot;&gt;
+		    &lt;th mat-header-cell *matHeaderCellDef&gt; Target &lt;/th&gt;
+		    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.target}} &lt;/td&gt;
+		  &lt;/ng-container&gt;
+			  &lt;ng-container matColumnDef&#x3D;&quot;description&quot;&gt;
+		    &lt;th mat-header-cell *matHeaderCellDef&gt; Description &lt;/th&gt;
+		    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; {{element.description}} &lt;/td&gt;
+		  &lt;/ng-container&gt;
+
+		   &lt;ng-container matColumnDef&#x3D;&quot;cmdEdit&quot;&gt;
+		    &lt;th mat-header-cell *matHeaderCellDef style&#x3D;&quot;width:100px&quot;&gt; Action &lt;/th&gt;
+		    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;
+		   		&lt;mat-select placeholder&#x3D;&quot;Command&quot; [formControl]&#x3D;&quot;controlForPanelElement(&#x27;commandType&#x27;, element, element.commandType)&quot; (selectionChange)&#x3D;&quot;commandTypeChanged(element)&quot; required&gt;
+            &lt;mat-option *ngFor&#x3D;&quot;let cmd of commandTypes&quot; [value]&#x3D;&quot;cmd&quot;&gt;{{cmd}}&lt;/mat-option&gt;
+          &lt;/mat-select&gt;
+		  &lt;/ng-container&gt;
+
+		  &lt;ng-container matColumnDef&#x3D;&quot;typeEdit&quot;&gt;
+		    &lt;th mat-header-cell *matHeaderCellDef style&#x3D;&quot;width:100px&quot;&gt; Type &lt;/th&gt;
+		    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;
+		   		&lt;mat-select *ngIf&#x3D;&quot;element.commandType !&#x3D; &#x27;run&#x27;&quot; placeholder&#x3D;&quot;Type&quot; [formControl]&#x3D;&quot;controlForPanelElement(&#x27;fileType&#x27;, element, element.fileType)&quot; (selectionChange)&#x3D;&quot;fileTypeChanged(element)&quot; required&gt;
+                	&lt;mat-option *ngFor&#x3D;&quot;let type of fileTypes&quot; [value]&#x3D;&quot;type&quot;&gt;{{type}}&lt;/mat-option&gt;
+                &lt;/mat-select&gt;
+		  &lt;/ng-container&gt;
+
+		  &lt;ng-container matColumnDef&#x3D;&quot;srcEdit&quot;&gt;
+		    &lt;th mat-header-cell *matHeaderCellDef style&#x3D;&quot;width:200px&quot;&gt; Source &lt;/th&gt;
+		    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;
+
+		    	&lt;div *ngIf&#x3D;&quot;element.commandType !&#x3D; &#x27;run&#x27; &amp;&amp; element.fileType !&#x3D; &#x27;source&#x27; &amp;&amp; element.fileType !&#x3D; &#x27;config&#x27; else stdinput&quot; style&#x3D;&quot;display: flex; flex-direction: row; justify-content: flex-start; align-items: center&quot;&gt;
+		    		&lt;mat-select style&#x3D;&quot;width:200px&quot; placeholder&#x3D;&quot;File to add&quot; [formControl]&#x3D;&quot;controlForPanelElement(&#x27;source&#x27;, element, element.source)&quot; (selectionChange)&#x3D;&quot;updateElementWithControlValue(&#x27;source&#x27;, element)&quot; required&gt;
+	                    &lt;mat-option *ngFor&#x3D;&quot;let file of availableFiles(element.fileType)&quot; [value]&#x3D;&quot;file&quot;&gt;
+	                      {{file}}
+	                    &lt;/mat-option&gt;
+	                &lt;/mat-select&gt;
+		    	&lt;/div&gt;
+		    	&lt;ng-template #stdinput&gt;
+		    		&lt;input *ngIf&#x3D;&quot;element.commandType !&#x3D; &#x27;run&#x27;&quot; type&#x3D;&quot;text&quot; [formControl]&#x3D;&quot;controlForPanelElement(&#x27;source&#x27;, element, element.source)&quot; (change)&#x3D;&quot;updateElementWithControlValue(&#x27;source&#x27;, element)&quot; style&#x3D;&quot;width: 80%; line-height: 24px&quot; required&gt;
+		    	&lt;/ng-template&gt;
+		    &lt;/td&gt;
+		  &lt;/ng-container&gt;
+
+		   &lt;ng-container matColumnDef&#x3D;&quot;srcEditUpload&quot;&gt;
+		    &lt;th mat-header-cell *matHeaderCellDef style&#x3D;&quot;width:100px&quot;&gt;  &lt;/th&gt;
+		    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;
+
+		    	&lt;div *ngIf&#x3D;&quot;element.commandType !&#x3D; &#x27;run&#x27; &amp;&amp; element.fileType !&#x3D; &#x27;source&#x27; &amp;&amp; element.fileType !&#x3D; &#x27;config&#x27;&quot; style&#x3D;&quot;min-width:90px&quot;&gt;
+		    		&lt;file-uploader-button [small]&#x3D;&quot;true&quot; title&#x3D;&quot;Upload&quot; [alias]&#x3D;&quot;element.fileType&quot; [type]&#x3D;&quot;elementType(element.fileType)&quot; uploadURL&#x3D;&quot;/invoke/jc.devops.console.resources_.services:uploadMultipartForm&quot; (onCompletion)&#x3D;&quot;fileUploaded(element, $event)&quot;&gt;&lt;/file-uploader-button&gt;
+		    	&lt;/div&gt;
+
+		    &lt;/td&gt;
+		  &lt;/ng-container&gt;
+
+		  &lt;ng-container matColumnDef&#x3D;&quot;tgtEdit&quot;&gt;
+		    &lt;th mat-header-cell *matHeaderCellDef&gt; Target &lt;/th&gt;
+		    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; &lt;input type&#x3D;&quot;text&quot; [formControl]&#x3D;&quot;controlForPanelElement(&#x27;target&#x27;, element, element.target)&quot; (change)&#x3D;&quot;updateElementWithControlValue(&#x27;target&#x27;, element)&quot; style&#x3D;&quot;width: 80%; line-height: 24px&quot; required&gt; &lt;/td&gt;
+		  &lt;/ng-container&gt;
+		   &lt;ng-container matColumnDef&#x3D;&quot;descriptionEdit&quot;&gt;
+		    &lt;th mat-header-cell *matHeaderCellDef&gt; Description &lt;/th&gt;
+		    &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt; &lt;input type&#x3D;&quot;text&quot; [formControl]&#x3D;&quot;controlForPanelElement(&#x27;description&#x27;, element, element.description)&quot; (change)&#x3D;&quot;updateElementWithControlValue(&#x27;description&#x27;, element)&quot; style&#x3D;&quot;width: 80%; line-height: 24px&quot;&gt; &lt;/td&gt;
+		  &lt;/ng-container&gt;
+		  &lt;tr mat-header-row *matHeaderRowDef&#x3D;&quot;displayedColumns()&quot;&gt;&lt;/tr&gt;
+		  &lt;tr mat-row *matRowDef&#x3D;&quot;let row; columns: displayedColumns();&quot;&gt;&lt;/tr&gt;
+
+		&lt;/table&gt;
+			&lt;div style&#x3D;&quot;float:right&quot;&gt;
+				&lt;button *ngIf&#x3D;&quot;editMode&quot; mat-button color&#x3D;&quot;accent&quot; (click)&#x3D;&quot;addRow($event)&quot; style&#x3D;&quot;margin-top: 20px; margin-right: 20px; font-size: 10px; line-height: 21px&quot;&gt;Add&lt;/button&gt;
+			&lt;/div&gt;
+	&lt;/mat-card&gt;
+&lt;/form&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><form [formGroup]="form">	<mat-card *ngIf="commands.length > 0" style="border: none; box-shadow: none">		<mat-card-title>			<div (click)="flagEdit($event)" style="float:right; color: red"><fa-icon class="icon" [icon]="[\'fas\', \'pen\']"></fa-icon> Edit</div>		</mat-card-title>		<table id="commands-table" #commandsTable mat-table [dataSource]="commands" class="mat-elevation-z8" style="width:100%">		  <ng-container matColumnDef="remove">		    <th mat-header-cell *matHeaderCellDef style="width:30px">  </th>		    <td mat-cell *matCellDef="let element"> <button mat-button class="red-on-hover" (click)="removeRow(element)"><fa-icon class="icon" [icon]="[\'fas\', \'trash-alt\']"></fa-icon></button> </td>		  </ng-container>		  <ng-container matColumnDef="cmd">		    <th mat-header-cell *matHeaderCellDef style="width:100px"> Action </th>		    <td mat-cell *matCellDef="let element"> {{element.commandType}} </td>		  </ng-container>		  <ng-container matColumnDef="type">		    <th mat-header-cell *matHeaderCellDef style="width:100px"> Type </th>		    <td mat-cell *matCellDef="let element"> {{element.fileType}} </td>		  </ng-container>		  <ng-container matColumnDef="src">		    <th mat-header-cell *matHeaderCellDef style="width:300px"> Source </th>		    <td mat-cell *matCellDef="let element"> {{element.source}} </td>		  </ng-container>		   <ng-container matColumnDef="srcDownload">		    <th mat-header-cell *matHeaderCellDef style="min-width:90px">  </th>		    <td mat-cell *matCellDef="let element">		    	<span *ngIf="element.commandType == \'file\' && element.fileType != \'source\' && element.fileType != \'config\'" id="props" class="small-button" color="primary" (click)="downloadFile(element.fileType, element.source)"><fa-icon class="icon" [icon]="[\'fas\', \'file-download\']" style="color: white"></fa-icon> download</span>		    </td>		  </ng-container>		  <ng-container matColumnDef="tgt">		    <th mat-header-cell *matHeaderCellDef> Target </th>		    <td mat-cell *matCellDef="let element"> {{element.target}} </td>		  </ng-container>			  <ng-container matColumnDef="description">		    <th mat-header-cell *matHeaderCellDef> Description </th>		    <td mat-cell *matCellDef="let element"> {{element.description}} </td>		  </ng-container>		   <ng-container matColumnDef="cmdEdit">		    <th mat-header-cell *matHeaderCellDef style="width:100px"> Action </th>		    <td mat-cell *matCellDef="let element">		   		<mat-select placeholder="Command" [formControl]="controlForPanelElement(\'commandType\', element, element.commandType)" (selectionChange)="commandTypeChanged(element)" required>            <mat-option *ngFor="let cmd of commandTypes" [value]="cmd">{{cmd}}</mat-option>          </mat-select>		  </ng-container>		  <ng-container matColumnDef="typeEdit">		    <th mat-header-cell *matHeaderCellDef style="width:100px"> Type </th>		    <td mat-cell *matCellDef="let element">		   		<mat-select *ngIf="element.commandType != \'run\'" placeholder="Type" [formControl]="controlForPanelElement(\'fileType\', element, element.fileType)" (selectionChange)="fileTypeChanged(element)" required>                	<mat-option *ngFor="let type of fileTypes" [value]="type">{{type}}</mat-option>                </mat-select>		  </ng-container>		  <ng-container matColumnDef="srcEdit">		    <th mat-header-cell *matHeaderCellDef style="width:200px"> Source </th>		    <td mat-cell *matCellDef="let element">		    	<div *ngIf="element.commandType != \'run\' && element.fileType != \'source\' && element.fileType != \'config\' else stdinput" style="display: flex; flex-direction: row; justify-content: flex-start; align-items: center">		    		<mat-select style="width:200px" placeholder="File to add" [formControl]="controlForPanelElement(\'source\', element, element.source)" (selectionChange)="updateElementWithControlValue(\'source\', element)" required>	                    <mat-option *ngFor="let file of availableFiles(element.fileType)" [value]="file">	                      {{file}}	                    </mat-option>	                </mat-select>		    	</div>		    	<ng-template #stdinput>		    		<input *ngIf="element.commandType != \'run\'" type="text" [formControl]="controlForPanelElement(\'source\', element, element.source)" (change)="updateElementWithControlValue(\'source\', element)" style="width: 80%; line-height: 24px" required>		    	</ng-template>		    </td>		  </ng-container>		   <ng-container matColumnDef="srcEditUpload">		    <th mat-header-cell *matHeaderCellDef style="width:100px">  </th>		    <td mat-cell *matCellDef="let element">		    	<div *ngIf="element.commandType != \'run\' && element.fileType != \'source\' && element.fileType != \'config\'" style="min-width:90px">		    		<file-uploader-button [small]="true" title="Upload" [alias]="element.fileType" [type]="elementType(element.fileType)" uploadURL="/invoke/jc.devops.console.resources_.services:uploadMultipartForm" (onCompletion)="fileUploaded(element, $event)"></file-uploader-button>		    	</div>		    </td>		  </ng-container>		  <ng-container matColumnDef="tgtEdit">		    <th mat-header-cell *matHeaderCellDef> Target </th>		    <td mat-cell *matCellDef="let element"> <input type="text" [formControl]="controlForPanelElement(\'target\', element, element.target)" (change)="updateElementWithControlValue(\'target\', element)" style="width: 80%; line-height: 24px" required> </td>		  </ng-container>		   <ng-container matColumnDef="descriptionEdit">		    <th mat-header-cell *matHeaderCellDef> Description </th>		    <td mat-cell *matCellDef="let element"> <input type="text" [formControl]="controlForPanelElement(\'description\', element, element.description)" (change)="updateElementWithControlValue(\'description\', element)" style="width: 80%; line-height: 24px"> </td>		  </ng-container>		  <tr mat-header-row *matHeaderRowDef="displayedColumns()"></tr>		  <tr mat-row *matRowDef="let row; columns: displayedColumns();"></tr>		</table>			<div style="float:right">				<button *ngIf="editMode" mat-button color="accent" (click)="addRow($event)" style="margin-top: 20px; margin-right: 20px; font-size: 10px; line-height: 21px">Add</button>			</div>	</mat-card></form></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'about-app'},{'name': 'ActionComponent', 'selector': 'action'},{'name': 'ApiGatewayInstallerComponent', 'selector': 'jc-apigw-install'},{'name': 'ApiMicroGatewayInstallerComponent', 'selector': 'jc-apimg-install'},{'name': 'ApiPortalInstallerComponent', 'selector': 'jc-apipr-installer'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BuildCommandsComponent', 'selector': 'build-commands'},{'name': 'BuildComponent', 'selector': 'build'},{'name': 'BuildExeComponent', 'selector': 'build-exe'},{'name': 'BuildImageComponent', 'selector': 'build-solution'},{'name': 'BuildInstallComponent', 'selector': 'build-install'},{'name': 'BuildPackagesComponent', 'selector': 'build-package'},{'name': 'ContainerComponent', 'selector': 'container'},{'name': 'ContainersComponent', 'selector': 'app-containers'},{'name': 'DeploymentDetailsComponent', 'selector': 'jc-deployment-details'},{'name': 'DeploymentListComponent', 'selector': 'jc-k8s-deployments'},{'name': 'DockerImageChooserComponent', 'selector': 'docker-image-chooser'},{'name': 'DockerImageListComponent', 'selector': 'jc-docker-images'},{'name': 'DockerImageVersionsComponent', 'selector': 'jc-docker-image-versions'},{'name': 'EditContainerComponent', 'selector': 'edit-container'},{'name': 'GitSourcesComponent', 'selector': 'git-source'},{'name': 'HomeComponent', 'selector': 'home'},{'name': 'InstallerComponent', 'selector': 'jc-install'},{'name': 'MicroServiceBuilderComponent', 'selector': 'jc-msc-configure'},{'name': 'MicroServiceInstallerComponent', 'selector': 'jc-msc-install'},{'name': 'PodsListComponent', 'selector': 'jc-pods'},{'name': 'RuntimeContainersComponent', 'selector': 'runtime-containers'},{'name': 'RuntimeDeployComponent', 'selector': 'runtime-deploy'},{'name': 'RuntimeDetailsComponent', 'selector': ''},{'name': 'RuntimeK8sComponent', 'selector': 'runtime'},{'name': 'RuntimeScaleComponent', 'selector': 'jc-runtime-scale'},{'name': 'RuntimeStageComponent', 'selector': 'runtime-stage'},{'name': 'RuntimeUpdateComponent', 'selector': ''},{'name': 'SagImageAlerterComponent', 'selector': 'sag-image-alerter'},{'name': 'ServicePropertiesComponent', 'selector': 'k8s-props'},{'name': 'SettingsComponent', 'selector': 'home'},{'name': 'SimpleNameComponent', 'selector': 'name-dialog'},{'name': 'StagingComponent', 'selector': 'staging'},{'name': 'TestCaseComponent', 'selector': 'test-case'},{'name': 'TestDefinitionComponent', 'selector': 'test-definitions'},{'name': 'TestHistoryComponent', 'selector': 'test-history'},{'name': 'TestRunComponent', 'selector': 'test-reun'},{'name': 'UMInstallerComponent', 'selector': 'jc-um-install'},{'name': 'UploadButtonComponent', 'selector': 'file-uploader-button'}];
+    var DIRECTIVES = [{'name': 'BuildImageChooseDirective', 'selector': '[builder]'},{'name': 'CancelCdkDrag', 'selector': '[appCancelCdkDrag]'},{'name': 'NgFileDrop', 'selector': '[ng-file-drop]'},{'name': 'NgFileSelect', 'selector': '[ng-file-select]'},{'name': 'RuntimeActionsDirective', 'selector': '[runtime-actions]'}];
+    var ACTUAL_COMPONENT = {'name': 'BuildCommandsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'BuildCommandsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

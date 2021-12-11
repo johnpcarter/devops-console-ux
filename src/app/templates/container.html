@@ -1,0 +1,281 @@
+<form [formGroup]="formGroup">
+	<mat-expansion-panel [id]="containerId('toggleContainer')" *ngIf="container" class="container" [expanded]="false" [disabled]="editMode" (opened)="panelOpened(container, true)" (closed)="panelOpened(container, false)" hideToggle style="margin:10px; box-shadow: none; background-color: #859bcf">
+		<mat-expansion-panel-header>
+			<mat-panel-title [ngClass]="classForDraggableElement()" style="color: white"><div style="margin-right: 10px"><i class="fa fa-bars fa-lg container-dragger" aria-hidden="true" cdkDragHandle></i></div> {{container.description}}</mat-panel-title>
+			<div style="flex-grow: 1" *ngIf="isPanelOpen(container)"><div (click)="flagEditContainer($event)" style="float:right; color: white; background-color: red; padding: 5px; border-radius: 4px" [ngStyle]="styleForEditButton()"> edit <fa-icon class="icon" [icon]="['fas', 'cog']"></fa-icon></div></div>
+		</mat-expansion-panel-header>
+		<mat-card style="border: none; box-shadow: none" appCancelCdkDrag>
+			<mat-card-subtitle>
+				<div style="margin-left: 30px; width: 100%;display:flex; justify-content: flex-start; flex-wrap: wrap">
+          <mat-form-field *ngIf="editMode" style="width:90%">
+				      <input [id]="containerId('containerDescription')" matInput placeholder="Description" formControlName="containerDescriptionCtrl" required>
+          </mat-form-field>
+					<div>
+						<mat-form-field style="min-width: 250px;">
+              <input [id]="containerId('containerName')" matInput placeholder="Name" formControlName="containerNameCtrl" [readonly]="!editMode">
+            </mat-form-field>
+          </div>
+					<div style="margin-left: 30px; margin-top: -20px; min-width: 400px">
+						<docker-image-chooser [id]="containerId('image')" style="margin-left: 10px; min-width: 350px;" [dockerImages]="images" [value]="currentImage()" [disabled]="!editMode" [allowLatest]="isCustom()" [preferredVersion]="preferredVersion()" (selectedImage)="imageSelected($event)"></docker-image-chooser>
+	                </div>
+	                <mat-form-field style="margin-left: 20px;">
+						<mat-select [id]="containerId('containerType')" #selectedType placeholder="Container Type" formControlName="containerTypeCtrl" [disabled]="!editMode">
+		            		<mat-option *ngFor="let type of containerTemplatesTypes" [value]="type">
+		                    	 {{productLabel(type)}}
+		                	</mat-option>
+		            	</mat-select>
+		        	</mat-form-field>
+		        	<button [id]="containerId('applyButton')" *ngIf="editMode" matSuffix mat-button color="accent" (click)="applyTemplate($event)" style="font-size: 10px; line-height: 21px" [ngStyle]="styleForApplyTemplateButton()">Apply</button>
+                </div>
+                <div>
+
+                </div>
+				<mat-form-field style="margin-top: 30px; margin-left: 30px; min-width: 250px">
+					<input [id]="containerId('user')" matInput type="text" placeholder="Administrator User" formControlName="containerUserCtrl" [readonly]="!editMode">
+					<mat-hint>Leave blank for default User {{defaultAdminUser()}}</mat-hint>
+        </mat-form-field>
+        <mat-form-field style="margin-top: 30px; margin-left: 30px; min-width: 250px">
+					<input [id]="containerId('password')" matInput type="password" placeholder="Administrator Password" formControlName="containerPasswordCtrl" [readonly]="!editMode">
+					<mat-hint>Leave blank for default Password {{defaultAdminPassword()}}</mat-hint>
+        </mat-form-field>
+			</mat-card-subtitle>
+      <div style="padding: 10px">
+        <mat-panel-title><b>Environment</b></mat-panel-title>
+        <mat-button-toggle-group [(value)]="selectedEnvironment" (change)="changeSelectedEnvironment($event)" style="margin-top: 10px;">
+          <mat-button-toggle *ngFor="let env of environments" [value]="env" style="min-width: 100px">
+            {{env}}
+          </mat-button-toggle>
+        </mat-button-toggle-group><br>
+        <mat-hint *ngIf="selectedEnvironmentSettings == defaultEnvironmentSettings" style="font-size: 8pt; font-weight: lighter;">
+          Default settings to be used for all target environments unless overridden. Define new environments via Settings.
+        </mat-hint>
+        <mat-hint *ngIf="selectedEnvironmentSettings != defaultEnvironmentSettings" style="font-size: 8pt; font-weight: lighter;">
+          Override default settings or add additional parameters as required.
+        </mat-hint>
+
+      </div>
+			<mat-expansion-panel [id]="containerId('ports')" class="simple" [expanded]="selectedEnvironmentSettings.ports.length > 0" (opened)="panelOpened('ports', true)" (closed)="panelOpened('ports', false)" [hideToggle]="isPanelOpen('ports')">
+				<mat-expansion-panel-header>
+					<mat-panel-title><b>Ports</b></mat-panel-title>
+					<mat-panel-description *ngIf="editMode && isPanelOpen('ports')" style="width: 100%; display: flex; align-items: center; justify-content: flex-end;">
+					</mat-panel-description>
+				</mat-expansion-panel-header>
+				<table [id]="containerId('portsList')" #ports mat-table [dataSource]="selectedEnvironmentSettings.ports" class="mat-elevation-z8" style="width:100%">
+				  <ng-container matColumnDef="remove">
+				    <th mat-header-cell *matHeaderCellDef style="width:30px">  </th>
+				    <td mat-cell *matCellDef="let element"> <button mat-button class="red-on-hover" (click)="removePort(element)"><fa-icon class="icon" [icon]="['fas', 'trash-alt']"></fa-icon></button> </td>
+				  </ng-container>
+				  <ng-container matColumnDef="ks8Type">
+				    <th mat-header-cell *matHeaderCellDef style="width: 75px"> Service </th>
+				    <td mat-cell *matCellDef="let element" [style]="styleForAttribute(element, 'serviceType')">
+              <div style="text-align: center; background-color: orange; border-radius: 5px; min-height: 50px; margin-left: -12px; margin-right: 10px">
+                {{portServiceType(element)}}
+              <div *ngIf="element.serviceType == 'NodePort'" style="width: 100px; height: 21px; background-color: orange; border-radius: 5px; padding: 15px; color: white"> {{fieldForPort(element, 'publicPort')}} </div>
+            </div>
+				  </ng-container>
+				  <ng-container matColumnDef="internal">
+				    <th mat-header-cell *matHeaderCellDef style="width:100px"> Internal </th>
+				    <td mat-cell *matCellDef="let element"> {{element.internal}}</td>
+				  </ng-container>
+				  <ng-container matColumnDef="external">
+				    <th mat-header-cell *matHeaderCellDef style="width:100px"> External </th>
+				    <td mat-cell *matCellDef="let element" [style]="styleForAttribute(element, 'external')"> {{fieldForPort(element, 'external')}} </td>
+				  </ng-container>
+				   <ng-container matColumnDef="type">
+				    <th mat-header-cell *matHeaderCellDef> Type </th>
+				    <td mat-cell *matCellDef="let element" [style]="styleForAttribute(element, 'external')"> {{fieldForPort(element, 'type')}} </td>
+				  </ng-container>
+				   <ng-container matColumnDef="description">
+				    <th mat-header-cell *matHeaderCellDef> Description </th>
+				    <td mat-cell *matCellDef="let element"> {{ fieldForPort(element, 'description') }} </td>
+				  </ng-container>
+
+				  <ng-container matColumnDef="ks8TypeEdit">
+				    <th mat-header-cell *matHeaderCellDef style="width:100px;"> Service </th>
+				    <td mat-cell *matCellDef="let element" style="background-color: orange; border-radius: 5px; padding-right: 10px; padding-bottom: 10px; margin-right: 40px">
+				   		<mat-select style="padding: 5px" [placeholder]="fieldForPort(element, 'serviceType')" [(value)]="element.serviceType" (selectionChange)="serviceTypeSelected($event, element)">
+                <mat-option value="">Private</mat-option>
+                <mat-option *ngFor="let type of serviceTypes" [value]="type">{{type}}</mat-option>
+              </mat-select>
+              <div *ngIf="element.serviceType == 'NodePort'" style="white-space: nowrap">30<input maxlength="3" type="text" [formControl]="controlForPanelElement('ports', 'publicPort', element, publicPort(element), publicPortValidators())" (change)="updateElementWithControlValue('ports', 'publicPort', element, '30')" style="max-width: 30px; margin-left: 10px; margin-right: 15px; line-height: 24px"></div>
+					</td>
+				  </ng-container>
+				  <ng-container matColumnDef="typeEdit">
+				    <th mat-header-cell *matHeaderCellDef style="width: 100px"> Type </th>
+				    <td mat-cell *matCellDef="let element">
+				    	<mat-select #selectedType [placeholder]="fieldForPort(element, 'type')" [formControl]="controlForPanelElement('ports', 'type', element, element.type)" [disabled]="!editMode">
+                <mat-option *ngFor="let type of portTypes" [value]="type" (click)="updateElementWithControlValue('ports', 'type', element)">
+                  {{type}}
+                </mat-option>
+              </mat-select>
+				    </td>
+				  </ng-container>
+          <ng-container matColumnDef="internalEdit">
+            <th mat-header-cell *matHeaderCellDef style="width:100px;"> Internal </th>
+            <td mat-cell *matCellDef="let element">
+              <input *ngIf="defaultEnvironmentSettings == selectedEnvironmentSettings" type="text" [formControl]="controlForPanelElement('ports', 'internal', element, element.internal)" (change)="updateElementWithControlValue('ports', 'internal', element)" style="width: 80%; line-height: 24px; margin-left: 5px" required>
+              <p *ngIf="defaultEnvironmentSettings != selectedEnvironmentSettings" style="padding-top: 15px; line-height: 24px; vertical-align: center; color: gray; margin-left: 10px">{{ fieldForPort(element, 'internal') }}</p>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="externalEdit">
+            <th mat-header-cell *matHeaderCellDef style="width:100px"> External </th>
+            <td mat-cell *matCellDef="let element">
+              <input type="text" [placeholder]="fieldForPort(element, 'external')" [formControl]="controlForPanelElement('ports', 'external', element, element.external)" (change)="updateElementWithControlValue('ports', 'external', element)" style="width: 80%; line-height: 24px" required>
+            </td>
+          </ng-container>
+				   <ng-container matColumnDef="descriptionEdit">
+				    <th mat-header-cell *matHeaderCellDef> Description </th>
+				    <td mat-cell *matCellDef="let element">
+              <input *ngIf="defaultEnvironmentSettings == selectedEnvironmentSettings" type="text" [formControl]="controlForPanelElement('ports', 'description', element, element.description)" (change)="updateElementWithControlValue('ports', 'description', element)" style="width: 80%; line-height: 24px">
+              <p *ngIf="defaultEnvironmentSettings != selectedEnvironmentSettings" style="padding-top: 15px; line-height: 24px; vertical-align: center; color: gray;">{{ fieldForPort(element, 'description') }}</p>
+            </td>
+				  </ng-container>
+
+				  <tr mat-header-row *matHeaderRowDef="displayedPortColumns"></tr>
+				  <tr mat-row *matRowDef="let row; columns: displayedPortColumns;"></tr>
+				</table>
+				<button [id]="containerId('addPortButton')" *ngIf="editMode" mat-button color="accent" (click)="addPort($event)" style="margin-right: 60px; font-size: 10px; line-height: 21px"><fa-icon class="icon" [icon]="['fas', 'plus-square']" style="color:red"></fa-icon> Add Port</button>
+			</mat-expansion-panel>
+			<mat-expansion-panel [id]="containerId('volumes')" class="simple" [expanded]="selectedEnvironmentSettings.volumes.length > 0" (opened)="panelOpened('volumes', true)" (closed)="panelOpened('volumes', false)" [hideToggle]="isPanelOpen('volumes')">
+				<mat-expansion-panel-header>
+					<mat-panel-title><b>Volumes</b></mat-panel-title>
+					<mat-panel-description *ngIf="editMode && isPanelOpen('volumes')" style="width: 100%; display: flex; align-items: center; justify-content: flex-end;">
+					</mat-panel-description>
+				</mat-expansion-panel-header>
+				<table [id]="containerId('volumesType')" #volumes mat-table [dataSource]="selectedEnvironmentSettings.volumes" class="mat-elevation-z8" style="width:100%">
+
+				   <ng-container matColumnDef="remove">
+				    <th mat-header-cell *matHeaderCellDef style="width:30px">  </th>
+				    <td mat-cell *matCellDef="let element"> <button mat-button class="red-on-hover" (click)="removeVolume(element)"><fa-icon class="icon" [icon]="['fas', 'trash-alt']"></fa-icon></button> </td>
+				  </ng-container>
+
+				  <ng-container matColumnDef="src">
+				    <th mat-header-cell *matHeaderCellDef style="width:200px"> Source </th>
+				    <td mat-cell *matCellDef="let element"> {{element.source}} </td>
+				  </ng-container>
+				  <ng-container matColumnDef="tgt">
+				    <th mat-header-cell *matHeaderCellDef> Target </th>
+				    <td mat-cell *matCellDef="let element" [style]="styleForAttribute(element, 'target')"> {{fieldForVolume(element, 'target')}} </td>
+				  </ng-container>
+          <ng-container matColumnDef="k8sStorageType">
+            <th mat-header-cell *matHeaderCellDef> Storage </th>
+            <td mat-cell *matCellDef="let element" [style]="styleForAttribute(element, 'storageType')">
+              <div style="line-height: 32px; background-color: orange; border-top-left-radius: 5px; border-bottom-left-radius: 5px; min-height: 32px; padding-left: 5px; margin-left: 10px">
+                {{fieldForVolume(element, 'k8sStorageType')}}
+              </div>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="k8sAccessMode">
+            <th mat-header-cell *matHeaderCellDef> Access </th>
+            <td mat-cell *matCellDef="let element" [style]="styleForAttribute(element, 'k8sAccessMode')">
+              <div style="line-height: 32px; background-color: orange; min-height: 32px;">
+              {{fieldForVolume(element, 'k8sAccessMode')}}
+              </div>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="k8sCapacity">
+            <th mat-header-cell *matHeaderCellDef> Capacity </th>
+            <td mat-cell *matCellDef="let element"  [style]="styleForAttribute(element, 'k8sCapacity')">
+              <div style="line-height: 32px; background-color: orange; border-top-right-radius: 5px; border-bottom-right-radius: 5px; min-height: 32px; margin-right: 10px">
+                {{fieldForVolume(element, 'k8sCapacity')}}
+              </div>
+            </td>
+          </ng-container>
+				   <ng-container matColumnDef="description">
+				    <th mat-header-cell *matHeaderCellDef> Description </th>
+				    <td mat-cell *matCellDef="let element"> {{fieldForVolume(element, 'description')}} </td>
+				  </ng-container>
+
+				   <ng-container matColumnDef="srcEdit">
+				    <th mat-header-cell *matHeaderCellDef style="width:200px"> Source </th>
+				    <td mat-cell *matCellDef="let element">
+              <input *ngIf="selectedEnvironmentSettings == defaultEnvironmentSettings" type="text" [formControl]="controlForPanelElement('volumes', 'source', element, element.source)" (change)="updateElementWithControlValue('volumes', 'source', element)" style="width: 80%; line-height: 24px" required>
+              <p *ngIf="defaultEnvironmentSettings != selectedEnvironmentSettings" style="padding-top: 15px; line-height: 24px; vertical-align: center; color: gray;">{{ fieldForVolume(element, 'source') }}</p>
+            </td>
+				  </ng-container>
+				  <ng-container matColumnDef="tgtEdit">
+				    <th mat-header-cell *matHeaderCellDef> Target </th>
+				    <td mat-cell *matCellDef="let element"> <input type="text" [placeholder]="fieldForVolume(element, 'target')" [formControl]="controlForPanelElement('volumes', 'target', element, element.target)" (change)="updateElementWithControlValue('volumes', 'target', element)" style="width: 80%; line-height: 24px" required> </td>
+				  </ng-container>
+          <ng-container matColumnDef="k8sStorageTypeEdit">
+            <th mat-header-cell *matHeaderCellDef style="width:80px"> Storage </th>
+            <td mat-cell *matCellDef="let element" style="background-color: orange; padding-left: 10px; border-top-left-radius: 5px; border-bottom-left-radius: 5px"> <input type="text" [placeholder]="fieldForVolume(element, 'k8sStorageType')" [formControl]="controlForPanelElement('volumes', 'k8sStorageType', element, element.k8sStorageType)" (change)="updateElementWithControlValue('volumes', 'k8sStorageType', element)" style="width: 80%; line-height: 24px" required> </td>
+          </ng-container>
+          <ng-container matColumnDef="k8sAccessModeEdit">
+            <th mat-header-cell *matHeaderCellDef style="width:105px"> Access </th>
+            <td mat-cell *matCellDef="let element" style="background-color: orange">
+              <input type="text" [placeholder]="fieldForVolume(element, 'k8sAccessMode')" [formControl]="controlForPanelElement('volumes', 'k8sAccesMode', element, element.k8sAccessMode)" (change)="updateElementWithControlValue('volumes', 'k8sAccesMode', element)" style="width: 80%; line-height: 24px" required>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="k8sCapacityEdit">
+            <th mat-header-cell *matHeaderCellDef style="width:60px"> Capacity </th>
+            <td mat-cell *matCellDef="let element" style="background-color: orange; padding-right: 10px; border-top-right-radius: 5px; border-bottom-right-radius: 5px"> <input type="text" [placeholder]="fieldForVolume(element, 'k8sCapacity')" [formControl]="controlForPanelElement('volumes', 'k8sCapacity', element, element.k8sCapacity)" (change)="updateElementWithControlValue('volumes', 'k8sCapacity', element)" style="width: 80%; line-height: 24px" required> </td>
+          </ng-container>
+				   <ng-container matColumnDef="descriptionEdit">
+				    <th mat-header-cell *matHeaderCellDef> Description </th>
+				    <td mat-cell *matCellDef="let element">
+              <input *ngIf="selectedEnvironmentSettings == defaultEnvironmentSettings" type="text" [formControl]="controlForPanelElement('volumes', 'description', element, element.description)" (change)="updateElementWithControlValue('volumes', 'description', element)" style="width: 80%; line-height: 24px">
+              <p *ngIf="defaultEnvironmentSettings != selectedEnvironmentSettings" style="padding-top: 15px; line-height: 24px; vertical-align: center; color: gray;">{{ fieldForVolume(element, 'description') }}</p>
+            </td>
+				  </ng-container>
+
+				  <tr mat-header-row *matHeaderRowDef="displayedVolumeColumns"></tr>
+				  <tr mat-row *matRowDef="let row; columns: displayedVolumeColumns;"></tr>
+				</table>
+        <button [id]="containerId('addVolumeButton')" *ngIf="editMode" mat-button color="accent" (click)="addVolume($event)" style="margin-right: 80px; font-size: 10px; line-height: 21px"><fa-icon class="icon" [icon]="['fas', 'plus-square']" style="color:red"></fa-icon> Add Volume</button>
+
+			</mat-expansion-panel>
+			<mat-expansion-panel [id]="containerId('env')" class="simple" [expanded]="selectedEnvironmentSettings.env.length > 0" (opened)="panelOpened('env', true)" (closed)="panelOpened('env',false)" [hideToggle]="isPanelOpen('env')">
+				<mat-expansion-panel-header>
+					<mat-panel-title><b>Environment Variables</b></mat-panel-title>
+					<mat-panel-description *ngIf="editMode && isPanelOpen('env')" style="width: 100%; display: flex; align-items: center; justify-content: flex-end;">
+					</mat-panel-description>
+				</mat-expansion-panel-header>
+				<table [id]="containerId('envList')" #env mat-table [dataSource]="selectedEnvironmentSettings.env" class="mat-elevation-z8" style="width:100%">
+
+				  <ng-container matColumnDef="remove">
+				    <th mat-header-cell *matHeaderCellDef style="width:30px">  </th>
+				    <td mat-cell *matCellDef="let element"> <button mat-button class="red-on-hover" (click)="removeEnv(element)"><fa-icon class="icon" [icon]="['fas', 'trash-alt']"></fa-icon></button> </td>
+				  </ng-container>
+
+				  <ng-container matColumnDef="src">
+				    <th mat-header-cell *matHeaderCellDef style="width:200px"> Source </th>
+				    <td mat-cell *matCellDef="let element"> {{element.source}} </td>
+				  </ng-container>
+				  <ng-container matColumnDef="tgt">
+				    <th mat-header-cell *matHeaderCellDef> Target </th>
+				    <td mat-cell *matCellDef="let element" [style]="styleForAttribute(element, 'target')"> {{fieldForEnv(element, 'target')}} </td>
+				  </ng-container>
+ 				  <ng-container matColumnDef="description">
+				    <th mat-header-cell *matHeaderCellDef> Description </th>
+				    <td mat-cell *matCellDef="let element"> {{fieldForEnv(element, 'description')}} </td>
+				  </ng-container>
+
+				  <ng-container matColumnDef="tgtEdit">
+				    <th mat-header-cell *matHeaderCellDef> Target </th>
+				    <td mat-cell *matCellDef="let element"> <input type="text" [placeholder]="fieldForEnv(element, 'target')" [formControl]="controlForPanelElement('env', 'target', element, element.target)" (change)="updateElementWithControlValue('env', 'target', element)" style="width: 80%; line-height: 24px" required> </td>
+				  </ng-container>
+          <ng-container matColumnDef="srcEdit">
+            <th mat-header-cell *matHeaderCellDef style="width:200px"> Source </th>
+            <td mat-cell *matCellDef="let element">
+              <input *ngIf="selectedEnvironmentSettings == defaultEnvironmentSettings" type="text" [formControl]="controlForPanelElement('env', 'source', element, element.source)" (change)="updateElementWithControlValue('env', 'source', element)" style="width: 80%; line-height: 24px" required>
+              <p *ngIf="defaultEnvironmentSettings != selectedEnvironmentSettings" style="padding-top: 15px; line-height: 24px; vertical-align: center; color: gray;"> {{ fieldForEnv(element, 'source') }}</p>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="descriptionEdit">
+				    <th mat-header-cell *matHeaderCellDef> Description </th>
+				    <td mat-cell *matCellDef="let element">
+              <input *ngIf="selectedEnvironmentSettings == defaultEnvironmentSettings" type="text" [formControl]="controlForPanelElement('env', 'description', element, element.description)" (change)="updateElementWithControlValue('env', 'description', element)" style="width: 80%; line-height: 24px">
+              <p *ngIf="defaultEnvironmentSettings != selectedEnvironmentSettings" style="padding-top: 15px; line-height: 24px; vertical-align: center; color: gray;">{{ fieldForEnv(element, 'description') }}</p>
+            </td>
+				  </ng-container>
+				  <tr mat-header-row *matHeaderRowDef="displayedArgColumns"></tr>
+				  <tr mat-row *matRowDef="let row; columns: displayedArgColumns;"></tr>
+				</table>
+        <button [id]="containerId('addEnvButton')" *ngIf="editMode" mat-button color="accent" (click)="addEnv($event)" style="margin-right: 110px; font-size: 10px; line-height: 21px"><fa-icon class="icon" [icon]="['fas', 'plus-square']" style="color:red"></fa-icon> Add Property</button>
+
+			</mat-expansion-panel>
+		</mat-card>
+		<div [id]="containerId('deleteContainer')" *ngIf="editMode" style="float: left; margin-left: 15px; height: 16px; border: none; color: white; background-color: transparent; font-size: 11px">Delete Container <fa-icon class="icon" [icon]="['fas', 'trash-alt']" (click)="flagDeleteContainer()" style="color: red"></fa-icon></div>
+	</mat-expansion-panel>
+</form>

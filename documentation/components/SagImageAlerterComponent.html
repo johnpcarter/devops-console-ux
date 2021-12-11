@@ -1,0 +1,1305 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>wm-devops-console documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">wm-devops-console documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>SagImageAlerterComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/build-image.component.ts</code>
+</p>
+
+
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>sag-image-alerter</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">template</td>
+                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">  &lt;h2 mat-dialog-title&gt;Attention&lt;/h2&gt;
+  &lt;mat-dialog-content class&#x3D;&quot;mat-typography&quot;&gt;
+  &lt;h3&gt;Image will have to be pulled&lt;/h3&gt;
+   &lt;p&gt;This is an official Software AG Image that has not yet been downloaded to your local repository. This will be done automatically if you have provided your docker hub credentials in the Preferences page and also accepted Software AG&#x27;s usage conditions &lt;a [href]&#x3D;&quot;linkToImage()&quot; target&#x3D;&quot;docker&quot; style&#x3D;&quot;color: blue&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+  &lt;/mat-dialog-content&gt;
+  &lt;mat-dialog-actions align&#x3D;&quot;end&quot;&gt;
+  &lt;button mat-button [mat-dialog-close]&#x3D;&quot;true&quot; cdkFocusInitial&gt;Confirm&lt;/button&gt;
+&lt;/mat-dialog-actions&gt;
+</code></pre></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#data">data</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#image">image</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#linkToImage">linkToImage</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="858" class="link-to-prism">src/app/components/build-image.component.ts:858</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+
+                                                        <td>
+                                                                        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+
+                                                    <td>
+                                                            No
+                                                    </td>
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="linkToImage"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            linkToImage
+                        </b>
+                        <a href="#linkToImage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>linkToImage()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="865"
+                            class="link-to-prism">src/app/components/build-image.component.ts:865</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="data"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            data</b>
+                            <a href="#data"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @Inject(MAT_DIALOG_DATA)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="860" class="link-to-prism">src/app/components/build-image.component.ts:860</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="image"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            image</b>
+                            <a href="#image"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/DockerImage.html" target="_self" >DockerImage</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="858" class="link-to-prism">src/app/components/build-image.component.ts:858</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ChangeDetectorRef, Input, OnInit, ViewChild, ComponentFactoryResolver,
+				ComponentRef, Inject, OnDestroy, NgZone}   			            from &#x27;@angular/core&#x27;;
+ import { DomSanitizer, SafeUrl }                     from &#x27;@angular/platform-browser&#x27;;
+import { Router, ActivatedRoute }									    from &#x27;@angular/router&#x27;;
+import {FormBuilder, FormGroup, FormControl,
+								Validators} 		                      from &#x27;@angular/forms&#x27;;
+import { SelectionModel }                             from &#x27;@angular/cdk/collections&#x27;;
+
+import { MediaMatcher }                               from &#x27;@angular/cdk/layout&#x27;;
+import { MatAccordion }                               from &#x27;@angular/material&#x27;;
+import { MatInput, MatButton }						            from &#x27;@angular/material&#x27;;
+import { MatDialog, MatDialogRef,
+					MAT_DIALOG_DATA }	  			                  from &#x27;@angular/material&#x27;;
+
+import { Settings }                                   from &#x27;../settings&#x27;;
+
+import { DockerImage, VersionType } 								  from &#x27;../models/docker-image&#x27;;
+import { ResourceService }                            from &#x27;../services/resources.service&#x27;;
+
+import { BuildImageChooseDirective, PropertiesChangedOwner,
+			BuilderProperties, BuilderComponent } 			    from &#x27;./elements/build-image-choose.directive&#x27;;
+
+import { DockerService } 				                      from &#x27;../services/docker.service&#x27;;
+import { Source }                                     from &#x27;../models/git-source&#x27;;
+import {Builder, DeploymentSet, BuildCommand, Installer} from &#x27;../models/project&#x27;;
+import { WmPackageInfo, APIDefinition }               from &#x27;../models/wm-package-info&#x27;;
+import { ConfigurationService }                       from &#x27;../services/configuration.service&#x27;;
+import { BuildExeComponent }                          from &#x27;./build-exe.component&#x27;;
+
+
+import { MicroServiceBuilderComponent }               from &#x27;./plugins/micro-service-builder.component&#x27;;
+import { ApiMicroGatewayInstallerComponent }          from &#x27;./plugins/apimg-installer.component&#x27;;
+
+@Component({
+  selector: &#x27;build-solution&#x27;,
+  templateUrl: &#x27;../templates/build-image.html&#x27;,
+  styleUrls: [&#x27;../templates/build-image.css&#x27;]
+})
+
+export class BuildImageComponent implements OnInit, PropertiesChangedOwner {
+
+	  public selectedImage: DockerImage;
+    public currentBuild: Builder;
+    public isLinearStepper: boolean &#x3D; true;
+
+  // tslint:disable-next-line:indent
+	  public baseImages: DockerImage[] &#x3D; [];
+	  public customImages: DockerImage[] &#x3D; [];
+	  public licenceFiles: string[] &#x3D; [];
+    public builds: string[] &#x3D; [];
+	  public comments: string &#x3D; &#x27;&#x27;;
+
+	  public baseImageFormGroup: FormGroup;
+  	public builderFormGroup: FormGroup;
+  	public propertiesFormGroup: FormGroup;
+    public commandsFormGroup: FormGroup;
+  	public targetImageFormGroup: FormGroup;
+  	public commitFormGroup: FormGroup;
+
+    public buildCtrl: FormControl;
+    public baseImageCtrl: FormControl;
+    public targetRepoCtrl: FormControl;
+  	public targetImageCtrl: FormControl;
+  	public targetVersionCtrl: FormControl;
+    public dedicatedRepoCtrl: FormControl;
+    public versionTypeCtrl: FormControl;
+  	public licCtrl: FormControl;
+  	public commentsCtrl: FormControl;
+    public buildNameCtrl: FormControl;
+    public downloadCtrl: FormControl;
+    public buildUserCtrl: FormControl;
+    public entryUserCtrl: FormControl;
+
+    public buildTemplateName: string;
+
+    public selectionModel: SelectionModel&lt;APIDefinition&gt; &#x3D; new SelectionModel();
+
+  	public builderDisplayableEntries: string[];
+  	public builderDisplayableProperties: Map&lt;string, BuilderProperties[]&gt;;
+
+    public isBuilding: boolean &#x3D; false;
+  	public downloadRef: string &#x3D; null;
+
+    public apiDisplayedColumns: string[] &#x3D; [&#x27;select&#x27;, &#x27;name&#x27;, &#x27;description&#x27;];
+    public versionTypes: string[] &#x3D; [&#x27;minor&#x27;, &#x27;major&#x27;, &#x27;patch&#x27;];
+    public settingsLoaded: boolean;
+    public userTypes: string[] &#x3D; [&#x27;sagadmin&#x27;, &#x27;root&#x27;];
+
+  	@ViewChild(BuildImageChooseDirective) builder: BuildImageChooseDirective;
+  	@ViewChild(&#x27;buildButton&#x27;, {read: MatButton}) buildButton: MatButton;
+    @ViewChild(&#x27;saveButton&#x27;, {read: MatButton}) saveButton: MatButton;
+
+  	private _ignoreValuesChange: boolean &#x3D; false;
+    private _id: string &#x3D; null;
+
+    private _customBuilderComponent: BuilderComponent;
+
+	  public constructor(private _inboundRouter: ActivatedRoute, private _settings: Settings, private _dockerService: DockerService, private _dialog: MatDialog,
+		private _formBuilder: FormBuilder, private componentFactoryResolver: ComponentFactoryResolver,
+    private _resources: ResourceService, private _configService: ConfigurationService,
+    private _sanitizer: DomSanitizer) {
+
+        let sub &#x3D; this._inboundRouter.params.subscribe(params &#x3D;&gt; {
+
+          this._id &#x3D; params[&#x27;id&#x27;];
+        });
+
+        this._settings.values().subscribe((v) &#x3D;&gt; {
+
+          console.log(&quot;setttings loaded for build image &quot; + v.dockerHost);
+
+          this._dockerService.sagImages(true, v.dockerHost).subscribe((d) &#x3D;&gt; {
+            this.baseImages &#x3D; d;
+            this.settingsLoaded &#x3D; true;
+
+            if (this._id)
+            this.baseImageSelected(this.imageFor(this._id));
+          });
+
+          this._dockerService.customImages(true, v.dockerHost).subscribe((d) &#x3D;&gt; {
+           this.customImages &#x3D; d;
+            /*d.forEach((i) &#x3D;&gt; {
+              this.customImages.push(i.name);
+            })*/
+          })
+
+          this.licenceFiles &#x3D; [];
+
+          this._resources.resourcesForType(&quot;licenses&quot;).subscribe((p) &#x3D;&gt; {
+            this.licenceFiles &#x3D; [];
+             p.forEach((f) &#x3D;&gt; {
+              this.licenceFiles.push(f.name);
+            })
+          });
+
+          this._configService.builds().subscribe((b) &#x3D;&gt; {
+            this.builds &#x3D; b;
+          });
+
+          this._settings.setCurrentPage(&quot;image&quot;);
+      });
+
+      this.currentBuild &#x3D; new Builder();
+  }
+
+	public ngOnInit() {
+
+      this.baseImageCtrl &#x3D; new FormControl();
+      this.buildCtrl &#x3D; new FormControl();
+  		this.targetImageCtrl &#x3D; new FormControl();
+  		this.licCtrl &#x3D; new FormControl();
+  		this.commentsCtrl &#x3D; new FormControl();
+      this.targetVersionCtrl &#x3D; new FormControl(&quot;0.0.1&quot;);
+      this.versionTypeCtrl &#x3D; new FormControl(&quot;minor&quot;);
+      this.dedicatedRepoCtrl &#x3D; new FormControl();
+      this.targetRepoCtrl &#x3D; new FormControl();
+      this.buildNameCtrl &#x3D; new FormControl();
+      this.downloadCtrl &#x3D; new FormControl(true);
+      this.buildUserCtrl &#x3D; new FormControl(&quot;sagadmin&quot;);
+      this.entryUserCtrl &#x3D; new FormControl(&quot;sagadmin&quot;);
+
+      this.baseImageFormGroup &#x3D; this._formBuilder.group({
+            baseImageCtrl: this.baseImageCtrl,
+            buildCtrl: this.buildCtrl
+      });
+
+      this.builderFormGroup &#x3D; this._formBuilder.group({});
+
+    	this.propertiesFormGroup &#x3D; this._formBuilder.group({
+          licCtrl: this.licCtrl,
+          buildUserCtrl: this.buildUserCtrl,
+          entryUserCtrl: this.entryUserCtrl
+    	});
+
+    	this.targetImageFormGroup &#x3D; this._formBuilder.group({
+      		targetImageCtrl: this.targetImageCtrl,
+      		targetVersionCtrl: this.targetVersionCtrl,
+          targetRepoCtrl: this.targetRepoCtrl,
+          dedicatedRepoCtrl: this.dedicatedRepoCtrl,
+          versionTypeCtrl: this.versionTypeCtrl
+    	});
+
+    	this.commitFormGroup &#x3D; this._formBuilder.group({
+      		commentsCtrl: this.commentsCtrl,
+          buildNameCtrl: this.buildNameCtrl,
+          downloadCtrl: this.downloadCtrl
+    	});
+
+      this.commandsFormGroup &#x3D; this._formBuilder.group({});
+
+    	this.baseImageFormGroup.valueChanges.subscribe(values &#x3D;&gt;
+    	{
+        if (this._ignoreValuesChange)
+    			return;
+
+        if (this.buildCtrl.dirty) {
+          this.setTemplate(this.buildCtrl.value);
+        }
+    	});
+
+    	this.propertiesFormGroup.valueChanges.subscribe(values &#x3D;&gt; {
+
+    		if (this._ignoreValuesChange)
+    			return;
+
+        if (this.licCtrl.dirty) {
+          this.licCtrl.markAsPristine();
+          this.setLicenseFile(this.licCtrl.value);
+          this._save();
+        } else if (this.buildUserCtrl.dirty) {
+           this.buildUserCtrl.markAsPristine();
+           this.currentBuild.buildUser &#x3D; this.buildUserCtrl.value;
+           this._save();
+        } else if (this.entryUserCtrl.dirty) {
+           this.entryUserCtrl.markAsPristine();
+           this.currentBuild.entryUser &#x3D; this.entryUserCtrl.value;
+           this._save();
+        }
+    	});
+
+    	this.targetImageFormGroup.valueChanges.subscribe(values &#x3D;&gt;
+    	{
+    		if (this._ignoreValuesChange)
+    			return;
+
+        if (this.targetRepoCtrl.dirty &amp;&amp; this.currentBuild.targetImage.name()) {
+
+          this.targetRepoCtrl.markAsPristine();
+
+          this.currentBuild.targetImage.setRepository(this.targetRepoCtrl.value);
+
+          this._save();
+        }
+
+        if (this.targetImageCtrl.dirty) {
+
+            this.targetImageCtrl.markAsPristine();
+
+            if (!this.currentBuild.targetImage || (this.targetImageCtrl.value !&#x3D; null &amp;&amp; this.targetImageCtrl.value !&#x3D; this.currentBuild.targetImage)) {
+
+              this.updateTargetImage();
+
+              this._save();
+            } else {
+             this.currentBuild.targetImage.setDedicatedRepository(this.dedicatedRepoCtrl.value);
+             this.currentBuild.targetImage.setName(this.targetImageCtrl.value.name());
+
+             this._save();
+           }
+
+           this.targetImageCtrl.markAsPristine();
+        }
+
+        if (this.dedicatedRepoCtrl.dirty) {
+
+          this.dedicatedRepoCtrl.markAsPristine();
+
+          this.currentBuild.targetImage.setDedicatedRepository(this.dedicatedRepoCtrl.value);
+          this._save();
+
+        } else if (this.targetVersionCtrl.dirty) {
+
+
+            this.currentBuild.targetImage.setDedicatedRepository(this.dedicatedRepoCtrl.value);
+            this.currentBuild.targetImage.setVersion(this.targetVersionCtrl.value);
+
+            this._save();
+
+            this.targetVersionCtrl.markAsPristine();
+        } else if (this.versionTypeCtrl.dirty) {
+          this.setNextVersion(this.targetImageCtrl.value.uniqueName());
+
+          this.versionTypeCtrl.markAsPristine();
+        }
+    	});
+
+    	this.commitFormGroup.valueChanges.subscribe(values &#x3D;&gt; {
+
+    		if (this._ignoreValuesChange)
+    			return;
+
+    		if (this.commentsCtrl.dirty) {
+    			this.comments &#x3D; this.commentsCtrl.value;
+        }
+
+        if (this.buildNameCtrl.dirty) {
+          this.buildTemplateName &#x3D; this.buildNameCtrl.value;
+        }
+
+        if (this.downloadCtrl.dirty) {
+          this.downloadCtrl.markAsPristine();
+          this.downloadRef &#x3D; null;
+        }
+    	})
+    }
+
+    public productCodeLabel(): string {
+
+      if (this.currentBuild &amp;&amp; this.currentBuild.sourceImage &amp;&amp; this.currentBuild.sourceImage.name())
+        return &quot;Base: &quot; + this.currentBuild.sourceImage.name();
+      else
+        return &quot;Base Image&quot;;
+    }
+
+    public currentBaseImage(): DockerImage {
+
+      if (this.currentBuild.sourceImage) {
+        return this.currentBuild.sourceImage;
+      } else {
+        return null;
+      }
+    }
+
+    public baseImageSelected(image: DockerImage) {
+
+      if (image) {
+
+        this._ignoreValuesChange &#x3D; true;
+        this.baseImageCtrl.setValue(image.name());
+        this._ignoreValuesChange &#x3D; false;
+
+        this.currentBuild.sourceImage &#x3D; image.copy();
+        this.setBuilderComponent(image.type);
+
+        this._save();
+
+        if (!image.id) {
+          let dialogRef &#x3D; this._dialog.open(SagImageAlerterComponent, {
+          width: &quot;30%&quot;,
+          height: &quot;30%&quot;,
+          data: { image: image }
+        });
+        }
+      }
+    }
+
+    public availableVersions(): DockerImage[] {
+
+      if (this.currentBuild) {
+        if (this.currentBuild.sourceImage.availableVersions.length &gt; 0) {
+           let versions &#x3D; [this.currentBuild.sourceImage];
+
+           this.currentBuild.sourceImage.availableVersions.forEach((v) &#x3D;&gt; {
+             versions.push(v);
+           });
+
+           return versions;
+        } else {
+           return [this.currentBuild.sourceImage];
+        }
+      }
+      else {
+        return [];
+      }
+    }
+
+    public imageName(image: DockerImage) {
+
+      if (image)
+        return image.name();
+      else
+        return null;
+    }
+
+    public isExistingTemplate(): boolean {
+
+      return this.indexOfTemplate(this.currentBuild.name) !&#x3D; -1;
+    }
+
+    public addTemplate(event: any) {
+
+      this.currentBuild.name &#x3D; this.buildCtrl.value;
+
+      this._configService.uploadBuild(this.currentBuild).subscribe((success) &#x3D;&gt; {
+
+        this.builds.push(this.currentBuild.name);
+      })
+    }
+
+    public saveTemplate() {
+
+      this.currentBuild.name &#x3D; this.buildTemplateName;
+
+      this.saveButton.disabled &#x3D; true;
+
+      this._ignoreValuesChange &#x3D; true;
+      this.buildCtrl.setValue(this.currentBuild.name);
+      this._ignoreValuesChange &#x3D; false;
+
+      this._save();
+    }
+
+    public deleteTemplate(event) {
+
+      this._configService.deleteBuild(this.currentBuild.name).subscribe((success) &#x3D;&gt; {
+        this.builds.splice(this.indexOfTemplate(this.currentBuild.name), 1);
+        this.currentBuild &#x3D; new Builder();
+      });
+    }
+
+    public labelForGoButton(): string {
+
+      if (this.downloadCtrl.value)
+        return &quot;  Build   &quot;;
+      else
+        return &quot;  Download  &quot;;
+    }
+
+    public labelForPreparingButton(): string {
+
+      if (this.downloadCtrl.value)
+        return &quot;Building...&quot;;
+      else
+        return &quot;Preparing...&quot;;
+    }
+
+    private setTemplate(name: string) {
+
+      this.buildNameCtrl.setValue(name);
+
+      if (this.indexOfTemplate(name) &#x3D;&#x3D; -1)
+        return;
+
+      if (name) {
+
+        this.currentBuild &#x3D; new Builder();
+
+        this._configService.build(name).subscribe((build) &#x3D;&gt; {
+
+          this.currentBuild &#x3D; build;
+          this.isLinearStepper &#x3D; false;
+
+          this._ignoreValuesChange &#x3D; true;
+
+          if (this.currentBuild.targetImage.repository())
+            this.targetRepoCtrl.setValue(this.repoNameWithoutImageName());
+
+          this.dedicatedRepoCtrl.setValue(this.currentBuild.targetImage.dedicatedRepository());
+
+          if (this.currentBuild.targetImage.name()) {
+            this.baseImageCtrl.setValue(build.sourceImage.name());
+            this.targetImageCtrl.setValue(this.currentBuild.targetImage);
+            this.updateTargetImage();
+          }
+
+          let licFile: BuildCommand &#x3D; this.currentBuild.fileForType(&quot;licenses&quot;);
+          this.licCtrl.setValue(licFile ? licFile.source.replace(/\-/g, &quot; &quot;) : null);
+
+          this.buildUserCtrl.setValue(this.currentBuild.buildUser ? this.currentBuild.buildUser : &quot;sagadmin&quot;);
+          this.entryUserCtrl.setValue(this.currentBuild.entryUser ? this.currentBuild.entryUser : &quot;sagadmin&quot;);
+
+          this.buildNameCtrl.setValue(this.currentBuild.name);
+
+          this.setBuilderComponent(this.currentBuild.sourceImage.type);
+
+          if (this.currentTargetVersionExists())
+            this.setNextVersion(this.targetImageCtrl.value.uniqueName());
+          else
+            this._setCtrlVersion(this.currentBuild.targetImage.version());
+
+          this._ignoreValuesChange &#x3D; false;
+        });
+      } else {
+
+          this.currentBuild &#x3D; new Builder();
+          this.buildTemplateName &#x3D; &quot;&quot;;
+      }
+    }
+
+    private currentTargetVersionExists(): boolean {
+
+        if (this.targetImageCtrl.value) {
+
+          let img: DockerImage &#x3D; this.imageFor(this.currentBuild.targetImage.name());
+
+          return img &amp;&amp; img.exists();
+
+        } else {
+          return false;
+        }
+    }
+
+    private repoNameWithoutImageName(): string {
+
+      let repo: string &#x3D; this.currentBuild.targetImage.repository();
+
+      if (this.currentBuild.targetImage.dedicatedRepository() &amp;&amp; repo &amp;&amp; this.currentBuild.targetImage.name()) {
+
+        repo &#x3D; repo.substring(0, repo.indexOf(this.currentBuild.targetImage.name())-1);
+      }
+
+      return repo;
+    }
+
+    public commandsUpdated(event: any) {
+
+      this._save();
+    }
+
+    private setLicenseFile(lic: string) {
+
+      this._customBuilderComponent.setLicenseFile(lic);
+    }
+
+    private updateTargetImage() {
+
+      if (typeof this.targetImageCtrl.value &#x3D;&#x3D; &#x27;string&#x27;) {
+
+        // user manually entered name of image
+
+          let img: DockerImage &#x3D; this.imageFor(this.targetImageCtrl.value);
+
+          if (img &amp;&amp; (!this.targetRepoCtrl.value || this.targetRepoCtrl.value &#x3D;&#x3D; img.repository())) {
+
+            // image
+              this.currentBuild.targetImage &#x3D; DockerImage.make(img);
+          }
+          else {
+              this.currentBuild.targetImage &#x3D; new DockerImage();
+              this.currentBuild.targetImage.setName(this.targetImageCtrl.value);
+              this.currentBuild.targetImage.setRepository(this.targetRepoCtrl.value);
+              this.currentBuild.targetImage.setVersion(this.targetVersionCtrl.value);
+            }
+
+      } else {
+          this.currentBuild.targetImage &#x3D; this.targetImageCtrl.value.copy();
+
+          if (this.currentBuild.targetImage) {
+
+            this._ignoreValuesChange &#x3D; true;
+            this.targetRepoCtrl.setValue(this.repoNameWithoutImageName());
+            this.targetVersionCtrl.setValue(this.currentBuild.targetImage.version());
+            this.dedicatedRepoCtrl.setValue(this.currentBuild.targetImage.dedicatedRepository());
+            this._ignoreValuesChange &#x3D; false;
+
+            //if (this.targetRepoCtrl.value) {
+            //   this.currentBuild.targetImage.setRepository(this.targetRepoCtrl.value);
+            //}
+          }
+      }
+
+      this.setNextVersion(this.currentBuild.targetImage.uniqueName());
+    }
+
+    private nextVersion():string {
+
+      return this.targetVersionCtrl.value;
+    }
+
+    private setNextVersion(name: string) {
+
+      this._dockerService.versions(name).subscribe((images) &#x3D;&gt; {
+
+        if (images.length &gt; 0) {
+
+          let nextVersion: string &#x3D; images[0].getNextVersion(this.determineVersionType());
+          this._setCtrlVersion(nextVersion);
+        } else {
+
+          if (this.determineVersionType() &#x3D;&#x3D; VersionType.patch)
+            this._setCtrlVersion(&quot;0.0.1&quot;);
+          else if (this.determineVersionType() &#x3D;&#x3D; VersionType.minor)
+            this._setCtrlVersion(&quot;0.1&quot;);
+          else if (this.determineVersionType() &#x3D;&#x3D; VersionType.major)
+            this._setCtrlVersion(&quot;1.0&quot;);
+        }
+      });
+    }
+
+    private _setCtrlVersion(value: string) {
+
+      this._ignoreValuesChange &#x3D; true;
+      this.targetVersionCtrl.setValue(value);
+      this._ignoreValuesChange &#x3D; false;
+    }
+
+    private _save() {
+
+      if (!this.currentBuild.name)
+        return;
+
+      this._configService.uploadBuild(this.currentBuild).subscribe((success) &#x3D;&gt; {
+
+        // do now&#x27;t
+      });
+    }
+
+    private indexOfTemplate(name): number {
+
+      var found: number &#x3D; -1;
+
+      for (var i&#x3D;0; i &lt; this.builds.length; i++) {
+
+        if (this.builds[i] &#x3D;&#x3D; name) {
+          found &#x3D; i;
+          break;
+        }
+      }
+
+      return found;
+    }
+
+    public minVersion(imageName: string): number {
+
+      return 1;
+    }
+
+    public propertiesFor(entry: string): BuilderProperties[] {
+
+    	return this.builderDisplayableProperties.get(entry);
+    }
+
+    public builderDisplayableKeys(): any[] {
+
+      let builderDisplayableKeys &#x3D; null;
+
+      if (this.builderDisplayableProperties &amp;&amp; this.builderDisplayableProperties.size &gt; 0)
+      {
+        builderDisplayableKeys &#x3D; [];
+        let it: IterableIterator&lt;string&gt; &#x3D; this.builderDisplayableProperties.keys();
+        let result: IteratorResult&lt;string&gt;;
+
+        this.builderDisplayableEntries &#x3D; [];
+
+        while(!(result&#x3D;it.next()).done) {
+          this.builderDisplayableEntries.push(result.value);
+        }
+
+        let first: BuilderProperties[] &#x3D; this.builderDisplayableProperties.get(this.builderDisplayableProperties.keys().next().value);
+
+        first.forEach((a) &#x3D;&gt; {
+          builderDisplayableKeys.push(a.key);
+        });
+      }
+
+      return builderDisplayableKeys;
+    }
+
+    private imageFor(name: string) {
+
+      var found: DockerImage &#x3D; null;
+
+      for (var i&#x3D;0; i &lt; this.customImages.length; i++) {
+        if (this.customImages[i].name() &#x3D;&#x3D; name || this.customImages[i].id &#x3D;&#x3D; name) {
+           found &#x3D; this.customImages[i];
+           break;
+        }
+      }
+
+      if (!found) {
+        for (var i&#x3D;0; i &lt; this.baseImages.length; i++) {
+          if (this.baseImages[i].name() &#x3D;&#x3D; name || this.baseImages[i].id &#x3D;&#x3D; name) {
+            found &#x3D; this.baseImages[i];
+            break;
+          }
+        }
+      }
+
+      return found;
+    }
+
+    private setBuilderComponent(type: string) {
+
+      if (!type)
+        return;
+
+      this.builderFormGroup &#x3D; this._formBuilder.group({});
+
+    	let componentFactory &#x3D; null;
+
+    	if (type.toLowerCase().indexOf(&#x27;msr&#x27;) !&#x3D; -1 || type &#x3D;&#x3D; &quot;MicroService Runtime&quot; || type &#x3D;&#x3D; &quot;Micro Service Runtime&quot;)
+    		componentFactory &#x3D; this.componentFactoryResolver.resolveComponentFactory(MicroServiceBuilderComponent);
+    	else if (type.toLowerCase().indexOf(&#x27;apimg&#x27;) !&#x3D; -1)
+    		componentFactory &#x3D; this.componentFactoryResolver.resolveComponentFactory(ApiMicroGatewayInstallerComponent);
+      else
+        return;
+
+	    if (this.builder) {
+	      let viewContainerRef &#x3D; this.builder.viewContainerRef;
+	      viewContainerRef.clear();
+
+        let customBuilderComponentRef: ComponentRef&lt;BuilderComponent&gt; &#x3D; viewContainerRef.createComponent(componentFactory);
+        customBuilderComponentRef.instance.owner &#x3D; this;
+        customBuilderComponentRef.instance.formGroup &#x3D; this.builderFormGroup;
+
+        this._customBuilderComponent &#x3D; customBuilderComponentRef.instance;
+	    }
+  	}
+
+    public initialProperties(): any {
+
+      return this.currentBuild;
+    }
+
+    public propertiesChangedInBuilder(type: string, displayableProperties: Map&lt;string, BuilderProperties[]&gt;, values: any) {
+
+      this.currentBuild.deploymentType &#x3D; type;
+
+      if (displayableProperties) {
+        this.builderDisplayableProperties &#x3D; displayableProperties;
+      }
+
+      if (values) {
+        this.currentBuild &#x3D; values;
+        this._save();
+      }
+    }
+
+    public targetName(): string {
+
+      if (this.currentBuild &amp;&amp; this.currentBuild.targetImage) {
+        return this.currentBuild.targetImage.name();
+      } else {
+        return &quot;&quot;;
+      }
+    }
+
+    public sourceTag(): string {
+
+      return this.currentBuild.sourceImage.tag();
+    }
+
+    public targetTag(): string {
+
+      let tag: string &#x3D; null;
+
+      if (this.targetImageCtrl.value) {
+
+        let name: string &#x3D; null;
+
+        if (typeof this.targetImageCtrl.value &#x3D;&#x3D; &#x27;string&#x27;)
+           name &#x3D; this.targetImageCtrl.value;
+        else
+          name &#x3D; this.targetImageCtrl.value.name();
+
+        if (this.targetRepoCtrl.value)
+          tag &#x3D; this.targetRepoCtrl.value + (this.dedicatedRepoCtrl.value ? &quot;/&quot; : &quot;:&quot;) + name;
+        else
+          tag &#x3D; name;
+
+        if (this.dedicatedRepoCtrl.value) {
+
+          tag +&#x3D; &quot;:&quot; + this.targetVersionCtrl.value
+        } else {
+
+          tag +&#x3D; &quot;-&quot; + this.targetVersionCtrl.value;
+        }
+      }
+
+      return tag;
+    }
+
+    public downloadLicence(event) {
+
+      let file: BuildCommand &#x3D; this.currentBuild.fileForType(&quot;licenses&quot;);
+
+      if (file)
+        this._resources.downloadResource(&quot;licenses&quot;, file.source);
+    }
+
+    public licenseFileAdded(filename: string) {
+
+       this._resources.resourcesForType(&quot;licenses&quot;).subscribe((p) &#x3D;&gt; {
+          this.licenceFiles &#x3D; [];
+           p.forEach((f) &#x3D;&gt; {
+            this.licenceFiles.push(f.name);
+          })
+        });
+    }
+
+    public build() {
+
+      this.buildButton.disabled &#x3D; true;
+
+      let name &#x3D; this.currentBuild.sourceImage.name();
+
+      if (this.currentBuild.sourceImage.repository() !&#x3D; null)
+        name &#x3D; this.currentBuild.sourceImage.repository() + &quot;/&quot; + this.currentBuild.sourceImage.name();
+
+
+      this.currentBuild.targetImage.setVersion(this.targetVersionCtrl.value);
+
+      if (!this.downloadCtrl.value) {
+
+        this.isBuilding &#x3D; true;
+
+        this._dockerService.downloadBuild(this.currentBuild, &quot;&quot; + this.nextVersion(), this.comments).subscribe(result &#x3D;&gt; {
+
+            this.isBuilding &#x3D; false;
+
+            if (!result) {
+                window.alert(&quot;Build failed, refer to server log for more information&quot;);
+             } else {
+                this.downloadRef &#x3D; result;
+                window.alert(&quot;Build Successful, with image id &quot; + result);
+            }
+
+            this._save();
+        });
+      } else {
+
+        // build on server
+
+        let dialogRef &#x3D; this._dialog.open(BuildExeComponent, {
+          width: &quot;80%&quot;,
+          height: &quot;80%&quot;,
+          data: { build: this.currentBuild, version: this.nextVersion(), comments: this.comments },
+        });
+
+        dialogRef.afterClosed().subscribe(result &#x3D;&gt; {
+
+          this.buildButton.disabled &#x3D; false;
+          this.isBuilding &#x3D; false;
+
+          if (result) {
+            this._save();
+          }
+        });
+      }
+    }
+
+    public downloadNow(fileRef: string) {
+
+        window.open(&quot;/rad/jc.devops:api/docker/build/&quot; + fileRef);
+    }
+
+    private determineVersionType(): VersionType {
+
+      if (this.versionTypeCtrl.value &#x3D;&#x3D; &#x27;major&#x27;)
+        return VersionType.major;
+      else if (this.versionTypeCtrl.value &#x3D;&#x3D; &#x27;patch&#x27;)
+        return VersionType.patch;
+      else
+        return VersionType.minor;
+    }
+
+    public installerTemplateLoaded(template: Installer) {
+	    // ignore
+    }
+}
+
+@Component({
+  selector: &#x27;sag-image-alerter&#x27;,
+  template: &#x60;
+  &lt;h2 mat-dialog-title&gt;Attention&lt;/h2&gt;
+  &lt;mat-dialog-content class&#x3D;&quot;mat-typography&quot;&gt;
+  &lt;h3&gt;Image will have to be pulled&lt;/h3&gt;
+   &lt;p&gt;This is an official Software AG Image that has not yet been downloaded to your local repository. This will be done automatically if you have provided your docker hub credentials in the Preferences page and also accepted Software AG&#x27;s usage conditions &lt;a [href]&#x3D;&quot;linkToImage()&quot; target&#x3D;&quot;docker&quot; style&#x3D;&quot;color: blue&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+  &lt;/mat-dialog-content&gt;
+  &lt;mat-dialog-actions align&#x3D;&quot;end&quot;&gt;
+  &lt;button mat-button [mat-dialog-close]&#x3D;&quot;true&quot; cdkFocusInitial&gt;Confirm&lt;/button&gt;
+&lt;/mat-dialog-actions&gt;
+&#x60;
+})
+
+export class SagImageAlerterComponent {
+
+  public image: DockerImage;
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
+
+    this.image &#x3D; data.image;
+  }
+
+  public linkToImage() {
+
+    return &quot;https://hub.docker.com/_/softwareag-&quot; + this.image.name();
+  }
+}
+</code></pre>
+    </div>
+
+
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>  <h2 mat-dialog-title>Attention</h2>  <mat-dialog-content class="mat-typography">  <h3>Image will have to be pulled</h3>   <p>This is an official Software AG Image that has not yet been downloaded to your local repository. This will be done automatically if you have provided your docker hub credentials in the Preferences page and also accepted Software AG\'s usage conditions <a [href]="linkToImage()" target="docker" style="color: blue">here</a></p>  </mat-dialog-content>  <mat-dialog-actions align="end">  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Confirm</button></mat-dialog-actions></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'about-app'},{'name': 'ActionComponent', 'selector': 'action'},{'name': 'ApiGatewayInstallerComponent', 'selector': 'jc-apigw-install'},{'name': 'ApiMicroGatewayInstallerComponent', 'selector': 'jc-apimg-install'},{'name': 'ApiPortalInstallerComponent', 'selector': 'jc-apipr-installer'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BuildCommandsComponent', 'selector': 'build-commands'},{'name': 'BuildComponent', 'selector': 'build'},{'name': 'BuildExeComponent', 'selector': 'build-exe'},{'name': 'BuildImageComponent', 'selector': 'build-solution'},{'name': 'BuildInstallComponent', 'selector': 'build-install'},{'name': 'BuildPackagesComponent', 'selector': 'build-package'},{'name': 'ContainerComponent', 'selector': 'container'},{'name': 'ContainersComponent', 'selector': 'app-containers'},{'name': 'DeploymentDetailsComponent', 'selector': 'jc-deployment-details'},{'name': 'DeploymentListComponent', 'selector': 'jc-k8s-deployments'},{'name': 'DockerImageChooserComponent', 'selector': 'docker-image-chooser'},{'name': 'DockerImageListComponent', 'selector': 'jc-docker-images'},{'name': 'DockerImageVersionsComponent', 'selector': 'jc-docker-image-versions'},{'name': 'EditContainerComponent', 'selector': 'edit-container'},{'name': 'GitSourcesComponent', 'selector': 'git-source'},{'name': 'HomeComponent', 'selector': 'home'},{'name': 'InstallerComponent', 'selector': 'jc-install'},{'name': 'MicroServiceBuilderComponent', 'selector': 'jc-msc-configure'},{'name': 'MicroServiceInstallerComponent', 'selector': 'jc-msc-install'},{'name': 'PodsListComponent', 'selector': 'jc-pods'},{'name': 'RuntimeContainersComponent', 'selector': 'runtime-containers'},{'name': 'RuntimeDeployComponent', 'selector': 'runtime-deploy'},{'name': 'RuntimeDetailsComponent', 'selector': ''},{'name': 'RuntimeK8sComponent', 'selector': 'runtime'},{'name': 'RuntimeScaleComponent', 'selector': 'jc-runtime-scale'},{'name': 'RuntimeStageComponent', 'selector': 'runtime-stage'},{'name': 'RuntimeUpdateComponent', 'selector': ''},{'name': 'SagImageAlerterComponent', 'selector': 'sag-image-alerter'},{'name': 'ServicePropertiesComponent', 'selector': 'k8s-props'},{'name': 'SettingsComponent', 'selector': 'home'},{'name': 'SimpleNameComponent', 'selector': 'name-dialog'},{'name': 'StagingComponent', 'selector': 'staging'},{'name': 'TestCaseComponent', 'selector': 'test-case'},{'name': 'TestDefinitionComponent', 'selector': 'test-definitions'},{'name': 'TestHistoryComponent', 'selector': 'test-history'},{'name': 'TestRunComponent', 'selector': 'test-reun'},{'name': 'UMInstallerComponent', 'selector': 'jc-um-install'},{'name': 'UploadButtonComponent', 'selector': 'file-uploader-button'}];
+    var DIRECTIVES = [{'name': 'BuildImageChooseDirective', 'selector': '[builder]'},{'name': 'CancelCdkDrag', 'selector': '[appCancelCdkDrag]'},{'name': 'NgFileDrop', 'selector': '[ng-file-drop]'},{'name': 'NgFileSelect', 'selector': '[ng-file-select]'},{'name': 'RuntimeActionsDirective', 'selector': '[runtime-actions]'}];
+    var ACTUAL_COMPONENT = {'name': 'SagImageAlerterComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SagImageAlerterComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
