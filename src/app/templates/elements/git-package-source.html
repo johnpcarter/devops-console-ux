@@ -1,0 +1,58 @@
+<mat-card>
+    <ng-template matStepLabel>Packages</ng-template>
+    <div style="display: flex; flex-direction: column; align-items: flex-start; width: 100%">
+        <div style="display: flex; flex-direction: row; width: 100%">
+            <div style="flex-grow: 1;padding: 10px; width: 50%">
+                <h3>Choose packages to include</h3>
+                <git-source *ngIf="values" [selectedRepoName]="repoName" [showSource]="true" [selected]="deploymentSetPackages()" [disabled]="!isExistingDeploymentSet()" (selectedSourcesLoaded)="selectedSourcesDidLoad($event)" (selectedSourcesChanged)="selectedSourcesDidChange($event)" (apiActivated)="gitAPIActivated($event)" style="width:100%; margin-top: 60px"></git-source>
+            </div>
+            <div style="flex-grow: 1; width: 50%; padding: 10px; padding-left: 80px">
+                <h3>Dependent Package(s)</h3>
+                <div style="margin-top: 107px">
+                    <div *ngIf="haveDependencies()">
+                        <table id="build.package.dependents" #dependentsTable mat-table [dataSource]="dependencies" style="width: 100%" class="mat-elevation-z8">
+                            <!-- Checkbox Column -->
+                            <ng-container matColumnDef="select">
+                                <th mat-header-cell *matHeaderCellDef>
+                                    <mat-checkbox (change)="$event ? masterDependenciesToggle() : null"
+                                                  [checked]="selectedDependencies.hasValue() && isAllDependenciesSelected()"
+                                                  [indeterminate]="selectedDependencies.hasValue() && !isAllDependenciesSelected()">
+                                    </mat-checkbox>
+                                </th>
+                                <td mat-cell *matCellDef="let row">
+                                    <mat-checkbox (click)="$event.stopPropagation()"
+                                                  (change)="$event ? selectDependencyRow(row) : null"
+                                                  [checked]="selectedDependencies.isSelected(row)">
+                                    </mat-checkbox>
+                                </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="package">
+                                <th mat-header-cell *matHeaderCellDef> Package Name</th>
+                                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="description">
+                                <th mat-header-cell *matHeaderCellDef> Description </th>
+                                <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="tests">
+                                <th mat-header-cell *matHeaderCellDef> Test Suite Included </th>
+                                <td mat-cell *matCellDef="let element"> {{element.hasTestCases}} </td>
+                            </ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="dependencyDisplayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: dependencyDisplayedColumns;"
+                                (click)="selectedDependencies.toggle(row)">
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="float: right; padding: 10px" *ngIf="haveDependencies()">
+                        <button id="build.package.addDependents" mat-flat-button color="primary" (click)="addSelectedDependentsToSource()" [disabled]="!haveSelectedSomeDependents()" style="margin-right: 10px">Add ({{this.selectedDependencies.selected.length}})</button>
+                        <button id="build.package.ignoreDependents" mat-flat-button color="accent" (click)="addSelectedDependentsToIgnore()" [disabled]="!haveSelectedSomeDependents()">Ignore ({{this.selectedDependencies.selected.length}})</button>
+                    </div>
+                </div>
+            </div>
+        </div></div>
+</mat-card>
