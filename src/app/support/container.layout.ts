@@ -1,4 +1,6 @@
-import {Container, ContainerType, RunSet} from '../models/project';
+import { RunSet } from '../models/project'
+import { Container, ContainerType } from '../models/container'
+
 import {LayoutContentType, LayoutMaster, LayoutRule, ShapeAlignment, ShapeWidthType} from '../graph/layout-rule';
 import {ShapeType} from '../graph/shape-layer';
 

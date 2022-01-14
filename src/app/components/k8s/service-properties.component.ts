@@ -11,7 +11,7 @@ import { Observable, of, pipe }                                   from 'rxjs'
 import { map }                                                    from 'rxjs/operators'
 
 import { Settings }                                               from '../../settings'
-import { Deployment }                                             from '../../models/project'
+import { ContainerSet }                                             from '../../models/project'
 
 
 @Component({
@@ -29,10 +29,10 @@ import { Deployment }                                             from '../../mo
 export class ServicePropertiesComponent implements OnInit {
 
     @Input()
-    public deployment: Deployment
+    public deployment: ContainerSet
 
     @Output()
-    public serviceUpdated: EventEmitter<Deployment> = new EventEmitter()
+    public serviceUpdated: EventEmitter<ContainerSet> = new EventEmitter()
 
     public serviceStates: string[] = ['Stateless', 'Stateful']
     public restartPolicies: string[] = ['Always', 'OnFailure', 'Never']

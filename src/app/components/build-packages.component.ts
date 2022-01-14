@@ -1,21 +1,23 @@
-import { Component, OnInit, ViewChild }   from '@angular/core'
-import { SelectionModel } 							  from '@angular/cdk/collections'
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
-import { ActivatedRoute }                 from '@angular/router'
+import { Component, OnInit, ViewChild }   				from '@angular/core'
+import { SelectionModel } 							  	from '@angular/cdk/collections'
+import { FormBuilder, FormControl, FormGroup } 			from '@angular/forms'
+import { ActivatedRoute }                 				from '@angular/router'
 
-import { MatTable } 					 			      from '@angular/material/table'
-import {RepoSettings, Settings, Values} from '../settings'
+import { MatTable, MatTableDataSource } 				from '@angular/material/table'
+import { MatDialog } 									from '@angular/material/dialog'
+import { MatSnackBar, MatSnackBarRef, TextOnlySnackBar } from '@angular/material/snack-bar'
 
-import { ConfigurationService } 			 		from '../services/configuration.service'
-import { PackagesService } 						 	  from '../services/packages.service'
-import { DeploymentSet }							    from '../models/project'
-import { Source } 									      from '../models/git-source'
-import { WmPackageInfo, APIDefinition }	  from '../models/wm-package-info'
+import { Settings, Values} 								from '../settings'
 
-import { SourceWrapper }						 	     from './elements/git-sources.component'
-import {GitRepo, GitSourceService} from '../services/git-source-control.service'
-import {Observable, of }                   from 'rxjs'
-import { startWith, map }                  from 'rxjs/operators'
+import { ConfigurationService } 			 			from '../services/configuration.service'
+import { PackagesService } 						 	  	from '../services/packages.service'
+import { Repository, Source}               				from '../models/git-source'
+import { WmPackageInfo, APIDefinition }	  				from '../models/wm-package-info'
+import { GitPackageChooserComponent } 					from './elements/git-package-chooser.component'
+import { GitSourceService }         					from '../services/git-source-control.service'
+import {Observable, of }                   				from 'rxjs'
+import { startWith, map }                  				from 'rxjs/operators'
+import {DeploymentSet} from '../models/build';
 
 @Component({
   selector: 'build-package',
@@ -25,90 +27,107 @@ import { startWith, map }                  from 'rxjs/operators'
 
 export class BuildPackagesComponent implements OnInit {
 
-	public deploymentSets: string[] = []
-	public dependencyDisplayedColumns: string[] = ['select', 'package', 'description', 'tests']
-	public apiReadOnlyDisplayedColumns: string[] = ['name', 'package', 'swagger', 'description']
+  	public displayedColumns: string[] = ['type', 'repository', 'description', 'packages', 'apis', 'selected'];
+
+  	public deploymentSets: string[] = []
+	public dependencyDisplayedColumns: string[] = ['select', 'repository', 'package', 'description']
+
+	public sources: string[] = ['git', 'wpm']
 
 	public dependencies: WmPackageInfo[]
 	public selectedDependencies: SelectionModel<WmPackageInfo> = new SelectionModel<WmPackageInfo>(true, [])
 
-	public indexing: boolean = true
-  public apiEnabled: boolean = true
+  	public apiEnabled: boolean = true
 
 	public deploymentSet: DeploymentSet
 
-	public gitURI: string
-	public gits: string[]
-	public repositories: RepoSettings[]
-
-	public selectedGit: string
-	public selectedRepo: string
-
-	public repoNameCtrlIsDisabled: boolean = false
+	public repositories: MatTableDataSource<Repository>
 
 	@ViewChild("dependentsTable")
 	public dependentsTable: MatTable<any>
 
-	@ViewChild("readonlyAPIs")
-	public deploymentSetAPIsTable: MatTable<APIDefinition>
+	@ViewChild('reposTable', {read: MatTable})
+	public repoTable: MatTable<any>
+
 
 	public form: FormGroup
 	public deploymentNameCtrl: FormControl
-  public repoNameCtrl: FormControl
+	public sourceTypeCtrl: FormControl
+  	public repoNameCtrl: FormControl
 
 	public values: Values
 
 	public filteredSets: Observable<string[]>
 
-	private _selectedGit: GitRepo
-	private _gitSelectionModel: SelectionModel<any>
-  private _freshReload = false
+	private _availableRepositories: Repository[] = []
+  	private _indexingSnackbarRef: MatSnackBarRef<TextOnlySnackBar>
+	private _isIndexing: boolean = false
 
-	public constructor(private _activatedRoute: ActivatedRoute, private _formBuilder: FormBuilder, private  _settings: Settings, private _configService: ConfigurationService, private _gitService: GitSourceService, private _packagesService: PackagesService) {
+	public constructor(private _activatedRoute: ActivatedRoute, private _formBuilder: FormBuilder, private _snackbar: MatSnackBar, private _dialog: MatDialog, private _settings: Settings, private _configService: ConfigurationService, private _gitService: GitSourceService, private _packagesService: PackagesService) {
+
+		this.repositories = new MatTableDataSource([])
 
 		this._settings.values().subscribe((v) => {
 
-			this.values = v
+		  this.values = v
+		  v.gitRepos.forEach((r) => {
+			  this._availableRepositories.push(new Repository(r.name, r.packages, r.configuration))
+		  })
 
-			this.gitURI = v.gitUri
-      this.gits = [v.gitName]
-      this.selectedGit = this.gits[0]
+		  this._configService.deploymentSets().subscribe((r) => {
 
-      this.repositories = v.gitRepos
+			  this.deploymentSets = r
+			  this.filteredSets = of(this.deploymentSets)
 
-			this._configService.deploymentSets().subscribe((r) => {
+			  this.filteredSets = this.deploymentNameCtrl.valueChanges.pipe(startWith(''), map(value => this._filter(value)))
+		  })
 
-				this.deploymentSets = r
-				this.indexing = false
+		  this._gitService.repositories(this.values.gitName, v).subscribe((r) => {
 
-				this.filteredSets = of(this.deploymentSets)
+			  r.forEach( (l) => {
+				  let r: Repository = this.availableRepositoryWithName(l.name)
 
-				this.filteredSets = this.deploymentNameCtrl.valueChanges
-        .pipe(
-        startWith(''),
-        map(value => this._filter(value)))
-			})
+				  if (r != null) {
+					  r.description = l.description
+					  r.branch = l.defaultBranch
+				  } else {
+					  this._availableRepositories.push(new Repository(l.name))
+				  }
+			  })
+		  })
 
-			this._settings.setCurrentPage("package")
+		  this._settings.setCurrentPage("package")
 		})
 	}
 
 	public ngOnInit() {
 
-	    this.deploymentNameCtrl = new FormControl()
-      this.repoNameCtrl = new FormControl()
+	  	this.deploymentNameCtrl = new FormControl()
+		this.sourceTypeCtrl = new FormControl('git')
+		this.repoNameCtrl = new FormControl()
 
-	    this.form = this._formBuilder.group({
-        deploymentNameCtrl: this.deploymentNameCtrl,
-        repoNameCtrl: this.repoNameCtrl
+		this.form = this._formBuilder.group({
+        	deploymentNameCtrl: this.deploymentNameCtrl,
+			sourceTypeControl: this.sourceTypeCtrl,
+        	repoNameCtrl: this.repoNameCtrl
 	    })
 
-	    this.clear()
+      	this.repoNameCtrl.valueChanges.subscribe( repo => {
+        	this.repoDidChange(repo)
+      	})
+
+		this.sourceTypeCtrl.valueChanges.subscribe( repo => {
+			this.sourceTypeDidChange(repo)
+		})
 
 	    this._activatedRoute.paramMap.subscribe(params => {
-        this.deploymentNameCtrl.setValue(params.get('id'))
-        this.loadDeploymentSet(this.deploymentNameCtrl.value)
-      })
+
+			this.deploymentNameCtrl.setValue(params.get('id'))
+
+			if (this.deploymentNameCtrl.value != null) {
+				this.loadDeploymentSet(this.deploymentNameCtrl.value)
+        	}
+      	})
 	}
 
 	private _filter(value: string): string[] {
@@ -128,12 +147,58 @@ export class BuildPackagesComponent implements OnInit {
 
 		} else if (!event.target.value && this.deploymentSet.name) {
 		   this.clear()
-    }
+    	}
 	}
 
-	public repoDidChange(event: any) {
+	public availableRepositories(): Repository[] {
+		let a: Repository[] = []
 
-  }
+		this._availableRepositories.forEach((r) => {
+			if (this.findRepoForName(r.name) == null) {
+				a.push(r)
+			}
+		})
+		return a
+	}
+
+	public addRepository() {
+
+		  this.repositories.data.push(new Repository(""))
+		this.repoTable.renderRows()
+	}
+
+	public sourceTypeDidChange(source: string) {
+		// TODO
+	}
+
+	public repoDidChange(r: Repository) {
+
+		this.repositories.data[this.repositories.data.length-1] = r
+		this.saveDeploymentSet(true, true)
+
+		this.repoTable.renderRows()
+	}
+
+	public removeRepository(repo: Repository) {
+
+		let index = -1
+		let i = 0
+		for (let r of this.repositories.data) {
+
+			if (r == repo) {
+				index = i
+				break
+			}
+
+			i += 1
+		}
+
+		if (index != -1) {
+			this.repositories.data.splice(index, 1)
+			this.repoTable.renderRows()
+			this.saveDeploymentSet(true)
+		}
+	}
 
 	public deploymentSetChanged(event: any) {
 
@@ -152,28 +217,40 @@ export class BuildPackagesComponent implements OnInit {
 		event.target.disabled = true
 
 		this.deploymentSet = this.makeDeploymentSet(this.deploymentSet.name)
-
+		this.repositories.data = this.deploymentSet.source[0].repositories
 		this.saveDeploymentSet(true)
 	}
 
 	public deleteDeploymentSet(event) {
 
 		this._configService.deleteDeploymentSet(this.deploymentSet.name).subscribe( result => {
-
-		    this.deploymentSets.splice(this.indexOfTemplate(this.deploymentSet.name), 1)
-        this.deploymentNameCtrl.setValue("", {onlySelf: true, emitEvent: false})
-        this.deploymentSet = null
-    })
+			this.deploymentSets.splice(this.indexOfTemplate(this.deploymentSet.name), 1)
+			this.deploymentNameCtrl.setValue("", {onlySelf: true, emitEvent: false})
+			this.deploymentSet = null
+			this.repositories.data = []
+    	})
 	}
 
 	public deploymentSetNotConfigured() {
 
-		return this.deploymentSet && this.deploymentSet.name != null && (this.deploymentSet.source == null || this.deploymentSet.source.include.length == 0)
+		return this.deploymentSet && this.deploymentSet.name != null && (this.deploymentSet.source == null || this.deploymentSet.source[0].repositories.length == 0)
 	}
 
 	public isExistingDeploymentSet(): boolean {
 
 		return this.deploymentSet && this._isExistingDeploymentSet(this.deploymentSet.name)
+	}
+
+	public openGitDialog(repository: Repository) {
+		let dialogRef = this._dialog.open(GitPackageChooserComponent, {
+			height: '750px',
+			width: '800px',
+			data: {repository: repository}
+		})
+
+		dialogRef.afterClosed().subscribe(result => {
+			this.checkDependencies()
+		});
 	}
 
 	public _isExistingDeploymentSet(name: string): boolean {
@@ -197,39 +274,20 @@ export class BuildPackagesComponent implements OnInit {
 		}
 	}
 
-	public selectedRepoName(): string {
+	public selectedRepoNames(): string[] {
 
-	  if (this.deploymentSet)
-      return this.deploymentSet.source.gitRepository
-	  else
-	    return this.repoNameCtrl.value
-	}
+		  if (this.deploymentSet) {
 
-	public deploymentSetPackages(): string[] {
+      		let reps: string[] = []
 
-		if (this.deploymentSet && this.deploymentSet.source.include != null && this.deploymentSet.source.include.length > 0)
-			return this.deploymentSet.source.include
-		else
-			return null
-	}
+      		this.deploymentSet.source[0].repositories.forEach( (r) =>  {
+        		reps.push(r.name)
+      		})
 
-	public deploymentSetExcludedPackages(): string[] {
-
-		if (this.deploymentSet && this.deploymentSet.source && this.deploymentSet.source.exclude && this.deploymentSet.source.exclude.length > 0)
-			return this.deploymentSet.source.exclude
-		else
-			return null
-	}
-
-	public deploymentSetAPIs(): APIDefinition[] {
-
-		if (this.deploymentSet && this.deploymentSet.apis && this.deploymentSet.apis.length > 0) {
-
-			return this.deploymentSet.apis
-
-		} else {
-			return null
-		}
+      		return reps
+	  	} else {
+      		return this.repoNameCtrl.value
+		  }
 	}
 
 	/** Whether the number of selected elements matches the total number of rows. */
@@ -260,40 +318,12 @@ export class BuildPackagesComponent implements OnInit {
 	private dependenciesSelectionChanged() {
 
 		this.selectedDependencies.selected.forEach((p) => {
+			let rep: Repository = this.findDeploymentRepoForName(p.repository)
 
-			this.deploymentSet.source.include.push(p.name)
+			if (rep != null) {
+				rep.include.push(p.name)
+			}
 		})
-	}
-
-	public gitAPIActivated(active: boolean) {
-	  this.apiEnabled = active
-  }
-
-	public selectedGitRepoChanged(repo: GitRepo) {
-
-		if (!this.deploymentSet || this._selectedGit != repo) {
-
-		  this._selectedGit = repo
-
-			if (this.deploymentSet && this.deploymentSet.source.gitRepository != this._selectedGit.name)
-			  this.deploymentSet = this.makeDeploymentSet(this.deploymentSet.name, this.deploymentSet.source)
-		}
-	}
-
-	public selectedSourcesDidLoad(sourceWrapper: SourceWrapper) {
-
-		this._gitSelectionModel = sourceWrapper.model
-	}
-
-	public selectedSourcesDidChange(sourceWrapper: SourceWrapper) {
-
-	  this._freshReload = false
-
-		this.deploymentSet.source = sourceWrapper.source
-		this._gitSelectionModel = sourceWrapper.model
-
-		if (this.deploymentSet.name)
-			this.checkDependencies()
 	}
 
 	public haveDependencies(): boolean {
@@ -313,35 +343,61 @@ export class BuildPackagesComponent implements OnInit {
 		while(p=this.selectedDependencies.selected.pop()) {
 
 			this.removeDependency(p)
-			this._gitSelectionModel.select(p.name)
+			//this._gitSelectionModel.select(p.name) // TODO: this will go in popup version of git browser
+
+			// we need to add it to repo in the list, or even the repo to the list if not present
+
+			let repo: Repository = null
+
+			for (let r of this.repositories.data) {
+				if (r.name == p.repository) {
+					// got it
+					repo = r
+					break
+				}
+			}
+
+			if (repo == null) {
+				let path: string = null
+				for(let r of this.values.gitRepos) {
+					if (r.name == p.repository) {
+						path = r.packages
+						break
+					}
+				}
+
+				repo = new Repository(p.repository, path)
+				this.repositories.data.push(repo)
+			}
+
+			repo.include.push(p.name)
 		}
 
-		this.checkDependencies()
+		this.indexOnServer(false)
+		this.repoTable.renderRows()
 		this.dependentsTable.renderRows()
-	}
-
-	public addSelectedDependentsToIgnore() {
-
-		let p: WmPackageInfo = null
-
-		while(p=this.selectedDependencies.selected.pop()) {
-
-			this.removeDependency(p)
-			this.deploymentSet.source.exclude.push(p.name)
-		}
 
 		this.saveDeploymentSet(false)
 	}
 
-	public whichTabToShow() {
+  	public addSelectedDependentsToIgnore() {
 
-	  if (this._freshReload && this.deploymentSet && this.deploymentSet.source.include.length > 0)
-	    return 0
-	  else
-	    return 1
-  }
+    	let p: WmPackageInfo = null
 
-  public reindexDeploymentSet(event) {
+    	while(p=this.selectedDependencies.selected.pop()) {
+
+      		this.removeDependency(p)
+
+			this.repositories.data.forEach((r) => {
+				// don't which one it refers to so will add to all, doh!
+				r.exclude.push(p.name)
+			})
+    	}
+
+    	this.saveDeploymentSet(false)
+  	}
+
+  	public reindexDeploymentSet(event) {
 
 		event.target.disabled = true
 		this.indexOnServer(true, event.target)
@@ -364,70 +420,47 @@ export class BuildPackagesComponent implements OnInit {
 
 	private loadDeploymentSet(name: string) {
 
-	  let gitURI: string = this.deploymentSet.source.gitURI
-
 		this._configService.deploymentSet(name).subscribe((d) => {
 
-		  this._freshReload = true
 			this.deploymentSet = d
-			this.repoNameCtrl.setValue(d.source.gitRepository, {onlySelf: true, emitEvent: false})
-      this.repoNameCtrlIsDisabled = true
 
-		  //this.deploymentSet.source.gitURI = gitURI
+			let selectedReps: string[] = []
 
-      // update deployment set to reference current git info
+      		this.deploymentSet.source[0].repositories.forEach((r) => {
+        		selectedReps.push(r.name)
+      		})
 
-      this._settings.values().subscribe( v => {
+			this.repoNameCtrl.setValue(selectedReps, {onlySelf: true, emitEvent: false})
 
-        if (!v.gitUser && !v.gitName) {
+			this.repositories.data = this.deploymentSet.source[0].repositories
+			this.repoTable.renderRows()
 
-          // git is not setup, don't do now't
+			// update deployment set to reference current git info
 
-          window.alert("Warning - You haven't setup you git preferences!!")
+      		this._settings.values().subscribe( v => {
 
-        } else {
+        		if (!v.gitUser && !v.gitName) {
 
-          this.deploymentSet.source.gitURI = v.gitUri
+          		// git is not setup, don't do now't
 
-          if (!this.deploymentSet.source.gitURI.endsWith("/"))
-				    this.deploymentSet.source.gitURI = this.deploymentSet.source.gitURI + "/"
+          			window.alert("Warning - You haven't setup you git preferences!!")
+        		} else {
+					this.deploymentSet.source[0].gitURI = v.completeGitUri()
+        		}
+      		})
 
-			    if (v.gitName)
-				    this.deploymentSet.source.gitURI += [ v.gitName ]
-			    else
-				    this.deploymentSet.source.gitURI += [ v.gitUser ]
+      		this.deploymentNameCtrl.setValue(d.name, {onlySelf: true, emitEvent: false})
 
-			    this.deploymentSet.source.gitURI += "/" + d.source.gitRepository + ".git"
-
-          this.saveDeploymentSet(true)
-        }
-        //this.indexOnServer(false)
-      })
-
-      this.deploymentNameCtrl.setValue(d.name, {onlySelf: true, emitEvent: false})
+			this.indexOnServer(false)
 		})
 	}
 
-	private selectPackagesForCurrentDeploymentSet() {
-
-		if (this.deploymentSet.source && this.deploymentSet.source.include) {
-
-			if (this._gitSelectionModel) {
-				this.deploymentSet.source.include.forEach((r) => {
-					this._gitSelectionModel.select(r)
-				})
-			}
-
-			this.checkDependencies()
-		}
-	}
-
-	private saveDeploymentSet(indexOnCompletion: boolean) {
+	private saveDeploymentSet(indexOnCompletion: boolean, reclone?: boolean) {
 
 		this._configService.uploadDeploymentSet(this.deploymentSet).subscribe((d) => {
 
 			if (indexOnCompletion)
-				this.indexOnServer(false)
+				this.indexOnServer(reclone)
 
 			if (!this.isExistingDeploymentSet())
 				this.deploymentSets.push(this.deploymentSet.name)
@@ -436,45 +469,55 @@ export class BuildPackagesComponent implements OnInit {
 
 	private indexOnServer(reindex: boolean, button?: any) {
 
-		this.indexing = true
+		this._isIndexing = true
+		this._indexingSnackbarRef = this._snackbar.open('Indexing git repository(s), dependency checking will not work until complete');
+		this._packagesService.index(this.deploymentSet.name, this.deploymentSet.source[0], reindex).subscribe((packages) => {
 
-		this._packagesService.index(this.deploymentSet.name, this._selectedGit.config.packages, this.deploymentSet.source, reindex).subscribe((packages) => {
-
-			this.indexing = false
+			this._isIndexing = false
+			this._indexingSnackbarRef.dismiss()
 
 			if (button)
 			  button.disabled = false
 
-			if (this.deploymentSet.source.include.length > 0)
+			if (this.deploymentSet.source[0].repositories.length > 0)
 				this.checkDependencies()
-			  this.selectPackagesForCurrentDeploymentSet()
+
 		}, error => {
-		  this.indexing = false
-    })
+			this._isIndexing = false
+			this._snackbar.open('Indexing failed: ' + error, 'Sorry', {duration: 3000})
+    	})
 	}
 
-	private checkDependencies() {
+  	private checkDependencies() {
 
-		let l: string[] = this.convertToStringList(this.deploymentSet.source)
+		if (this._isIndexing)
+		  return
+
+		let l: string[] = this.getAllPackagesForSource(this.deploymentSet.source[0])
 
 		if (l.length > 0) {
 
-		  let dir: string = this.deploymentSet.source.gitRepository
+      		this.deploymentSet.source[0].repositories.forEach((r) => {
 
-		  if (this._selectedGit.config.packages.startsWith("/"))
-        dir += this._selectedGit.config.packages
-		  else
-		    dir += "/" + this._selectedGit.config.packages
+        		this._packagesService.checkDependenciesForPackages(l, this.deploymentSet.name).subscribe((d) => {
 
-			this._packagesService.checkDependenciesForPackages(l, dir).subscribe((r) => {
+					this.dependencies = []
+					d.dependencies.forEach((p) => {
+						let found: boolean = false
+						for(let r of this.repositories.data) {
+							if (r.include.indexOf(p.name) != -1 || r.exclude.indexOf(p.name) != -1) {
+								found = true
+								break
+							}
+						}
 
-				this.dependencies = r.dependencies
-
-				this.rebuildAPIList(r.packages)
-
-				if (this.deploymentSetAPIsTable)
-					this.deploymentSetAPIsTable.renderRows()
-			})
+						if (!found) {
+							this.dependencies.push(p)
+						}
+					})
+          			this.rebuildAPIList(r, d.packages)
+        		})
+      		})
 
 			this.saveDeploymentSet(false)
 
@@ -483,9 +526,10 @@ export class BuildPackagesComponent implements OnInit {
 		}
 	}
 
-	private rebuildAPIList(packages: WmPackageInfo[]) {
+	private rebuildAPIList(r: Repository, packages: WmPackageInfo[]) {
 
 		this.deploymentSet.apis = []
+		r.selectedAPIs = []
 
 		packages.forEach((p) => {
 
@@ -495,6 +539,12 @@ export class BuildPackagesComponent implements OnInit {
 						this.deploymentSet.apis.push(a)
 					}
 				})
+
+				if (r.name == p.name || r.include.indexOf(p.name) != -1) {
+					p.apis.forEach((a) => {
+						r.selectedAPIs.push(a)
+					})
+				}
 			}
 		})
 	}
@@ -504,9 +554,9 @@ export class BuildPackagesComponent implements OnInit {
 		if (!this.deploymentSet.apis || this.deploymentSet.apis.length == 0)
 			return true
 
-		var notFound: boolean = true
+		let notFound: boolean = true
 
-		for (var i=0; i < this.deploymentSet.apis.length; i++) {
+		for (let i = 0; i < this.deploymentSet.apis.length; i++) {
 
 			if (this.deploymentSet.apis[i].name == a.name) {
 				notFound = false
@@ -519,19 +569,27 @@ export class BuildPackagesComponent implements OnInit {
 
 	private clear() {
 
-	  this.repoNameCtrlIsDisabled = false
 		this.deploymentSet = this.makeDeploymentSet()
-		if (this._gitSelectionModel) {
-			this._gitSelectionModel.clear()
-		}
+		this.dependencies = []
+    	this.repositories.data = this.deploymentSet.source[0].repositories
+
+		if (this.repoTable)
+			this.repoTable.renderRows()
 	}
 
-	private convertToStringList(source: Source): string[] {
+	private getAllPackagesForSource(source: Source): string[] {
 
-		var out: string[] = []
-		source.include.forEach((p) => {
-				out.push(p)
-		})
+		let out: string[] = []
+    	source.repositories.forEach((r) => {
+
+      	if (r.include.length == 0 && r.path == null) {
+        	out.push(r.name)
+      	} else {
+        	r.include.forEach((p) => {
+          		out.push(p)
+        	})
+		  }
+    	})
 
 		return out
 	}
@@ -541,21 +599,20 @@ export class BuildPackagesComponent implements OnInit {
 		let deploymentSet: DeploymentSet = new DeploymentSet()
 		deploymentSet.name = name ? name : null
 		let s: Source = sources || new Source()
-		s.type = "package"
 
-		let values = this._settings.values().subscribe((v) => {
+		this._settings.values().subscribe((v) => {
 
-			if (!v.gitUri.endsWith("/"))
-				v.gitUri = v.gitUri + "/"
+      		if (!v.gitUri.endsWith("/"))
+        		v.gitUri = v.gitUri + "/"
 
-			s.gitURI = v.gitUri + v.gitUser + "/" + this._selectedGit.name + ".git"
+			s.gitURI = v.gitUri
+      		s.gitURI += + v.gitUser
 
-			s.gitUser = v.gitUser
-			s.gitPassword = v.gitPassword
-			s.gitRepository = this._selectedGit.id
+      		s.gitUser = v.gitUser
+      		s.gitPassword = v.gitPassword
 		})
 
-		deploymentSet.source = s
+		deploymentSet.source[0] = s
 
 		return deploymentSet
 	}
@@ -565,7 +622,7 @@ export class BuildPackagesComponent implements OnInit {
       if (!name || !this.deploymentSets)
         return -1
 
-      var found: number = -1
+      let found: number = -1
 
       for (var i=0; i < this.deploymentSets.length; i++) {
 
@@ -576,5 +633,49 @@ export class BuildPackagesComponent implements OnInit {
       }
 
       return found
-  }
+  	}
+
+	private availableRepositoryWithName(name: string): Repository {
+
+		let found: Repository = null
+
+		for (let r of this._availableRepositories) {
+			if (r.name == name) {
+				found = r
+				break
+			}
+		}
+
+		return found
+	}
+
+	private findRepoForName(repo: string): Repository {
+
+		let found: Repository = null
+
+		for(let r of this.repositories.data) {
+			if (r.name == repo) {
+				found = r
+				break
+			}
+		}
+
+		return found
+	}
+
+	private findDeploymentRepoForName(repo: string): Repository {
+
+		let found: Repository = null
+
+		if (this.deploymentSet != null) {
+			for(let r of this.deploymentSet.source[0].repositories) {
+				if (r.name == repo) {
+					found = r
+					break
+				}
+			}
+		}
+
+		return found
+	}
 }

@@ -1,18 +1,17 @@
-import { ViewChild, OnInit, OnDestroy }                 from '@angular/core'
+import { ViewChild, OnInit, OnDestroy }                from '@angular/core'
 import { Component, ChangeDetectorRef }                from '@angular/core'
 
 import { ActivatedRoute, RouterOutlet, Router,
-  NavigationEnd }                                       from '@angular/router'
+  NavigationEnd }                                      from '@angular/router'
 
 import { Location }                                    from "@angular/common"
 
-import { trigger, state, style, transition, animate,
+import { trigger, style, transition, animate,
               query, group, animateChild }             from '@angular/animations'
 
 import { MediaMatcher }                                from '@angular/cdk/layout'
 
 import { MatDialog }                                   from '@angular/material/dialog'
-import { MatAccordion }                                from '@angular/material/expansion'
 import { AboutComponent }                              from './components/about.component'
 import {filter, map, startWith} from 'rxjs/operators'
 import {Observable} from 'rxjs'
@@ -107,7 +106,8 @@ export class AppComponent implements OnInit, OnDestroy {
           var m = menus.get(this.currentRouteURL)
 
           if (m != null) {
-            this.currentMenu.description = m.description
+              this.currentMenu.label = m.label
+              this.currentMenu.description = m.description
           }
         //}
       })
@@ -180,6 +180,7 @@ const menus:Map<string, any> = new Map([
        "children": [
          "/build",
          "/build/package",
+           "/build/properties",
          "/build/image"
        ]
      }
@@ -238,6 +239,10 @@ const menus:Map<string, any> = new Map([
        "label": "Package Source Code",
        "description": "Group your source code and configuration in preparation for creating a micro service image"
      }],
+    ["/build/properties", {
+        "label": "Configuration Variables",
+        "description": "Create and edit configuration variables template for webMethods Microservices runtime"
+    }],
      ["/build/image", {
        "label": "Create Microservice Image",
        "description": "Combine your base webMethods packages and source code into a self contained image, ready to be deployed and tested."

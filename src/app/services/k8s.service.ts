@@ -20,10 +20,11 @@ export class K8sService {
   //public static DEPLOYMENTS: string = "/apis/extensions/v1beta1/namespaces/NMESPCE/deployments"
   //public static DEPLOY: string = "/apis/apps/v1/namespaces/NMESPCE/deployments/NAMEDEPLOY"
 
-  public static NAMESPACES: string = Settings.SERVER_API + "/rad/jc.devops:api/k8s/namespace"
-  public static DEPLOYMENTS: string = Settings.SERVER_API + "/rad/jc.devops:api/k8s/deployments"
-  public static SCALE: string = Settings.SERVER_API + "/rad/jc.devops:api/k8s/scale"
-  public static UPDATE: string = Settings.SERVER_API + "/rad/jc.devops:api/k8s/update"
+    public static NAMESPACES: string = Settings.SERVER_API + "/rad/jc.devops:api/k8s/namespace"
+    public static DEPLOYMENTS: string = Settings.SERVER_API + "/rad/jc.devops:api/k8s/deployments"
+    public static DEPLOYMENT: string = Settings.SERVER_API + "/rad/jc.devops:api/k8s/deployment"
+    public static SCALE: string = Settings.SERVER_API + "/rad/jc.devops:api/k8s/scale"
+    public static UPDATE: string = Settings.SERVER_API + "/rad/jc.devops:api/k8s/update"
 
   //  public static URL: string = "/apis/apps/v1/namespaces/NMESPCE/pods"
     //public static RESOURCE: string = "/api/v1/namespaces/NMESPCE/pods"
@@ -155,6 +156,27 @@ export class K8sService {
     public rollbackLastChange(deployment: K8sDeploymentDefinition): Observable<boolean> {
 
         return of(true)
+    }
+
+    public deleteDeployment(deployment: K8sDeploymentDefinition): Observable<boolean> {
+
+        // let url: string = this._K8sUrl + K8sDeploymentService.DEPLOY.replace(/NMESPCE/, deployment.namespace)
+        //                                                     .replace(/NAMEDEPLOY/, deployment.name)
+
+        let url: string = K8sService.DEPLOYMENT + "/" + deployment.namespace + "/" + deployment.name
+
+        let headers = new HttpHeaders()
+            .append('Content-Type', 'application/json')
+            .append('Accept', 'application/json')
+        //.append('Authorization', 'Bearer ' + this._K8sToken)
+
+        return this._http.delete(url, { headers }).pipe(map((responseData) => {
+
+            return true
+        }), catchError((error) => {
+            console.log("operation failed due to:" + error.message)
+            return of(false)
+        }))
     }
 
     public scalePods(deployment: K8sDeploymentDefinition, count: number): Observable<boolean> {

@@ -5,9 +5,8 @@ import {Router} from '@angular/router'
 import { MatDialog } from '@angular/material/dialog'
 import { MatTable } from '@angular/material/table'
 
-import {FormControl} from '@angular/forms'
-import {Container, Deployment, Port, RunSet} from '../models/project'
-import {DockerImage, TestStatus} from '../models/docker-image'
+import { Container, Port} from '../models/container';
+import {TestStatus} from '../models/docker-image'
 import {ConfigurationService} from '../services/configuration.service'
 import {DockerService} from '../services/docker.service'
 import {TestTraceService} from '../services/test-trace.service'

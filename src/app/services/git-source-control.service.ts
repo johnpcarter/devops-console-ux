@@ -15,8 +15,11 @@ export class GitRepo {
 
   public config: RepoSettings
 
-	constructor(public id: string, public name: string) {
+	constructor(public id: string, public name?: string, public description?: string, public defaultBranch?: string) {
 
+	  if (this.name == null) {
+		  this.name = this.id
+	  }
 	}
 }
 export enum FileStatus {
@@ -100,16 +103,7 @@ export class GitSourceService {
 
     	this._settings.values().subscribe((v) => {
 
-    	  this._values = v
-    	  this._gitType = v.gitType
-    		this._gitAPIUrl  = v.gitAPIUrl
-    		this._gitName = v.gitName
-    		this._gitUser = v.gitUser
-    		this._gitPassword = v.gitPassword
-    		this._gitIsPACPassword = v.gitIsPACPassword
-
-    		if (this._gitAPIUrl.endsWith("/"))
-    			this._gitAPIUrl = this._gitAPIUrl.substring(0, this._gitAPIUrl.length-1)
+    	  	this.setup(v)
     	})
     }
 
@@ -122,7 +116,7 @@ export class GitSourceService {
       }
     }
 
-    public repositories(git: string) {
+    public repositories(git: string, v?: Values) {
 
     	let all: string
     	let template: string
@@ -130,6 +124,10 @@ export class GitSourceService {
     	let headers = new HttpHeaders()
 				.append('Content-Type', 'application/json')
 				.append('Accept', 'application/json')
+
+		if (this._gitType == null && v != null) {
+			this.setup(v)
+		}
 
     	if (this._gitType == GitType.github) {
 
@@ -283,7 +281,7 @@ export class GitSourceService {
     	let names: GitRepo[] = []
 
     	responseData.forEach((r) => {
-    		names.push(new GitRepo(this._gitType == GitType.github ? r.name : r.id, r.name))
+    		names.push(new GitRepo(this._gitType == GitType.github ? r.name : r.id, r.name, r.description, r.default_branch))
     	})
 
     	return names.sort((a,b)=> {
@@ -307,4 +305,18 @@ export class GitSourceService {
     	else
     		return this._gitUser + ":" + this._gitPassword
     }
+
+	private setup(v: Values) {
+
+		this._values = v
+		this._gitType = v.gitType
+		this._gitAPIUrl  = v.gitAPIUrl
+		this._gitName = v.gitName
+		this._gitUser = v.gitUser
+		this._gitPassword = v.gitPassword
+		this._gitIsPACPassword = v.gitIsPACPassword
+
+		if (this._gitAPIUrl.endsWith("/"))
+			this._gitAPIUrl = this._gitAPIUrl.substring(0, this._gitAPIUrl.length-1)
+	}
 }

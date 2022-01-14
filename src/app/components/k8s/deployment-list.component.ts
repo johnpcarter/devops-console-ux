@@ -1,11 +1,6 @@
-import { Component, ChangeDetectorRef, OnInit, OnChanges,
-                OnDestroy, Input }                                from '@angular/core'
+import { Component, OnInit, OnChanges, Input }                    from '@angular/core'
 import { Router }                                                 from '@angular/router'
 import { animate, state, style, transition, trigger }             from '@angular/animations'
-import { DataSource }                                             from '@angular/cdk/collections'
-
-import { Observable, of, pipe }                                   from 'rxjs'
-import { map }                                                    from 'rxjs/operators'
 
 import { MatSlideToggleChange }                                   from '@angular/material/slide-toggle'
 import { MatSnackBar }                                            from '@angular/material/snack-bar'
@@ -16,8 +11,6 @@ import { K8sDeploymentDefinition }                                from '../../mo
 
 import { K8sService }                                             from '../../services/k8s.service'
 import { ConfigurationService }                                   from '../../services/configuration.service'
-import { RuntimeScaleComponent }                                  from './runtime-scale.component'
-import { RuntimeUpdateComponent }                                 from './runtime-update.component'
 
 @Component({
   selector: 'jc-k8s-deployments',
@@ -102,6 +95,19 @@ export class DeploymentListComponent implements OnInit, OnChanges {
 
     }
 
+    public deleteDeployment(deployment: K8sDeployment) {
+    //TODO:
+
+      this._snackBar.open("Deleting deployment")
+
+      this._k8sService.deleteDeployment(deployment).subscribe((result) => {
+        if (result) {
+          this._snackBar.dismiss()
+        } else {
+          this._snackBar.open("Delete failed", "Dismiss", {duration: 5000})
+        }
+      })
+    }
     public showExpandedAreaForRow(row: any) {
 
       if (this.expandedElement == row)

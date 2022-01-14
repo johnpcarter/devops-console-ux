@@ -1,31 +1,69 @@
+import {APIDefinition} from './wm-package-info';
+
+export class Repository {
+    public name: string
+    public description: string
+    public branch: string
+    public path: string
+    public configPath: string
+    public type: string
+    public include: string[]
+    public exclude: string[]
+
+    public selectedAPIs: APIDefinition[] = [] // only used for display purposes, NOT to be persisted
+
+    public constructor(name: string, path?: string, configPath?: string) {
+
+        this.name = name
+        this.path = path
+        this.configPath = configPath
+
+        this.include = []
+        this.exclude = []
+    }
+
+    public static make(data: any): Repository {
+
+        let r: Repository = new Repository(data.name)
+
+        r.path = data.path
+        r.configPath = data.configPath
+        r.type = data.type
+
+        if (data.include)
+            r.include = data.include
+
+        if (data.exclude)
+            r.exclude = data.exclude
+
+        return r
+    }
+}
 
 export class Source {
 
+    public type: string
+    public name: string
   	public gitURI: string
   	public gitUser: string
   	public gitPassword: string
-  	public gitRepository: string
-  	public type: string
-  	public include: string[]
-  	public exclude: string[]
+    public repositories: Repository[]
   	public targetDir: string
 
- 	public constructor() {
+ 	  public constructor() {
+      this.repositories = []
+    }
 
-  		this.include = []
-  		this.exclude = []
-  	}
+    public merge(other: Source) {
 
- 	public merge(other: Source) {
+        if (other.type)
+             this.type = other.type
 
- 		this.include = other.include
- 		this.exclude = other.exclude
+        if (other.name)
+            this.name = other.name
 
  		if (other.gitURI)
  			this.gitURI = other.gitURI
-
- 		if (other.gitRepository)
- 		  this.gitRepository = other.gitRepository
 
  		if (other.gitUser)
  			this.gitUser = other.gitUser
@@ -33,8 +71,11 @@ export class Source {
  		if (other.gitPassword)
  			this.gitPassword = other.gitPassword
 
- 		if (other.type)
- 			this.type = other.type
+ 	    if (other.repositories) {
+            other.repositories.forEach((r) => {
+                this.repositories.push(Repository.make(r))
+            })
+        }
 
  		if (other.targetDir)
  			this.targetDir = other.targetDir
@@ -43,18 +84,18 @@ export class Source {
  	public static make(data: any): Source {
 
  		let s: Source = new Source()
-		s.gitURI = data.gitURI
-		s.gitRepository = data.gitRepository
+		s.type = data.type || 'git'
+        s.name = data.name
+        s.gitURI = data.gitURI
 		s.gitUser = data.gitUser
 		s.gitPassword = data.gitPassword
 		s.targetDir = data.targetDir
-		s.type = data.type
 
-		if (data.include)
-			s.include = data.include
-
-		if (data.exclude)
-			s.exclude = data.exclude
+        if (data.repositories) {
+            data.repositories.forEach((r) => {
+                s.repositories.push(Repository.make(r))
+            })
+        }
 
 		return s
  	}

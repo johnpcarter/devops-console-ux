@@ -14,12 +14,18 @@ import {DockerImage} from '../models/docker-image';
 import {ResourceService} from '../services/resources.service';
 
 import {DockerService} from '../services/docker.service';
-import {Arg, Builder, Container, ContainerType, Deployment, DeploymentSet, RunSet} from '../models/project';
 import {APIDefinition} from '../models/wm-package-info';
 import {ConfigurationService} from '../services/configuration.service';
 import {EditContainerComponent} from './staging.component';
 import {ContainerTemplates} from '../support/container.templates';
 import {BuildExeComponent} from './build-exe.component';
+import {ContainerSet, RunSet} from '../models/project';
+import {Arg, Container, ContainerType} from '../models/container';
+import {BuildCommand, Builder, DeploymentSet} from '../models/build';
+import {Property, PropertyValueType} from '../models/properties';
+import {BuildPropertiesComponent} from './build-properties.component';
+import {Observable, of} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'runtime-deploy',
@@ -233,7 +239,7 @@ export class RuntimeDeployComponent implements OnInit {
 
     if (container && container.type == ContainerType.msr) {
 
-      let svc: Deployment = this.currentRunSet.deploymentForContainer(container)
+      let svc: ContainerSet = this.currentRunSet.deploymentForContainer(container)
 
       if (svc) {
         this.setAPIEndPointForContainer(svc, container)
@@ -274,7 +280,7 @@ export class RuntimeDeployComponent implements OnInit {
     })
   }
 
-  public deployments(): Deployment[] {
+  public deployments(): ContainerSet[] {
 
     if (this.currentRunSet && this.currentRunSet.deployments) {
       return this.currentRunSet.deployments
@@ -679,8 +685,10 @@ export class RuntimeDeployComponent implements OnInit {
 
           build.deployments.forEach((d) => {
 
-            d.source.include.forEach((p) => {
-              this.packages.push(p)
+            d.source[0].repositories.forEach((r) => {
+              r.include.forEach((p) => {
+                this.packages.push(p)
+              })
             })
 
             d.apis.forEach((a) => {
@@ -730,7 +738,7 @@ export class RuntimeDeployComponent implements OnInit {
     return found
   }
 
-  private setContainerForBuild(b: Builder): Deployment {
+  private setContainerForBuild(b: Builder): ContainerSet {
 
     let container: Container = this.currentRunSet.containerInDeploymentFor(b.hyphenatedName())
 
@@ -738,13 +746,14 @@ export class RuntimeDeployComponent implements OnInit {
 
       this.currentRunSet.namespace = 'webmethods'
 
-      let service: Deployment = new Deployment(this.currentRunSet.namespace)
+      let service: ContainerSet = new ContainerSet(this.currentRunSet.namespace)
       service.name = b.name
       service.apis = this.selectedAPIs.selected
 
       let container: Container = new Container()
       container.name = b.hyphenatedName()
       container.type = ContainerType.msr
+
 
       this._containerTemplates.configureContainerFor(container, b.targetImage, b.deploymentType || 'msr', this._settings.currentEnvironment).subscribe((success) => {
         container.name = b.hyphenatedName()
@@ -753,13 +762,59 @@ export class RuntimeDeployComponent implements OnInit {
 
         service.containers.push(container)
         this.currentRunSet.deployments.push(service)
+
+        this.propertiesForBuild(b).subscribe((properties) => {
+
+          let env: Arg[] = []
+
+          properties.forEach((p) => {
+            env.push(new Arg(p.value, "", p.description, true))
+          })
+
+          container.environments[0].env.forEach((a) => {
+            env.push(a)
+          })
+
+          container.environments[0].env = env
+        })
       })
 
       return service
     }
   }
 
-  private setAPIEndPointForContainer(svc: Deployment, c: Container) {
+  private propertiesForBuild(builder: Builder): Observable<Property[]> {
+
+    let propCommand: BuildCommand = null
+
+    for (let i=0; i < builder.buildCommands.length; i++) {
+      if (builder.buildCommands[i].fileType == 'properties') {
+        propCommand = builder.buildCommands[i]
+        break
+      }
+    }
+
+    let props: Property[] = []
+
+    if (propCommand != null) {
+      return this._resources.getResourceContent("properties", propCommand.source).pipe(map((data) => {
+
+        data.properties.forEach((p) => {
+
+          let property = Property.make(p)
+            if (property.type == PropertyValueType.environment) {
+              props.push(property)
+            }
+        })
+
+        return props
+      }))
+    } else {
+      return of([])
+    }
+  }
+
+  private setAPIEndPointForContainer(svc: ContainerSet, c: Container) {
 
     svc.apis.forEach((a) => {
       a.endPoint = c.name + ':' + c.environmentSettings(this._settings.currentEnvironment).ports[0].internal
@@ -768,10 +823,10 @@ export class RuntimeDeployComponent implements OnInit {
 
   private addAPIGatewayContainer(gatewayImage?: DockerImage) {
 
-    let apiService: Deployment = this.serviceFor('API Management')
+    let apiService: ContainerSet = this.serviceFor('API Management')
 
     if (apiService == null) {
-      apiService = new Deployment(this.currentRunSet.namespace)
+      apiService = new ContainerSet(this.currentRunSet.namespace)
       apiService.name = 'API Management'
 
       this.currentRunSet.deployments.unshift(apiService)
@@ -802,7 +857,7 @@ export class RuntimeDeployComponent implements OnInit {
 
     this.currentRunSet.builds.forEach((b) => {
 
-      let service: Deployment = this.serviceFor(b.name)
+      let service: ContainerSet = this.serviceFor(b.name)
 
       if (service != null) {
         let msrContainer: Container = this.containerInServiceForType(service, ContainerType.msr)
@@ -838,7 +893,7 @@ export class RuntimeDeployComponent implements OnInit {
     })
   }
 
-  private _setMicrogatewayContainer(microGatewayImage: DockerImage, deploymentLayer: Deployment, type: string, microServiceContainer: Container) {
+  private _setMicrogatewayContainer(microGatewayImage: DockerImage, deploymentLayer: ContainerSet, type: string, microServiceContainer: Container) {
 
     let microContainer: Container = this.containerInServiceForType(deploymentLayer, ContainerType.apimg)
     let selectedAPIS: string = this.containerAPIs()
@@ -888,10 +943,10 @@ export class RuntimeDeployComponent implements OnInit {
 
   private addPortalContainer(image?: DockerImage) {
 
-    let apiService: Deployment = this.serviceFor('API Management')
+    let apiService: ContainerSet = this.serviceFor('API Management')
 
     if (apiService == null) {
-      apiService = new Deployment(this.currentRunSet.namespace)
+      apiService = new ContainerSet(this.currentRunSet.namespace)
       apiService.name = 'API Management'
 
       this.currentRunSet.deployments.push(apiService)
@@ -930,13 +985,13 @@ export class RuntimeDeployComponent implements OnInit {
     return apis
   }
 
-  private serviceFor(id: string): Deployment {
+  private serviceFor(id: string): ContainerSet {
 
     if (this.currentRunSet == null) {
       return
     }
 
-    let found: Deployment = null
+    let found: ContainerSet = null
 
     for (var i = 0; i < this.currentRunSet.deployments.length; i++) {
 
@@ -949,7 +1004,7 @@ export class RuntimeDeployComponent implements OnInit {
     return found
   }
 
-  private containerInServiceForType(service: Deployment, type: ContainerType): Container {
+  private containerInServiceForType(service: ContainerSet, type: ContainerType): Container {
 
     let found: Container = null
 
@@ -964,7 +1019,7 @@ export class RuntimeDeployComponent implements OnInit {
     return found
   }
 
-  private containerIndexInServiceFor(service: Deployment, type: ContainerType): number {
+  private containerIndexInServiceFor(service: ContainerSet, type: ContainerType): number {
 
     let found: number = -1
 

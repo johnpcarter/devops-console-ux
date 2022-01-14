@@ -1,13 +1,13 @@
-import { Component, EventEmitter, OnInit, Input,
-			    ViewChild, Output }   						            from '@angular/core'
-import {FormBuilder, FormGroup, FormControl} 					  		from '@angular/forms'
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 
-import {  MatTable }                                    				from '@angular/material/table'
+import {MatTable} from '@angular/material/table';
 
-import { BuildCommand }            				              			from '../models/project'
-import { ResourceService }                            					from '../services/resources.service'
+import { ResourceService } from '../services/resources.service';
 
-import * as $ from 'jquery'
+import * as $ from 'jquery';
+import {BuildCommand} from '../models/build';
+import {DisplayType} from '../models/display-type';
 
 @Component({
   selector: 'build-commands',
@@ -25,7 +25,9 @@ export class BuildCommandsComponent implements OnInit {
 	@Output()
 	public commandsChanged: EventEmitter<BuildCommand[]> = new EventEmitter()
 
-	public _displayedArgColumnsEdit: string[] = ["cmdEdit", "typeEdit", "srcEdit", "srcEditUpload", "tgtEdit", "descriptionEdit", "remove"]
+	public showHiddenCommands: boolean = false
+
+	public _displayedArgColumnsEdit: string[] = ["cmdEdit", "typeEdit", "srcEdit", "srcEditUpload", "tgtEdit", "descriptionEdit", 'move', "remove"]
 	public _displayedArgColumnsEditMin: string[] = ["cmdEdit", "typeEdit", "srcEdit", "srcEditUpload", "tgtEdit"]
 
 	public _displayedArgColumnsReadOnly: string[] = ["cmd", "src", "tgt", "description", "srcDownload"]
@@ -39,8 +41,6 @@ export class BuildCommandsComponent implements OnInit {
 	public resourceFiles: string[]
 	public licenseFiles: string[]
 	public propertyFiles: string[]
-
-	//private _allVersions: DockerImage[] = []
 
 	private _panelStatus: Map<string,boolean>
 	private _ignoreChanges: boolean = false
@@ -82,6 +82,28 @@ export class BuildCommandsComponent implements OnInit {
 	public ngOnInit() {
 
 		this._panelStatus = new Map()
+	}
+
+	public toggleShowHideCommands() {
+		this.showHiddenCommands = !this.showHiddenCommands
+	}
+
+	public filteredCommands(): BuildCommand[] {
+
+		if (this.showHiddenCommands) {
+			return this.commands
+		} else {
+
+			let fc: BuildCommand[] = []
+
+			this.commands.forEach((c) => {
+				if (c.display != DisplayType.hidden) {
+					fc.push(c)
+				}
+			})
+
+			return fc
+		}
 	}
 
 	public flagChanges() {
@@ -132,7 +154,7 @@ export class BuildCommandsComponent implements OnInit {
 
 	public downloadFile(type: string, name: string) {
 
-		this._resources.downloadResource(type, name)
+		this._resources.downloadResourceViaBrowser(type, name)
 	}
 
 	public fileUploaded(element: BuildCommand, filename: string) {
@@ -220,16 +242,61 @@ export class BuildCommandsComponent implements OnInit {
 		}
 
 		if (found != -1) {
-
-		  this.form.removeControl("fileType:" + found)
-		  this.form.removeControl("commandType:" + found)
-		  this.form.removeControl("source:" + found)
-      this.form.removeControl("target:" + found)
-      this.form.removeControl("description:" + found)
+			this.form.removeControl("fileType:" + found)
+		  	this.form.removeControl("commandType:" + found)
+		  	this.form.removeControl("source:" + found)
+      		this.form.removeControl("target:" + found)
+      		this.form.removeControl("description:" + found)
 
 			this.commands.splice(found, 1)
 			this.table.renderRows()
 
+			this.flagChanges()
+		}
+	}
+
+	public moveUp(command: BuildCommand) {
+
+		// find position of current row
+
+		let found = -1
+
+		for (let i=0; i < this.commands.length; i++) {
+
+			if (this.commands[i] == command) {
+				found = i
+			}
+		}
+
+		if (found != -1 && found > 0) {
+
+			this.commands.splice(found, 1)
+			this.commands.splice(found - 1, 0, command)
+
+			this.table.renderRows()
+			this.flagChanges()
+		}
+	}
+
+	public moveDown(command: BuildCommand) {
+
+		// find position of current row
+
+		let found = -1
+
+		for (let i=0; i < this.commands.length; i++) {
+
+			if (this.commands[i] == command) {
+				found = i
+			}
+		}
+
+		if (found != -1 && found < this.commands.length) {
+
+			this.commands.splice(found, 1)
+			this.commands.splice(found + 1, 0, command)
+
+			this.table.renderRows()
 			this.flagChanges()
 		}
 	}
@@ -263,7 +330,7 @@ export class BuildCommandsComponent implements OnInit {
 		if (this.form.controls[name]) {
 			ctrl = <FormControl> this.form.controls[name]
 
-			if (this._ignoreChanges)
+			if (this._ignoreChanges && value)
 				ctrl.setValue(value)
 		} else {
 			ctrl = new FormControl(value)

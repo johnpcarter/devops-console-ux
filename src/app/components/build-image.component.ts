@@ -11,7 +11,7 @@ import { map, startWith }                             from 'rxjs/operators'
 
 import { MatDialog, MAT_DIALOG_DATA }           	    from '@angular/material/dialog'
 import { MatButton }                                  from '@angular/material/button'
-import { Settings }                                   from '../settings'
+import {Settings, Values} from '../settings';
 
 import { DockerImage, VersionType } 								  from '../models/docker-image'
 import { ResourceService }                            from '../services/resources.service'
@@ -20,14 +20,14 @@ import { BuildImageChooseDirective, PropertiesChangedOwner,
 			BuilderProperties, BuilderComponent } 			    from './elements/build-image-choose.directive'
 
 import { DockerService } 				                      from '../services/docker.service'
-import {Builder, BuildCommand, Installer}             from '../models/project'
 import { APIDefinition }                              from '../models/wm-package-info'
 import { ConfigurationService }                       from '../services/configuration.service'
 import { BuildExeComponent }                          from './build-exe.component'
 
 
 import { MicroServiceBuilderComponent }               from './plugins/micro-service-builder.component'
-//import { ApiMicroGatewayInstallerComponent }          from './plugins/apimg-installer.component'
+import {BuildCommand, Builder} from '../models/build';
+import {Installer} from '../models/Installer';
 
 @Component({
   selector: 'build-solution',
@@ -37,18 +37,18 @@ import { MicroServiceBuilderComponent }               from './plugins/micro-serv
 
 export class BuildImageComponent implements OnInit, PropertiesChangedOwner {
 
-	  public selectedImage: DockerImage
+    public selectedImage: DockerImage
     public currentBuild: Builder
     public isLinearStepper: boolean = true
 
   // tslint:disable-next-line:indent
-	  public baseImages: DockerImage[] = []
-	  public customImages: DockerImage[] = []
-	  public licenceFiles: string[] = []
+    public baseImages: DockerImage[] = []
+    public customImages: DockerImage[] = []
+    public licenceFiles: string[] = []
     public builds: string[] = []
-	  public comments: string = ''
+    public comments: string = ''
 
-	  public baseImageFormGroup: FormGroup
+    public baseImageFormGroup: FormGroup
   	public builderFormGroup: FormGroup
   	public propertiesFormGroup: FormGroup
     public commandsFormGroup: FormGroup
@@ -93,13 +93,14 @@ export class BuildImageComponent implements OnInit, PropertiesChangedOwner {
 
   	private _ignoreValuesChange: boolean = false
     private _id: string = null
+    private _values: Values = null
 
     private _customBuilderComponent: BuilderComponent
 
-	  public constructor(private _inboundRouter: ActivatedRoute, private _settings: Settings, private _dockerService: DockerService, private _dialog: MatDialog,
-		private _formBuilder: FormBuilder, private componentFactoryResolver: ComponentFactoryResolver,
-    private _resources: ResourceService, private _configService: ConfigurationService,
-    private _sanitizer: DomSanitizer) {
+    public constructor(private _inboundRouter: ActivatedRoute, private _settings: Settings, private _dockerService: DockerService, private _dialog: MatDialog,
+                       private _formBuilder: FormBuilder, private componentFactoryResolver: ComponentFactoryResolver,
+                       private _resources: ResourceService, private _configService: ConfigurationService,
+                       private _sanitizer: DomSanitizer) {
 
         let sub = this._inboundRouter.params.subscribe(params => {
 
@@ -108,16 +109,19 @@ export class BuildImageComponent implements OnInit, PropertiesChangedOwner {
 
         this._settings.values().subscribe((v) => {
 
-          this._dockerService.baseImages(true).subscribe((d) => {
-            this.baseImages = d
-            this.settingsLoaded = true
+            this._values = v
 
-            if (this._id)
-            this.baseImageSelected(this.imageFor(this._id))
-            this.baseImageTypeCtrl.setValue(this.currentBuild.sourceImage.type, {onlySelf: true})
-          })
+            this._dockerService.baseImages(true).subscribe((d) => {
+                this.baseImages = d
+                this.settingsLoaded = true
 
-          this._dockerService.customImages(true).subscribe((d) => {
+                if (this._id)
+                    this.baseImageSelected(this.imageFor(this._id))
+
+                this.baseImageTypeCtrl.setValue(this.currentBuild.sourceImage.type, {onlySelf: true})
+            })
+
+            this._dockerService.customImages(true).subscribe((d) => {
 
               //this.customImages = d
               d.forEach((i) => {
@@ -152,26 +156,26 @@ export class BuildImageComponent implements OnInit, PropertiesChangedOwner {
 
 	public ngOnInit() {
 
-      this.baseImageCtrl = new FormControl()
-      this.buildCtrl = new FormControl()
-      this.baseImageTypeCtrl = new FormControl()
-  		this.targetImageCtrl = new FormControl()
+        this.baseImageCtrl = new FormControl()
+        this.buildCtrl = new FormControl()
+        this.baseImageTypeCtrl = new FormControl()
+        this.targetImageCtrl = new FormControl()
   		this.licCtrl = new FormControl()
   		this.commentsCtrl = new FormControl()
-      this.targetVersionCtrl = new FormControl("0.0.1")
-      this.versionTypeCtrl = new FormControl("minor")
-      this.dedicatedRepoCtrl = new FormControl()
-      this.targetRepoCtrl = new FormControl()
-      this.buildNameCtrl = new FormControl()
-      this.downloadCtrl = new FormControl(true)
-      this.buildUserCtrl = new FormControl("sagadmin")
-      this.entryUserCtrl = new FormControl("sagadmin")
+        this.targetVersionCtrl = new FormControl("0.0.1")
+        this.versionTypeCtrl = new FormControl("minor")
+        this.dedicatedRepoCtrl = new FormControl()
+        this.targetRepoCtrl = new FormControl()
+        this.buildNameCtrl = new FormControl()
+        this.downloadCtrl = new FormControl(true)
+        this.buildUserCtrl = new FormControl("sagadmin")
+        this.entryUserCtrl = new FormControl("sagadmin")
 
-      this.baseImageFormGroup = this._formBuilder.group({
+        this.baseImageFormGroup = this._formBuilder.group({
             baseImageCtrl: this.baseImageCtrl,
             baseImageTypeCtrl: this.baseImageTypeCtrl,
             buildCtrl: this.buildCtrl
-      })
+        })
 
       this.builderFormGroup = this._formBuilder.group({})
 
@@ -182,11 +186,11 @@ export class BuildImageComponent implements OnInit, PropertiesChangedOwner {
     	})
 
     	this.targetImageFormGroup = this._formBuilder.group({
-      		targetImageCtrl: this.targetImageCtrl,
+            targetImageCtrl: this.targetImageCtrl,
       		targetVersionCtrl: this.targetVersionCtrl,
-          targetRepoCtrl: this.targetRepoCtrl,
-          dedicatedRepoCtrl: this.dedicatedRepoCtrl,
-          versionTypeCtrl: this.versionTypeCtrl
+            targetRepoCtrl: this.targetRepoCtrl,
+            dedicatedRepoCtrl: this.dedicatedRepoCtrl,
+            versionTypeCtrl: this.versionTypeCtrl
     	})
 
     	this.commitFormGroup = this._formBuilder.group({
@@ -265,8 +269,8 @@ export class BuildImageComponent implements OnInit, PropertiesChangedOwner {
 
               this._save()
             } else {
-             this.currentBuild.targetImage.setDedicatedRepository(this.dedicatedRepoCtrl.value)
-             this.currentBuild.targetImage.setName(this.targetImageCtrl.value.name())
+                this.currentBuild.targetImage.setDedicatedRepository(this.dedicatedRepoCtrl.value)
+                this.currentBuild.targetImage.setName(this.targetImageCtrl.value.name())
 
              this._save()
            }
@@ -491,13 +495,14 @@ export class BuildImageComponent implements OnInit, PropertiesChangedOwner {
           this.currentBuild.deployments.forEach((d) => {
             this._configService.deploymentSet(d.id).subscribe((nd) => {
 
-              d.name = nd.name
-              d.apis = nd.apis
+                d.name = nd.name
+                d.apis = nd.apis
 
-              // keep current target dir as this is set at build time, NOT in the deplyment set
-              let t = d.source.targetDir
-              d.source = nd.source
-              d.source.targetDir = t
+              // keep current target dir as this is set at build time, NOT in the deployment set
+                let t = d.source[0].targetDir
+                d.source = nd.source
+                d.source[0].gitURI = this._values.completeGitUri()
+                d.source[0].targetDir = t
             })
           })
 
@@ -861,17 +866,17 @@ export class BuildImageComponent implements OnInit, PropertiesChangedOwner {
 
 	    if (this.currentBuild.deployments != null) {
         this.currentBuild.deployments.forEach( (d, i) => {
-          if (d.source.targetDir.indexOf('IntegrationServer') != -1) {
+          if (d.source[0].targetDir.indexOf('IntegrationServer') != -1) {
 
-            if (this.currentBuild.sourceImage.type == 'msr' && d.source.targetDir.indexOf('instances/default') != -1) {
+            if (this.currentBuild.sourceImage.type == 'msr' && d.source[0].targetDir.indexOf('instances/default') != -1) {
               // update path for MSR
 
-              d.source.targetDir = '/opt/softwareag/IntegrationServer' + d.source.targetDir.substr(d.source.targetDir.indexOf('instances/default') + 17)
+              d.source[0].targetDir = '/opt/softwareag/IntegrationServer' + d.source[0].targetDir.substr(d.source[0].targetDir.indexOf('instances/default') + 17)
 
-            } else if ((this.currentBuild.sourceImage.type == 'is' || this.currentBuild.sourceImage.type == 'b2b') && d.source.targetDir.indexOf("instances/default") == -1) {
+            } else if ((this.currentBuild.sourceImage.type == 'is' || this.currentBuild.sourceImage.type == 'b2b') && d.source[0].targetDir.indexOf("instances/default") == -1) {
               // update path IS
 
-              d.source.targetDir = '/opt/softwareag/IntegrationServer/instances/default' + d.source.targetDir.substr(d.source.targetDir.indexOf('IntegrationServer') + 17)
+              d.source[0].targetDir = '/opt/softwareag/IntegrationServer/instances/default' + d.source[0].targetDir.substr(d.source[0].targetDir.indexOf('IntegrationServer') + 17)
             }
           }
         })
@@ -898,7 +903,7 @@ export class BuildImageComponent implements OnInit, PropertiesChangedOwner {
       let file: BuildCommand[] = this.currentBuild.fileForType("licenses")
 
       if (file.length > 0)
-        this._resources.downloadResource("licenses", file[0].source)
+        this._resources.downloadResourceViaBrowser("licenses", file[0].source)
     }
 
     public licenseFileAdded(filename: string) {

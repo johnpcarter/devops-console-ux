@@ -6,9 +6,11 @@ import { map } 						                      from 'rxjs/operators'
 
 import { NgxXml2jsonService } 					        from 'ngx-xml2json'
 import { Settings }                     		    from '../settings'
-import {
-  Project, RunSet, Installer, ArgDisplayType,
-  Builder, DeploymentSet, Container }           from '../models/project'
+import {Project, RunSet} from '../models/project';
+import {Installer} from '../models/Installer';
+import {Container} from '../models/container';
+import {ArgDisplayType} from '../models/display-type';
+import {Builder, DeploymentSet} from '../models/build';
 
 @Injectable()
 export class ConfigurationService {

@@ -7254,7 +7254,7 @@ export class RuntimeDeployComponent implements OnInit {
 
           build.deployments.forEach((d) &#x3D;&gt; {
 
-            d.source.include.forEach((p) &#x3D;&gt; {
+            d.source[0].include.forEach((p) &#x3D;&gt; {
               this.packages.push(p);
             });
 

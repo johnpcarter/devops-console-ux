@@ -13,7 +13,8 @@ import { DockerService } from '../services/docker.service'
 import { ConfigurationService } from '../services/configuration.service'
 import { TestTraceService } from '../services/test-trace.service'
 import { TestSuite, TestSuiteResults } from '../models/test-suite'
-import { Container, RunSet } from '../models/project'
+import { Container } from '../models/container'
+import { RunSet } from '../models/project'
 import { TestStatus } from '../models/docker-image'
 
 @Component({

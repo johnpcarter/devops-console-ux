@@ -1,13 +1,12 @@
- import { Component, ChangeDetectorRef, ViewChild,
-		EventEmitter, Inject, OnInit, OnChanges,
-		OnDestroy, Input, Output, ElementRef }   		      from '@angular/core'
+ import { Component, ViewChild, Inject, OnInit,
+	 ElementRef }   		    							from '@angular/core'
 
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} 		from '@angular/material/dialog'
+import { MAT_DIALOG_DATA } 									from '@angular/material/dialog'
 
-import { DockerImage } 								   	            from '../models/docker-image'
-import { Builder, Installer, RunSet }       			    from '../models/project'
-
-import { DockerService }								              from '../services/docker.service'
+ import { DockerService }								    from '../services/docker.service'
+ import { Installer } 										from '../models/Installer'
+ import { Builder } 										from '../models/build'
+ import { RunSet } 											from '../models/project'
 
 @Component({
   selector: 'build-exe',

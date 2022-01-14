@@ -7,7 +7,8 @@ import {DockerImage} from '../models/docker-image'
 
 import {ContainerTemplates} from '../support/container.templates'
 
-import {Container, Deployment, RunSet} from '../models/project'
+import {Container } from '../models/container'
+import { RunSet, ContainerSet } from '../models/project'
 import {SimpleNameComponent} from './elements/simple-name.component'
 
 @Component({
@@ -90,7 +91,7 @@ export class ContainersComponent implements OnInit {
     })
   }
 
-  public serviceUpdated(service: Deployment) {
+  public serviceUpdated(service: ContainerSet) {
 
     this.runSetUpdated.emit(null)
   }
@@ -100,7 +101,7 @@ export class ContainersComponent implements OnInit {
     this.runSetUpdated.emit(container)
   }
 
-  public addNewContainer(service: Deployment) {
+  public addNewContainer(service: ContainerSet) {
 
     service.containers.push(new Container())
   }
@@ -111,7 +112,7 @@ export class ContainersComponent implements OnInit {
 
       let found = -1
 
-      const service: Deployment = this.runSet.deployments[z]
+      const service: ContainerSet = this.runSet.deployments[z]
 
       for (let i = 0; i < service.containers.length; i++) {
 
@@ -143,7 +144,7 @@ export class ContainersComponent implements OnInit {
     dialogRef.afterClosed().subscribe(name => {
 
       if (name) {
-        const service: Deployment = new Deployment(this.runSet.namespace)
+        const service: ContainerSet = new ContainerSet(this.runSet.namespace)
         service.name = name
         const container: Container = new Container()
         container.description = 'Container to be configured'
@@ -158,7 +159,7 @@ export class ContainersComponent implements OnInit {
     })
   }
 
-  public deleteService(service: Deployment) {
+  public deleteService(service: ContainerSet) {
 
     let found = -1
 
@@ -175,7 +176,7 @@ export class ContainersComponent implements OnInit {
     }
   }
 
-  public containerListControl(service: Deployment): FormControl {
+  public containerListControl(service: ContainerSet): FormControl {
 
     let ctrl: FormControl = this._containerCtrls.get(service.name)
 
@@ -189,35 +190,35 @@ export class ContainersComponent implements OnInit {
     return ctrl
   }
 
-  public panelOpened(panel: string, service: Deployment, container: Container, isOpen: boolean) {
+  public panelOpened(panel: string, service: ContainerSet, container: Container, isOpen: boolean) {
 
     this._panelStatus.set(panel + ':' + service.name + ':' + container.name, isOpen)
   }
 
-  public isPanelOpen(panel: string, service: Deployment, container: Container): boolean {
+  public isPanelOpen(panel: string, service: ContainerSet, container: Container): boolean {
 
     return this._panelStatus.get(panel + ':' + service.name + ':' + container.name) || false
   }
 
-  public haveSelectedContainer(service: Deployment): boolean {
+  public haveSelectedContainer(service: ContainerSet): boolean {
 
     const ctrl: FormControl = this._containerCtrls.get(service.name)
 
     return ctrl && ctrl.value
   }
 
-  public selectionChanged(event: MatSelectChange, service: Deployment) {
+  public selectionChanged(event: MatSelectChange, service: ContainerSet) {
 
     service.dependsOn = event.value
     this.runSetUpdated.emit()
   }
 
-  public haveDeploymentBelow(service: Deployment): boolean {
+  public haveDeploymentBelow(service: ContainerSet): boolean {
 
     return this.runSet.deployments.indexOf(service) < this.runSet.deployments.length - 1
   }
 
-  public dependsOn(service: Deployment): string[] {
+  public dependsOn(service: ContainerSet): string[] {
 
     const index: number = this.runSet.deployments.indexOf(service)
     const out: string[] = []
@@ -233,7 +234,7 @@ export class ContainersComponent implements OnInit {
 
     moveItemInArray(this.runSet.deployments, event.previousIndex, event.currentIndex)
 
-    const service: Deployment = this.runSet.deployments[event.currentIndex]
+    const service: ContainerSet = this.runSet.deployments[event.currentIndex]
     const out: string[] = this.dependsOn(service)
 
     if (out.indexOf(service.dependsOn) === -1) {

@@ -7,7 +7,7 @@ export class APIDefinition {
 	public swaggerEndPoint: string
 	public endPoint: string
 	public deployment: string
-	
+
 	public static make(data: any) {
 
 		let api = new APIDefinition()
@@ -43,6 +43,7 @@ export class WmPackageInfo {
 	public testStatus: TestStatus
 	public services: string[]
 	public apis: APIDefinition[]
+  	public repository: string
 
 	constructor(name: string) {
 		this.name = name
@@ -58,6 +59,7 @@ export class WmPackageInfo {
 		pck.description = data.description
 		pck.startup = data.startup
 		pck.shutdown = data.shutdown
+    	pck.repository = data.repository
 
 		if (data.testStatus == "success")
 			pck.testStatus = TestStatus.passed
@@ -71,7 +73,7 @@ export class WmPackageInfo {
 			pck.testStatus = TestStatus.none
 
 		pck.services = data.services
-		
+
 		if (data.apis) {
 			data.apis.forEach((a) => {
 

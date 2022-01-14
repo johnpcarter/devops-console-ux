@@ -1,13 +1,14 @@
 import { Component, EventEmitter, OnInit, OnChanges,
 		OnDestroy, Input, Output }   					from '@angular/core'
 
-import {FormBuilder, FormGroup, FormControl,
-		                  Validators} 			  from '@angular/forms'
+import { FormBuilder, FormGroup, FormControl,
+		                  Validators } 			  		from '@angular/forms'
 
 import { DockerImage } 								   	from '../../models/docker-image'
-import { DockerService }								  from '../../services/docker.service'
-import {Observable, of }                  from 'rxjs'
-import { map, startWith }                 from 'rxjs/operators'
+import { DockerService }								from '../../services/docker.service'
+
+import {Observable, of }                  				from 'rxjs'
+import { map, startWith }                 				from 'rxjs/operators'
 
 @Component({
   selector: 'docker-image-chooser',

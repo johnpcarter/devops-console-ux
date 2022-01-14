@@ -21,11 +21,11 @@ import { ResourceService }                                    from '../services/
 
 import { MicroServiceInstallerComponent }				          	  from './plugins/micro-service-installer.component'
 import { DockerService } 				          	      	      	  from '../services/docker.service'
-import { Installer }       				                        	  from '../models/project'
 import { ConfigurationService }                    		    		from '../services/configuration.service'
 import { ContainerTemplates }							          	        from '../support/container.templates'
 import { BuildExeComponent }                                  from './build-exe.component'
 import { InstallerComponent }                                 from './plugins/installer.component'
+import {Installer} from '../models/Installer';
 
 @Component({
   selector: 'build-install',

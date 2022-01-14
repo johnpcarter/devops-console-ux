@@ -1,10 +1,8 @@
-import { Component, ChangeDetectorRef, Inject, OnInit,
-									OnDestroy }        		from '@angular/core'
-import { Router }					   						from '@angular/router'
-import { Location } 										   from "@angular/common"
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} 	from '@angular/material/dialog'
+import { Component, OnInit, OnDestroy }        		from '@angular/core'
+import { Router }					   				from '@angular/router'
+import { Location } 								from "@angular/common"
 
-import { Settings }                                from '../settings'
+import { Settings }                                	from '../settings'
 
 import * as $ from 'jquery'
 
@@ -49,8 +47,6 @@ export class HomeComponent implements OnInit {
    		} else {
    			this._showExtraInfo(name)
    		}
-
-
    }
 
    public hideExtraInfo(): boolean {

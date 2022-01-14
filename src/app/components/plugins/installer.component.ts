@@ -7,9 +7,12 @@ import {MatTable} from '@angular/material/table'
 
 import {BuilderComponent, BuilderProperties, PropertiesChangedOwner} from '../elements/build-image-choose.directive'
 
-import {Arg, ArgDisplayType, BuildCommand, DisplayType, Installer} from '../../models/project'
 import {ConfigurationService} from '../../services/configuration.service'
 import {ResourceService} from '../../services/resources.service'
+import {Installer} from '../../models/Installer';
+import {BuildCommand} from '../../models/build';
+import {ArgDisplayType, DisplayType} from '../../models/display-type';
+import {Arg} from '../../models/container';
 
 @Component({
   selector: 'jc-install',
@@ -151,7 +154,7 @@ export class InstallerComponent implements BuilderComponent, OnInit {
 
     public downloadFile(type: string, name: string) {
 
-		  this._resources.downloadResource(type, name)
+		  this._resources.downloadResourceViaBrowser(type, name)
 	  }
 
 	  public isEditable(command: BuildCommand): boolean {

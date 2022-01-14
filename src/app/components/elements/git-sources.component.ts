@@ -4,13 +4,13 @@ import { SelectionModel } 						                      from '@angular/cdk/collect
 
 import { FormBuilder, FormGroup, FormControl } 	            from '@angular/forms'
 
-import { MatPaginator }							                        from '@angular/material/paginator'
+import {MatPaginator, PageEvent} from '@angular/material/paginator';
 import { MatTableDataSource } 					                    from '@angular/material/table'
 
 import { BuilderProperties, PropertiesChangedOwner }	      from './build-image-choose.directive'
 import { GitSourceService, GitRepo }				                from '../../services/git-source-control.service'
 import { WmPackageInfo }						                        from '../../models/wm-package-info'
-import { Source } 								                          from '../../models/git-source'
+import {Repository, Source} from '../../models/git-source';
 
 import { Settings, RepoSettings }                           from '../../settings'
 import {PackagesService }                                   from '../../services/packages.service'
@@ -66,8 +66,13 @@ export class GitSourcesComponent implements OnInit, OnChanges //, BuilderCompone
 	public showSource: boolean
 
 	@Input()
-  public disabled: boolean
+  	public disabled: boolean
 
+	@Input()
+	public pageSize: number
+
+	@Input()
+	public
 	@Output()
 	public selectedGitRepoChanged: EventEmitter<GitRepo> = new EventEmitter()
 
@@ -78,10 +83,9 @@ export class GitSourcesComponent implements OnInit, OnChanges //, BuilderCompone
 	public selectedSourcesLoaded: EventEmitter<SourceWrapper> = new EventEmitter()
 
 	@Output()
-  public apiActivated: EventEmitter<boolean> = new EventEmitter()
+  	public apiActivated: EventEmitter<boolean> = new EventEmitter()
 
 	public formGroup: FormGroup
-	public selectedRepo: GitRepo
 	public packageTableDataSource: MatTableDataSource<WmPackageInfo>
 	public owner: PropertiesChangedOwner
 
@@ -89,7 +93,8 @@ export class GitSourcesComponent implements OnInit, OnChanges //, BuilderCompone
 	public gits: string[]
 	public repositories: GitRepo[]
 
-	public selectedGit: string
+  	public selectedRepo: GitRepo
+  	public selectedGit: string
 
 	public displayedColumns: string[] = ['select', 'package', 'version', 'description']
 	public selectionModel: GitSelectionModel = new GitSelectionModel()
@@ -97,14 +102,16 @@ export class GitSourcesComponent implements OnInit, OnChanges //, BuilderCompone
 	public manualSyncRequired: boolean
 	@ViewChild('gitPaginator')
 	public gitPaginator: MatPaginator
-  public isBusy: boolean
 
-  private _configuredGitRepos: RepoSettings[] = []
+	public isBusy: boolean
+
+  	private _configuredGitRepos: RepoSettings[] = []
 	private _source: Source
 
 	private _gitAPIUrl: string
-  private _gitUser: string
-  private _gitToken: string
+  	private _gitUser: string
+  	private _gitToken: string
+	pageEvent: PageEvent
 
 	constructor(private _settings: Settings, private _gitService: GitSourceService, private _packagesService: PackagesService) {
 	}
@@ -145,7 +152,7 @@ export class GitSourcesComponent implements OnInit, OnChanges //, BuilderCompone
 
 	public onGitChange(event?: any) {
 
-	  if (this._gitAPIUrl && (!this._source || this.selectedRepo.id != this._source.gitRepository)) {
+	  if (this._gitAPIUrl && (!this._source || this.selectedRepo.id != this._source.repositories[0].name)) {
 	     this.setCurrentRepo(this.selectedRepo)
     }
 	}
@@ -213,7 +220,7 @@ export class GitSourcesComponent implements OnInit, OnChanges //, BuilderCompone
 
 				this.repositories = []
 				v.gitRepos.forEach((g) => {
-					this.repositories.push(new GitRepo(g.name, g.name))
+					this.repositories.push(new GitRepo(g.name, g.name, "", "main"))
 				})
 
 				if (this.repositories.length > 0 && !this.selectedRepoName)
@@ -231,35 +238,38 @@ export class GitSourcesComponent implements OnInit, OnChanges //, BuilderCompone
 	  if (this.selectedRepoName && (!this.selectedRepo || this.selectedRepoName != this.selectedRepo.id)) {
 	    let found: GitRepo = null
 
-	    for (let i = 0; i < this.repositories.length; i++) {
-	      if (this.repositories[i].id == this.selectedRepoName) {
-	        found = this.repositories[i]
-	        break
+      if (this.repositories) {
+        for (let i = 0; i < this.repositories.length; i++) {
+          if (this.repositories[i].id == this.selectedRepoName) {
+            found = this.repositories[i]
+            break
+          }
         }
-      }
 
-	    if (found) {
-	      this.setCurrentRepo(found)
+        if (found) {
+          this.setCurrentRepo(found)
+        }
       }
     }
   }
 
 	private setCurrentRepo(git: GitRepo) {
 
-		   this.selectedRepo = git
+    this.selectedRepo = git
 
-		   let repoConfig: RepoSettings = this.configForRepo(git.name)
-		   git.config = repoConfig
+    let repoConfig: RepoSettings = this.configForRepo(git.name)
+    git.config = repoConfig
 
-		   this._source = new Source()
-		   this._source.gitURI = this.gitURI + this.selectedGit + "/" + repoConfig.name + ".git"
-		   this._source.gitRepository = this.selectedRepo.id
-		   this._source.gitUser = this._gitUser
-		   this._source.gitPassword = this._gitToken
+    this._source = new Source()
+    this._source.gitURI = this.gitURI + this.selectedGit + "/" + repoConfig.name + ".git"
+    this._source.gitUser = this._gitUser
+    this._source.gitPassword = this._gitToken
 
-		   this.fetchPackageContents(false)
+    this._source.repositories = [];
+    this._source.repositories.push(new Repository(this.selectedRepo.name))
+    this.fetchPackageContents(false)
 
-		   this.selectedGitRepoChanged.emit(git)
+    this.selectedGitRepoChanged.emit(git)
 	}
 
 	private repoForId(id: string): GitRepo {
@@ -311,10 +321,10 @@ export class GitSourcesComponent implements OnInit, OnChanges //, BuilderCompone
 
         console.log("git request failed, let trying indexing via clone on server and get packages back from that")
 
-        this._packagesService.index(this.selectedRepo.name, this.configForRepo(this.selectedRepo.name).packages, this._source, resync).subscribe((p) => {
+        this._packagesService.index(this.selectedRepo.name, this._source, resync).subscribe((p) => {
 
           this.manualSyncRequired = true
-          this.selectedRepoName = this._source.gitRepository
+          this.selectedRepoName = this._source.repositories[0].name
           this._setModel(p)
 
           this.isBusy = false
@@ -365,12 +375,11 @@ export class GitSourcesComponent implements OnInit, OnChanges //, BuilderCompone
 
 	private firePropertiesChanged() {
 
-	  	let props: Map<string, BuilderProperties[]> = new Map()
-
-	  	this._source.include = []
+    let props: Map<string, BuilderProperties[]> = new Map()
+    this._source.repositories[0].include = []
 		this.selectionModel.selected.forEach((p) => {
 
-			let l: BuilderProperties[] = []
+      let l: BuilderProperties[] = []
 
 			//l.push(new BuilderProperties("name", p.name))
 			l.push(new BuilderProperties("Type", ["service"]))
@@ -378,7 +387,7 @@ export class GitSourcesComponent implements OnInit, OnChanges //, BuilderCompone
 			l.push(new BuilderProperties("Description", [p.description]))
 
 			props.set(p.name, l)
-			this._source.include.push(p.name)
+			this._source.repositories[0].include.push(p.name)
 		})
 
 		if (this.owner)

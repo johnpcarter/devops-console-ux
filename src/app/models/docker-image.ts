@@ -175,7 +175,7 @@ export class DockerImage {
 
 			// add name to repo
 
-			if (this._repository != null && this._name != null)
+			if (this._repository != null && this._name != null && !this._repository.endsWith(this._name))
 				this._repository = this._repository + "/" + this._name
 		}
 
@@ -215,7 +215,7 @@ export class DockerImage {
 		} else if (this._repository) {
 
 			if (this._dedicatedRepo)
-				return this._repository + "/" + this.name
+				return this._repository + "/" + this._name
 			else
 				return this._repository + ":" + this._name
 
@@ -486,6 +486,7 @@ export class DockerImage {
 			image._tag = data._tag || data._name
 			image._name = data._name
 			image._version = data._version
+			image._dedicatedRepo = data._dedicatedRepo
 			image.type = data.type
 			image.primaryPort = data.primaryPort
 
@@ -522,47 +523,45 @@ export class DockerImage {
 						image.testStatus = TestStatus.running
 			}
 
-			if (image._name == null && image._tag.indexOf(":") != -1) {
+			if (image._tag.indexOf(":") != -1) {
+				let split: number = image._tag.indexOf(":")
+          		let before: string = image._tag.substring(0, split)
+          		let after: string = image._tag.substring(split+1)
 
-          let split: number = image._tag.indexOf(":")
-          let before: string = image._tag.substring(0, split)
-          let after: string = image._tag.substring(split+1)
-
-          if (DockerImage.isVersionNumber(after)) {
+          		if (DockerImage.isVersionNumber(after)) {
             // value version
 
-            image._dedicatedRepo = true
-            image._name = before
-            image._version = after
+            		image._dedicatedRepo = true
+            		image._name = before
+            		image._version = after
 
             // either no repository or dedicated repository where tag is only the version
-            if (image._repository == null || image._name.indexOf(image._repository) != -1) {
-              image._repository = image._name
-            }
+            	if (image._repository == null || image._name.indexOf(image._repository) != -1) {
+              		image._repository = image._name
+            	}
 
             // perhaps the repo is in the name part (check if we have a slash)
 
-            if (image._name.lastIndexOf("/") != -1) {
-              let split: number = image._name.lastIndexOf("/")
-              //image._repository = image._name.substring(0, split)
-              image._name = image._name.substring(split+1)
-            }
-          } else
-          {
+            	if (image._name.lastIndexOf("/") != -1) {
+              		let split: number = image._name.lastIndexOf("/")
+              		//image._repository = image._name.substring(0, split)
+              		image._name = image._name.substring(split+1)
+            	}
+          	} else {
             // name is in tag part!!
 
-            image._repository = before
-            image._dedicatedRepo = false
-            let split: number = after.lastIndexOf("-")
+            	image._repository = before
+            	image._dedicatedRepo = false
+            	let split: number = after.lastIndexOf("-")
 
-            if (split != -1 && DockerImage.isVersionNumber(after.substring(split+1))) {
-              image._name = after.substring(0, split)
-              image._version = after.substring(split+1)
-            } else {
-              image._name = after
-            }
-          }
-        }
+            	if (split != -1 && DockerImage.isVersionNumber(after.substring(split+1))) {
+              		image._name = after.substring(0, split)
+              		image._version = after.substring(split+1)
+            	} else {
+              		image._name = after
+            	}
+				  }
+			}
 		} else {
 			image._tag = "none"
 		}
@@ -664,17 +663,39 @@ export class DockerImage {
 
 	private _updateTag() {
 
-		if (this._dedicatedRepo || this._repository) {
+		if (this._dedicatedRepo) {
+
+			if (this._repository && this._repository.endsWith(this._name)) {
+
+				if (this._version) {
+					this._tag = this._repository + ":" + this._version
+				} else {
+					this._tag = this._repository + ":1.0"
+				}
+			} else if (this._repository) {
+				if (this._version) {
+					this._tag = this._repository + "/" + this._name + ":" + this._version
+				} else {
+					this._tag = this._repository + "/" + this._name + ":1.0"
+				}
+			} else {
+				if (this._version) {
+					this._tag = this._name + ":" + this._version
+				} else {
+					this._tag = this._name + ":1.0"
+				}
+			}
+		} else if(this._repository) {
 
 			if (this._version) {
-        this._tag = this._repository + ":" + this._name + "-" + this._version
-      } else {
-        this._tag = this._repository + ":" + this._name
-      }
+				this._tag = this._repository + ":" + this._name + "-" + this._version
+      		} else {
+        		this._tag = this._repository + ":" + this._name
+      		}
 		} else if (this._version) {
-        	this._tag = this._name + ":" + this._version
+			this._tag = this._name + ":" + this._version
 		} else {
-		  this._tag = this._name
+			this._tag = this._name
 		}
 	}
 }

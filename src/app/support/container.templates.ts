@@ -1,8 +1,11 @@
-import { DockerImage }                                      from '../models/docker-image'
-import {Container, RunSet, Deployment, Port, Arg, Probe, Environment, ContainerType} from '../models/project';
-import {ConfigurationService} from '../services/configuration.service'
-import {Injectable} from '@angular/core'
-import {Observable, Observer} from 'rxjs'
+import { DockerImage }                          from '../models/docker-image'
+import { Container }                            from '../models/container'
+import { RunSet }                               from '../models/project'
+import { Environment}                           from '../models/Environment'
+
+import { ConfigurationService } from '../services/configuration.service'
+import { Injectable } from '@angular/core'
+import { Observable, Observer } from 'rxjs'
 
 @Injectable()
 export class ContainerTemplates {

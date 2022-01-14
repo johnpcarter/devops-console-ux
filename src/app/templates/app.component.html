@@ -30,6 +30,9 @@
       </div>
     </div>
     <span class="page-description">{{currentMenu.description}}</span>
+    <span *ngIf="currentMenu.label == 'Configuration Variables'">
+      <a href="" onclick="window.open('http://localhost:5555/#/integration/dsp/microservices.dsp', '_blank', 'location=yes,width=1720,height=870,scrollbars=yes,status=yes'); return false" matTooltip="Opens a link to your local Microservices Runtime Portal from where you can export a configurations template file" style="width:15px;"> <fa-icon class="icon" [icon]="['fas', 'external-link-alt']" style="margin-left: 5px; color: blue; margin-right: 20px"> </fa-icon> </a>
+    </span>
   </div>
   <div class="page-wrapper">
     <router-outlet #outlet="outlet"></router-outlet>

@@ -5,13 +5,15 @@ import { map, catchError } 						            from 'rxjs/operators'
 
 import { NgxXml2jsonService } 					  	      from 'ngx-xml2json'
 
-import { Installer, Builder, RunSet }             from '../models/project'
 
-import { Settings,Values }                        from '../settings'
-import { Container, Port }                        from '../models/project'
+import { Settings }                        from '../settings'
 import { DockerImage }                            from '../models/docker-image'
 
 import { WebSocketService }                       from './websocket.service'
+import {Container, Port} from '../models/container';
+import {Installer} from '../models/Installer';
+import {Builder} from '../models/build';
+import {RunSet} from '../models/project';
 
 export enum DockerFilterType {
  all,

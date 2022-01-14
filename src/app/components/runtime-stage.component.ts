@@ -1,17 +1,14 @@
-import { Component, ChangeDetectorRef, ViewChild,
-			OnInit, OnDestroy }   						            from '@angular/core'
+import { Component, ViewChild, OnInit }   					        from '@angular/core'
 import { Router }					   								from '@angular/router'
 
-import {FormBuilder, FormGroup, FormControl,
-								Validators} 			            from '@angular/forms'
+import {FormBuilder, FormGroup, FormControl } 			            from '@angular/forms'
 
-import { Project, RunSet, Builder, DeploymentSet, Deployment, Probe,
-	Port, Arg, Stage, Container }       				          	from '../models/project'
+import { Project, ContainerSet, Stage }       				        from '../models/project'
 
 import { Settings }                                   				from '../settings'
 import { ConfigurationService }                    		  			from '../services/configuration.service'
 import { ResourceService }                            				from '../services/resources.service'
-import { GitSourceService, GitRepo }									from '../services/git-source-control.service'
+import { GitSourceService, GitRepo }								from '../services/git-source-control.service'
 
 @Component({
   selector: 'runtime-stage',
@@ -29,7 +26,7 @@ export class RuntimeStageComponent implements OnInit {
 	  public stageCtrl: FormControl
 	  public useGitCtrl: FormControl
 	  public selectedGitCtrl: FormControl
-    public selectedGitRepoCtrl: FormControl
+	public selectedGitRepoCtrl: FormControl
 
     public runSets: string[]
     public projects: string[]
@@ -162,7 +159,7 @@ export class RuntimeStageComponent implements OnInit {
 
 		this._gitService.repositories(this.selectedGitCtrl.value).subscribe((r) => {
 			this.repositories = r
-			this.repositories.unshift(new GitRepo("Use Project Name", "Use Project Name"))
+			this.repositories.unshift(new GitRepo("Use Project Name", "Use Project Name", "description", "main"))
 		})
 	}
 
@@ -185,7 +182,7 @@ export class RuntimeStageComponent implements OnInit {
 
 			copy.deployments = []
 			this.currentProject.run.deployments.forEach((s) => {
-				let serviceCopy: Deployment = s.copy()
+				let serviceCopy: ContainerSet = s.copy()
 
 				serviceCopy.containers.forEach((c) => {
 					c.active = "true"

@@ -1,680 +1,556 @@
-import { Component, OnInit, ViewChild }   				from '@angular/core'
-import { SelectionModel } 							  	from '@angular/cdk/collections'
+import { Component, OnInit }   							from '@angular/core'
 import { FormBuilder, FormControl, FormGroup } 			from '@angular/forms'
-import { ActivatedRoute }                 				from '@angular/router'
+import {ActivatedRoute, Router} from '@angular/router';
 
-import { MatTable, MatTableDataSource } 				from '@angular/material/table'
-import { MatDialog } 									from '@angular/material/dialog'
-import { MatSnackBar, MatSnackBarRef, TextOnlySnackBar } from '@angular/material/snack-bar'
-
-import { Settings, Values} 								from '../settings'
+import { MatDialog } 									from '@angular/material/dialog';
+import {MatSnackBar, MatSnackBarRef, TextOnlySnackBar} from '@angular/material/snack-bar';
 
 import { ConfigurationService } 			 			from '../services/configuration.service'
-import { PackagesService } 						 	  	from '../services/packages.service'
-import { DeploymentSet }							    from '../models/project'
-import { Repository, Source}               				from '../models/git-source'
-import { WmPackageInfo, APIDefinition }	  				from '../models/wm-package-info'
-import { GitPackageChooserComponent } 					from './elements/git-package-chooser.component'
-import {GitRepo, GitSourceService}         				from '../services/git-source-control.service'
-import {Observable, of }                   				from 'rxjs'
-import { startWith, map }                  				from 'rxjs/operators'
+import { ResourceService } 								from '../services/resources.service'
+import { Property } 									from '../models/properties'
+import { JdbcConnection, ServiceQueueDestType } 		from '../models/audit-properties';
+import { ARTProperties } 								from '../models/art-properties'
+import { SimpleNameComponent} 							from './elements/simple-name.component';
+import { SimpleConfirmationComponent } 					from './elements/simple-confirmation.component';
+import {Observable, of} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
+import {BuildCommand} from '../models/build';
 
 @Component({
   selector: 'build-package',
-  templateUrl: '../templates/build-packages.html',
-  styleUrls: ['../templates/build-packages.css']
+  templateUrl: '../templates/build-properties.html'
 })
 
-export class BuildPackagesComponent implements OnInit {
-
-  	public displayedColumns: string[] = ['type', 'repository', 'description', 'packages', 'apis', 'selected'];
-
-  	public deploymentSets: string[] = []
-	public dependencyDisplayedColumns: string[] = ['select', 'repository', 'package', 'description']
-
-	public sources: string[] = ['git', 'wpm']
-
-	public dependencies: WmPackageInfo[]
-	public selectedDependencies: SelectionModel<WmPackageInfo> = new SelectionModel<WmPackageInfo>(true, [])
-
-  	public apiEnabled: boolean = true
-
-	public deploymentSet: DeploymentSet
-
-	public repositories: MatTableDataSource<Repository>
-
-	@ViewChild("dependentsTable")
-	public dependentsTable: MatTable<any>
-
-	@ViewChild('reposTable', {read: MatTable})
-	public repoTable: MatTable<any>
-
+export class BuildPropertiesComponent implements OnInit {
 
 	public form: FormGroup
-	public deploymentNameCtrl: FormControl
-	public sourceTypeCtrl: FormControl
-  	public repoNameCtrl: FormControl
+	public propsCtrl: FormControl
+	public auditDestCtrl: FormControl
+	public internalDestCtrl: FormControl
+	public centralUserCtrl: FormControl
+	public adaptersCtrl: FormControl
+	public xrefCtrl: FormControl
 
-	public values: Values
+	public propertyFiles: Observable<string[]>
 
-	public filteredSets: Observable<string[]>
+	public currentFile: string = null
+	public extendedProperties: Property[] = []
+	public otherProperties: Property[] = []
+	public globalProperties: Property[] = []
 
-	private _availableRepositories: Repository[] = []
-  	private _indexingSnackbarRef: MatSnackBarRef<TextOnlySnackBar>
-	private _isIndexing: boolean = false
+	public availableExtendedSettings: string[] = []
 
-	public constructor(private _activatedRoute: ActivatedRoute, private _formBuilder: FormBuilder, private _snackbar: MatSnackBar, private _dialog: MatDialog, private _settings: Settings, private _configService: ConfigurationService, private _gitService: GitSourceService, private _packagesService: PackagesService) {
+	public jdbcAliases: string[]
+	public jdbcConnections: Map<string, JdbcConnection>
 
-		this.repositories = new MatTableDataSource([])
+	public artAliases: string[]
+	public artConnections: Map<string, ARTProperties>
 
-		this._settings.values().subscribe((v) => {
+	private _snackbarRef: MatSnackBarRef<TextOnlySnackBar>
+	private _propertyFiles: string[] = []
 
-		  this.values = v
-		  v.gitRepos.forEach((r) => {
-			  this._availableRepositories.push(new Repository(r.name, r.packages, r.configuration))
-		  })
+	public constructor(private _router: Router, private _activatedRoute: ActivatedRoute, private _formBuilder: FormBuilder, private _runSetsService: ConfigurationService, private _resources: ResourceService, private _dialog: MatDialog, private _snackbar: MatSnackBar) {
 
-		  this._configService.deploymentSets().subscribe((r) => {
+		this._propertyFiles = []
 
-			  this.deploymentSets = r
-			  this.filteredSets = of(this.deploymentSets)
-			  this.filteredSets = this.deploymentNameCtrl.valueChanges.pipe(startWith(''), map(value => this._filter(value)))
-		  })
+		this._resources.resourcesForType("properties").subscribe((p) => {
 
-		  this._gitService.repositories(this.values.gitName, v).subscribe((r) => {
+			this._propertyFiles = []
+			p.forEach((f) => {
+				this._propertyFiles.push(f.name)
+			})
 
-			  r.forEach( (l) => {
-				  let r: Repository = this.availableRepositoryWithName(l.name)
+			this.propertyFiles = of(this._propertyFiles)
 
-				  if (r != null) {
-					  r.description = l.description
-					  r.branch = l.defaultBranch
-				  } else {
-					  this._availableRepositories.push(new Repository(l.name))
-				  }
-			  })
-		  })
+			this._activatedRoute.paramMap.subscribe(params => {
 
-		  this._settings.setCurrentPage("package")
+				let ref = params.get('id')
+
+				if (ref) {
+					this.propsCtrl.setValue(ref, {onlySelf: true, emitEvent: false})
+					this.loadPropertiesFile(ref)
+				}
+			})
 		})
 	}
 
 	public ngOnInit() {
 
-	  	this.deploymentNameCtrl = new FormControl()
-		this.sourceTypeCtrl = new FormControl('git')
-		this.repoNameCtrl = new FormControl()
+		this.propsCtrl = new FormControl()
+		this.auditDestCtrl = new FormControl("default")
+		this.internalDestCtrl = new FormControl("default")
+		this.centralUserCtrl = new FormControl("default")
+		this.adaptersCtrl = new FormControl("default")
+		this.xrefCtrl = new FormControl("default")
 
 		this.form = this._formBuilder.group({
-        	deploymentNameCtrl: this.deploymentNameCtrl,
-			sourceTypeControl: this.sourceTypeCtrl,
-        	repoNameCtrl: this.repoNameCtrl
-	    })
-
-      	this.repoNameCtrl.valueChanges.subscribe( repo => {
-        	this.repoDidChange(repo)
-      	})
-
-		this.sourceTypeCtrl.valueChanges.subscribe( repo => {
-			this.sourceTypeDidChange(repo)
+			propsCtrl: this.propsCtrl,
+			auditDestCtrl: this.auditDestCtrl,
+			centralUserCtrl: this.centralUserCtrl,
+			internalDestCtrl: this.internalDestCtrl,
+			adaptersCtrl: this.adaptersCtrl,
+			xrefCtrl: this.xrefCtrl
 		})
 
-	    this._activatedRoute.paramMap.subscribe(params => {
+		this.propertyFiles = this.propsCtrl.valueChanges.pipe(startWith(''), map(value => this._filterPropFile(value)))
 
-			this.deploymentNameCtrl.setValue(params.get('id'))
+		this.form.valueChanges.subscribe(values => {
 
-			if (this.deploymentNameCtrl.value != null) {
-				this.loadDeploymentSet(this.deploymentNameCtrl.value)
-        	}
-      	})
-	}
-
-	private _filter(value: string): string[] {
-      const filterValue = value.toLowerCase()
-      return this.deploymentSets.filter(option => filterValue.length == 0 || option.toLowerCase().includes(filterValue))
-	}
-
-	public nameDidChange(event: any) {
-
-		if (event.target.value && (!this.deploymentSet || this.deploymentSet.name != event.target.value)) {
-
-			this.clear()
-			this.deploymentSet.name = event.target.value
-
-			if (this._isExistingDeploymentSet(this.deploymentSet.name))
-				this.loadDeploymentSet(this.deploymentSet.name)
-
-		} else if (!event.target.value && this.deploymentSet.name) {
-		   this.clear()
-    	}
-	}
-
-	public availableRepositories(): Repository[] {
-		let a: Repository[] = []
-
-		this._availableRepositories.forEach((r) => {
-			if (this.findRepoForName(r.name) == null) {
-				a.push(r)
+			if (this.propsCtrl.dirty) {
+				this.propsCtrl.markAsPristine()
+				this.loadPropertiesFile(this.propsCtrl.value)
+			} else if (this.auditDestCtrl.dirty) {
+				this.auditDestCtrl.markAsPristine()
+				this.saveProperties()
 			}
 		})
-		return a
+
+		this._resources.getServerSettings().subscribe((data) => {
+
+			for (const key in data) {
+				this.availableExtendedSettings.push(key)
+			}
+		})
 	}
 
-	public addRepository() {
+	public isExistingPropertyFile(): boolean {
 
-		  this.repositories.data.push(new Repository(""))
-		this.repoTable.renderRows()
-	}
+		let found: boolean = false
 
-	public sourceTypeDidChange(source: string) {
-		// TODO
-	}
-
-	public repoDidChange(r: Repository) {
-
-		this.repositories.data[this.repositories.data.length-1] = r
-		this.saveDeploymentSet(true, true)
-
-		this.repoTable.renderRows()
-	}
-
-	public removeRepository(repo: Repository) {
-
-		let index = -1
-		let i = 0
-		for (let r of this.repositories.data) {
-
-			if (r == repo) {
-				index = i
+		for (let i = 0; i < this._propertyFiles.length; i++) {
+			if (this._propertyFiles[i] == this.propsCtrl.value) {
+				found = true
 				break
 			}
-
-			i += 1
 		}
 
-		if (index != -1) {
-			this.repositories.data.splice(index, 1)
-			this.repoTable.renderRows()
-			this.saveDeploymentSet(true)
+		return found
+	}
+
+	public downloadProperties(event) {
+
+		this._resources.downloadResourceViaBrowser("properties", this.propsCtrl.value)
+	}
+
+	public propertiesFileAdded(filename: string) {
+
+		this._resources.resourcesForType("properties").subscribe((p) => {
+
+			this._propertyFiles = []
+			p.forEach((f) => {
+				this._propertyFiles.push(f.name)
+
+				if (f.filename == filename) {
+					let lst = this.propsCtrl.value.push(f.name)
+
+					this.propsCtrl.setValue(lst)
+				}
+			})
+
+			this.loadPropertiesFile(this.propsCtrl.value)
+		})
+	}
+
+	public jdbcPropertiesDidChange(jdbcAlias: string, $event: Property[]) {
+
+		console.log("got an update")
+
+		this.jdbcConnections.set(jdbcAlias, JdbcConnection.make(this.mergeProperties($event, this.jdbcConnections.get(jdbcAlias).toProperties())).get(jdbcAlias))
+		this.saveProperties()
+	}
+
+	public artPropertiesDidChange(artAlias: string, $event: Property[]) {
+
+		console.log("got an update")
+
+		this.artConnections.set(artAlias, ARTProperties.make(this.mergeProperties($event, this.artConnections.get(artAlias).toProperties())).get(artAlias))
+		this.saveProperties()
+	}
+
+	public propertiesDidChange($event: Property[]) {
+
+		this.saveProperties()
+	}
+
+	public addPropertiesFile(event: any) {
+
+		this.clear()
+
+		if (this.propsCtrl.value) {
+			this.currentFile = this.propsCtrl.value
+			this.jdbcConnections = new Map<string,JdbcConnection>()
+			this.artConnections = new Map<string,ARTProperties>()
+			this.jdbcAliases = []
+			this.artAliases = []
+			this.extendedProperties = []
+			this.otherProperties = []
+			this.globalProperties = []
+
+			this.setRecommendedSettings()
+
+			this.saveProperties()
 		}
 	}
 
-	public deploymentSetChanged(event: any) {
+	public deletePropertiesFile(event: any) {
 
-		if (event.option.value && (!this.deploymentSet || this.deploymentSet.name != event.option.value)) {
+		this._snackbarRef = this._snackbar.open('deleting property file ' + this.propsCtrl.value);
 
-			this.clear()
-			this.deploymentSet.name = event.option.value
+		this._resources.deleteResource("properties", this.propsCtrl.value).subscribe((success) => {
 
-			this.loadDeploymentSet(this.deploymentSet.name)
-		}
+			this._snackbarRef.dismiss()
+			if (success) {
+				this._propertyFiles.splice(this._propertyFiles.indexOf(this.propsCtrl.value), 1)
+				this.clear(true)
+			} else {
+				this._snackbar.open('Failed to delete file ' + this.propsCtrl.value, 'Sorry', {duration: 3000})
+			}
+		})
 	}
 
-	public addDeploymentSet(event) {
+	public addJDBCPool() {
 
-		event.target.label = "Adding"
-		event.target.disabled = true
-
-		this.deploymentSet = this.makeDeploymentSet(this.deploymentSet.name)
-		this.repositories.data = this.deploymentSet.source[0].repositories
-		this.saveDeploymentSet(true)
-	}
-
-	public deleteDeploymentSet(event) {
-
-		this._configService.deleteDeploymentSet(this.deploymentSet.name).subscribe( result => {
-			this.deploymentSets.splice(this.indexOfTemplate(this.deploymentSet.name), 1)
-			this.deploymentNameCtrl.setValue("", {onlySelf: true, emitEvent: false})
-			this.deploymentSet = null
-			this.repositories.data = []
-    	})
-	}
-
-	public deploymentSetNotConfigured() {
-
-		return this.deploymentSet && this.deploymentSet.name != null && (this.deploymentSet.source == null || this.deploymentSet.source[0].repositories.length == 0)
-	}
-
-	public isExistingDeploymentSet(): boolean {
-
-		return this.deploymentSet && this._isExistingDeploymentSet(this.deploymentSet.name)
-	}
-
-	public openGitDialog(repository: Repository) {
-		let dialogRef = this._dialog.open(GitPackageChooserComponent, {
-			height: '750px',
-			width: '800px',
-			data: {repository: repository}
+		const dialogRef = this._dialog.open(SimpleNameComponent, {
+			data: {title: 'Please specify a name for your new JDBC pool'},
 		})
 
-		dialogRef.afterClosed().subscribe(result => {
-			this.checkDependencies()
-		});
+		dialogRef.afterClosed().subscribe(name => {
+
+			if (name) {
+				let pool = new JdbcConnection()
+				pool.jdbcAlias = name
+				this.jdbcConnections.set(name, pool)
+				this.jdbcAliases.push(name)
+
+				this.saveProperties()
+			}
+		})
 	}
 
-	public _isExistingDeploymentSet(name: string): boolean {
+	public deleteJDBCPool(alias: string) {
 
-		if (this.deploymentSet.name) {
+		const dialogRef = this._dialog.open(SimpleConfirmationComponent, {
+			data: {title: 'Confirm Deletion', subTitle: 'Are you sure you want to delete the JDBC pool ' + alias + ' ?'},
+		})
 
-			var found = false
+		dialogRef.afterClosed().subscribe(okay => {
 
-			for (var i=0;i<this.deploymentSets.length;i++) {
+			if (okay) {
+				let index = this.jdbcAliases.indexOf(alias)
 
-				if (this.deploymentSets[i] == name)
-				{
+				if (index != -1)
+					this.jdbcAliases.splice(index,1)
+
+				this.jdbcConnections.delete(alias)
+
+				this.saveProperties()
+			}
+		})
+	}
+
+	public addArtConnection() {
+
+		const dialogRef = this._dialog.open(SimpleNameComponent, {
+			data: {title: 'Please specify the name of the adapter connection to override'},
+		})
+
+		dialogRef.afterClosed().subscribe(name => {
+
+			if (name) {
+				let pool = new ARTProperties()
+				pool.name = name
+				this.artConnections.set(name, pool)
+				this.artAliases.push(name)
+
+				this.saveProperties()
+			}
+		})
+	}
+
+	public deleteArtConnection(alias: string) {
+
+		const dialogRef = this._dialog.open(SimpleConfirmationComponent, {
+			data: {title: 'Confirm Deletion', subTitle: 'Are you sure you want to remove the overrides for the connection ' + alias + ' ?'},
+		})
+
+		dialogRef.afterClosed().subscribe(okay => {
+
+			if (okay) {
+				let index = this.artAliases.indexOf(alias)
+
+				if (index != -1)
+					this.artAliases.splice(index,1)
+
+				this.artConnections.delete(alias)
+
+				this.saveProperties()
+			}
+		})
+	}
+
+	public clear(clearPropsFileCtrl?: boolean) {
+
+		if (clearPropsFileCtrl)
+			this.propsCtrl.setValue(null, {onlySelf: true, emitEvent: false})
+
+		this.currentFile = null
+		this.artAliases = null
+		this.artConnections = new Map<string, ARTProperties>()
+		this.jdbcAliases = null
+		this.jdbcConnections = new Map<string, JdbcConnection>()
+
+		this.extendedProperties = []
+		this.otherProperties = []
+		this.globalProperties = []
+
+		this.auditDestCtrl.setValue("default", {onlySelf: true, emitEvent: false})
+		this.internalDestCtrl.setValue("default", {onlySelf: true, emitEvent: false})
+		this.adaptersCtrl.setValue("default", {onlySelf: true, emitEvent: false})
+		this.centralUserCtrl.setValue("default", {onlySelf: true, emitEvent: false})
+		this.xrefCtrl.setValue("default", {onlySelf: true, emitEvent: false})
+	}
+
+	public hasRecommendedSettings() {
+
+		if (this.currentFile) {
+			return this.isPropertyPresent("user.Administrator.password", this.otherProperties)
+				&& this.isPropertyPresent("settings.watt.server.port", this.extendedProperties)
+				&& this.isPropertyPresent("settings.watt.net.localhost", this.extendedProperties)
+				&& this.isPropertyPresent("settings.watt.server.publish.useCSQ", this.extendedProperties)
+				&& this.isPropertyPresent("settings.watt.server.saveConfigFiles", this.extendedProperties)
+				&& this.isPropertyPresent("settings.watt.server.saveConfigFiles", this.extendedProperties)
+				&& this.isPropertyPresent("settings.watt.server.audit.logFilesToKeep", this.extendedProperties)
+				&& this.isPropertyPresent("settings.watt.server.serverlogFilesToKeep", this.extendedProperties)
+				&& this.isPropertyPresent("settings.watt.server.stats.logFilesToKeep", this.extendedProperties)
+				&& this.isPropertyPresent("settings.watt.debug.level", this.extendedProperties)
+				&& this.isPropertyPresent("watt.server.pipeline.processor", this.extendedProperties)
+				&& this.isPropertyPresent("consul.default.host", this.extendedProperties)
+				&& this.isPropertyPresent("consul.default.port", this.extendedProperties)
+				&& this.isPropertyPresent("consul.default.user", this.extendedProperties)
+				&& this.isPropertyPresent("consul.default.password", this.extendedProperties)
+
+		} else {
+			return true
+		}
+	}
+
+	public setRecommendedSettings(saveChanges?: boolean) {
+
+		this.addPropertyIfNotPresent(new Property("user.Administrator.password", '$env{admin_password}', "Administrator password"), this.otherProperties)
+		this.addPropertyIfNotPresent(new Property("settings.watt.server.port", "$env{admin_port}", "Administration http port"), this.extendedProperties)
+		this.addPropertyIfNotPresent(new Property("settings.watt.net.localhost", "", "Override pod container name with whatever you specify here, useful in a containerized environment where you want to specify a service endpoint rather than a pod for resubmission"), this.extendedProperties)
+		this.addPropertyIfNotPresent(new Property("settings.watt.server.publish.useCSQ", "false", "disables local caching for outbound messages, which is not recommended when running as a pod due to risk of data loss"), this.extendedProperties)
+
+		this.addPropertyIfNotPresent(new Property("settings.watt.server.saveConfigFiles", "false", "avoids creating backup files for config changes"), this.extendedProperties)
+		this.addPropertyIfNotPresent(new Property("settings.watt.server.audit.logFilesToKeep", "1", "don't keep archive files"), this.extendedProperties)
+		this.addPropertyIfNotPresent(new Property("settings.watt.server.serverlogFilesToKeep", "1", "don't keep archive files"), this.extendedProperties)
+		this.addPropertyIfNotPresent(new Property("settings.watt.server.stats.logFilesToKeep", "1", "don't keep archive files"), this.extendedProperties)
+		this.addPropertyIfNotPresent(new Property("settings.watt.debug.level", "Warn", "Set logging level to warning only"), this.extendedProperties)
+		this.addPropertyIfNotPresent(new Property("watt.server.pipeline.processor", "false", "Disables pipeline save/restore debug options"), this.extendedProperties)
+
+		this.addPropertyIfNotPresent(new Property("consul.default.host", "$env{consul_host}", "host name of Consul service registry to use"), this.extendedProperties)
+		this.addPropertyIfNotPresent(new Property("consul.default.port", "$env{consul_port}", "Disables pipeline save/restore debug options"), this.extendedProperties)
+		this.addPropertyIfNotPresent(new Property("consul.default.user", "$env{consul_user}", "Disables pipeline save/restore debug options"), this.extendedProperties)
+		this.addPropertyIfNotPresent(new Property("consul.default.password", "$env{consul_password}", "Disables pipeline save/restore debug options"), this.extendedProperties)
+
+		this.extendedProperties = this.copyList(this.extendedProperties)
+		this.otherProperties = this.copyList(this.otherProperties)
+
+		if (saveChanges)
+			this.saveProperties()
+	}
+
+	private loadPropertiesFile(filename: string) {
+
+		this.clear()
+
+		this._resources.getResourceContent("properties", this.propsCtrl.value).subscribe((data) => {
+			if (data && data.properties) {
+
+				this.currentFile = this.propsCtrl.value
+
+				this.otherProperties = []
+
+				this.jdbcConnections = JdbcConnection.make(data.properties)
+				this.artConnections = ARTProperties.make(data.properties)
+
+				this.jdbcAliases = []
+				this.jdbcConnections.forEach((value: JdbcConnection, key: string) => {
+					this.jdbcAliases.push(key)
+				})
+
+				this.artAliases = []
+				this.artConnections.forEach((value: ARTProperties, key: string) => {
+					this.artAliases.push(key)
+				})
+
+				data.properties.forEach((kv) => {
+
+					if (kv.key == JdbcConnection.JDBC_FUNC_ISCOREAUDIT) {
+						this.auditDestCtrl.setValue(kv.value, {onlySelf: true, emitEvent: false})
+					} else if (kv.key == JdbcConnection.JDBC_FUNC_CENTRALUSERS) {
+						this.centralUserCtrl.setValue(kv.value, {onlySelf: true, emitEvent: false})
+					} else if (kv.key == JdbcConnection.JDBC_FUNC_ADAPTERS) {
+						this.adaptersCtrl.setValue(kv.value, {onlySelf: true, emitEvent: false})
+					} else if (kv.key == JdbcConnection.JDBC_FUNC_ISINTERNAL) {
+						this.internalDestCtrl.setValue(kv.value, {onlySelf: true, emitEvent: false})
+					} else if (kv.key == JdbcConnection.JDBC_FUNC_XREF) {
+						this.xrefCtrl.setValue(kv.value, {onlySelf: true, emitEvent: false})
+					} else if (kv.key.startsWith('settings.')) {
+						this.extendedProperties.push(Property.make(kv))
+					} else if (kv.key.startsWith('globalvariable.')) {
+						this.globalProperties.push(Property.make(kv))
+					} else if (!kv.key.startsWith(ARTProperties.PREFIX) && !kv.key.startsWith(JdbcConnection.JDBC_PREFIX)) {
+						this.otherProperties.push(Property.make(kv))
+					}
+				})
+			}
+		})
+	}
+
+	private saveProperties() {
+
+		if (this.currentFile == null)
+			return
+
+		// only proceed if recognized file
+
+		let props: Property[] = []
+
+		this.jdbcConnections.forEach((p) => {
+			let vals = p.toProperties()
+
+			vals.forEach((v) => {
+				props.push(v.keyValuePair(JdbcConnection.JDBC_PREFIX + p.jdbcAlias + "."))
+			})
+		})
+
+		this.artConnections.forEach((a) => {
+			let vals = a.toProperties()
+
+			vals.forEach((v) => {
+				props.push(v.keyValuePair(ARTProperties.PREFIX + a.name + "."))
+			})
+		})
+
+		this.otherProperties.forEach((o) => {
+			props.push(o.keyValuePair())
+		})
+
+		this.extendedProperties.forEach((o) => {
+			props.push(o.keyValuePair('settings.'))
+		})
+
+		this.globalProperties.forEach((o) => {
+			props.push(o.keyValuePair('globalvariable.'))
+		})
+		if (this.auditDestCtrl.value && this.auditDestCtrl.value != 'default') {
+			props.push(new Property(JdbcConnection.JDBC_FUNC_ISCOREAUDIT, this.auditDestCtrl.value))
+			props.push(new Property(JdbcConnection.JDBC_SERVICEQUEUE_DEST, ServiceQueueDestType.ServiceDBDest))
+		}
+
+		if (this.internalDestCtrl.value && this.internalDestCtrl.value != 'default') {
+			props.push(new Property(JdbcConnection.JDBC_FUNC_ISINTERNAL, this.internalDestCtrl.value))
+		}
+
+		if (this.adaptersCtrl.value && this.adaptersCtrl.value != 'default') {
+			props.push(new Property(JdbcConnection.JDBC_FUNC_ADAPTERS, this.adaptersCtrl.value))
+		}
+
+		if (this.centralUserCtrl.value && this.centralUserCtrl.value != 'default') {
+			props.push(new Property(JdbcConnection.JDBC_FUNC_CENTRALUSERS, this.centralUserCtrl.value))
+		}
+
+		if (this.xrefCtrl.value && this.xrefCtrl.value != 'default') {
+			props.push(new Property(JdbcConnection.JDBC_FUNC_XREF, this.xrefCtrl.value))
+		}
+
+		this.savePropertiesFile(props)
+	}
+
+	private addPropertyIfNotPresent(property: Property, list: Property[]): Property[] {
+
+		if (!this.isPropertyPresent(property.key, list)) {
+			list.push(property)
+		}
+
+		return list
+	}
+
+	private isPropertyPresent(key: string, list: Property[]): boolean {
+
+		let found: boolean = false
+
+		for (let i=0; i<list.length; i++) {
+			if (list[i].key == key) {
+				found = true
+				break
+			}
+		}
+
+		return found
+	}
+
+	private mergeProperties(newProps: Property[], props: Property[]): Property[] {
+
+		let found: boolean = false
+
+		for(let i=0; i < newProps.length; i++) {
+			let p = newProps[i]
+
+			for (let z=0; z < props.length; z++) {
+				let o = props[z]
+
+				if (o.key == p.key) {
+					props[z] = p
 					found = true
 					break
 				}
 			}
 
-			return found
-		} else {
-			return false
+			if (!found) {
+				props.push(p)
+			}
 		}
+
+		return props
 	}
 
-	public selectedRepoNames(): string[] {
+	private savePropertiesFile(props: Property[]) {
 
-		  if (this.deploymentSet) {
+		let data: string = ""
 
-      		let reps: string[] = []
+		props.forEach((p) => {
+			if (p.value)
+				data += p.key + "=" + p.value + "\n"
+		})
 
-      		this.deploymentSet.source[0].repositories.forEach( (r) =>  {
-        		reps.push(r.name)
-      		})
+		this._resources.uploadResource("properties", this.propsCtrl.value, "text/plain", new Blob([data])).subscribe((success) => {
 
-      		return reps
-	  	} else {
-      		return this.repoNameCtrl.value
-		  }
-	}
+			//this._snackbarRef.dismiss()
 
-	/** Whether the number of selected elements matches the total number of rows. */
-  	public isAllDependenciesSelected() {
-    	const numSelected = this.selectedDependencies.selected.length
-    	const numRows = this.dependencies.length
+			if (success) {
 
-    	return numSelected === numRows
-  	}
+			} else {
+				this._snackbarRef = this._snackbar.open('save failed for ' + this.propsCtrl.value);
 
-  	public selectDependencyRow(row) {
-
-  		this.selectedDependencies.toggle(row)
-
-  		this.dependenciesSelectionChanged()
-  	}
-
-  /** Selects all rows if they are not all selected; otherwise clear selectedDependencies. */
-	public masterDependenciesToggle() {
-
-	    this.isAllDependenciesSelected() ?
-	        this.selectedDependencies.clear() :
-	        this.dependencies.forEach(row => this.selectedDependencies.select(row))
-
-	    this.dependenciesSelectionChanged()
-	}
-
-	private dependenciesSelectionChanged() {
-
-		this.selectedDependencies.selected.forEach((p) => {
-			let rep: Repository = this.findDeploymentRepoForName(p.repository)
-
-			if (rep != null) {
-				rep.include.push(p.name)
 			}
 		})
 	}
 
-	public haveDependencies(): boolean {
+	private _filterPropFile(filter: string) {
 
-		return this.dependencies && this.dependencies.length > 0
+		const filterValue = filter.toLowerCase()
+		return this._propertyFiles.filter(option => filterValue.length == 0 || option.toLowerCase().includes(filterValue))
 	}
 
-	public haveSelectedSomeDependents(): boolean {
+	private copyList(list: Property[]): Property[] {
+		let out: Property[] = []
 
-		return (this.selectedDependencies.selected.length > 0)
-	}
-
-	public addSelectedDependentsToSource() {
-
-		var p: WmPackageInfo = null
-
-		while(p=this.selectedDependencies.selected.pop()) {
-
-			this.removeDependency(p)
-			//this._gitSelectionModel.select(p.name) // TODO: this will go in popup version of git browser
-
-			// we need to add it to repo in the list, or even the repo to the list if not present
-
-			let repo: Repository = null
-
-			for (let r of this.repositories.data) {
-				if (r.name == p.repository) {
-					// got it
-					repo = r
-					break
-				}
-			}
-
-			if (repo == null) {
-				let path: string = null
-				for(let r of this.values.gitRepos) {
-					if (r.name == p.repository) {
-						path = r.packages
-						break
-					}
-				}
-
-				repo = new Repository(p.repository, path)
-				this.repositories.data.push(repo)
-			}
-
-			repo.include.push(p.name)
-		}
-
-		this.indexOnServer(false)
-		this.repoTable.renderRows()
-		this.dependentsTable.renderRows()
-
-		this.saveDeploymentSet(false)
-	}
-
-  	public addSelectedDependentsToIgnore() {
-
-    	let p: WmPackageInfo = null
-
-    	while(p=this.selectedDependencies.selected.pop()) {
-
-      		this.removeDependency(p)
-
-			this.repositories.data.forEach((r) => {
-				// don't which one it refers to so will add to all, doh!
-				r.exclude.push(p.name)
-			})
-    	}
-
-    	this.saveDeploymentSet(false)
-  	}
-
-  	public reindexDeploymentSet(event) {
-
-		event.target.disabled = true
-		this.indexOnServer(true, event.target)
-	}
-
-	private removeDependency(o: any): WmPackageInfo {
-
-		let p: WmPackageInfo = null
-
-		for (let i = 0; i < this.dependencies.length; i++) {
-			if (this.dependencies[i].name == o.name) {
-				p = this.dependencies.splice(i, 1)[0]
-				break
-			}
-		}
-
-		this.selectedDependencies.deselect(o)
-		return p
-	}
-
-	private loadDeploymentSet(name: string) {
-
-		this._configService.deploymentSet(name).subscribe((d) => {
-
-			this.deploymentSet = d
-
-			let selectedReps: string[] = []
-
-      		this.deploymentSet.source[0].repositories.forEach((r) => {
-        		selectedReps.push(r.name)
-      		})
-
-			this.repoNameCtrl.setValue(selectedReps, {onlySelf: true, emitEvent: false})
-
-			this.repositories.data = this.deploymentSet.source[0].repositories
-			this.repoTable.renderRows()
-
-			// update deployment set to reference current git info
-
-      		this._settings.values().subscribe( v => {
-
-        		if (!v.gitUser && !v.gitName) {
-
-          		// git is not setup, don't do now't
-
-          			window.alert("Warning - You haven't setup you git preferences!!")
-        		} else {
-					this.deploymentSet.source[0].gitURI = v.completeGitUri()
-        		}
-      		})
-
-      		this.deploymentNameCtrl.setValue(d.name, {onlySelf: true, emitEvent: false})
-
-			this.indexOnServer(false)
+		list.forEach((p) => {
+			out.push(p)
 		})
-	}
-
-	private saveDeploymentSet(indexOnCompletion: boolean, reclone?: boolean) {
-
-		this._configService.uploadDeploymentSet(this.deploymentSet).subscribe((d) => {
-
-			if (indexOnCompletion)
-				this.indexOnServer(reclone)
-
-			if (!this.isExistingDeploymentSet())
-				this.deploymentSets.push(this.deploymentSet.name)
-		})
-	}
-
-	private indexOnServer(reindex: boolean, button?: any) {
-
-		this._isIndexing = true
-		this._indexingSnackbarRef = this._snackbar.open('Indexing git repository(s), dependency checking will not work until complete');
-		this._packagesService.index(this.deploymentSet.name, this.deploymentSet.source[0], reindex).subscribe((packages) => {
-
-			this._isIndexing = false
-			this._indexingSnackbarRef.dismiss()
-
-			if (button)
-			  button.disabled = false
-
-			if (this.deploymentSet.source[0].repositories.length > 0)
-				this.checkDependencies()
-
-		}, error => {
-			this._isIndexing = false
-			this._snackbar.open('Indexing failed: ' + error, 'Sorry', {duration: 3000})
-    	})
-	}
-
-  	private checkDependencies() {
-
-		if (this._isIndexing)
-		  return
-
-		let l: string[] = this.getAllPackagesForSource(this.deploymentSet.source[0])
-
-		if (l.length > 0) {
-
-      		this.deploymentSet.source[0].repositories.forEach((r) => {
-
-        		this._packagesService.checkDependenciesForPackages(l, this.deploymentSet.name).subscribe((d) => {
-
-					this.dependencies = []
-					d.dependencies.forEach((p) => {
-						let found: boolean = false
-						for(let r of this.repositories.data) {
-							if (r.include.indexOf(p.name) != -1 || r.exclude.indexOf(p.name) != -1) {
-								found = true
-								break
-							}
-						}
-
-						if (!found) {
-							this.dependencies.push(p)
-						}
-					})
-          			this.rebuildAPIList(r, d.packages)
-        		})
-      		})
-
-			this.saveDeploymentSet(false)
-
-		} else {
-			this.dependencies = []
-		}
-	}
-
-	private rebuildAPIList(r: Repository, packages: WmPackageInfo[]) {
-
-		this.deploymentSet.apis = []
-		r.selectedAPIs = []
-
-		packages.forEach((p) => {
-
-			if (p.apis) {
-				p.apis.forEach((a) => {
-					if (this.notInAPIList(a)) {
-						this.deploymentSet.apis.push(a)
-					}
-				})
-
-				if (r.name == p.name || r.include.indexOf(p.name) != -1) {
-					p.apis.forEach((a) => {
-						r.selectedAPIs.push(a)
-					})
-				}
-			}
-		})
-	}
-
-	private notInAPIList(a: APIDefinition): boolean {
-
-		if (!this.deploymentSet.apis || this.deploymentSet.apis.length == 0)
-			return true
-
-		let notFound: boolean = true
-
-		for (let i = 0; i < this.deploymentSet.apis.length; i++) {
-
-			if (this.deploymentSet.apis[i].name == a.name) {
-				notFound = false
-				break
-			}
-		}
-
-		return notFound
-	}
-
-	private clear() {
-
-		this.deploymentSet = this.makeDeploymentSet()
-		this.dependencies = []
-    	this.repositories.data = this.deploymentSet.source[0].repositories
-
-		if (this.repoTable)
-			this.repoTable.renderRows()
-	}
-
-	private getAllPackagesForSource(source: Source): string[] {
-
-		let out: string[] = []
-    	source.repositories.forEach((r) => {
-
-      	if (r.include.length == 0 && r.path == null) {
-        	out.push(r.name)
-      	} else {
-        	r.include.forEach((p) => {
-          		out.push(p)
-        	})
-		  }
-    	})
 
 		return out
-	}
-
-	private makeDeploymentSet(name?: string, sources?: Source): DeploymentSet {
-
-		let deploymentSet: DeploymentSet = new DeploymentSet()
-		deploymentSet.name = name ? name : null
-		let s: Source = sources || new Source()
-
-		this._settings.values().subscribe((v) => {
-
-      		if (!v.gitUri.endsWith("/"))
-        		v.gitUri = v.gitUri + "/"
-
-			s.gitURI = v.gitUri
-      		s.gitURI += + v.gitUser
-
-      		s.gitUser = v.gitUser
-      		s.gitPassword = v.gitPassword
-		})
-
-		deploymentSet.source[0] = s
-
-		return deploymentSet
-	}
-
-	private indexOfTemplate(name): number {
-
-      if (!name || !this.deploymentSets)
-        return -1
-
-      let found: number = -1
-
-      for (var i=0; i < this.deploymentSets.length; i++) {
-
-        if (this.deploymentSets[i] == name) {
-          found = i
-          break
-        }
-      }
-
-      return found
-  	}
-
-	private availableRepositoryWithName(name: string): Repository {
-
-		let found: Repository = null
-
-		for (let r of this._availableRepositories) {
-			if (r.name == name) {
-				found = r
-				break
-			}
-		}
-
-		return found
-	}
-
-	private findRepoForName(repo: string): Repository {
-
-		let found: Repository = null
-
-		for(let r of this.repositories.data) {
-			if (r.name == repo) {
-				found = r
-				break
-			}
-		}
-
-		return found
-	}
-
-	private findDeploymentRepoForName(repo: string): Repository {
-
-		let found: Repository = null
-
-		if (this.deploymentSet != null) {
-			for(let r of this.deploymentSet.source[0].repositories) {
-				if (r.name == repo) {
-					found = r
-					break
-				}
-			}
-		}
-
-		return found
 	}
 }

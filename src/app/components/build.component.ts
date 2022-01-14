@@ -1,12 +1,12 @@
-import { Component, OnInit }                          from '@angular/core'
+import { Component }                                  from '@angular/core'
 import { Router }                                     from '@angular/router'
 
 import { Settings }                                   from '../settings'
 
-import { DockerImage }                   			        from '../models/docker-image'
+import { DockerImage }                   			  from '../models/docker-image'
 
 import { DockerService }                              from '../services/docker.service'
-import {ConfigurationService}                         from '../services/configuration.service'
+import { ConfigurationService }                       from '../services/configuration.service'
 
 @Component({
   selector: 'build',

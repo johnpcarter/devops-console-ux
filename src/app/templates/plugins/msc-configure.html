@@ -21,7 +21,10 @@
                   </mat-option>
                 </mat-select>
                 <span matPrefix>
-                  <a href="" onclick="window.open('http://localhost:5555', '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes'); return false" matTooltip="Opens a link to Service Runtime Admin console from where you can configure and export your propertiesFor" style="width:15px"> <fa-icon class="icon" [icon]="['fas', 'tools']" style="color: red; margin-right: 20px"> </fa-icon> </a>
+                    <a href="" onClick="return false" (click)="openPropertyEditor()">
+                        <fa-icon class="icon" [icon]="['fas', 'tools']" style="color: red; margin-right: 20px"></fa-icon>
+                    </a>
+                  <!-- <a href="" onclick="window.open('http://localhost:5555', '_blank', 'location=yes,height=570,width=520,scrollbars=yes,status=yes'); return false" matTooltip="Opens a link to Service Runtime Admin console from where you can configure and export your propertiesFor" style="width:15px"> <fa-icon class="icon" [icon]="['fas', 'tools']" style="color: red; margin-right: 20px"> </fa-icon> </a> -->
                 </span>
               <mat-hint>ATTENTION: You can select multiple properties files to be included in the image. At runtime the correct file will be used by matching the run-type environment attribute with one of the files.
                 This requires that you prefix your file with the name of the environment surrounded by underscores '_' e.g. _uat_app-props.properties.</mat-hint>

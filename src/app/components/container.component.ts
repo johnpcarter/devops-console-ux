@@ -9,9 +9,10 @@ import {MatSelectChange} from '@angular/material/select';
 import {DockerImage} from '../models/docker-image';
 
 import {DockerService} from '../services/docker.service';
-import {Arg, Container, ContainerType, Environment, Port, Volume} from '../models/project';
 import {ContainerTemplates} from '../support/container.templates';
 import {Settings} from '../settings';
+import {Arg, Container, ContainerType, Port, Volume} from '../models/container';
+import {Environment} from '../models/Environment';
 
 @Component({
   selector: 'container',
@@ -78,8 +79,6 @@ export class ContainerComponent implements OnInit {
   public accessModeTypes: string[] = ['ReadWriteOnce', 'ReadWriteMany', 'ReadOnly']
 
   public editMode: boolean = false
-
-  //private _allVersions: DockerImage[] = []
 
   private _panelStatus: Map<string, boolean>
   private _ignoreChanges: boolean = false
@@ -398,6 +397,18 @@ export class ContainerComponent implements OnInit {
     this._hasChanged = false
   }
 
+  public styleForArg(element: Arg) {
+
+    let style = {}
+
+    if (element.mandatory) {
+      style['font-weight'] = "bold"
+      style['color'] = 'red'
+    }
+
+    return style
+  }
+
   public styleForAttribute(element: any, field: string): any {
 
     let style = {}
@@ -434,6 +445,8 @@ export class ContainerComponent implements OnInit {
       return env[field]
     } else if (this.selectedEnvironmentSettings != this.defaultEnvironmentSettings) {
       return this.defaultEnvironmentSettings.environmentVariable(env.source)[field]
+    } else {
+      return ""
     }
   }
 

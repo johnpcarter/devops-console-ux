@@ -1923,12 +1923,12 @@ export class MicroServiceBuilderComponent implements BuilderComponent, OnInit {
 
 	public packages(set: DeploymentSet): string[] {
 
-		return set.source.include;
+		return set.source[0].include;
 	}
 
 	public excludedPackages(set: DeploymentSet): string[] {
 
-		return set.source.exclude;
+		return set.source[0].exclude;
 	}
 
 	public apis(set: DeploymentSet): APIDefinition[] {
@@ -1964,7 +1964,7 @@ export class MicroServiceBuilderComponent implements BuilderComponent, OnInit {
 	    this.currentBuild.buildCommands.push(file);
 
     } else if (!include) {
-	    this.currentBuild.buildCommands.splice(this.currentBuild.buildCommands.indexOf(file), 1);
+            this.currentBuild.buildCommands.splice(this.currentBuild.buildCommands.indexOf(file), 1);
     }
   }
 
@@ -2075,7 +2075,7 @@ export class MicroServiceBuilderComponent implements BuilderComponent, OnInit {
 
 			this._runSetsService.deploymentSet(s).subscribe((d) &#x3D;&gt; {
 
-				d.source.targetDir &#x3D; &quot;/opt/softwareag/IntegrationServer/packages&quot;;
+				d.source[0].targetDir &#x3D; &quot;/opt/softwareag/IntegrationServer/packages&quot;;
 				selectedSets.push(d);
 				this.setDeploymentDescriptionForOwner(d, props, selectedSets);
 			});
@@ -2089,8 +2089,8 @@ export class MicroServiceBuilderComponent implements BuilderComponent, OnInit {
 		let l: BuilderProperties[] &#x3D; [];
 		let ref: string[] &#x3D; [];
 
-		if (d.source &amp;&amp; d.source.include) {
-			d.source.include.forEach((s) &#x3D;&gt; {
+		if (d.source &amp;&amp; d.source[0].include) {
+			d.source[0].include.forEach((s) &#x3D;&gt; {
 				ref.push(s);
 			});
 		}

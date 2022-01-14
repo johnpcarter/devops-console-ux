@@ -1,21 +1,8 @@
-import { Component, ChangeDetectorRef, EventEmitter,
-			OnInit, OnChanges, OnDestroy, Input, 
-										Output }   		from '@angular/core'
+import { Component, EventEmitter,
+			OnInit, OnChanges, Input, Output }   		from '@angular/core'
 
-import { Router }									  	from '@angular/router'
-import {FormBuilder, FormGroup, FormControl, 
-								Validators} 			from '@angular/forms'
-import { SelectionModel }                             	from '@angular/cdk/collections'
-
-import { MediaMatcher }                               	from '@angular/cdk/layout'
-import { MatAccordion }                               	from '@angular/material/expansion'
-import { MatInput }										from '@angular/material/input'
-import { MatButton }									from '@angular/material/button'
-
-import { MatDialog, MatDialogRef,
-					MAT_DIALOG_DATA }	  				from '@angular/material/dialog'
-
-import { Stage, Container, Action }            			from '../models/project'
+import { FormBuilder, FormGroup, FormControl } 			from '@angular/forms'
+import {Action, Stage} from '../models/project';
 
 @Component({
   selector: 'action',

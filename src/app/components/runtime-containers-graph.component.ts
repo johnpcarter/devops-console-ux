@@ -3,7 +3,8 @@ import {DomSanitizer} from '@angular/platform-browser';
 import {Router} from '@angular/router';
 
 import {MatDialog} from '@angular/material/dialog';
-import {Container, RunSet} from '../models/project';
+import { Container} from '../models/container';
+import { RunSet} from '../models/project';
 import {ConfigurationService} from '../services/configuration.service';
 import {DockerService} from '../services/docker.service';
 import {TestTraceService} from '../services/test-trace.service';

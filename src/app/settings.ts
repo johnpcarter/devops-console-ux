@@ -42,6 +42,14 @@ export class Values {
   public dockerUserId: string = null
   public dockerPassword: string = null
 
+  public completeGitUri(): string {
+
+    if (this.gitUri.endsWith("/"))
+      return this.gitUri + this.gitUser
+    else
+      return this.gitUri + "/" + this.gitUser
+  }
+
   public repoForName(name: string): RepoSettings {
 
     let found: RepoSettings = null

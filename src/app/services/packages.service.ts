@@ -1,14 +1,13 @@
 import { Injectable } 	           	 			      from '@angular/core'
-import { HttpClient, HttpHeaders, HttpParams }  from '@angular/common/http'
-import { Observable, of }               		    from 'rxjs'
-import { switchMap, map } 						          from 'rxjs/operators'
+import { HttpClient, HttpHeaders }              from '@angular/common/http'
+import { Observable }               		        from 'rxjs'
+import { map } 						                      from 'rxjs/operators'
 
 import { NgxXml2jsonService } 					        from 'ngx-xml2json'
 
 import { Settings }                     		    from '../settings'
 import { WmPackageInfo }                        from '../models/wm-package-info'
-import { DeploymentSet }                        from '../models/project'
-import {Source} from '../models/git-source'
+import { Source }                               from '../models/git-source'
 
 export class DependencyWrapper {
   public packages: WmPackageInfo[]
@@ -101,21 +100,18 @@ export class PackagesService {
         }))
     }
 
-    public index(deploymentSetName: string, packagesDir: string, sources: Source, forceReindex: boolean): Observable<WmPackageInfo[]> {
+    public index(deploymentSetName: string, source: Source, forceReindex: boolean): Observable<WmPackageInfo[]> {
 
-      if (packagesDir.startsWith("/"))
-        packagesDir = packagesDir.substring(packagesDir.indexOf("/")+1)
-
-		  let url: string = PackagesService.URI + "/" + deploymentSetName + "/index?repository=" + encodeURI(sources.gitRepository) + "&packagesDir=" + encodeURI(packagesDir)
+		  let url: string = PackagesService.URI + "/" + deploymentSetName + "/index"
 
 		  let headers = new HttpHeaders()
 				.set('Content-Type', 'application/json')
 				.set('Accept', 'application/json')
 
       if (forceReindex)
-        (<any> sources).forceReindex = forceReindex
+        headers = headers.append("forceReindex", "true")
 
-		  let body: string = JSON.stringify(sources)
+		  let body: string = JSON.stringify(source)
 
       return this._http.post(url, body, { headers }).pipe(map( (responseData) => {
 
@@ -126,7 +122,7 @@ export class PackagesService {
        	}))
     }
 
-    public checkDependenciesForPackages(packages: string[], packagesDir?: string): Observable<DependencyWrapper> {
+    public checkDependenciesForPackages(packages: string[], name: string): Observable<DependencyWrapper> {
 
       var packs: string = ""
       packages.forEach((p) => {
@@ -143,8 +139,8 @@ export class PackagesService {
         .set('Content-Type', 'application/json')
         .set('Accept', 'application/json')
 
-        if (packagesDir)
-          headers = headers.set('packagesDir', packagesDir)
+        if (name)
+          url += "?name=" + name
 
       return this._http.get(url, { headers }).pipe(map( (responseData) => {
 
@@ -153,7 +149,7 @@ export class PackagesService {
             if (p != null)
               packages.push(WmPackageInfo.make(p))
             else
-              console.log("** WARNING ** - invalid null dependencies found for '" + packs + "' in " + packagesDir)
+              console.log("** WARNING ** - invalid null dependencies found for '" + packs + "' in " + name)
            })
 
           let dependencies: WmPackageInfo[] = [];

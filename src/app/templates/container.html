@@ -8,11 +8,11 @@
 			<mat-card-subtitle>
 				<div style="margin-left: 30px; width: 100%;display:flex; justify-content: flex-start; flex-wrap: wrap">
           <mat-form-field *ngIf="editMode" style="width:90%">
-				      <input [id]="containerId('containerDescription')" matInput placeholder="Description" formControlName="containerDescriptionCtrl" required>
+			  <input [id]="containerId('containerDescription')" matInput placeholder="Description" formControlName="containerDescriptionCtrl" style="border: none; background-color: lightyellow" required>
           </mat-form-field>
 					<div>
 						<mat-form-field style="min-width: 250px;">
-              <input [id]="containerId('containerName')" matInput placeholder="Name" formControlName="containerNameCtrl" [readonly]="!editMode">
+              <input [id]="containerId('containerName')" matInput placeholder="Name" formControlName="containerNameCtrl" style="border: none; background-color: lightyellow" [readonly]="!editMode">
             </mat-form-field>
           </div>
 					<div style="margin-left: 30px; margin-top: -20px; min-width: 400px">
@@ -31,11 +31,11 @@
 
                 </div>
 				<mat-form-field style="margin-top: 30px; margin-left: 30px; min-width: 250px">
-					<input [id]="containerId('user')" matInput type="text" placeholder="Administrator User" formControlName="containerUserCtrl" [readonly]="!editMode">
+					<input [id]="containerId('user')" matInput type="text" placeholder="Administrator User" formControlName="containerUserCtrl" style="border: none; background-color: lightyellow" [readonly]="!editMode">
 					<mat-hint>Leave blank for default User {{defaultAdminUser()}}</mat-hint>
         </mat-form-field>
         <mat-form-field style="margin-top: 30px; margin-left: 30px; min-width: 250px">
-					<input [id]="containerId('password')" matInput type="password" placeholder="Administrator Password" formControlName="containerPasswordCtrl" [readonly]="!editMode">
+					<input [id]="containerId('password')" matInput type="password" placeholder="Administrator Password" formControlName="containerPasswordCtrl" style="border: none; background-color: lightyellow" [readonly]="!editMode">
 					<mat-hint>Leave blank for default Password {{defaultAdminPassword()}}</mat-hint>
         </mat-form-field>
 			</mat-card-subtitle>
@@ -97,7 +97,7 @@
                 <mat-option value="">Private</mat-option>
                 <mat-option *ngFor="let type of serviceTypes" [value]="type">{{type}}</mat-option>
               </mat-select>
-              <div *ngIf="element.serviceType == 'NodePort'" style="white-space: nowrap">30<input maxlength="3" type="text" [formControl]="controlForPanelElement('ports', 'publicPort', element, publicPort(element), publicPortValidators())" (change)="updateElementWithControlValue('ports', 'publicPort', element, '30')" style="max-width: 30px; margin-left: 10px; margin-right: 15px; line-height: 24px"></div>
+              <div *ngIf="element.serviceType == 'NodePort'" style="white-space: nowrap">30<input maxlength="3" type="text" [formControl]="controlForPanelElement('ports', 'publicPort', element, publicPort(element), publicPortValidators())" (change)="updateElementWithControlValue('ports', 'publicPort', element, '30')" style="max-width: 30px; margin-left: 10px; margin-right: 15px; line-height: 24px; border: none; background-color: lightyellow"></div>
 					</td>
 				  </ng-container>
 				  <ng-container matColumnDef="typeEdit">
@@ -113,21 +113,21 @@
           <ng-container matColumnDef="internalEdit">
             <th mat-header-cell *matHeaderCellDef style="width:100px;"> Internal </th>
             <td mat-cell *matCellDef="let element">
-              <input *ngIf="defaultEnvironmentSettings == selectedEnvironmentSettings" type="text" [formControl]="controlForPanelElement('ports', 'internal', element, element.internal)" (change)="updateElementWithControlValue('ports', 'internal', element)" style="width: 80%; line-height: 24px; margin-left: 5px" required>
+              <input *ngIf="defaultEnvironmentSettings == selectedEnvironmentSettings" type="text" [formControl]="controlForPanelElement('ports', 'internal', element, element.internal)" (change)="updateElementWithControlValue('ports', 'internal', element)" style="width: 80%; line-height: 24px; margin-left: 5px; border: none; background-color: lightyellow" required>
               <p *ngIf="defaultEnvironmentSettings != selectedEnvironmentSettings" style="padding-top: 15px; line-height: 24px; vertical-align: center; color: gray; margin-left: 10px">{{ fieldForPort(element, 'internal') }}</p>
             </td>
           </ng-container>
           <ng-container matColumnDef="externalEdit">
             <th mat-header-cell *matHeaderCellDef style="width:100px"> External </th>
             <td mat-cell *matCellDef="let element">
-              <input type="text" [placeholder]="fieldForPort(element, 'external')" [formControl]="controlForPanelElement('ports', 'external', element, element.external)" (change)="updateElementWithControlValue('ports', 'external', element)" style="width: 80%; line-height: 24px" required>
+              <input type="text" [placeholder]="fieldForPort(element, 'external')" [formControl]="controlForPanelElement('ports', 'external', element, element.external)" (change)="updateElementWithControlValue('ports', 'external', element)" style="width: 80%; line-height: 24px; border: none; background-color: lightyellow" required>
             </td>
           </ng-container>
 				   <ng-container matColumnDef="descriptionEdit">
 				    <th mat-header-cell *matHeaderCellDef> Description </th>
 				    <td mat-cell *matCellDef="let element">
-              <input *ngIf="defaultEnvironmentSettings == selectedEnvironmentSettings" type="text" [formControl]="controlForPanelElement('ports', 'description', element, element.description)" (change)="updateElementWithControlValue('ports', 'description', element)" style="width: 80%; line-height: 24px">
-              <p *ngIf="defaultEnvironmentSettings != selectedEnvironmentSettings" style="padding-top: 15px; line-height: 24px; vertical-align: center; color: gray;">{{ fieldForPort(element, 'description') }}</p>
+              <input *ngIf="defaultEnvironmentSettings == selectedEnvironmentSettings" type="text" [formControl]="controlForPanelElement('ports', 'description', element, element.description)" (change)="updateElementWithControlValue('ports', 'description', element)" style="width: 80%; line-height: 24px; border: none; background-color: lightyellow">
+              <p *ngIf="defaultEnvironmentSettings != selectedEnvironmentSettings" style="padding-top: 15px; line-height: 24px; vertical-align: center; color: gray; border: none; background-color: lightyellow">{{ fieldForPort(element, 'description') }}</p>
             </td>
 				  </ng-container>
 
@@ -189,32 +189,32 @@
 				   <ng-container matColumnDef="srcEdit">
 				    <th mat-header-cell *matHeaderCellDef style="width:200px"> Source </th>
 				    <td mat-cell *matCellDef="let element">
-              <input *ngIf="selectedEnvironmentSettings == defaultEnvironmentSettings" type="text" [formControl]="controlForPanelElement('volumes', 'source', element, element.source)" (change)="updateElementWithControlValue('volumes', 'source', element)" style="width: 80%; line-height: 24px" required>
+              <input *ngIf="selectedEnvironmentSettings == defaultEnvironmentSettings" type="text" [formControl]="controlForPanelElement('volumes', 'source', element, element.source)" (change)="updateElementWithControlValue('volumes', 'source', element)" style="width: 80%; line-height: 24px; border: none; background-color: lightyellow" required>
               <p *ngIf="defaultEnvironmentSettings != selectedEnvironmentSettings" style="padding-top: 15px; line-height: 24px; vertical-align: center; color: gray;">{{ fieldForVolume(element, 'source') }}</p>
             </td>
 				  </ng-container>
 				  <ng-container matColumnDef="tgtEdit">
 				    <th mat-header-cell *matHeaderCellDef> Target </th>
-				    <td mat-cell *matCellDef="let element"> <input type="text" [placeholder]="fieldForVolume(element, 'target')" [formControl]="controlForPanelElement('volumes', 'target', element, element.target)" (change)="updateElementWithControlValue('volumes', 'target', element)" style="width: 80%; line-height: 24px" required> </td>
+				    <td mat-cell *matCellDef="let element"> <input type="text" [placeholder]="fieldForVolume(element, 'target')" [formControl]="controlForPanelElement('volumes', 'target', element, element.target)" (change)="updateElementWithControlValue('volumes', 'target', element)" style="width: 80%; line-height: 24px; border: none; background-color: lightyellow" required> </td>
 				  </ng-container>
           <ng-container matColumnDef="k8sStorageTypeEdit">
             <th mat-header-cell *matHeaderCellDef style="width:80px"> Storage </th>
-            <td mat-cell *matCellDef="let element" style="background-color: orange; padding-left: 10px; border-top-left-radius: 5px; border-bottom-left-radius: 5px"> <input type="text" [placeholder]="fieldForVolume(element, 'k8sStorageType')" [formControl]="controlForPanelElement('volumes', 'k8sStorageType', element, element.k8sStorageType)" (change)="updateElementWithControlValue('volumes', 'k8sStorageType', element)" style="width: 80%; line-height: 24px" required> </td>
+            <td mat-cell *matCellDef="let element" style="background-color: orange; padding-left: 10px; border-top-left-radius: 5px; border-bottom-left-radius: 5px"> <input type="text" [placeholder]="fieldForVolume(element, 'k8sStorageType')" [formControl]="controlForPanelElement('volumes', 'k8sStorageType', element, element.k8sStorageType)" (change)="updateElementWithControlValue('volumes', 'k8sStorageType', element)" style="width: 80%; line-height: 24px; border: none; background-color: lightyellow" required> </td>
           </ng-container>
           <ng-container matColumnDef="k8sAccessModeEdit">
             <th mat-header-cell *matHeaderCellDef style="width:105px"> Access </th>
             <td mat-cell *matCellDef="let element" style="background-color: orange">
-              <input type="text" [placeholder]="fieldForVolume(element, 'k8sAccessMode')" [formControl]="controlForPanelElement('volumes', 'k8sAccesMode', element, element.k8sAccessMode)" (change)="updateElementWithControlValue('volumes', 'k8sAccesMode', element)" style="width: 80%; line-height: 24px" required>
+              <input type="text" [placeholder]="fieldForVolume(element, 'k8sAccessMode')" [formControl]="controlForPanelElement('volumes', 'k8sAccesMode', element, element.k8sAccessMode)" (change)="updateElementWithControlValue('volumes', 'k8sAccesMode', element)" style="width: 80%; line-height: 24px; border: none; background-color: lightyellow" required>
             </td>
           </ng-container>
           <ng-container matColumnDef="k8sCapacityEdit">
             <th mat-header-cell *matHeaderCellDef style="width:60px"> Capacity </th>
-            <td mat-cell *matCellDef="let element" style="background-color: orange; padding-right: 10px; border-top-right-radius: 5px; border-bottom-right-radius: 5px"> <input type="text" [placeholder]="fieldForVolume(element, 'k8sCapacity')" [formControl]="controlForPanelElement('volumes', 'k8sCapacity', element, element.k8sCapacity)" (change)="updateElementWithControlValue('volumes', 'k8sCapacity', element)" style="width: 80%; line-height: 24px" required> </td>
+            <td mat-cell *matCellDef="let element" style="background-color: orange; padding-right: 10px; border-top-right-radius: 5px; border-bottom-right-radius: 5px"> <input type="text" [placeholder]="fieldForVolume(element, 'k8sCapacity')" [formControl]="controlForPanelElement('volumes', 'k8sCapacity', element, element.k8sCapacity)" (change)="updateElementWithControlValue('volumes', 'k8sCapacity', element)" style="width: 80%; line-height: 24px; border: none; background-color: lightyellow" required> </td>
           </ng-container>
 				   <ng-container matColumnDef="descriptionEdit">
 				    <th mat-header-cell *matHeaderCellDef> Description </th>
 				    <td mat-cell *matCellDef="let element">
-              <input *ngIf="selectedEnvironmentSettings == defaultEnvironmentSettings" type="text" [formControl]="controlForPanelElement('volumes', 'description', element, element.description)" (change)="updateElementWithControlValue('volumes', 'description', element)" style="width: 80%; line-height: 24px">
+              <input *ngIf="selectedEnvironmentSettings == defaultEnvironmentSettings" type="text" [formControl]="controlForPanelElement('volumes', 'description', element, element.description)" (change)="updateElementWithControlValue('volumes', 'description', element)" style="width: 80%; line-height: 24px; margin-left: 5px; border: none; background-color: lightyellow">
               <p *ngIf="defaultEnvironmentSettings != selectedEnvironmentSettings" style="padding-top: 15px; line-height: 24px; vertical-align: center; color: gray;">{{ fieldForVolume(element, 'description') }}</p>
             </td>
 				  </ng-container>
@@ -240,7 +240,7 @@
 
 				  <ng-container matColumnDef="src">
 				    <th mat-header-cell *matHeaderCellDef style="width:200px"> Source </th>
-				    <td mat-cell *matCellDef="let element"> {{element.source}} </td>
+				    <td mat-cell *matCellDef="let element" [style]="styleForArg(element)"> {{element.source}} </td>
 				  </ng-container>
 				  <ng-container matColumnDef="tgt">
 				    <th mat-header-cell *matHeaderCellDef> Target </th>
@@ -253,19 +253,19 @@
 
 				  <ng-container matColumnDef="tgtEdit">
 				    <th mat-header-cell *matHeaderCellDef> Target </th>
-				    <td mat-cell *matCellDef="let element"> <input type="text" [placeholder]="fieldForEnv(element, 'target')" [formControl]="controlForPanelElement('env', 'target', element, element.target)" (change)="updateElementWithControlValue('env', 'target', element)" style="width: 80%; line-height: 24px" required> </td>
+				    <td mat-cell *matCellDef="let element"> <input type="text" [placeholder]="fieldForEnv(element, 'target')" [formControl]="controlForPanelElement('env', 'target', element, element.target)" (change)="updateElementWithControlValue('env', 'target', element)" style="width: 80%; line-height: 24px; border: none; background-color: lightyellow" required> </td>
 				  </ng-container>
           <ng-container matColumnDef="srcEdit">
             <th mat-header-cell *matHeaderCellDef style="width:200px"> Source </th>
             <td mat-cell *matCellDef="let element">
-              <input *ngIf="selectedEnvironmentSettings == defaultEnvironmentSettings" type="text" [formControl]="controlForPanelElement('env', 'source', element, element.source)" (change)="updateElementWithControlValue('env', 'source', element)" style="width: 80%; line-height: 24px" required>
-              <p *ngIf="defaultEnvironmentSettings != selectedEnvironmentSettings" style="padding-top: 15px; line-height: 24px; vertical-align: center; color: gray;"> {{ fieldForEnv(element, 'source') }}</p>
+              <input *ngIf="selectedEnvironmentSettings == defaultEnvironmentSettings && !element.mandatory" type="text" [formControl]="controlForPanelElement('env', 'source', element, element.source)" (change)="updateElementWithControlValue('env', 'source', element)" style="width: 80%; line-height: 24px; border: none; background-color: lightyellow" required>
+              <p *ngIf="(defaultEnvironmentSettings != selectedEnvironmentSettings) || element.mandatory" style="padding-top: 15px; line-height: 24px; vertical-align: center; color: gray;" [style]="styleForArg(element)"> {{ fieldForEnv(element, 'source') }}</p>
             </td>
           </ng-container>
           <ng-container matColumnDef="descriptionEdit">
 				    <th mat-header-cell *matHeaderCellDef> Description </th>
 				    <td mat-cell *matCellDef="let element">
-              <input *ngIf="selectedEnvironmentSettings == defaultEnvironmentSettings" type="text" [formControl]="controlForPanelElement('env', 'description', element, element.description)" (change)="updateElementWithControlValue('env', 'description', element)" style="width: 80%; line-height: 24px">
+              <input *ngIf="selectedEnvironmentSettings == defaultEnvironmentSettings" type="text" [formControl]="controlForPanelElement('env', 'description', element, element.description)" (change)="updateElementWithControlValue('env', 'description', element)" style="width: 80%; line-height: 24px; border: none; background-color: lightyellow">
               <p *ngIf="defaultEnvironmentSettings != selectedEnvironmentSettings" style="padding-top: 15px; line-height: 24px; vertical-align: center; color: gray;">{{ fieldForEnv(element, 'description') }}</p>
             </td>
 				  </ng-container>

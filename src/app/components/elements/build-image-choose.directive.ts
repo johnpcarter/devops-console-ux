@@ -1,7 +1,6 @@
 import { Directive, ViewContainerRef } 					from '@angular/core'
-import { FormBuilder, FormGroup } 		  				from '@angular/forms'
-import {DockerImage} from '../../models/docker-image'
-import {Installer} from '../../models/project'
+import { FormGroup } 		  				            from '@angular/forms'
+import { Installer }                                    from '../../models/Installer';
 
 @Directive({
   selector: '[builder]',

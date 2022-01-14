@@ -4,7 +4,7 @@ import {MAT_DIALOG_DATA} 								from '@angular/material/dialog'
 @Component({
   selector: 'name-dialog',
   template: `
-  <h2>{{title}}</h2>
+  <h2 style="color: #1a3a5c">{{title}}</h2>
   <mat-dialog-content>
   	<input style="width: 80%" mat-input type="text" [(ngModel)]="data.name" required>
   </mat-dialog-content>

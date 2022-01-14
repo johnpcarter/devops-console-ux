@@ -39,6 +39,9 @@ import { RuntimeScaleComponent }                        from './components/k8s/r
 import { RuntimeUpdateComponent }                       from './components/k8s/runtime-update.component'
 import { BuildComponent }                               from './components/build.component'
 import { BuildPackagesComponent }                       from './components/build-packages.component'
+import { BuildPropertiesComponent }                     from './components/build-properties.component'
+import { BuildPropertiesTableComponent }                from './components/build-properties-table.component'
+
 import { BuildImageComponent }                          from './components/build-image.component'
 import { RuntimeDeployComponent }                       from './components/runtime-deploy.component'
 import { RuntimeStageComponent }                        from './components/runtime-stage.component'
@@ -110,13 +113,16 @@ import { ContainerTemplates } from './support/container.templates'
 import { faDocker, faCloudscale } from '@fortawesome/free-brands-svg-icons'
 import { faCircle } from '@fortawesome/free-regular-svg-icons'
 
-import { faEllipsisV, faBars, faTerminal, faTimesCircle, faBox, faVial, faRocket, faSpinner, faCheck, faBug, faHome, faExclamationCircle, faRunning, faCog, faEject, faPlay, faSquare, faExclamationTriangle, faLightbulb, faEnvelope, faStop, faStopCircle, faClock, faPlus, faTimes, faCloudSunRain,
-    faMinus, faPlusCircle, faMinusCircle, faTrashAlt, faProjectDiagram, faComment, faStar, faFlag, faPen, faPenSquare, faHourglassEnd, faList, faArrowLeft, faArrowRight, faChevronCircleDown, faThumbsUp, faThumbsDown, faQuestion,
+import { faEllipsisV, faBars, faFilter, faExternalLinkAlt, faTerminal, faTimesCircle, faBox, faBoxOpen, faVial, faRocket, faSpinner, faCheck, faBug, faHome, faExclamationCircle, faRunning, faCog, faEject, faPlay, faSquare, faExclamationTriangle, faLightbulb, faEnvelope, faStop, faStopCircle, faClock, faPlus, faTimes, faCloudSunRain,
+    faMinus, faPlusCircle, faMinusCircle, faArrowUp, faArrowDown, faTrashAlt, faProjectDiagram, faComment, faStar, faFlag, faPen, faPenSquare, faHourglassEnd, faList, faArrowLeft, faArrowRight, faChevronCircleDown, faThumbsUp, faThumbsDown, faQuestion,
     faComments, faSync, faLevelUpAlt, faChevronDown, faCheckSquare, faCaretSquareDown, faCaretSquareUp, faArrowsAltV, faVials, faCodeBranch, faLock, faFileDownload, faTools, faFileUpload, faLockOpen, faUser, faSyncAlt,faUserCircle, faShare, faInfo, faCertificate, faClone, faPlusSquare, faMinusSquare, faCloudDownloadAlt, faCloudUploadAlt }  from '@fortawesome/free-solid-svg-icons'
 import {MatTooltipModule} from '@angular/material/tooltip'
+import {GitPackageChooserComponent} from './components/elements/git-package-chooser.component';
+import {SimpleConfirmationComponent} from './components/elements/simple-confirmation.component';
+import {ComboBoxComponent} from './components/elements/combo-box.component';
 
- library.add(faEllipsisV, faList, faBars, faTerminal, faBox, faTimes, faTimesCircle, faHome, faVial, faCheck, faPlay, faSpinner, faExclamationCircle, faBug, faLightbulb, faTrashAlt, faCloudscale, faCaretSquareDown, faCaretSquareUp, faPen, faLevelUpAlt, faVials, faCodeBranch, faArrowsAltV, faStopCircle, faSyncAlt, faCloudUploadAlt, faClock, faThumbsUp, faThumbsDown, faQuestion,
-   faRocket, faCog, faCloudSunRain, faDocker, faCircle, faSquare, faProjectDiagram, faCheckSquare, faRunning, faArrowLeft, faArrowRight, faPlusCircle, faFileDownload, faFileUpload, faPlusSquare, faTools, faSync, faCloudDownloadAlt)
+ library.add(faEllipsisV, faFilter, faLock, faList, faBars, faArrowUp, faArrowDown, faTerminal, faBox, faBoxOpen, faTimes, faTimesCircle, faHome, faVial, faCheck, faPlay, faSpinner, faExclamationCircle, faBug, faLightbulb, faTrashAlt, faCloudscale, faCaretSquareDown, faCaretSquareUp, faPen, faLevelUpAlt, faVials, faCodeBranch, faArrowsAltV, faStopCircle, faSyncAlt, faCloudUploadAlt, faClock, faThumbsUp, faThumbsDown, faQuestion,
+   faRocket, faCog, faCloudSunRain, faDocker, faCircle, faSquare, faProjectDiagram, faChevronDown, faCheckSquare, faExternalLinkAlt, faCheckSquare, faRunning, faArrowLeft, faArrowRight, faPlusCircle, faFileDownload, faFileUpload, faPlusSquare, faTools, faSync, faCloudDownloadAlt)
 
 const sideNavRoutes: Routes = [
   {
@@ -146,6 +152,20 @@ const sideNavRoutes: Routes = [
       data: {
         animation: 'install'
       }
+    },
+    {
+      path: 'build/properties',
+      component: BuildPropertiesComponent,
+        data: {
+          animation: 'properties'
+        }
+    },
+    {
+        path: 'build/properties/:id',
+        component: BuildPropertiesComponent,
+        data: {
+            animation: 'properties'
+        }
     },
     {
       path: 'build/package',
@@ -259,9 +279,12 @@ const sideNavRoutes: Routes = [
       MicroServiceBuilderComponent,
       MicroServiceInstallerComponent,
       GitSourcesComponent,
+      GitPackageChooserComponent,
       InstallerComponent,
       DockerImageVersionsComponent,
       SimpleNameComponent,
+      SimpleConfirmationComponent,
+      ComboBoxComponent,
       EditContainerComponent,
       DockerImageInfoComponent,
       BuildExeComponent
@@ -284,6 +307,8 @@ const sideNavRoutes: Routes = [
     RuntimeUpdateComponent,
     BuildComponent,
     BuildInstallComponent,
+      BuildPropertiesComponent,
+    BuildPropertiesTableComponent,
     BuildPackagesComponent,
     BuildImageComponent,
     RuntimeDeployComponent,
@@ -303,6 +328,8 @@ const sideNavRoutes: Routes = [
     MicroServiceInstallerComponent,
     GitSourcesComponent,
     SimpleNameComponent,
+    SimpleConfirmationComponent,
+      ComboBoxComponent,
     DockerImageChooserComponent,
     UploadButtonComponent,
     EditContainerComponent,
@@ -311,7 +338,8 @@ const sideNavRoutes: Routes = [
     TestRunComponent,
     BuildExeComponent,
     InstallerComponent,
-    CancelCdkDrag,
+      GitPackageChooserComponent,
+      CancelCdkDrag,
     UPLOAD_DIRECTIVES
   ],
     imports: [

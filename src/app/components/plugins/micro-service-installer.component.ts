@@ -3,9 +3,11 @@ import {Component, OnInit} from '@angular/core'
 import {FormControl, FormGroup} from '@angular/forms'
 
 import {BuilderComponent, BuilderProperties, PropertiesChangedOwner} from '../elements/build-image-choose.directive'
-import {BuildCommand, DisplayType, Installer} from '../../models/project'
 import {ConfigurationService} from '../../services/configuration.service'
 import {ResourceService} from '../../services/resources.service'
+import {Installer} from '../../models/Installer';
+import {BuildCommand} from '../../models/build';
+import {DisplayType} from '../../models/display-type';
 
 @Component({
   selector: 'jc-msc-install',
@@ -23,8 +25,8 @@ export class MicroServiceInstallerComponent implements BuilderComponent, OnInit 
 
 	public currentInstaller: Installer
 	public propertyFiles: string[] = []
-  public featuresCtrl: FormControl
-  public addMysqlDriverCtrl: FormControl
+    public featuresCtrl: FormControl
+    public addMysqlDriverCtrl: FormControl
 
 	private _ignoreValuesChange: boolean
 
@@ -130,7 +132,7 @@ export class MicroServiceInstallerComponent implements BuilderComponent, OnInit 
       let files: BuildCommand[] = this.currentInstaller.fileForType("properties")
 
       if (files.length > 0)
-        this._resources.downloadResource("properties", files[0].source)
+        this._resources.downloadResourceViaBrowser("properties", files[0].source)
     }
 
 	public propertiesFileAdded(filename: string) {

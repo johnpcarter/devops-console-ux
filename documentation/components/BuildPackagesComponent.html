@@ -3192,7 +3192,7 @@ export class BuildPackagesComponent implements OnInit {
 
 	public deploymentSetNotConfigured() {
 
-		return this.deploymentSet &amp;&amp; this.deploymentSet.name !&#x3D; null &amp;&amp; (this.deploymentSet.source &#x3D;&#x3D; null || this.deploymentSet.source.include.length &#x3D;&#x3D; 0);
+		return this.deploymentSet &amp;&amp; this.deploymentSet.name !&#x3D; null &amp;&amp; (this.deploymentSet.source &#x3D;&#x3D; null || this.deploymentSet.source[0].include.length &#x3D;&#x3D; 0);
 	}
 
 	public isExistingDeploymentSet(): boolean {
@@ -3224,23 +3224,23 @@ export class BuildPackagesComponent implements OnInit {
 	public selectedRepoName(): string {
 
 	  if (this.deploymentSet)
-      return this.deploymentSet.source.gitRepository;
+      return this.deploymentSet.source[0].gitRepository;
 	  else
 	    return null;
 	}
 
 	public deploymentSetPackages(): string[] {
 
-		if (this.deploymentSet &amp;&amp; this.deploymentSet.source.include !&#x3D; null &amp;&amp; this.deploymentSet.source.include.length &gt; 0)
-			return this.deploymentSet.source.include;
+		if (this.deploymentSet &amp;&amp; this.deploymentSet.source[0].include !&#x3D; null &amp;&amp; this.deploymentSet.source[0].include.length &gt; 0)
+			return this.deploymentSet.source[0].include;
 		else
 			return null;
 	}
 
 	public deploymentSetExcludedPackages(): string[] {
 
-		if (this.deploymentSet &amp;&amp; this.deploymentSet.source &amp;&amp; this.deploymentSet.source.exclude &amp;&amp; this.deploymentSet.source.exclude.length &gt; 0)
-			return this.deploymentSet.source.exclude;
+		if (this.deploymentSet &amp;&amp; this.deploymentSet.source &amp;&amp; this.deploymentSet.source[0].exclude &amp;&amp; this.deploymentSet.source[0].exclude.length &gt; 0)
+			return this.deploymentSet.source[0].exclude;
 		else
 			return null;
 	}
@@ -3285,7 +3285,7 @@ export class BuildPackagesComponent implements OnInit {
 
 		this.selectedDependencies.selected.forEach((p) &#x3D;&gt; {
 
-			this.deploymentSet.source.include.push(p.name);
+			this.deploymentSet.source[0].include.push(p.name);
 		});
 	}
 
@@ -3351,7 +3351,7 @@ export class BuildPackagesComponent implements OnInit {
 		while(p&#x3D;this.selectedDependencies.selected.pop()) {
 
 			this.removeDependency(p);
-			this.deploymentSet.source.exclude.push(p.name);
+			this.deploymentSet.source[0].exclude.push(p.name);
 		};
 
 		this.saveDeploymentSet(false);
@@ -3359,7 +3359,7 @@ export class BuildPackagesComponent implements OnInit {
 
 	public whichTabToShow() {
 
-	  if (this._freshReload &amp;&amp; this.deploymentSet &amp;&amp; this.deploymentSet.source.include.length &gt; 0)
+	  if (this._freshReload &amp;&amp; this.deploymentSet &amp;&amp; this.deploymentSet.source[0].include.length &gt; 0)
 	    return 0;
 	  else
 	    return 1;
@@ -3389,12 +3389,12 @@ export class BuildPackagesComponent implements OnInit {
 
 	private loadDeploymentSet(name: string) {
 
-	  let gitURI: string &#x3D; this.deploymentSet.source.gitURI;
+	  let gitURI: string &#x3D; this.deploymentSet.source[0].gitURI;
 
 		this._configService.deploymentSet(name).subscribe((d) &#x3D;&gt; {
 			this._freshReload &#x3D; true;
 			this.deploymentSet &#x3D; d;
-		  this.deploymentSet.source.gitURI &#x3D; gitURI;
+		  this.deploymentSet.source[0].gitURI &#x3D; gitURI;
       this.deploymentNameCtrl.setValue(d.name, {onlySelf: true, emitEvent: false});
 
 			this.indexOnServer(false);
@@ -3403,10 +3403,10 @@ export class BuildPackagesComponent implements OnInit {
 
 	private selectPackagesForCurrentDeploymentSet() {
 
-		if (this.deploymentSet.source &amp;&amp; this.deploymentSet.source.include) {
+		if (this.deploymentSet.source &amp;&amp; this.deploymentSet.source[0].include) {
 
 			if (this._gitSelectionModel) {
-				this.deploymentSet.source.include.forEach((r) &#x3D;&gt; {
+				this.deploymentSet.source[0].include.forEach((r) &#x3D;&gt; {
 					this._gitSelectionModel.select(r);
 				});
 			}
@@ -3438,7 +3438,7 @@ export class BuildPackagesComponent implements OnInit {
 			if (button)
 			  button.disabled &#x3D; false;
 
-			if (this.deploymentSet.source.include.length &gt; 0)
+			if (this.deploymentSet.source[0].include.length &gt; 0)
 				this.checkDependencies();
 			  this.selectPackagesForCurrentDeploymentSet();
 		});
@@ -3450,7 +3450,7 @@ export class BuildPackagesComponent implements OnInit {
 
 		if (l.length &gt; 0) {
 
-		  let dir: string &#x3D; this.deploymentSet.source.gitRepository;
+		  let dir: string &#x3D; this.deploymentSet.source[0].gitRepository;
 
 		  if (this._selectedGit.config.packages.startsWith(&quot;/&quot;))
         dir +&#x3D; this._selectedGit.config.packages;

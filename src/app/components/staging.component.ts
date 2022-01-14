@@ -21,9 +21,10 @@ import {
   MAT_DIALOG_DATA
 } from '@angular/material/dialog'
 
-import {Stage, Deployment, Container, Action} from '../models/project'
+import {Stage, ContainerSet, Action} from '../models/project'
 import {APIDefinition} from '../models/wm-package-info'
 import {Settings} from '../settings'
+import {Container} from '../models/container';
 
 @Component({
   selector: 'staging',
@@ -160,13 +161,13 @@ export class StagingComponent implements OnInit, OnChanges {
     })
   }
 
-  public removeAPI(service: Deployment, api: APIDefinition) {
+  public removeAPI(service: ContainerSet, api: APIDefinition) {
 
     service.removeAPI(api)
     this._save()
   }
 
-  public removeContainer(service: Deployment, container: Container) {
+  public removeContainer(service: ContainerSet, container: Container) {
 
     service.removeContainer(container)
     this._save()
