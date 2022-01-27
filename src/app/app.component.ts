@@ -121,7 +121,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.settings.currentEnvironment = event.value
   }
 
-  public classForMenuItem(path: string): String {
+  public classForMenuItem(path: string): string {
 
     if (this.currentRouteURL.indexOf(path) != -1) {
       return "toolbar-item-selected"
@@ -130,7 +130,7 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 
-  public classForSubmenuItem(path: string): String {
+  public classForSubmenuItem(path: string): string {
     if (this.currentRouteURL == path) {
         return "page-title-navigation-item page-title-navigation-item-selected"
     }  else {
@@ -138,7 +138,7 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 
-  public labelForSubmenu(path: string): String {
+  public labelForSubmenu(path: string): string {
 
     if (menus.get(path)) {
       return menus.get(path).alt || menus.get(path).label
@@ -149,14 +149,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public prepareRoute(outlet: RouterOutlet): boolean {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation']
-  }
-
-  public showAboutPanel() {
-
-    let dialogRef = this._dialog.open(AboutComponent, {
-      height: '400px',
-      width: '600px',
-    })
   }
 }
 

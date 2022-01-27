@@ -8,13 +8,14 @@ import {MatSnackBar, MatSnackBarRef, TextOnlySnackBar} from '@angular/material/s
 import { ConfigurationService } 			 			from '../services/configuration.service'
 import { ResourceService } 								from '../services/resources.service'
 import { Property } 									from '../models/properties'
-import { JdbcConnection, ServiceQueueDestType } 		from '../models/audit-properties';
+import { JdbcConnectionProperties, ServiceQueueDestType } 		from '../models/jdbc-connection-properties';
 import { ARTProperties } 								from '../models/art-properties'
 import { SimpleNameComponent} 							from './elements/simple-name.component';
 import { SimpleConfirmationComponent } 					from './elements/simple-confirmation.component';
 import {Observable, of} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {BuildCommand} from '../models/build';
+import {WmCloudProperties} from '../models/wm-cloud-properties';
 
 @Component({
   selector: 'build-package',
@@ -40,8 +41,10 @@ export class BuildPropertiesComponent implements OnInit {
 
 	public availableExtendedSettings: string[] = []
 
+	public wmCloudAliases: string[]
+	public wmCloudConnections: Map<string, WmCloudProperties>
 	public jdbcAliases: string[]
-	public jdbcConnections: Map<string, JdbcConnection>
+	public jdbcConnections: Map<string, JdbcConnectionProperties>
 
 	public artAliases: string[]
 	public artConnections: Map<string, ARTProperties>
@@ -151,17 +154,19 @@ export class BuildPropertiesComponent implements OnInit {
 		})
 	}
 
+	public wmCloudPropertiesDidChange(wmCloudAlias: string, $event: Property[]) {
+
+		this.wmCloudConnections.set(wmCloudAlias, WmCloudProperties.make(this.mergeProperties($event, this.jdbcConnections.get(wmCloudAlias).toProperties())).get(wmCloudAlias))
+		this.saveProperties()
+	}
+
 	public jdbcPropertiesDidChange(jdbcAlias: string, $event: Property[]) {
 
-		console.log("got an update")
-
-		this.jdbcConnections.set(jdbcAlias, JdbcConnection.make(this.mergeProperties($event, this.jdbcConnections.get(jdbcAlias).toProperties())).get(jdbcAlias))
+		this.jdbcConnections.set(jdbcAlias, JdbcConnectionProperties.make(this.mergeProperties($event, this.jdbcConnections.get(jdbcAlias).toProperties())).get(jdbcAlias))
 		this.saveProperties()
 	}
 
 	public artPropertiesDidChange(artAlias: string, $event: Property[]) {
-
-		console.log("got an update")
 
 		this.artConnections.set(artAlias, ARTProperties.make(this.mergeProperties($event, this.artConnections.get(artAlias).toProperties())).get(artAlias))
 		this.saveProperties()
@@ -178,7 +183,7 @@ export class BuildPropertiesComponent implements OnInit {
 
 		if (this.propsCtrl.value) {
 			this.currentFile = this.propsCtrl.value
-			this.jdbcConnections = new Map<string,JdbcConnection>()
+			this.jdbcConnections = new Map<string,JdbcConnectionProperties>()
 			this.artConnections = new Map<string,ARTProperties>()
 			this.jdbcAliases = []
 			this.artAliases = []
@@ -208,6 +213,46 @@ export class BuildPropertiesComponent implements OnInit {
 		})
 	}
 
+	public addWmCloudConnection() {
+
+		const dialogRef = this._dialog.open(SimpleNameComponent, {
+			data: {title: 'Please specify a name for your new webMethods.io cloud connection'},
+		})
+
+		dialogRef.afterClosed().subscribe(name => {
+
+			if (name) {
+				let c = new WmCloudProperties()
+				c.name = name
+				this.wmCloudConnections.set(name, c)
+				this.wmCloudAliases.push(name)
+
+				this.saveProperties()
+			}
+		})
+	}
+
+	public deleteWmCloudConnection(alias: string) {
+
+		const dialogRef = this._dialog.open(SimpleConfirmationComponent, {
+			data: {title: 'Confirm Deletion', subTitle: 'Are you sure you want to delete the WmCloud connection ' + alias + ' ?'},
+		})
+
+		dialogRef.afterClosed().subscribe(okay => {
+
+			if (okay) {
+				let index = this.wmCloudAliases.indexOf(alias)
+
+				if (index != -1)
+					this.wmCloudAliases.splice(index,1)
+
+				this.wmCloudConnections.delete(alias)
+
+				this.saveProperties()
+			}
+		})
+	}
+
 	public addJDBCPool() {
 
 		const dialogRef = this._dialog.open(SimpleNameComponent, {
@@ -217,7 +262,7 @@ export class BuildPropertiesComponent implements OnInit {
 		dialogRef.afterClosed().subscribe(name => {
 
 			if (name) {
-				let pool = new JdbcConnection()
+				let pool = new JdbcConnectionProperties()
 				pool.jdbcAlias = name
 				this.jdbcConnections.set(name, pool)
 				this.jdbcAliases.push(name)
@@ -297,7 +342,7 @@ export class BuildPropertiesComponent implements OnInit {
 		this.artAliases = null
 		this.artConnections = new Map<string, ARTProperties>()
 		this.jdbcAliases = null
-		this.jdbcConnections = new Map<string, JdbcConnection>()
+		this.jdbcConnections = new Map<string, JdbcConnectionProperties>()
 
 		this.extendedProperties = []
 		this.otherProperties = []
@@ -371,11 +416,17 @@ export class BuildPropertiesComponent implements OnInit {
 
 				this.otherProperties = []
 
-				this.jdbcConnections = JdbcConnection.make(data.properties)
+				this.wmCloudConnections = WmCloudProperties.make(data.properties)
+				this.jdbcConnections = JdbcConnectionProperties.make(data.properties)
 				this.artConnections = ARTProperties.make(data.properties)
 
+				this.wmCloudAliases = []
+				this.wmCloudConnections.forEach((value: WmCloudProperties, key: string) => {
+					this.wmCloudAliases.push(key)
+				})
+
 				this.jdbcAliases = []
-				this.jdbcConnections.forEach((value: JdbcConnection, key: string) => {
+				this.jdbcConnections.forEach((value: JdbcConnectionProperties, key: string) => {
 					this.jdbcAliases.push(key)
 				})
 
@@ -386,21 +437,21 @@ export class BuildPropertiesComponent implements OnInit {
 
 				data.properties.forEach((kv) => {
 
-					if (kv.key == JdbcConnection.JDBC_FUNC_ISCOREAUDIT) {
+					if (kv.key == JdbcConnectionProperties.JDBC_FUNC_ISCOREAUDIT) {
 						this.auditDestCtrl.setValue(kv.value, {onlySelf: true, emitEvent: false})
-					} else if (kv.key == JdbcConnection.JDBC_FUNC_CENTRALUSERS) {
+					} else if (kv.key == JdbcConnectionProperties.JDBC_FUNC_CENTRALUSERS) {
 						this.centralUserCtrl.setValue(kv.value, {onlySelf: true, emitEvent: false})
-					} else if (kv.key == JdbcConnection.JDBC_FUNC_ADAPTERS) {
+					} else if (kv.key == JdbcConnectionProperties.JDBC_FUNC_ADAPTERS) {
 						this.adaptersCtrl.setValue(kv.value, {onlySelf: true, emitEvent: false})
-					} else if (kv.key == JdbcConnection.JDBC_FUNC_ISINTERNAL) {
+					} else if (kv.key == JdbcConnectionProperties.JDBC_FUNC_ISINTERNAL) {
 						this.internalDestCtrl.setValue(kv.value, {onlySelf: true, emitEvent: false})
-					} else if (kv.key == JdbcConnection.JDBC_FUNC_XREF) {
+					} else if (kv.key == JdbcConnectionProperties.JDBC_FUNC_XREF) {
 						this.xrefCtrl.setValue(kv.value, {onlySelf: true, emitEvent: false})
 					} else if (kv.key.startsWith('settings.')) {
 						this.extendedProperties.push(Property.make(kv))
 					} else if (kv.key.startsWith('globalvariable.')) {
 						this.globalProperties.push(Property.make(kv))
-					} else if (!kv.key.startsWith(ARTProperties.PREFIX) && !kv.key.startsWith(JdbcConnection.JDBC_PREFIX)) {
+					} else if (!kv.key.startsWith(ARTProperties.PREFIX) && !kv.key.startsWith(JdbcConnectionProperties.JDBC_PREFIX)) {
 						this.otherProperties.push(Property.make(kv))
 					}
 				})
@@ -417,11 +468,23 @@ export class BuildPropertiesComponent implements OnInit {
 
 		let props: Property[] = []
 
+		this.wmCloudConnections.forEach((p) => {
+			let vals = p.toProperties()
+
+			vals.forEach((v) => {
+				if (p.name == 'stage') {
+					props.push(v.keyValuePair(WmCloudProperties.PREFIX_ACCOUNT + p.name + "."))
+				} else {
+					props.push(v.keyValuePair(WmCloudProperties.PREFIX_SETTINGS + p.name + "."))
+				}
+			})
+		})
+
 		this.jdbcConnections.forEach((p) => {
 			let vals = p.toProperties()
 
 			vals.forEach((v) => {
-				props.push(v.keyValuePair(JdbcConnection.JDBC_PREFIX + p.jdbcAlias + "."))
+				props.push(v.keyValuePair(JdbcConnectionProperties.JDBC_PREFIX + p.jdbcAlias + "."))
 			})
 		})
 
@@ -445,24 +508,24 @@ export class BuildPropertiesComponent implements OnInit {
 			props.push(o.keyValuePair('globalvariable.'))
 		})
 		if (this.auditDestCtrl.value && this.auditDestCtrl.value != 'default') {
-			props.push(new Property(JdbcConnection.JDBC_FUNC_ISCOREAUDIT, this.auditDestCtrl.value))
-			props.push(new Property(JdbcConnection.JDBC_SERVICEQUEUE_DEST, ServiceQueueDestType.ServiceDBDest))
+			props.push(new Property(JdbcConnectionProperties.JDBC_FUNC_ISCOREAUDIT, this.auditDestCtrl.value))
+			props.push(new Property(JdbcConnectionProperties.JDBC_SERVICEQUEUE_DEST, ServiceQueueDestType.ServiceDBDest))
 		}
 
 		if (this.internalDestCtrl.value && this.internalDestCtrl.value != 'default') {
-			props.push(new Property(JdbcConnection.JDBC_FUNC_ISINTERNAL, this.internalDestCtrl.value))
+			props.push(new Property(JdbcConnectionProperties.JDBC_FUNC_ISINTERNAL, this.internalDestCtrl.value))
 		}
 
 		if (this.adaptersCtrl.value && this.adaptersCtrl.value != 'default') {
-			props.push(new Property(JdbcConnection.JDBC_FUNC_ADAPTERS, this.adaptersCtrl.value))
+			props.push(new Property(JdbcConnectionProperties.JDBC_FUNC_ADAPTERS, this.adaptersCtrl.value))
 		}
 
 		if (this.centralUserCtrl.value && this.centralUserCtrl.value != 'default') {
-			props.push(new Property(JdbcConnection.JDBC_FUNC_CENTRALUSERS, this.centralUserCtrl.value))
+			props.push(new Property(JdbcConnectionProperties.JDBC_FUNC_CENTRALUSERS, this.centralUserCtrl.value))
 		}
 
 		if (this.xrefCtrl.value && this.xrefCtrl.value != 'default') {
-			props.push(new Property(JdbcConnection.JDBC_FUNC_XREF, this.xrefCtrl.value))
+			props.push(new Property(JdbcConnectionProperties.JDBC_FUNC_XREF, this.xrefCtrl.value))
 		}
 
 		this.savePropertiesFile(props)

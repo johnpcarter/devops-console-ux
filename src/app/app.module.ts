@@ -102,7 +102,7 @@ import { MatInputModule } from '@angular/material/input'
 import { MatStepperModule } from '@angular/material/stepper'
 import { MatCardModule } from '@angular/material/card'
 import { MatRadioModule } from '@angular/material/radio'
-import { MatCheckboxModule } from '@angular/material/checkbox'
+import {MAT_CHECKBOX_DEFAULT_OPTIONS, MatCheckboxDefaultOptions, MatCheckboxModule} from '@angular/material/checkbox';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { MatSliderModule } from '@angular/material/slider'
 import { MatChipsModule } from '@angular/material/chips'
@@ -383,7 +383,8 @@ const sideNavRoutes: Routes = [
     ConfigurationService,
     TestTraceService,
     ContainerTemplates,
-    RuntimeInspectionService
+    RuntimeInspectionService,
+      {provide: MAT_CHECKBOX_DEFAULT_OPTIONS, useValue: { clickAction: 'noop' } as MatCheckboxDefaultOptions}
   ],
   bootstrap: [AppComponent],
   exports: [

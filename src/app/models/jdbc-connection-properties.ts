@@ -13,33 +13,7 @@ export enum ServiceQueueDestType {
     ServiceFileDest = 'ServiceFileDest'
 }
 
-export class AuditProperties {
-
-    public static SERVICE_QUEUE_DEST = 'auditing.ServiceQueue.destination'
-
-    public type: AuditType
-    public jdbcAlias: string
-
-    public static make(type: AuditType, jdbcAlias: string) {
-
-        let a: AuditProperties = new AuditProperties()
-        a.type = type
-        a.jdbcAlias = jdbcAlias
-        return a
-    }
-
-    public toProperties(): Property[] {
-
-        let props: Property[] = []
-
-        props.push(new Property(this.type, this.jdbcAlias))
-        props.push(new Property(AuditProperties.SERVICE_QUEUE_DEST, ServiceQueueDestType.ServiceDBDest))
-
-        return props
-    }
-}
-
-export class JdbcConnection {
+export class JdbcConnectionProperties {
 
     public static JDBC_PREFIX = 'jdbc.'
     public static DRIVER_ALIAS = 'driverAlias'
@@ -70,48 +44,48 @@ export class JdbcConnection {
             this._props = []
 
             if (includeEmptyValues || this.jdbcDriver)
-                this._props.push(new Property(JdbcConnection.JDBC_PREFIX + this.jdbcAlias + '.' + JdbcConnection.DRIVER_ALIAS, this.jdbcDriver))
+                this._props.push(new Property(JdbcConnectionProperties.JDBC_PREFIX + this.jdbcAlias + '.' + JdbcConnectionProperties.DRIVER_ALIAS, this.jdbcDriver))
 
             if (includeEmptyValues || this.dbUrl)
-                this._props.push(new Property(JdbcConnection.JDBC_PREFIX + this.jdbcAlias + '.' + JdbcConnection.DB_URL, this.dbUrl))
+                this._props.push(new Property(JdbcConnectionProperties.JDBC_PREFIX + this.jdbcAlias + '.' + JdbcConnectionProperties.DB_URL, this.dbUrl))
 
             if (includeEmptyValues || this.user)
-                this._props.push(new Property(JdbcConnection.JDBC_PREFIX + this.jdbcAlias + '.' + JdbcConnection.DB_USER, this.user))
+                this._props.push(new Property(JdbcConnectionProperties.JDBC_PREFIX + this.jdbcAlias + '.' + JdbcConnectionProperties.DB_USER, this.user))
 
             if (includeEmptyValues || this.password)
-                this._props.push(new Property(JdbcConnection.JDBC_PREFIX + this.jdbcAlias + '.' + JdbcConnection.DB_PASSWORD, this.password))
+                this._props.push(new Property(JdbcConnectionProperties.JDBC_PREFIX + this.jdbcAlias + '.' + JdbcConnectionProperties.DB_PASSWORD, this.password))
         }
 
         return this._props
     }
 
-    public static make(properties: Property[]): Map<string, JdbcConnection> {
+    public static make(properties: Property[]): Map<string, JdbcConnectionProperties> {
 
-        let out: Map<string, JdbcConnection> = new Map<string, JdbcConnection>()
+        let out: Map<string, JdbcConnectionProperties> = new Map<string, JdbcConnectionProperties>()
 
         properties.forEach((kv) => {
 
-            if (kv.key.startsWith(JdbcConnection.JDBC_PREFIX)) {
+            if (kv.key.startsWith(JdbcConnectionProperties.JDBC_PREFIX)) {
 
-                let alias: string = kv.key.substring(JdbcConnection.JDBC_PREFIX.length, kv.key.lastIndexOf('.'))
+                let alias: string = kv.key.substring(JdbcConnectionProperties.JDBC_PREFIX.length, kv.key.lastIndexOf('.'))
 
-                let jdbc: JdbcConnection = out.get(alias)
+                let jdbc: JdbcConnectionProperties = out.get(alias)
 
                 if (!jdbc) {
-                    jdbc = new JdbcConnection()
+                    jdbc = new JdbcConnectionProperties()
                     jdbc.jdbcAlias = alias
                     out.set(alias, jdbc)
                 }
 
                 let key: string = kv.key.substr(kv.key.lastIndexOf('.')+1)
 
-                if (key == JdbcConnection.DRIVER_ALIAS) {
+                if (key == JdbcConnectionProperties.DRIVER_ALIAS) {
                     jdbc.jdbcDriver = kv.value
-                } else if (key == JdbcConnection.DB_URL) {
+                } else if (key == JdbcConnectionProperties.DB_URL) {
                     jdbc.dbUrl = kv.value
-                } else if (key == JdbcConnection.DB_USER) {
+                } else if (key == JdbcConnectionProperties.DB_USER) {
                     jdbc.user = kv.value
-                } else if (key == JdbcConnection.DB_PASSWORD) {
+                } else if (key == JdbcConnectionProperties.DB_PASSWORD) {
                     jdbc.password = kv.value
                 }
             }
