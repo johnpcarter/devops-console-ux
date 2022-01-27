@@ -69,10 +69,10 @@ export class Values {
 export class Settings {
 
   // Use if running in Dockerised Integration Server
-  //public static SERVER_API = ""
+  public static SERVER_API = ""
 
   // Use if running in separate container on local machine
-  public static SERVER_API = 'http://localhost:5555'
+  //public static SERVER_API = 'http://localhost:5555'
 
   public static WS_SERVER = 'ws://localhost:9191'
 
