@@ -8,6 +8,7 @@ import { NgxXml2jsonService } 					        from 'ngx-xml2json'
 import { Settings }                     		    from '../settings'
 import { WmPackageInfo }                        from '../models/wm-package-info'
 import { Source }                               from '../models/git-source'
+import {environment} from '../../environments/environment';
 
 export class DependencyWrapper {
   public packages: WmPackageInfo[]
@@ -28,7 +29,7 @@ export class Sources {
 @Injectable()
 export class PackagesService {
 
-    public static URI: string = Settings.SERVER_API + "/rad/jc.devops:api/package"
+    public static URI: string = environment.SERVER_API + "/rad/jc.devops:api/package"
 
     constructor(private _settings: Settings, private _http: HttpClient, private _ngxXml2jsonService: NgxXml2jsonService) {
 

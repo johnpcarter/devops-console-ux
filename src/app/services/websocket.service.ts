@@ -125,6 +125,6 @@ export class WebSocketService {
   }
 
   public close() {
-    this._ws.close()
+    this._ws.close(1000, 'goodbye')
   }
 }

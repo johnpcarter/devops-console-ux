@@ -1,6 +1,6 @@
 import {Property} from './properties';
 
-export class ARTProperties {
+export class ARTConnectionProperties {
 
     public static PREFIX = 'artConnection.'
 
@@ -38,53 +38,53 @@ export class ARTProperties {
 
     private _props: Property[]
 
-    public static make(properties: Property[]): Map<string, ARTProperties> {
+    public static make(properties: Property[]): Map<string, ARTConnectionProperties> {
 
-        let out: Map<string, ARTProperties> = new Map<string, ARTProperties>()
+        let out: Map<string, ARTConnectionProperties> = new Map<string, ARTConnectionProperties>()
 
         properties.forEach((kv) => {
 
-            if (kv.key.startsWith(ARTProperties.PREFIX)) {
+            if (kv.key.startsWith(ARTConnectionProperties.PREFIX)) {
 
-                let alias: string = kv.key.substring(ARTProperties.PREFIX.length, kv.key.lastIndexOf('.'))
+                let alias: string = kv.key.substring(ARTConnectionProperties.PREFIX.length, kv.key.lastIndexOf('.'))
 
-                if (alias.endsWith(ARTProperties.CONNECTION_MANAGER_SETTINGS))
+                if (alias.endsWith(ARTConnectionProperties.CONNECTION_MANAGER_SETTINGS))
                     alias = alias.substring(0, alias.lastIndexOf('.'))
 
-                let conn: ARTProperties = out.get(alias)
+                let conn: ARTConnectionProperties = out.get(alias)
 
                 if (!conn) {
-                    conn = new ARTProperties()
+                    conn = new ARTConnectionProperties()
                     conn.name = alias
                     out.set(alias, conn)
                 }
 
                 let key: string = kv.key.substr(kv.key.lastIndexOf('.')+1)
 
-                if (key == ARTProperties.DATA_SOURCE_CLASS) {
-                    conn.dataSourceClass = kv.value
-                } else if (key == ARTProperties.TRANSACTION_TYPE) {
-                    conn.transactionType = kv.value
-                } else if (key == ARTProperties.DATABASE_NAME) {
-                    conn.databaseName = kv.value
-                } else if (key == ARTProperties.SERVER_NAME) {
-                    conn.server = kv.value
-                } else if (key == ARTProperties.USER) {
-                    conn.user = kv.value
-                } else if (key == ARTProperties.PASSWORD) {
-                    conn.password = kv.value
-                } else if (key == ARTProperties.NETWORK_PROTOCOL) {
-                    conn.networkProtocol = kv.value
-                } else if (key == ARTProperties.OTHER_PROPERTIES) {
-                    conn.otherProperties = kv.value
-                } else if (key == ARTProperties.ENABLE_CONNECTION_POOLING) {
-                    conn.enableConnectionPooling = kv.value
-                } else if (key == ARTProperties.HEARTBEAT_INTERVAL) {
-                    conn.heartbeat = kv.value
-                } else if (key == ARTProperties.MIN_CONNS) {
-                    conn.minConns = kv.value
-                } else if (key == ARTProperties.MAX_CONNS) {
-                    conn.maxConns = kv.value
+                if (key == ARTConnectionProperties.DATA_SOURCE_CLASS) {
+                    conn.dataSourceClass = kv.valueWithType()
+                } else if (key == ARTConnectionProperties.TRANSACTION_TYPE) {
+                    conn.transactionType = kv.valueWithType()
+                } else if (key == ARTConnectionProperties.DATABASE_NAME) {
+                    conn.databaseName = kv.valueWithType()
+                } else if (key == ARTConnectionProperties.SERVER_NAME) {
+                    conn.server = kv.valueWithType()
+                } else if (key == ARTConnectionProperties.USER) {
+                    conn.user = kv.valueWithType()
+                } else if (key == ARTConnectionProperties.PASSWORD) {
+                    conn.password = kv.valueWithType()
+                } else if (key == ARTConnectionProperties.NETWORK_PROTOCOL) {
+                    conn.networkProtocol = kv.valueWithType()
+                } else if (key == ARTConnectionProperties.OTHER_PROPERTIES) {
+                    conn.otherProperties = kv.valueWithType()
+                } else if (key == ARTConnectionProperties.ENABLE_CONNECTION_POOLING) {
+                    conn.enableConnectionPooling = kv.valueWithType()
+                } else if (key == ARTConnectionProperties.HEARTBEAT_INTERVAL) {
+                    conn.heartbeat = kv.valueWithType()
+                } else if (key == ARTConnectionProperties.MIN_CONNS) {
+                    conn.minConns = kv.valueWithType()
+                } else if (key == ARTConnectionProperties.MAX_CONNS) {
+                    conn.maxConns = kv.valueWithType()
                 }
             }
         })
@@ -94,25 +94,29 @@ export class ARTProperties {
 
     public toProperties(): Property[] {
 
-        if (!this._props) {
+        let props: Property[] = []
 
-            this._props = []
+        if (!this._props || this._props.length == 0) {
 
-            this._props.push(new Property(ARTProperties.DATA_SOURCE_CLASS, this.dataSourceClass))
-            this._props.push(new Property(ARTProperties.TRANSACTION_TYPE, this.transactionType))
-            this._props.push(new Property(ARTProperties.DATABASE_NAME, this.databaseName))
-            this._props.push(new Property(ARTProperties.SERVER_NAME, this.server))
-            this._props.push(new Property(ARTProperties.USER, this.user))
-            this._props.push(new Property(ARTProperties.PASSWORD, this.password))
-            this._props.push(new Property(ARTProperties.NETWORK_PROTOCOL, this.networkProtocol))
-            this._props.push(new Property(ARTProperties.OTHER_PROPERTIES, this.otherProperties))
+            props.push(new Property(ARTConnectionProperties.PREFIX + this.name + '.' + ARTConnectionProperties.DATA_SOURCE_CLASS, this.dataSourceClass))
+            props.push(new Property(ARTConnectionProperties.PREFIX + this.name + '.' + ARTConnectionProperties.TRANSACTION_TYPE, this.transactionType))
+            props.push(new Property(ARTConnectionProperties.PREFIX + this.name + '.' + ARTConnectionProperties.DATABASE_NAME, this.databaseName))
+            props.push(new Property(ARTConnectionProperties.PREFIX + this.name + '.' + ARTConnectionProperties.SERVER_NAME, this.server))
+            props.push(new Property(ARTConnectionProperties.PREFIX + this.name + '.' + ARTConnectionProperties.USER, this.user))
+            props.push(new Property(ARTConnectionProperties.PREFIX + this.name + '.' + ARTConnectionProperties.PASSWORD, this.password))
+            props.push(new Property(ARTConnectionProperties.PREFIX + this.name + '.' + ARTConnectionProperties.NETWORK_PROTOCOL, this.networkProtocol))
+            props.push(new Property(ARTConnectionProperties.PREFIX + this.name + '.' + ARTConnectionProperties.OTHER_PROPERTIES, this.otherProperties))
 
-            this._props.push(new Property(ARTProperties.CONNECTION_MANAGER_SETTINGS + '.' + ARTProperties.ENABLE_CONNECTION_POOLING,  this.enableConnectionPooling))
-            this._props.push(new Property(ARTProperties.CONNECTION_MANAGER_SETTINGS + '.' + ARTProperties.MIN_CONNS, this.minConns))
-            this._props.push(new Property(ARTProperties.CONNECTION_MANAGER_SETTINGS + '.' + ARTProperties.MAX_CONNS,  this.maxConns))
-            this._props.push(new Property(ARTProperties.CONNECTION_MANAGER_SETTINGS + '.' + ARTProperties.HEARTBEAT_INTERVAL, this.heartbeat))
+            props.push(new Property(ARTConnectionProperties.PREFIX + this.name + '.' + ARTConnectionProperties.CONNECTION_MANAGER_SETTINGS + '.' + ARTConnectionProperties.ENABLE_CONNECTION_POOLING,  this.enableConnectionPooling))
+            props.push(new Property(ARTConnectionProperties.PREFIX + this.name + '.' + ARTConnectionProperties.CONNECTION_MANAGER_SETTINGS + '.' + ARTConnectionProperties.MIN_CONNS, this.minConns))
+            props.push(new Property(ARTConnectionProperties.PREFIX + this.name + '.' + ARTConnectionProperties.CONNECTION_MANAGER_SETTINGS + '.' + ARTConnectionProperties.MAX_CONNS,  this.maxConns))
+            props.push(new Property(ARTConnectionProperties.PREFIX + this.name + '.' + ARTConnectionProperties.CONNECTION_MANAGER_SETTINGS + '.' + ARTConnectionProperties.HEARTBEAT_INTERVAL, this.heartbeat))
+
+            this._props = props
+        } else {
+            props = this._props
         }
 
-        return this._props
+        return props
     }
 }

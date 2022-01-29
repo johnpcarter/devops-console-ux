@@ -5,14 +5,17 @@ import {Router} from '@angular/router'
 import { MatDialog } from '@angular/material/dialog'
 import { MatTable } from '@angular/material/table'
 
-import { Container, Port} from '../models/container';
-import {TestStatus} from '../models/docker-image'
-import {ConfigurationService} from '../services/configuration.service'
-import {DockerService} from '../services/docker.service'
-import {TestTraceService} from '../services/test-trace.service'
+import { Container } from '../models/container'
+import { TestStatus} from '../models/docker-image'
+import { Port } from '../models/environment'
 
-import {Settings} from '../settings'
-import {BuildExeComponent} from './build-exe.component'
+import { ConfigurationService } from '../services/configuration.service'
+import { DockerService } from '../services/docker.service'
+import { TestTraceService } from '../services/test-trace.service'
+
+import { BuildExeComponent } from './build-exe.component'
+
+import { Settings } from '../settings'
 
 import * as $ from 'jquery'
 

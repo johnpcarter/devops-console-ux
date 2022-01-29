@@ -9,7 +9,7 @@
           <mat-hint *ngIf="!haveSets()" style="color: red">You need to define your  <span style="color: red; font-weight: bold; cursor: pointer" (click)="goSourcePage()">deployment set</span> first!</mat-hint>
         </mat-form-field>
         <mat-slide-toggle id="build.image.msr.includeAcls" formControlName="includeACLsCtrl" style="margin-top: 20px">Include ACL's</mat-slide-toggle>
-        <mat-slide-toggle id="build.image.msr.includeWebMethodsIo" formControlName="includeWmIOCtrl" style="margin-top: 20px">Include webMethods.io Settings</mat-slide-toggle>
+       <!--  <mat-slide-toggle id="build.image.msr.includeWebMethodsIo" formControlName="includeWmIOCtrl" style="margin-top: 20px">Include webMethods.io Settings</mat-slide-toggle> -->
         <div style="display: flex; flex-direction: column; align-items: flex-start; margin-top: 60px">
           <mat-card-title>Server Properties</mat-card-title>
           <div style="display: flex; flex-direction: row; align-items: flex-start; justify-content: flex-start;" *ngFor="let props of buildProperties">

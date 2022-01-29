@@ -37,28 +37,6 @@ export class JdbcConnectionProperties {
 
     private _props: Property[]
 
-    public toProperties(includeEmptyValues?: boolean): Property[] {
-
-        if (!this._props) {
-
-            this._props = []
-
-            if (includeEmptyValues || this.jdbcDriver)
-                this._props.push(new Property(JdbcConnectionProperties.JDBC_PREFIX + this.jdbcAlias + '.' + JdbcConnectionProperties.DRIVER_ALIAS, this.jdbcDriver))
-
-            if (includeEmptyValues || this.dbUrl)
-                this._props.push(new Property(JdbcConnectionProperties.JDBC_PREFIX + this.jdbcAlias + '.' + JdbcConnectionProperties.DB_URL, this.dbUrl))
-
-            if (includeEmptyValues || this.user)
-                this._props.push(new Property(JdbcConnectionProperties.JDBC_PREFIX + this.jdbcAlias + '.' + JdbcConnectionProperties.DB_USER, this.user))
-
-            if (includeEmptyValues || this.password)
-                this._props.push(new Property(JdbcConnectionProperties.JDBC_PREFIX + this.jdbcAlias + '.' + JdbcConnectionProperties.DB_PASSWORD, this.password))
-        }
-
-        return this._props
-    }
-
     public static make(properties: Property[]): Map<string, JdbcConnectionProperties> {
 
         let out: Map<string, JdbcConnectionProperties> = new Map<string, JdbcConnectionProperties>()
@@ -80,17 +58,45 @@ export class JdbcConnectionProperties {
                 let key: string = kv.key.substr(kv.key.lastIndexOf('.')+1)
 
                 if (key == JdbcConnectionProperties.DRIVER_ALIAS) {
-                    jdbc.jdbcDriver = kv.value
+                    jdbc.jdbcDriver = kv.valueWithType()
                 } else if (key == JdbcConnectionProperties.DB_URL) {
-                    jdbc.dbUrl = kv.value
+                    jdbc.dbUrl = kv.valueWithType()
                 } else if (key == JdbcConnectionProperties.DB_USER) {
-                    jdbc.user = kv.value
+                    jdbc.user = kv.valueWithType()
                 } else if (key == JdbcConnectionProperties.DB_PASSWORD) {
-                    jdbc.password = kv.value
+                    jdbc.password = kv.valueWithType()
                 }
             }
         })
 
         return out
+    }
+
+    public toProperties(includeEmptyValues?: boolean): Property[] {
+
+        let props: Property[] = []
+
+        if (!this._props || this._props.length == 0) {
+
+            if (includeEmptyValues || this.jdbcDriver)
+                props.push(new Property(JdbcConnectionProperties.JDBC_PREFIX + this.jdbcAlias + '.' + JdbcConnectionProperties.DRIVER_ALIAS, this.jdbcDriver))
+
+            if (includeEmptyValues || this.dbUrl)
+                props.push(new Property(JdbcConnectionProperties.JDBC_PREFIX + this.jdbcAlias + '.' + JdbcConnectionProperties.DB_URL, this.dbUrl))
+
+            if (includeEmptyValues || this.user)
+                props.push(new Property(JdbcConnectionProperties.JDBC_PREFIX + this.jdbcAlias + '.' + JdbcConnectionProperties.DB_USER, this.user))
+
+            if (includeEmptyValues || this.password)
+                props.push(new Property(JdbcConnectionProperties.JDBC_PREFIX + this.jdbcAlias + '.' + JdbcConnectionProperties.DB_PASSWORD, this.password))
+
+            if (includeEmptyValues) {
+                this._props = props
+            }
+        } else {
+            props = this._props
+        }
+
+        return props
     }
 }

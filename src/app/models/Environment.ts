@@ -1,4 +1,4 @@
-import { Arg, Port, Volume } from './container';
+import { DisplayType } from './build'
 
 export class Environment {
 
@@ -130,5 +130,168 @@ export class Environment {
             e.volumes = Volume.makeArray(data.volumes, keepValues)
 
         return e
+    }
+}
+
+export class Port {
+
+    public publicPort: string
+    public serviceType: string = ""
+
+    constructor(public internal: string, public external: string, public description: string, public type?: string) {
+
+        if (this.serviceType == null)
+            this.serviceType = ''
+    }
+
+    public merge(p: Port, allowClear = false) {
+
+        if (p) {
+            if (allowClear || p.external) {
+                this.external = p.external
+            }
+
+            if (allowClear || p.type) {
+                this.type = p.type
+            }
+
+            if (allowClear || p.publicPort) {
+                this.publicPort = p.publicPort
+            }
+
+            if (allowClear || p.serviceType) {
+                this.serviceType = p.serviceType
+            }
+
+            if (allowClear || p.description) {
+                this.description = p.description
+            }
+        }
+    }
+
+    public static makeArray(array: any[], keepValues: boolean = true): Port[] {
+
+        let ports: Port[] = []
+
+        array.forEach((p) => {
+            let port: Port = new Port(p.internal, keepValues ? p.external : "", keepValues ? p.description : "", keepValues ? p.type : "")
+            port.publicPort = keepValues ? p.publicPort : ""
+            port.serviceType = keepValues && p.serviceType ? p.serviceType : ""
+
+            ports.push(port)
+        })
+
+        return ports
+    }
+}
+
+export class Volume {
+
+    public k8sStorageType: string = "hostPort"
+    public k8sAccessMode: string = "ReadWriteOnce"
+    public k8sCapacity: string = "4Gi"
+
+    constructor(public source: string, public target: string, public description: string) {
+
+    }
+
+    public merge(v: Volume, allowClear: boolean = false) {
+
+        if (v) {
+            if (allowClear || v.target != "") {
+                this.target = v.target
+            }
+
+            if (allowClear || v.k8sStorageType != "") {
+                this.k8sStorageType = v.k8sStorageType
+            }
+
+            if (allowClear || v.k8sAccessMode != "") {
+                this.k8sAccessMode = v.k8sAccessMode
+            }
+
+            if (allowClear || v.k8sCapacity != "") {
+                this.k8sCapacity = v.k8sCapacity
+            }
+
+            if (allowClear || v.description != "") {
+                this.description = v.description
+            }
+        }
+    }
+
+    public static makeArray(array: any[], keepValues: boolean = true): Volume[] {
+
+        let volumes: Volume[] = []
+
+        array.forEach((a) => {
+
+            let v: Volume = new Volume(a.source, keepValues ? a.target : "", keepValues ? a.description : "")
+
+            if (a.k8sStorageType != null) {
+                v.k8sStorageType = keepValues ? a.k8sStorageType : ""
+            }
+
+            if (a.k8sAccessMode != null) {
+                v.k8sAccessMode = keepValues ? a.k8sAccessMode : ""
+            }
+
+            if (a.k8sCapacity != null) {
+                v.k8sCapacity = keepValues ? a.k8sCapacity : ""
+            }
+
+            volumes.push(v)
+        })
+
+        return volumes
+    }
+}
+
+export class Arg {
+
+    public display: DisplayType = DisplayType.hidden
+    public conditions: string[]
+    public choices: string[]
+    public mandatory: boolean = false
+
+    constructor(public source: string, public target: string, public description: string, mandatory?: boolean) {
+
+        this.mandatory = mandatory
+    }
+
+    public merge(v: Arg, allowClear: boolean = false) {
+
+        if (v) {
+            if (allowClear || v.target != "") {
+                this.target = v.target
+            }
+
+            if (allowClear || v.description != "") {
+                this.description = v.description
+            }
+
+            if (allowClear || v.display) {
+                this.display = v.display
+            }
+
+            if (allowClear || v.conditions.length > 0) {
+                this.conditions = v.conditions
+            }
+
+            if (allowClear || v.choices.length > 0) {
+                this.choices = v.choices
+            }
+        }
+    }
+
+    public static makeArray(array: any[], keepValues: boolean = true): Arg[] {
+
+        let args: Arg[] = []
+
+        array.forEach((a) => {
+            args.push(new Arg(a.source, keepValues ? a.target : "", keepValues ? a.description : ""))
+        })
+
+        return args
     }
 }

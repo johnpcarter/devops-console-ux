@@ -1,9 +1,8 @@
-import { APIDefinition }            from '../models/wm-package-info'
 import { DockerImage, TestStatus }  from '../models/docker-image'
 import { TestTraceService }         from '../services/test-trace.service'
-import {BuildCommand, DisplayType} from './build';
-import { DockerBuild }              from './docker-build';
-import { Environment }              from './Environment';
+import { BuildCommand }              from './build'
+import { DockerBuild }              from './docker-build'
+import { Arg, Environment, Port, Volume } from './environment'
 
 export enum ContainerType {
   other = "other",
@@ -22,7 +21,7 @@ export class Container {
   public names: string[]
   public active: string
   public type: ContainerType
-  public typeLabel: String
+  public typeLabel: string
   public description: string
   public hostname: string
   public secure: string
@@ -205,7 +204,7 @@ export class Container {
     return c
   }
 
-  fileForType(type: string, name?: string) {
+  public fileForType(type: string, name?: string) {
 
     let file: BuildCommand = null
 
@@ -262,169 +261,6 @@ export class Container {
   public updateEnvironmentSettings(env: Environment) {
 
     env.mergeSettings(this.environmentSettings(env.name)); // get existing
-  }
-}
-
-export class Port {
-
-  public publicPort: string
-  public serviceType: string = ""
-
-  constructor(public internal: string, public external: string, public description: string, public type?: string) {
-
-    if (this.serviceType == null)
-      this.serviceType = ''
-  }
-
-  public merge(p: Port, allowClear = false) {
-
-    if (p) {
-      if (allowClear || p.external) {
-        this.external = p.external
-      }
-
-      if (allowClear || p.type) {
-        this.type = p.type
-      }
-
-      if (allowClear || p.publicPort) {
-        this.publicPort = p.publicPort
-      }
-
-      if (allowClear || p.serviceType) {
-        this.serviceType = p.serviceType
-      }
-
-      if (allowClear || p.description) {
-        this.description = p.description
-      }
-    }
-  }
-
-  public static makeArray(array: any[], keepValues: boolean = true): Port[] {
-
-    let ports: Port[] = []
-
-    array.forEach((p) => {
-      let port: Port = new Port(p.internal, keepValues ? p.external : "", keepValues ? p.description : "", keepValues ? p.type : "")
-      port.publicPort = keepValues ? p.publicPort : ""
-      port.serviceType = keepValues && p.serviceType ? p.serviceType : ""
-
-      ports.push(port)
-    })
-
-    return ports
-  }
-}
-
-export class Volume {
-
-  public k8sStorageType: string = "hostPort"
-  public k8sAccessMode: string = "ReadWriteOnce"
-  public k8sCapacity: string = "4Gi"
-
-  constructor(public source: string, public target: string, public description: string) {
-
-  }
-
-  public merge(v: Volume, allowClear: boolean = false) {
-
-    if (v) {
-      if (allowClear || v.target != "") {
-        this.target = v.target
-      }
-
-      if (allowClear || v.k8sStorageType != "") {
-        this.k8sStorageType = v.k8sStorageType
-      }
-
-      if (allowClear || v.k8sAccessMode != "") {
-        this.k8sAccessMode = v.k8sAccessMode
-      }
-
-      if (allowClear || v.k8sCapacity != "") {
-        this.k8sCapacity = v.k8sCapacity
-      }
-
-      if (allowClear || v.description != "") {
-        this.description = v.description
-      }
-    }
-  }
-
-  public static makeArray(array: any[], keepValues: boolean = true): Volume[] {
-
-    let volumes: Volume[] = []
-
-    array.forEach((a) => {
-
-      let v: Volume = new Volume(a.source, keepValues ? a.target : "", keepValues ? a.description : "")
-
-      if (a.k8sStorageType != null) {
-        v.k8sStorageType = keepValues ? a.k8sStorageType : ""
-      }
-
-      if (a.k8sAccessMode != null) {
-        v.k8sAccessMode = keepValues ? a.k8sAccessMode : ""
-      }
-
-      if (a.k8sCapacity != null) {
-        v.k8sCapacity = keepValues ? a.k8sCapacity : ""
-      }
-
-      volumes.push(v)
-    })
-
-    return volumes
-  }
-}
-
-export class Arg {
-
-  public display: DisplayType = DisplayType.hidden
-  public conditions: string[]
-  public choices: string[]
-  public mandatory: boolean = false
-
-  constructor(public source: string, public target: string, public description: string, mandatory?: boolean) {
-
-    this.mandatory = mandatory
-  }
-
-  public merge(v: Arg, allowClear: boolean = false) {
-
-    if (v) {
-      if (allowClear || v.target != "") {
-        this.target = v.target
-      }
-
-      if (allowClear || v.description != "") {
-        this.description = v.description
-      }
-
-      if (allowClear || v.display) {
-        this.display = v.display
-      }
-
-      if (allowClear || v.conditions.length > 0) {
-        this.conditions = v.conditions
-      }
-
-      if (allowClear || v.choices.length > 0) {
-        this.choices = v.choices
-      }
-    }
-  }
-
-  public static makeArray(array: any[], keepValues: boolean = true): Arg[] {
-
-    let args: Arg[] = []
-
-    array.forEach((a) => {
-      args.push(new Arg(a.source, keepValues ? a.target : "", keepValues ? a.description : ""))
-    })
-
-    return args
   }
 }
 

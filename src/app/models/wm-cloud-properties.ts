@@ -2,12 +2,12 @@ import {Property} from './properties';
 
 export class WmCloudProperties {
 
-    public static PREFIX_SETTINGS = 'wmcloudsettings'
+    public static PREFIX_SETTINGS = 'wmcloudsettings.'
     public static PREFIX_ACCOUNT = 'wmcloudaccount.'
 
     public static ACCOUNT_STAGE = 'stage'
 
-    public static SETTINGS_URL = 'wmcloudsettings.default.iLiveURL'
+    public static SETTINGS_URL = 'iLiveURL'
     public static SETTINGS_USER = 'username'
     public static SETTINGS_PASSWORD = 'password'
 
@@ -33,11 +33,11 @@ export class WmCloudProperties {
                 let key: string = kv.key.substr(kv.key.lastIndexOf('.')+1)
 
                 if (key == WmCloudProperties.SETTINGS_URL) {
-                    conn.url = kv.value
+                    conn.url = kv.valueWithType()
                 } else if (key == WmCloudProperties.SETTINGS_USER) {
-                    conn.user = kv.value
+                    conn.user = kv.valueWithType()
                 } else if (key == WmCloudProperties.SETTINGS_PASSWORD) {
-                    conn.password = kv.value
+                    conn.password = kv.valueWithType()
                 }
             } else if (kv.key.startsWith(WmCloudProperties.PREFIX_ACCOUNT)) {
 
@@ -46,7 +46,7 @@ export class WmCloudProperties {
                 let key: string = kv.key.substr(kv.key.lastIndexOf('.')+1)
 
                 if (key == WmCloudProperties.ACCOUNT_STAGE) {
-                    conn.stage = kv.value
+                    conn.stage = kv.valueWithType()
                 }
             }
         })
@@ -56,28 +56,34 @@ export class WmCloudProperties {
 
     public toProperties(includeEmptyValues?: boolean): Property[] {
 
+        let props: Property[] = []
+
         if (!this._props || this._props.length == 0) {
 
-            this._props = []
-
             if (includeEmptyValues || this.url) {
-                this._props.push(new Property(WmCloudProperties.SETTINGS_URL, this.url))
+               props.push(new Property(WmCloudProperties.PREFIX_SETTINGS + this.name + '.' + WmCloudProperties.SETTINGS_URL, this.url))
             }
 
             if (includeEmptyValues || this.user) {
-                this._props.push(new Property(WmCloudProperties.SETTINGS_USER, this.user))
+                props.push(new Property(WmCloudProperties.PREFIX_SETTINGS + this.name + '.' + WmCloudProperties.SETTINGS_USER, this.user))
             }
 
             if (includeEmptyValues || this.password) {
-                this._props.push(new Property(WmCloudProperties.SETTINGS_PASSWORD, this.password))
+                props.push(new Property(WmCloudProperties.PREFIX_SETTINGS + this.name + '.' + WmCloudProperties.SETTINGS_PASSWORD, this.password))
             }
 
             if (includeEmptyValues || this.stage) {
-                this._props.push(new Property(WmCloudProperties.ACCOUNT_STAGE, this.stage))
+                props.push(new Property(WmCloudProperties.PREFIX_ACCOUNT + this.name + '.' + WmCloudProperties.ACCOUNT_STAGE, this.stage))
             }
+
+            if (includeEmptyValues) {
+                this._props = props
+            }
+        } else {
+            props = this._props
         }
 
-        return this._props
+        return props
     }
 
     public static getConn(alias: string, out: Map<string, WmCloudProperties>): WmCloudProperties {

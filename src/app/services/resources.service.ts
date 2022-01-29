@@ -5,15 +5,15 @@ import { switchMap, map } 						          from 'rxjs/operators'
 
 import { NgxXml2jsonService } 					        from 'ngx-xml2json'
 
-import { Source }                              from './../models/git-source'
 import { Settings }                     		    from '../settings'
+import { environment } from '../../environments/environment'
 
 
 @Injectable()
 export class ResourceService {
 	
-    public static URI_RESOURCES: string = Settings.SERVER_API + "/rad/jc.devops:api/resources"
-    public static SERVER_SETTINGS: string = Settings.SERVER_API + "/admin/server/internal/setting"
+    public static URI_RESOURCES: string = environment.SERVER_API + "/rad/jc.devops:api/resources"
+    public static SERVER_SETTINGS: string = environment.SERVER_API + "/admin/server/internal/setting"
 
     constructor(private _settings: Settings, private _http: HttpClient, private _ngxXml2jsonService: NgxXml2jsonService) {  
 

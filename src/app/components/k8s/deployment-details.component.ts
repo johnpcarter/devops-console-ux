@@ -1,10 +1,5 @@
-import { Component, ChangeDetectorRef, Input }          from '@angular/core'
-import { Router }                                       from '@angular/router'
-
-import { Settings }                                     from '../../settings'
-
-import { K8sDeploymentDefinition }                      from '../../models/k8s-deployment-definition'
-import { K8sDeployment }                                from '../../models/k8s-deployment'
+import { Component, Input } from '@angular/core'
+import { K8sDeploymentDefinition } from '../../models/k8s-deployment-definition'
 
 @Component({
   selector: 'jc-deployment-details',

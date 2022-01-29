@@ -7,11 +7,12 @@ import { map } from 'rxjs/operators';
 import { Settings } from '../settings';
 import { ContainerConnections } from '../models/container-connections';
 import { MicrogatewayReferences } from '../models/microgateway-references';
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class RuntimeInspectionService {
 
-  public static INSPECT_URL: string = Settings.SERVER_API + '/rad/jc.devops:api/inspect';
+  public static INSPECT_URL: string = environment.SERVER_API + '/rad/jc.devops:api/inspect';
 
   constructor(private _http: HttpClient, private _settings: Settings) {
   }

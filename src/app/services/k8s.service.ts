@@ -12,6 +12,8 @@ import { K8sDeploymentDefinition,
 import { K8sDeployment }               from '../models/k8s-deployment'
 import { K8sPod }                      from '../models/k8s-pod'
 
+import { environment } from '../../environments/environment'
+
 @Injectable()
 export class K8sService {
 
@@ -20,15 +22,15 @@ export class K8sService {
   //public static DEPLOYMENTS: string = "/apis/extensions/v1beta1/namespaces/NMESPCE/deployments"
   //public static DEPLOY: string = "/apis/apps/v1/namespaces/NMESPCE/deployments/NAMEDEPLOY"
 
-    public static NAMESPACES: string = Settings.SERVER_API + "/rad/jc.devops:api/k8s/namespace"
-    public static DEPLOYMENTS: string = Settings.SERVER_API + "/rad/jc.devops:api/k8s/deployments"
-    public static DEPLOYMENT: string = Settings.SERVER_API + "/rad/jc.devops:api/k8s/deployment"
-    public static SCALE: string = Settings.SERVER_API + "/rad/jc.devops:api/k8s/scale"
-    public static UPDATE: string = Settings.SERVER_API + "/rad/jc.devops:api/k8s/update"
+    public static NAMESPACES: string = environment.SERVER_API + "/rad/jc.devops:api/k8s/namespace"
+    public static DEPLOYMENTS: string = environment.SERVER_API + "/rad/jc.devops:api/k8s/deployments"
+    public static DEPLOYMENT: string = environment.SERVER_API + "/rad/jc.devops:api/k8s/deployment"
+    public static SCALE: string = environment.SERVER_API + "/rad/jc.devops:api/k8s/scale"
+    public static UPDATE: string = environment.SERVER_API + "/rad/jc.devops:api/k8s/update"
 
   //  public static URL: string = "/apis/apps/v1/namespaces/NMESPCE/pods"
     //public static RESOURCE: string = "/api/v1/namespaces/NMESPCE/pods"
-  public static RESOURCE: string = Settings.SERVER_API + "/rad/jc.devops:api/k8s/pods"
+  public static RESOURCE: string = environment.SERVER_API + "/rad/jc.devops:api/k8s/pods"
 
     //public static SCALE: string = "/apis/apps/v1/namespaces/NMESPCE/deployments/NAMEDEPLOY/scale"
 

@@ -25,7 +25,7 @@ import { ConfigurationService }                    		    		from '../services/con
 import { ContainerTemplates }							          	        from '../support/container.templates'
 import { BuildExeComponent }                                  from './build-exe.component'
 import { InstallerComponent }                                 from './plugins/installer.component'
-import {Installer} from '../models/Installer';
+import { Installer } from '../models/Installer'
 
 @Component({
   selector: 'build-install',

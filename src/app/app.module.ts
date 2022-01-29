@@ -113,7 +113,7 @@ import { ContainerTemplates } from './support/container.templates'
 import { faDocker, faCloudscale } from '@fortawesome/free-brands-svg-icons'
 import { faCircle } from '@fortawesome/free-regular-svg-icons'
 
-import { faEllipsisV, faBars, faFilter, faExternalLinkAlt, faTerminal, faTimesCircle, faBox, faBoxOpen, faVial, faRocket, faSpinner, faCheck, faBug, faHome, faExclamationCircle, faRunning, faCog, faEject, faPlay, faSquare, faExclamationTriangle, faLightbulb, faEnvelope, faStop, faStopCircle, faClock, faPlus, faTimes, faCloudSunRain,
+import { faEllipsisV, faBars, faEraser, faFilter, faExternalLinkAlt, faTerminal, faTimesCircle, faBox, faBoxOpen, faVial, faRocket, faSpinner, faCheck, faBug, faHome, faExclamationCircle, faRunning, faCog, faEject, faPlay, faSquare, faExclamationTriangle, faLightbulb, faEnvelope, faStop, faStopCircle, faClock, faPlus, faTimes, faCloudSunRain,
     faMinus, faPlusCircle, faMinusCircle, faArrowUp, faArrowDown, faTrashAlt, faProjectDiagram, faComment, faStar, faFlag, faPen, faPenSquare, faHourglassEnd, faList, faArrowLeft, faArrowRight, faChevronCircleDown, faThumbsUp, faThumbsDown, faQuestion,
     faComments, faSync, faLevelUpAlt, faChevronDown, faCheckSquare, faCaretSquareDown, faCaretSquareUp, faArrowsAltV, faVials, faCodeBranch, faLock, faFileDownload, faTools, faFileUpload, faLockOpen, faUser, faSyncAlt,faUserCircle, faShare, faInfo, faCertificate, faClone, faPlusSquare, faMinusSquare, faCloudDownloadAlt, faCloudUploadAlt }  from '@fortawesome/free-solid-svg-icons'
 import {MatTooltipModule} from '@angular/material/tooltip'
@@ -121,7 +121,7 @@ import {GitPackageChooserComponent} from './components/elements/git-package-choo
 import {SimpleConfirmationComponent} from './components/elements/simple-confirmation.component';
 import {ComboBoxComponent} from './components/elements/combo-box.component';
 
- library.add(faEllipsisV, faFilter, faLock, faList, faBars, faArrowUp, faArrowDown, faTerminal, faBox, faBoxOpen, faTimes, faTimesCircle, faHome, faVial, faCheck, faPlay, faSpinner, faExclamationCircle, faBug, faLightbulb, faTrashAlt, faCloudscale, faCaretSquareDown, faCaretSquareUp, faPen, faLevelUpAlt, faVials, faCodeBranch, faArrowsAltV, faStopCircle, faSyncAlt, faCloudUploadAlt, faClock, faThumbsUp, faThumbsDown, faQuestion,
+ library.add(faEllipsisV, faEraser, faFilter, faLock, faList, faBars, faArrowUp, faArrowDown, faTerminal, faBox, faBoxOpen, faTimes, faTimesCircle, faHome, faVial, faCheck, faPlay, faSpinner, faExclamationCircle, faBug, faLightbulb, faTrashAlt, faCloudscale, faCaretSquareDown, faCaretSquareUp, faPen, faLevelUpAlt, faVials, faCodeBranch, faArrowsAltV, faStopCircle, faSyncAlt, faCloudUploadAlt, faClock, faThumbsUp, faThumbsDown, faQuestion,
    faRocket, faCog, faCloudSunRain, faDocker, faCircle, faSquare, faProjectDiagram, faChevronDown, faCheckSquare, faExternalLinkAlt, faCheckSquare, faRunning, faArrowLeft, faArrowRight, faPlusCircle, faFileDownload, faFileUpload, faPlusSquare, faTools, faSync, faCloudDownloadAlt)
 
 const sideNavRoutes: Routes = [
@@ -383,8 +383,7 @@ const sideNavRoutes: Routes = [
     ConfigurationService,
     TestTraceService,
     ContainerTemplates,
-    RuntimeInspectionService,
-      {provide: MAT_CHECKBOX_DEFAULT_OPTIONS, useValue: { clickAction: 'noop' } as MatCheckboxDefaultOptions}
+    RuntimeInspectionService
   ],
   bootstrap: [AppComponent],
   exports: [

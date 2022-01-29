@@ -8,11 +8,12 @@ import { map, catchError } 			      from 'rxjs/operators'
 import { Settings }								    from '../settings'
 import { TestStatus }							    from '../models/docker-image'
 import { TestSuiteResults }           from '../models/test-suite'
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class TestTraceService {
 
-    public static TEST_URL: string = Settings.SERVER_API + "/rad/jc.devops:api/test"
+    public static TEST_URL: string = environment.SERVER_API + "/rad/jc.devops:api/test"
 
     private _dockerHost: string
 

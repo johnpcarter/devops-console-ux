@@ -1,7 +1,7 @@
 import { DockerImage }                          from '../models/docker-image'
 import { Container }                            from '../models/container'
 import { RunSet }                               from '../models/project'
-import { Environment}                           from '../models/Environment'
+import { Environment }                           from '../models/environment'
 
 import { ConfigurationService } from '../services/configuration.service'
 import { Injectable } from '@angular/core'
@@ -64,6 +64,10 @@ export class ContainerTemplates {
         env.ports.splice(0, env.ports.length)
         env.volumes.splice(0, env.volumes.length)
         env.env.splice(0, env.env.length)
+
+        if (template === 'other') {
+            template = container.typeLabel
+        }
 
         return Observable.create((observer: Observer<boolean>) => {
 

@@ -1,18 +1,18 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core'
 
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 
-import {MatTable} from '@angular/material/table';
-import {MatSelectChange} from '@angular/material/select';
+import { MatTable } from '@angular/material/table'
+import { MatSelectChange } from '@angular/material/select'
 
+import { DockerImage } from '../models/docker-image'
+import { ContainerTemplates } from '../support/container.templates'
+import { Container, ContainerType} from '../models/container'
+import { Environment, Arg, Port, Volume } from '../models/environment'
 
-import {DockerImage} from '../models/docker-image';
+import { DockerService } from '../services/docker.service'
 
-import {DockerService} from '../services/docker.service';
-import {ContainerTemplates} from '../support/container.templates';
-import {Settings} from '../settings';
-import {Arg, Container, ContainerType, Port, Volume} from '../models/container';
-import {Environment} from '../models/Environment';
+import { Settings } from '../settings'
 
 @Component({
   selector: 'container',
@@ -131,7 +131,7 @@ export class ContainerComponent implements OnInit {
     this.containerImageCtrl = new FormControl(this.container.image)
     this.formGroup.addControl('containerImageCtrl', this.containerImageCtrl)
 
-    this.containerTypeCtrl = new FormControl(this.container.type)
+    this.containerTypeCtrl = new FormControl(this.container.type == 'other' ? this.container.typeLabel : this.container.type)
     this.formGroup.addControl('containerTypeCtrl', this.containerTypeCtrl)
 
     this.containerUserCtrl = new FormControl(this.container.adminUser)

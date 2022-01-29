@@ -14,7 +14,7 @@ export class Property {
     description: string
 
     type: PropertyValueType = PropertyValueType.constant
-    value: string
+    public value: string
 
     public constructor(key: string, value: string, description?: string) {
 
@@ -47,15 +47,26 @@ export class Property {
     public keyValuePair(prefix?: string): Property {
 
         if (prefix && this.key && !this.key.startsWith(prefix)) {
-            return Property.makeSimple(prefix + this.key, this.valueWithTypeFormat())
+            return Property.makeSimple(prefix + this.key, this.valueWithType())
         } else {
-            return Property.makeSimple(this.key, this.valueWithTypeFormat())
+            return Property.makeSimple(this.key, this.valueWithType())
         }
+    }
+
+    public static makes(data: any[]): Property[] {
+
+        const out: Property[] = []
+
+        data.forEach((x) => {
+            out.push(Property.make(x))
+        })
+
+        return out
     }
 
     public static make(data: any, description?: string): Property {
 
-        return new Property(data.key, data.value, description)
+        return new Property(data.key, data.value, description || data.description)
     }
 
     public static makeSimple(key: string, value: string): Property {
@@ -67,7 +78,7 @@ export class Property {
         return p
     }
 
-    private valueWithTypeFormat(): string {
+    public valueWithType(includeType?: boolean): string {
 
         if (this.type == PropertyValueType.environment) {
             return Property.ENV + this.value + "}"

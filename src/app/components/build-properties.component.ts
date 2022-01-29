@@ -9,7 +9,7 @@ import { ConfigurationService } 			 			from '../services/configuration.service'
 import { ResourceService } 								from '../services/resources.service'
 import { Property } 									from '../models/properties'
 import { JdbcConnectionProperties, ServiceQueueDestType } 		from '../models/jdbc-connection-properties';
-import { ARTProperties } 								from '../models/art-properties'
+import { ARTConnectionProperties } 								from '../models/art-properties'
 import { SimpleNameComponent} 							from './elements/simple-name.component';
 import { SimpleConfirmationComponent } 					from './elements/simple-confirmation.component';
 import {Observable, of} from 'rxjs';
@@ -47,7 +47,7 @@ export class BuildPropertiesComponent implements OnInit {
 	public jdbcConnections: Map<string, JdbcConnectionProperties>
 
 	public artAliases: string[]
-	public artConnections: Map<string, ARTProperties>
+	public artConnections: Map<string, ARTConnectionProperties>
 
 	private _snackbarRef: MatSnackBarRef<TextOnlySnackBar>
 	private _propertyFiles: string[] = []
@@ -156,19 +156,19 @@ export class BuildPropertiesComponent implements OnInit {
 
 	public wmCloudPropertiesDidChange(wmCloudAlias: string, $event: Property[]) {
 
-		this.wmCloudConnections.set(wmCloudAlias, WmCloudProperties.make(this.mergeProperties($event, this.jdbcConnections.get(wmCloudAlias).toProperties())).get(wmCloudAlias))
+		this.wmCloudConnections.set(wmCloudAlias, WmCloudProperties.make(this.mergeProperties($event, this.wmCloudConnections.get(wmCloudAlias).toProperties(true))).get(wmCloudAlias))
 		this.saveProperties()
 	}
 
 	public jdbcPropertiesDidChange(jdbcAlias: string, $event: Property[]) {
 
-		this.jdbcConnections.set(jdbcAlias, JdbcConnectionProperties.make(this.mergeProperties($event, this.jdbcConnections.get(jdbcAlias).toProperties())).get(jdbcAlias))
+		this.jdbcConnections.set(jdbcAlias, JdbcConnectionProperties.make(this.mergeProperties($event, this.jdbcConnections.get(jdbcAlias).toProperties(true))).get(jdbcAlias))
 		this.saveProperties()
 	}
 
 	public artPropertiesDidChange(artAlias: string, $event: Property[]) {
 
-		this.artConnections.set(artAlias, ARTProperties.make(this.mergeProperties($event, this.artConnections.get(artAlias).toProperties())).get(artAlias))
+		this.artConnections.set(artAlias, ARTConnectionProperties.make(this.mergeProperties($event, this.artConnections.get(artAlias).toProperties())).get(artAlias))
 		this.saveProperties()
 	}
 
@@ -184,7 +184,7 @@ export class BuildPropertiesComponent implements OnInit {
 		if (this.propsCtrl.value) {
 			this.currentFile = this.propsCtrl.value
 			this.jdbcConnections = new Map<string,JdbcConnectionProperties>()
-			this.artConnections = new Map<string,ARTProperties>()
+			this.artConnections = new Map<string,ARTConnectionProperties>()
 			this.jdbcAliases = []
 			this.artAliases = []
 			this.extendedProperties = []
@@ -302,7 +302,7 @@ export class BuildPropertiesComponent implements OnInit {
 		dialogRef.afterClosed().subscribe(name => {
 
 			if (name) {
-				let pool = new ARTProperties()
+				let pool = new ARTConnectionProperties()
 				pool.name = name
 				this.artConnections.set(name, pool)
 				this.artAliases.push(name)
@@ -340,7 +340,7 @@ export class BuildPropertiesComponent implements OnInit {
 
 		this.currentFile = null
 		this.artAliases = null
-		this.artConnections = new Map<string, ARTProperties>()
+		this.artConnections = new Map<string, ARTConnectionProperties>()
 		this.jdbcAliases = null
 		this.jdbcConnections = new Map<string, JdbcConnectionProperties>()
 
@@ -373,6 +373,7 @@ export class BuildPropertiesComponent implements OnInit {
 				&& this.isPropertyPresent("consul.default.port", this.extendedProperties)
 				&& this.isPropertyPresent("consul.default.user", this.extendedProperties)
 				&& this.isPropertyPresent("consul.default.password", this.extendedProperties)
+				&& this.isPropertyPresent("watt.net.default.accept", this.extendedProperties)
 
 		} else {
 			return true
@@ -392,7 +393,7 @@ export class BuildPropertiesComponent implements OnInit {
 		this.addPropertyIfNotPresent(new Property("settings.watt.server.stats.logFilesToKeep", "1", "don't keep archive files"), this.extendedProperties)
 		this.addPropertyIfNotPresent(new Property("settings.watt.debug.level", "Warn", "Set logging level to warning only"), this.extendedProperties)
 		this.addPropertyIfNotPresent(new Property("watt.server.pipeline.processor", "false", "Disables pipeline save/restore debug options"), this.extendedProperties)
-
+		this.addPropertyIfNotPresent(new Property("watt.net.default.accept", "application/json", "Set the default repsonse type if Accept header missing"), this.extendedProperties)
 		this.addPropertyIfNotPresent(new Property("consul.default.host", "$env{consul_host}", "host name of Consul service registry to use"), this.extendedProperties)
 		this.addPropertyIfNotPresent(new Property("consul.default.port", "$env{consul_port}", "Disables pipeline save/restore debug options"), this.extendedProperties)
 		this.addPropertyIfNotPresent(new Property("consul.default.user", "$env{consul_user}", "Disables pipeline save/restore debug options"), this.extendedProperties)
@@ -412,13 +413,15 @@ export class BuildPropertiesComponent implements OnInit {
 		this._resources.getResourceContent("properties", this.propsCtrl.value).subscribe((data) => {
 			if (data && data.properties) {
 
+				let properties = Property.makes(data.properties)
+
 				this.currentFile = this.propsCtrl.value
 
 				this.otherProperties = []
 
-				this.wmCloudConnections = WmCloudProperties.make(data.properties)
-				this.jdbcConnections = JdbcConnectionProperties.make(data.properties)
-				this.artConnections = ARTProperties.make(data.properties)
+				this.wmCloudConnections = WmCloudProperties.make(properties)
+				this.jdbcConnections = JdbcConnectionProperties.make(properties)
+				this.artConnections = ARTConnectionProperties.make(properties)
 
 				this.wmCloudAliases = []
 				this.wmCloudConnections.forEach((value: WmCloudProperties, key: string) => {
@@ -431,27 +434,27 @@ export class BuildPropertiesComponent implements OnInit {
 				})
 
 				this.artAliases = []
-				this.artConnections.forEach((value: ARTProperties, key: string) => {
+				this.artConnections.forEach((value: ARTConnectionProperties, key: string) => {
 					this.artAliases.push(key)
 				})
 
-				data.properties.forEach((kv) => {
+				properties.forEach((kv) => {
 
 					if (kv.key == JdbcConnectionProperties.JDBC_FUNC_ISCOREAUDIT) {
-						this.auditDestCtrl.setValue(kv.value, {onlySelf: true, emitEvent: false})
+						this.auditDestCtrl.setValue(kv.valueWithType(), {onlySelf: true, emitEvent: false})
 					} else if (kv.key == JdbcConnectionProperties.JDBC_FUNC_CENTRALUSERS) {
-						this.centralUserCtrl.setValue(kv.value, {onlySelf: true, emitEvent: false})
+						this.centralUserCtrl.setValue(kv.valueWithType(), {onlySelf: true, emitEvent: false})
 					} else if (kv.key == JdbcConnectionProperties.JDBC_FUNC_ADAPTERS) {
-						this.adaptersCtrl.setValue(kv.value, {onlySelf: true, emitEvent: false})
+						this.adaptersCtrl.setValue(kv.valueWithType(), {onlySelf: true, emitEvent: false})
 					} else if (kv.key == JdbcConnectionProperties.JDBC_FUNC_ISINTERNAL) {
-						this.internalDestCtrl.setValue(kv.value, {onlySelf: true, emitEvent: false})
+						this.internalDestCtrl.setValue(kv.valueWithType(), {onlySelf: true, emitEvent: false})
 					} else if (kv.key == JdbcConnectionProperties.JDBC_FUNC_XREF) {
-						this.xrefCtrl.setValue(kv.value, {onlySelf: true, emitEvent: false})
+						this.xrefCtrl.setValue(kv.valueWithType(), {onlySelf: true, emitEvent: false})
 					} else if (kv.key.startsWith('settings.')) {
 						this.extendedProperties.push(Property.make(kv))
 					} else if (kv.key.startsWith('globalvariable.')) {
 						this.globalProperties.push(Property.make(kv))
-					} else if (!kv.key.startsWith(ARTProperties.PREFIX) && !kv.key.startsWith(JdbcConnectionProperties.JDBC_PREFIX)) {
+					} else if (!kv.key.startsWith(ARTConnectionProperties.PREFIX) && !kv.key.startsWith(JdbcConnectionProperties.JDBC_PREFIX)) {
 						this.otherProperties.push(Property.make(kv))
 					}
 				})
@@ -492,7 +495,7 @@ export class BuildPropertiesComponent implements OnInit {
 			let vals = a.toProperties()
 
 			vals.forEach((v) => {
-				props.push(v.keyValuePair(ARTProperties.PREFIX + a.name + "."))
+				props.push(v.keyValuePair(ARTConnectionProperties.PREFIX + a.name + "."))
 			})
 		})
 
@@ -585,7 +588,7 @@ export class BuildPropertiesComponent implements OnInit {
 
 		props.forEach((p) => {
 			if (p.value)
-				data += p.key + "=" + p.value + "\n"
+				data += p.key + "=" + p.valueWithType() + "\n"
 		})
 
 		this._resources.uploadResource("properties", this.propsCtrl.value, "text/plain", new Blob([data])).subscribe((success) => {

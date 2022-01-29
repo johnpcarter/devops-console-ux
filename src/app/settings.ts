@@ -3,6 +3,7 @@ import {Router} from '@angular/router'
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http'
 import {Observable, of} from 'rxjs'
 import {switchMap, map, catchError, share} from 'rxjs/operators'
+import {environment} from '../environments/environment';
 
 export class RepoSettings {
 
@@ -68,12 +69,6 @@ export class Values {
 @Injectable()
 export class Settings {
 
-  // Use if running in Dockerised Integration Server
-  public static SERVER_API = ""
-
-  // Use if running in separate container on local machine
-  //public static SERVER_API = 'http://localhost:5555'
-
   public static WS_SERVER = 'ws://localhost:9191'
 
   // runtime prefs
@@ -91,8 +86,8 @@ export class Settings {
   private _values: Values
   private _valuesName: string = null
 
-  private static CONFIG: string = Settings.SERVER_API + '/rad/jc.devops:api/configuration/user'
-  private static ENVIRONMENTS: string = Settings.SERVER_API + '/rad/jc.devops:api/configuration/environments'
+  private static CONFIG: string = environment.SERVER_API + '/rad/jc.devops:api/configuration/user'
+  private static ENVIRONMENTS: string = environment.SERVER_API + '/rad/jc.devops:api/configuration/environments'
 
   public constructor(private _http: HttpClient) {
 

@@ -1,19 +1,21 @@
-import { Injectable } 	           	 			        from '@angular/core'
-import { HttpClient, HttpHeaders, HttpParams }  	from '@angular/common/http'
-import { Observer, Observable, of }               from 'rxjs'
-import { map, catchError } 						            from 'rxjs/operators'
+import { Injectable } from '@angular/core'
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http'
+import { Observer, Observable, of } from 'rxjs'
+import { map, catchError } from 'rxjs/operators'
 
-import { NgxXml2jsonService } 					  	      from 'ngx-xml2json'
+import { NgxXml2jsonService } from 'ngx-xml2json'
 
+import { DockerImage } from '../models/docker-image'
+import { Container } from '../models/container'
+import { Installer } from '../models/Installer'
+import { Builder } from '../models/build'
+import { RunSet } from '../models/project'
+import { Port } from '../models/environment'
 
-import { Settings }                        from '../settings'
-import { DockerImage }                            from '../models/docker-image'
+import { WebSocketService } from './websocket.service'
 
-import { WebSocketService }                       from './websocket.service'
-import {Container, Port} from '../models/container';
-import {Installer} from '../models/Installer';
-import {Builder} from '../models/build';
-import {RunSet} from '../models/project';
+import { Settings } from '../settings'
+import { environment } from '../../environments/environment'
 
 export enum DockerFilterType {
  all,
@@ -24,14 +26,14 @@ export enum DockerFilterType {
 @Injectable()
 export class DockerService {
 
-    public static INSTALL: string = Settings.SERVER_API + "/rad/jc.devops:api/docker/install"
-    public static BUILD: string = Settings.SERVER_API + "/rad/jc.devops:api/docker/build"
-    public static RUN: string = Settings.SERVER_API + "/rad/jc.devops:api/docker/run"
-    public static RUNKS8: string = Settings.SERVER_API + "/rad/jc.devops:api/k8s/run"
-    public static STOP: string = Settings.SERVER_API + "/rad/jc.devops:api/docker/stop"
-    public static CONTAINERS: string = Settings.SERVER_API + "/rad/jc.devops:api/docker/containers"
-    public static IMAGES: string = Settings.SERVER_API + "/rad/jc.devops:api/docker/images/"
-    public static IMAGE: string = Settings.SERVER_API + "/rad/jc.devops:api/docker/image/"
+    public static INSTALL: string = environment.SERVER_API + "/rad/jc.devops:api/docker/install"
+    public static BUILD: string = environment.SERVER_API + "/rad/jc.devops:api/docker/build"
+    public static RUN: string = environment.SERVER_API + "/rad/jc.devops:api/docker/run"
+    public static RUNKS8: string = environment.SERVER_API + "/rad/jc.devops:api/k8s/run"
+    public static STOP: string = environment.SERVER_API + "/rad/jc.devops:api/docker/stop"
+    public static CONTAINERS: string = environment.SERVER_API + "/rad/jc.devops:api/docker/containers"
+    public static IMAGES: string = environment.SERVER_API + "/rad/jc.devops:api/docker/images/"
+    public static IMAGE: string = environment.SERVER_API + "/rad/jc.devops:api/docker/image/"
 
     private __allImages: DockerImage[] = []
     private _baseImages: DockerImage[] = []

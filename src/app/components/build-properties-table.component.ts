@@ -36,6 +36,8 @@ export class BuildPropertiesTableComponent implements OnInit {
 
 	public displayedColumns: string[] = ["key", "type", "value", "move", "remove"]
 
+	public prefixForKeyBrief: string
+
 	@ViewChild('propertiesTable', {read: MatTable})
 	public table: MatTable<Property>
 
@@ -46,6 +48,11 @@ export class BuildPropertiesTableComponent implements OnInit {
 
 	public ngOnInit() {
 
+		if (this.prefixForKey && this.prefixForKey.length > 14) {
+			this.prefixForKeyBrief = this.prefixForKey.substring(0, 14) + "..."
+		} else {
+			this.prefixForKeyBrief = this.prefixForKey
+		}
 	}
 
 	public flagChanges() {

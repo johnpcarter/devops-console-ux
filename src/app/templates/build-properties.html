@@ -102,7 +102,7 @@
                       <mat-expansion-panel *ngFor="let alias of artAliases" style="margin:10px; box-shadow: none; background-color: lightblue">
                           <mat-expansion-panel-header class="" role="button">{{alias}}</mat-expansion-panel-header>
                           <div class="mat-expansion-panel-content" role="region">
-                              <jc-build-properties-table [properties]="artConnections.get(alias).toProperties()" prefixForKey="artConnection. ... ." readOnlyKey="true" (propertiesChanges)="artPropertiesDidChange(alias, $event)"></jc-build-properties-table>
+                              <jc-build-properties-table [properties]="artConnections.get(alias).toProperties()" prefixForKey="artConnection.{{alias}}." readOnlyKey="true" (propertiesChanges)="artPropertiesDidChange(alias, $event)"></jc-build-properties-table>
                           </div>
                           <button style="padding-left: 10px; border: none; background-color: transparent;" (click)="deleteArtConnection(alias)"><fa-icon class="icon" [icon]="['fas', 'trash-alt']" style="color: red"></fa-icon> Delete connection</button>
 

@@ -12,13 +12,14 @@ import { MAT_DIALOG_DATA } 									from '@angular/material/dialog'
   selector: 'build-exe',
   template: `
   	<div style="display: flex; flex-direction: column; justify-content: center; align-content: stretch; width: 100%; height: 100%">
-	  	<div style="flex-grow: 0"><h2 mat-dialog-title>{{title()}}</h2></div>
-		<div id="build.exec.console.log" #logDiv style="flex-grow:2; background-color: black; color: yellow; padding: 20px; overflow-y: scroll" [scrollTop]="logDiv.scrollHeight">
+	  	<div style="flex-grow: 0"><h2 mat-dialog-title style="color: gray">{{title()}}</h2></div>
+		<div id="build.exec.console.log" #logDiv style="flex-grow:2; background-color: black; color: yellow; padding: 20px; overflow-y: scroll" [scrollTop]="scrollPos">
 			<p *ngFor="let str of log" class="console-log">{{str}}</p>
 			<div *ngIf="isBusy" id="build.exec.console.spinner" class="spinner console-spinner"></div>
 		</div>
 		<mat-card-actions style="flex-grow: 0">
-	  		<button id="build.exec.console.doneButton" mat-raised-button color="primary" style="float: right; margin-top: 5px" [mat-dialog-close]="completionCode" [disabled]="isBusy" (click)="close($event)">Done</button>
+			<button id="build.exec.console.clearButton" mat-raised-button color="accent" style="margin-top: 5px" (click)="clear()"><fa-icon class="icon" [icon]="['fas', 'eraser']"></fa-icon> Clear</button>
+			<button id="build.exec.console.doneButton" mat-raised-button color="primary" style="float: right; margin-top: 5px" [mat-dialog-close]="completionCode" [disabled]="isBusy" (click)="close($event)">Done</button>
 		</mat-card-actions>
 	</div>
 `
@@ -51,6 +52,8 @@ export class BuildExeComponent implements OnInit {
 
   	public isBusy: boolean = true
   	public completionCode: string
+
+	public scrollPos: number = 0
 
   	@ViewChild('logDiv')
   	public logDiv: ElementRef
@@ -163,25 +166,31 @@ export class BuildExeComponent implements OnInit {
 			return "Running Deployment Set " + this.run.name
 	}
 
+	public clear(): void {
+		  this.log = []
+	}
+
 	private processMessage(message) {
 
-  	  if (message == null) {
-  	    return
-      }
+		if (message == null) {
+			return
+      	}
 
-      if (message.status) {
-        this.log.push(this.timeNow() + " > " + message.message)
-        this.isBusy = false
+      	if (message.status) {
+        	this.log.push(this.timeNow() + " > " + message.message)
+        	this.isBusy = false
 
-      } else if (message && message.length > 0 && message != ".") {
+      	} else if (message && message.length > 0 && message != ".") {
 			  this.log.push(this.timeNow() + " > " + message)
-		  } else if (message == null) {
-		    this.isBusy = false
-      }
+		} else if (message == null) {
+			  this.isBusy = false
+      	}
 
-		  if (this.log.length > 600) {
-			  this.log.splice(0,100)
-		  }
+		if (this.log.length > 600) {
+			this.log.splice(0,100)
+		}
+
+		this.scrollPos = this.logDiv.nativeElement.scrollHeight + 20
 	}
 
 	private timeNow(): string {

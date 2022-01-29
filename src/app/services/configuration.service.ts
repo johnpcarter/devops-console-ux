@@ -11,12 +11,13 @@ import {Installer} from '../models/Installer';
 import {Container} from '../models/container';
 import {ArgDisplayType} from '../models/display-type';
 import {Builder, DeploymentSet} from '../models/build';
+import { environment } from '../../environments/environment'
 
 @Injectable()
 export class ConfigurationService {
 
-    public static URI_CONFIG: string = Settings.SERVER_API + "/rad/jc.devops:api/configuration"
-    public static URI_TEMPLATES: string = Settings.SERVER_API + "/rad/jc.devops:api/templates"
+    public static URI_CONFIG: string = environment.SERVER_API + "/rad/jc.devops:api/configuration"
+    public static URI_TEMPLATES: string = environment.SERVER_API + "/rad/jc.devops:api/templates"
 
     constructor(private _settings: Settings, private _http: HttpClient, private _ngxXml2jsonService: NgxXml2jsonService) {
 

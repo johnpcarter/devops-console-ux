@@ -1,31 +1,31 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core'
 
-import {ActivatedRoute, Router} from '@angular/router';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
-import {SelectionModel} from '@angular/cdk/collections';
+import { ActivatedRoute, Router } from '@angular/router'
+import { Observable, of } from 'rxjs'
+import { map} from 'rxjs/operators'
+import { FormBuilder, FormControl, FormGroup} from '@angular/forms'
 
+import { MatDialog } from '@angular/material/dialog'
+import { MatSnackBar } from '@angular/material/snack-bar'
 
-import {MatDialog} from '@angular/material/dialog';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { SelectionModel } from '@angular/cdk/collections'
+import { DockerImage } from '../models/docker-image'
+import { APIDefinition} from '../models/wm-package-info'
+import { ContainerSet, RunSet} from '../models/project'
+import { Container, ContainerType} from '../models/container'
+import { BuildCommand, Builder, DeploymentSet } from '../models/build'
+import { Property, PropertyValueType } from '../models/properties'
+import { Arg } from '../models/environment'
 
-import {Settings} from '../settings';
+import { Settings } from '../settings'
 
-import {DockerImage} from '../models/docker-image';
-import {ResourceService} from '../services/resources.service';
+import { ResourceService } from '../services/resources.service'
+import { DockerService} from '../services/docker.service'
+import { ConfigurationService} from '../services/configuration.service'
 
-import {DockerService} from '../services/docker.service';
-import {APIDefinition} from '../models/wm-package-info';
-import {ConfigurationService} from '../services/configuration.service';
-import {EditContainerComponent} from './staging.component';
-import {ContainerTemplates} from '../support/container.templates';
-import {BuildExeComponent} from './build-exe.component';
-import {ContainerSet, RunSet} from '../models/project';
-import {Arg, Container, ContainerType} from '../models/container';
-import {BuildCommand, Builder, DeploymentSet} from '../models/build';
-import {Property, PropertyValueType} from '../models/properties';
-import {BuildPropertiesComponent} from './build-properties.component';
-import {Observable, of} from 'rxjs';
-import {map} from 'rxjs/operators';
+import { EditContainerComponent} from './staging.component'
+import { ContainerTemplates} from '../support/container.templates'
+import { BuildExeComponent} from './build-exe.component'
 
 @Component({
   selector: 'runtime-deploy',

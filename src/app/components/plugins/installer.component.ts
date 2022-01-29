@@ -1,18 +1,19 @@
-import {Component, OnInit, ViewChild} from '@angular/core'
+import { Component, OnInit, ViewChild } from '@angular/core'
 
-import {combineLatest} from 'rxjs'
-import {FormControl, FormGroup, Validators} from '@angular/forms'
+import { combineLatest } from 'rxjs'
+import { FormControl, FormGroup, Validators } from '@angular/forms'
 
-import {MatTable} from '@angular/material/table'
+import { MatTable } from '@angular/material/table'
 
-import {BuilderComponent, BuilderProperties, PropertiesChangedOwner} from '../elements/build-image-choose.directive'
+import { Installer } from '../../models/Installer'
+import { BuildCommand } from '../../models/build'
+import { ArgDisplayType, DisplayType } from '../../models/display-type'
+import { Arg } from '../../models/environment'
 
-import {ConfigurationService} from '../../services/configuration.service'
-import {ResourceService} from '../../services/resources.service'
-import {Installer} from '../../models/Installer';
-import {BuildCommand} from '../../models/build';
-import {ArgDisplayType, DisplayType} from '../../models/display-type';
-import {Arg} from '../../models/container';
+import { ConfigurationService } from '../../services/configuration.service'
+import { ResourceService } from '../../services/resources.service'
+
+import { BuilderComponent, BuilderProperties, PropertiesChangedOwner } from '../elements/build-image-choose.directive'
 
 @Component({
   selector: 'jc-install',
