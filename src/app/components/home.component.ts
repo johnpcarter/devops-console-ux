@@ -150,6 +150,10 @@ export class HomeComponent implements OnInit {
 
    private xposOfMainDiv(): number {
 
-   		return $("#home-page").offset().left
+		if ($("#home-page")) {
+			return $("#home-page").offset().left
+		} else {
+			return 0
+		}
    }
 }

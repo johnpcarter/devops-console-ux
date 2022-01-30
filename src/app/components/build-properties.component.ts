@@ -451,11 +451,11 @@ export class BuildPropertiesComponent implements OnInit {
 					} else if (kv.key == JdbcConnectionProperties.JDBC_FUNC_XREF) {
 						this.xrefCtrl.setValue(kv.valueWithType(), {onlySelf: true, emitEvent: false})
 					} else if (kv.key.startsWith('settings.')) {
-						this.extendedProperties.push(Property.make(kv))
+						this.extendedProperties.push(kv)
 					} else if (kv.key.startsWith('globalvariable.')) {
-						this.globalProperties.push(Property.make(kv))
+						this.globalProperties.push(kv)
 					} else if (!kv.key.startsWith(ARTConnectionProperties.PREFIX) && !kv.key.startsWith(JdbcConnectionProperties.JDBC_PREFIX)) {
-						this.otherProperties.push(Property.make(kv))
+						this.otherProperties.push(kv)
 					}
 				})
 			}
