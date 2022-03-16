@@ -4904,7 +4904,7 @@ export class BuildImageComponent implements OnInit, PropertiesChangedOwner {
         this._resources.downloadResource(&quot;licenses&quot;, file.source);
     }
 
-    public licenseFileAdded(filename: string) {
+    public licenseFileAdded(response: any) {
 
        this._resources.resourcesForType(&quot;licenses&quot;).subscribe((p) &#x3D;&gt; {
           this.licenceFiles &#x3D; [];
