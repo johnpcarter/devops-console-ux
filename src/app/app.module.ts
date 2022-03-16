@@ -120,6 +120,8 @@ import {MatTooltipModule} from '@angular/material/tooltip'
 import {GitPackageChooserComponent} from './components/elements/git-package-chooser.component';
 import {SimpleConfirmationComponent} from './components/elements/simple-confirmation.component';
 import {ComboBoxComponent} from './components/elements/combo-box.component';
+import {DockerRegistriesService} from './services/docker-registries.service';
+import {MatTabsModule} from '@angular/material/tabs';
 
  library.add(faEllipsisV, faEraser, faFilter, faLock, faList, faBars, faArrowUp, faArrowDown, faTerminal, faBox, faBoxOpen, faTimes, faTimesCircle, faHome, faVial, faCheck, faPlay, faSpinner, faExclamationCircle, faBug, faLightbulb, faTrashAlt, faCloudscale, faCaretSquareDown, faCaretSquareUp, faPen, faLevelUpAlt, faVials, faCodeBranch, faArrowsAltV, faStopCircle, faSyncAlt, faCloudUploadAlt, faClock, faThumbsUp, faThumbsDown, faQuestion,
    faRocket, faCog, faCloudSunRain, faDocker, faCircle, faSquare, faProjectDiagram, faChevronDown, faCheckSquare, faExternalLinkAlt, faCheckSquare, faRunning, faArrowLeft, faArrowRight, faPlusCircle, faFileDownload, faFileUpload, faPlusSquare, faTools, faSync, faCloudDownloadAlt)
@@ -371,7 +373,8 @@ const sideNavRoutes: Routes = [
         MatSnackBarModule,
         FontAwesomeModule,
         MatTooltipModule,
-        CanvasModule
+        CanvasModule,
+        MatTabsModule
     ],
   providers: [
     Settings,
@@ -383,7 +386,8 @@ const sideNavRoutes: Routes = [
     ConfigurationService,
     TestTraceService,
     ContainerTemplates,
-    RuntimeInspectionService
+    RuntimeInspectionService,
+    DockerRegistriesService
   ],
   bootstrap: [AppComponent],
   exports: [

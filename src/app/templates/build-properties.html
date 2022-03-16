@@ -117,21 +117,21 @@
                       <mat-expansion-panel style="margin:10px; box-shadow: none; background-color: lightgreen">
                           <mat-expansion-panel-header class="" role="button">Extended Settings</mat-expansion-panel-header>
                           <div class="mat-expansion-panel-content" role="region">
-                              <jc-build-properties-table [properties]="extendedProperties" prefixForKey='settings.' [availableKeys]='availableExtendedSettings' (propertiesChanges)="propertiesDidChange($event)"></jc-build-properties-table>
+                              <jc-build-properties-table [properties]="extendedProperties" prefixForKey='settings.' [availableKeys]='availableExtendedSettings' (propertiesChanges)="extendedPropertiesDidChange($event)"></jc-build-properties-table>
                           </div>
                       </mat-expansion-panel>
 
                       <mat-expansion-panel style="margin:10px; box-shadow: none; background-color: lightgreen">
                           <mat-expansion-panel-header class="" role="button">Global Properties</mat-expansion-panel-header>
                           <div class="mat-expansion-panel-content" role="region">
-                              <jc-build-properties-table [properties]="globalProperties" prefixForKey="globalvariable." (propertiesChanges)="propertiesDidChange($event)"></jc-build-properties-table>
+                              <jc-build-properties-table [properties]="globalProperties" prefixForKey="globalvariable." (propertiesChanges)="globalPropertiesDidChange($event)"></jc-build-properties-table>
                           </div>
                       </mat-expansion-panel>
 
                       <mat-expansion-panel style="margin:10px; box-shadow: none; background-color: lightgreen">
                           <mat-expansion-panel-header class="" role="button">Misc Settings</mat-expansion-panel-header>
                           <div class="mat-expansion-panel-content" role="region">
-                              <jc-build-properties-table [properties]="otherProperties" (propertiesChanges)="propertiesDidChange($event)"></jc-build-properties-table>
+                              <jc-build-properties-table [properties]="otherProperties" (propertiesChanges)="otherPropertiesDidChange($event)"></jc-build-properties-table>
                           </div>
                       </mat-expansion-panel>
                   </div>

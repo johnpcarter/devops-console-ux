@@ -17,15 +17,16 @@
       <runtime-containers-list *ngIf="viewType == 'list'" [containers]="containers" [selectedDeploymentName]="selectedDeploymentName" (stopContainerEvent)="stopContainer($event)"></runtime-containers-list>
       <runtime-containers-graph *ngIf="viewType == 'graph'" [containers]="containers" [selectedDeployment]="selectedRuntime" (stopContainerEvent)="stopContainer($event)"></runtime-containers-graph>
 
-      <div *ngIf="selectedDeploymentName != 'All containers'" style="margin-top: 100px; display: flex; flex-direction: column">
-        <mat-checkbox [formControl]="includeTestsCtrl" (change)="setIncludeTests($event)">Run tests on startup</mat-checkbox>
-        <mat-checkbox id="run.deploy.uploadAPIs" *ngIf="haveSelectedAPIGateway()" (change)="uploadAPIs($event)">Upload API's to gateway after startup</mat-checkbox>
-
+      <div *ngIf="selectedDeploymentName != 'All containers'" style="margin-top: 40px; display: flex; flex-direction: column">
+        <mat-slide-toggle id="run.deploy.pull" (change)="pullImages($event)" [disabled]="!haveMissingContainer()">Pull latest images</mat-slide-toggle>
+        <mat-slide-toggle id="run.deploy.runTests" style="margin-top: 20px" [formControl]="includeTestsCtrl" (change)="setIncludeTests($event)" [disabled]="!haveMissingContainer()">Run tests on startup</mat-slide-toggle>
+        <mat-slide-toggle id="run.deploy.uploadAPIs" *ngIf="haveSelectedAPIGateway()" style="margin-top: 20px" (change)="uploadAPIs($event)" [disabled]="!haveMissingContainer()">Upload API's to gateway after startup</mat-slide-toggle>
       </div>
-      <div *ngIf="selectedDeploymentName != 'All containers'" style="width:100%; margin-top: 30px">
-        <button mat-raised-button color="accent" (click)="stopContainers()" [disabled]="!haveRunningContainers()">Stop</button>
-        <button mat-raised-button color="primary" (click)="startContainers()" [disabled]="!haveMissingContainer()" style="margin-left: 50px">Start</button>
-        <!-- <button mat-raised-button color="warning" (click)="edit()" style="float: right; margin-right: 50px">Configure <fa-icon class="icon" [icon]="['fas', 'tools']"></fa-icon></button> -->
+      <div *ngIf="selectedDeploymentName != 'All containers'" style="width:100%; margin-top: 50px;">
+        <!-- <button mat-raised-button color="accent" (click)="stopContainers()" [disabled]="!haveRunningContainers()">Stop</button> -->
+        <button mat-raised-button color="primary" style="margin-right: 50px" (click)="edit()" [disabled]="selectedDeploymentName == 'All Containers'">Edit <fa-icon class="icon" [icon]="['fas', 'tools']"></fa-icon></button>
+        <file-uploader-button id="runtime.upload.uploadTemplateButton" alias="run" type="runs" uploadURL="/invoke/jc.devops.console.resources_.services:uploadMultipartForm" title="Upload Template" (onCompletion)="templateFileAdded($event)"></file-uploader-button>
+        <button mat-raised-button color="accent" style="float: right" (click)="startContainers()" [disabled]="!haveMissingContainer()">Start</button>
       </div>
     </div>
   </div>

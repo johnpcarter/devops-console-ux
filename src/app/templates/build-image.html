@@ -188,6 +188,9 @@
                   <textarea id="build.image.comments" matInput placeholder="Build Comments" formControlName="commentsCtrl" required></textarea>
                   <mat-hint align="start">Comments will be included in {{targetName()}} build history</mat-hint>
                 </mat-form-field>
+                <div style="margin-top: 20px">
+                  <mat-slide-toggle formControlName="pushCtrl" [disabled]="downloadCtrl.value != true">Push to repository "{{targetRepoCtrl.value}}"</mat-slide-toggle>
+                </div>
                  <mat-form-field style="width: 100%; margin-top: 40px">
                   <input matInput placeholder="Save as template" formControlName="buildNameCtrl" [readonly]="currentBuild.name != null">
                   <mat-hint align="start">Save configuration as template for future builds</mat-hint>
@@ -199,8 +202,10 @@
                 </div>
               </div>
               <mat-card-actions style="width:100%">
-                  <button *ngIf="!currentBuild.name" #saveButton mat-raised-button (click)="saveTemplate()" color="accent" [disabled]="buildTemplateName == null" style="margin-left: 20px"><fa-icon class="icon" [icon]="['fas', 'file-upload']" style="color: white"></fa-icon> Save </button>
-                 <div style="float:right">
+                  <button *ngIf="!currentBuild.name" #saveButton mat-raised-button (click)="saveTemplate()" color="accent" [disabled]="buildTemplateName == null" style="margin-left: 20px"><fa-icon class="icon" [icon]="['fas', 'file-upload']" style="color: white"></fa-icon> Add </button>
+                  <button *ngIf="currentBuild.name" id="build.package.downloadButton" mat-raised-button color="primary" (click)="downloadConfiguration()"><fa-icon class="icon" [icon]="['fas', 'file-download']" style="color: white"></fa-icon> Download Template</button>
+
+                <div style="float:right">
                   <button mat-raised-button matStepperPrevious style="margin-right: 40px;">Back</button>
                   <button *ngIf="downloadRef" mat-raised-button #downloadButton color="primary" (click)="downloadNow(downloadRef)" style="width: 140px"><fa-icon class="icon" [icon]="['fas', 'file-download']" style="color: white"></fa-icon> DOWNLOAD </button>
                   <button *ngIf="isBuilding" mat-raised-button #waitButton color="warn" class="pulseButton" style="width: 140px"><fa-icon class="icon" [icon]="['fas', 'rocket']" style="color: white"></fa-icon> {{labelForPreparingButton()}} </button>

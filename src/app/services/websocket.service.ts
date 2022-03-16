@@ -19,7 +19,7 @@ export class WebSocketService {
     if (!path.startsWith("/"))
       path = "/" + path
 
-    let url: string = WebSocketService.URL + path
+    let url: string = WebSocketService.URL.replace('localhost', window.location.hostname) + path
 
     console.log("connecting to web-socket at: " + url)
 

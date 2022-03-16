@@ -7,45 +7,52 @@
 		<mat-card style="border: none; box-shadow: none" appCancelCdkDrag>
 			<mat-card-subtitle>
 				<div style="margin-left: 30px; width: 100%;display:flex; justify-content: flex-start; flex-wrap: wrap">
-          <mat-form-field *ngIf="editMode" style="width:90%">
-			  <input [id]="containerId('containerDescription')" matInput placeholder="Description" formControlName="containerDescriptionCtrl" style="border: none; background-color: lightyellow" required>
-          </mat-form-field>
-					<div>
+					<mat-form-field *ngIf="editMode" style="width:90%">
+						<input [id]="containerId('containerDescription')" matInput placeholder="Description" formControlName="containerDescriptionCtrl" style="border: none; background-color: lightyellow" required>
+					</mat-form-field>
 						<mat-form-field style="min-width: 250px;">
-              <input [id]="containerId('containerName')" matInput placeholder="Name" formControlName="containerNameCtrl" style="border: none; background-color: lightyellow" [readonly]="!editMode">
-            </mat-form-field>
-          </div>
-					<div style="margin-left: 30px; margin-top: -20px; min-width: 400px">
-						<docker-image-chooser [id]="containerId('image')" style="margin-left: 10px; min-width: 350px;" [dockerImages]="images" [value]="currentImage()" [disabled]="!editMode" [allowLatest]="isCustom()" [preferredVersion]="preferredVersion()" (selectedImage)="imageSelected($event)"></docker-image-chooser>
-	                </div>
-	                <mat-form-field style="margin-left: 20px;">
-						<mat-select [id]="containerId('containerType')" #selectedType placeholder="Container Type" formControlName="containerTypeCtrl" [disabled]="!editMode">
-		            		<mat-option *ngFor="let type of containerTemplatesTypes" [value]="type">
-		                    	 {{productLabel(type)}}
-		                	</mat-option>
-		            	</mat-select>
-		        	</mat-form-field>
-		        	<button [id]="containerId('applyButton')" *ngIf="editMode" matSuffix mat-button color="accent" (click)="applyTemplate($event)" style="font-size: 10px; line-height: 21px" [ngStyle]="styleForApplyTemplateButton()">Apply</button>
-                </div>
-                <div>
+							<input [id]="containerId('containerName')" matInput placeholder="Name" formControlName="containerNameCtrl" style="border: none; background-color: lightyellow" [readonly]="!editMode">
+						</mat-form-field>
+					<mat-form-field style="margin-left: 30px; min-width: 250px">
+						<input [id]="containerId('user')" matInput type="text" placeholder="Administrator User" formControlName="containerUserCtrl" style="border: none; background-color: lightyellow" [readonly]="!editMode">
+						<mat-hint>Leave blank for default User {{defaultAdminUser()}}</mat-hint>
+					</mat-form-field>
+					<mat-form-field style="margin-left: 30px; min-width: 250px">
+						<input [id]="containerId('password')" matInput type="password" placeholder="Administrator Password" formControlName="containerPasswordCtrl" style="border: none; background-color: lightyellow" [readonly]="!editMode">
+						<mat-hint>Leave blank for default Password {{defaultAdminPassword()}}</mat-hint>
+					</mat-form-field>
+					<div>
+						<mat-form-field style="margin-left: 20px;">
+							<mat-select [id]="containerId('containerType')" #selectedType placeholder="Container Type" formControlName="containerTypeCtrl" [disabled]="!editMode">
+								<mat-option *ngFor="let type of containerTemplatesTypes" [value]="type">
+									{{productLabel(type)}}
+								</mat-option>
+							</mat-select>
+						</mat-form-field>
+						<button [id]="containerId('applyButton')" *ngIf="editMode" matSuffix mat-button color="accent" (click)="applyTemplate($event)" style="font-size: 10px; line-height: 21px" [ngStyle]="styleForApplyTemplateButton()">Apply</button>
+					</div>
+				</div>
 
-                </div>
-				<mat-form-field style="margin-top: 30px; margin-left: 30px; min-width: 250px">
-					<input [id]="containerId('user')" matInput type="text" placeholder="Administrator User" formControlName="containerUserCtrl" style="border: none; background-color: lightyellow" [readonly]="!editMode">
-					<mat-hint>Leave blank for default User {{defaultAdminUser()}}</mat-hint>
-        </mat-form-field>
-        <mat-form-field style="margin-top: 30px; margin-left: 30px; min-width: 250px">
-					<input [id]="containerId('password')" matInput type="password" placeholder="Administrator Password" formControlName="containerPasswordCtrl" style="border: none; background-color: lightyellow" [readonly]="!editMode">
-					<mat-hint>Leave blank for default Password {{defaultAdminPassword()}}</mat-hint>
-        </mat-form-field>
+				<div style="padding: 20px">
+					<mat-panel-title><b>Image</b></mat-panel-title>
+					<div style="margin-left: 30px; margin-top: 20px; min-width: 400px">
+						<docker-image-chooser allowBuild="true" [reference]="container.name" [id]="containerId('image')" style="margin-left: 10px; min-width: 350px;" [dockerImages]="images" [value]="currentImage()" [disabled]="!editMode" [allowLatest]="isCustom()" [preferredVersion]="preferredVersion()" (selectedImage)="imageSelected($event)" (buildCommands)="buildCommandsUpdated($event)"></docker-image-chooser>
+					</div>
+
+				</div>
+
 			</mat-card-subtitle>
-      <div style="padding: 10px">
-        <mat-panel-title><b>Environment</b></mat-panel-title>
-        <mat-button-toggle-group [(value)]="selectedEnvironment" (change)="changeSelectedEnvironment($event)" style="margin-top: 10px;">
-          <mat-button-toggle *ngFor="let env of environments" [value]="env" style="min-width: 100px">
-            {{env}}
-          </mat-button-toggle>
-        </mat-button-toggle-group><br>
+			<div *ngIf="this.container.build && this.container.build.dockerfile" style="padding: 0 0 20px 40px">
+				<mat-panel-title>Build Commands</mat-panel-title>
+				<build-commands [showHiddenOption]="false" [reference]="container.name" [edit]="false" [commands]="container.build.buildCommands" (commandsChanged)="buildCommandsUpdated($event)"></build-commands>
+			</div>
+			<div style="padding: 10px">
+				<mat-panel-title><b>Environment</b></mat-panel-title>
+				<mat-button-toggle-group [(value)]="selectedEnvironment" (change)="changeSelectedEnvironment($event)" style="margin-top: 10px;">
+					<mat-button-toggle *ngFor="let env of environments" [value]="env" style="min-width: 100px">
+						{{env}}
+					</mat-button-toggle>
+				</mat-button-toggle-group><br>
         <mat-hint *ngIf="selectedEnvironmentSettings == defaultEnvironmentSettings" style="font-size: 8pt; font-weight: lighter;">
           Default settings to be used for all target environments unless overridden. Define new environments via Settings.
         </mat-hint>

@@ -499,9 +499,11 @@ export class BuildInstallComponent implements OnInit, PropertiesChangedOwner {
         return null
   }
 
-  public wmImageFileAdded(filename: string) {
+  public wmImageFileAdded(response: any) {
 
-      this._resources.resourcesForType("installer-images").subscribe((files) => {
+    let filename:string = response.filename
+
+    this._resources.resourcesForType("installer-images").subscribe((files) => {
         this.wmImages = []
         this.wmImages.push("Download")
 
@@ -515,9 +517,11 @@ export class BuildInstallComponent implements OnInit, PropertiesChangedOwner {
       })
   }
 
-  public licenseFileAdded(filename: string) {
+  public licenseFileAdded(response: any) {
 
-      this._resources.resourcesForType('licenses').subscribe((p) => {
+    let filename: string = response.filename
+
+    this._resources.resourcesForType('licenses').subscribe((p) => {
           this.licenceFiles = []
            p.forEach((f) => {
             this.licenceFiles.push(f.name)
@@ -572,7 +576,7 @@ export class BuildInstallComponent implements OnInit, PropertiesChangedOwner {
 
   public downloadNow(fileRef: string) {
 
-        window.open("http://localhost:5555/rad/jc.devops:api/docker/build/" + fileRef)
+        window.open("http://" + window.location.hostname +":5555/rad/jc.devops:api/docker/build/" + fileRef)
   }
 
   public labelForGoButton(): string {

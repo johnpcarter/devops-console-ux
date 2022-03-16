@@ -135,9 +135,11 @@ export class MicroServiceInstallerComponent implements BuilderComponent, OnInit 
         this._resources.downloadResourceViaBrowser("properties", files[0].source)
     }
 
-	public propertiesFileAdded(filename: string) {
+	public propertiesFileAdded(response: any) {
 
-       this._resources.resourcesForType("properties").subscribe((p) => {
+        let filename: string = response.filename
+
+        this._resources.resourcesForType("properties").subscribe((p) => {
 
           this.propertyFiles = []
           p.forEach((f) => {

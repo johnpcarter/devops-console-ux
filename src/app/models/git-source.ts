@@ -1,4 +1,4 @@
-import {APIDefinition} from './wm-package-info';
+import { APIDefinition } from './wm-package-info'
 
 export class Repository {
     public name: string
@@ -9,7 +9,7 @@ export class Repository {
     public type: string
     public include: string[]
     public exclude: string[]
-
+    public useForStandardConfig: boolean
     public selectedAPIs: APIDefinition[] = [] // only used for display purposes, NOT to be persisted
 
     public constructor(name: string, path?: string, configPath?: string) {
@@ -17,6 +17,7 @@ export class Repository {
         this.name = name
         this.path = path
         this.configPath = configPath
+        this.useForStandardConfig = false
 
         this.include = []
         this.exclude = []
@@ -29,6 +30,7 @@ export class Repository {
         r.path = data.path
         r.configPath = data.configPath
         r.type = data.type
+        r.useForStandardConfig = data.useForStandardConfig
 
         if (data.include)
             r.include = data.include

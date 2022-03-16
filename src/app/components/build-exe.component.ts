@@ -44,6 +44,8 @@ export class BuildExeComponent implements OnInit {
   	public version: string
   	public comments: string
   	public log: string[] = []
+	public push: boolean = false
+	public pull: boolean = false
 
   	public user: string
   	public password: string
@@ -73,8 +75,10 @@ export class BuildExeComponent implements OnInit {
 			this.archiveWmImage = data.archiveWmImage
 		} else if (data.build) {
 			this.build = data.build
+			this.push = data.push
 		} else {
 			this.run = data.run
+			this.pull = data.pull
 			this.includeTests = data.includeTests
 			this.uploadAPIs = data.uploadAPIs
 			this.runK8s = data.runK8s
@@ -115,7 +119,7 @@ export class BuildExeComponent implements OnInit {
       })
     } else if (this.build) {
 
-      this._dockerService.build(this.build, this.version, this.comments).subscribe(result => {
+      this._dockerService.build(this.build, this.version, this.comments, this.environment, this.push).subscribe(result => {
 
         if (result && result.success) {
           this.isBusy = false
@@ -137,7 +141,7 @@ export class BuildExeComponent implements OnInit {
         this.processMessage("Running in environment: " + this.environment)
 
       }
-      this._dockerService.run(this.run, this.runK8s, this.includeTests, false, this.uploadAPIs, this.environment).subscribe((result) => {
+      this._dockerService.run(this.run, this.runK8s, this.includeTests, false, this.uploadAPIs, this.environment, this.pull).subscribe((result) => {
 
         this.isBusy = false
 

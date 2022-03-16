@@ -1,15 +1,14 @@
 import { Injectable } 	           	 	  from '@angular/core'
 import { HttpClient, HttpHeaders }      from '@angular/common/http'
 import { Observable, of }               from 'rxjs'
-import { switchMap, map, catchError } 	from 'rxjs/operators'
-
-import { NgxXml2jsonService } 			    from 'ngx-xml2json'
+import { map, catchError } 	from 'rxjs/operators'
 
 import {GitType, Settings, Values,
                     RepoSettings }      from '../settings'
-import { WmPackageInfo }				        from '../models/wm-package-info'
+import { WmPackageInfo }				from '../models/wm-package-info'
 
 import * as moment from 'moment'
+import {flatMap} from 'rxjs/internal/operators';
 
 export class GitRepo {
 
@@ -99,7 +98,7 @@ export class GitSourceService {
 	private _gitIsPACPassword: string
 
 
-    constructor(private _settings: Settings, private _http: HttpClient, private _ngxXml2jsonService: NgxXml2jsonService) {
+    constructor(private _settings: Settings, private _http: HttpClient) {
 
     	this._settings.values().subscribe((v) => {
 
@@ -155,31 +154,31 @@ export class GitSourceService {
 					.append('Accept', 'application/json')
 
 		if (this._gitType == GitType.github) {
-        template = GitSourceService.GITHUB_CONTENTS
-        headers = headers.append('Authorization', `Basic ${btoa(this.authString())}`)
+        	template = GitSourceService.GITHUB_CONTENTS
+        	headers = headers.append('Authorization', `Basic ${btoa(this.authString())}`)
 
 		} else {
-    	  template = GitSourceService.GITLAB_CONTENTS
+    	  	template = GitSourceService.GITLAB_CONTENTS
 		}
 
 		if (dir.startsWith("/")) {
-      dir = dir.substring(1)
-    }
+      		dir = dir.substring(1)
+    	}
 
 		let url: string = this._gitAPIUrl + template
-      .replace(/OWNER/, git || this._gitUser)
-      .replace(/REPO/, repo)
-      .replace(/PATH/, dir)
-      .replace(/TOKEN/, this._gitPassword)
+      		.replace(/OWNER/, git || this._gitUser)
+      		.replace(/REPO/, repo)
+      		.replace(/PATH/, dir)
+      		.replace(/TOKEN/, this._gitPassword)
 
-      console.log("Querying git for packages with url " + url)
+      	console.log("Querying git for packages with url " + url)
 
-			return this._http.get(url, { headers }).pipe(map( (responseData) => {
-	            return this._mapPackagesResponse(dir, responseData, repo)
-			}))
+		return this._http.get(url, { headers }).pipe(map( (responseData) => {
+			return this._mapPackagesResponse(dir, responseData, repo)
+		}))
     }
 
-    public fileContents(path: string, repo: string): Observable<string> {
+    public gitInfo(path: string, repo: string): Observable<any> {
 
 		let template: string
 
@@ -192,14 +191,14 @@ export class GitSourceService {
 			template = GitSourceService.GITHUB_CONTENTS
 							.replace(/OWNER/, this._gitName || this._gitUser)
 							.replace(/REPO/, repo)
-							.replace(/PATH/, encodeURIComponent(path))
+							.replace(/PATH/, path)
 
 			headers = headers.append('Authorization', `Basic ${btoa(this.authString())}`)
 
 		} else {
 			template = GitSourceService.GITLAB_FILE
 							  .replace(/REPO/, repo)
-							  .replace(/PATH/, encodeURIComponent(path))
+							  .replace(/PATH/, path)
                 .replace(/TOKEN/, this._gitPassword)
 		}
 
@@ -207,7 +206,7 @@ export class GitSourceService {
 
 		return this._http.get(url, { headers }).pipe(map( (responseData) => {
 
-            return (<any> responseData).content
+            return (<any> responseData)
 
           },
           error => {
@@ -224,7 +223,7 @@ export class GitSourceService {
 
  		  if (responseData[i].name) {
  		    let p: WmPackageInfo = WmPackageInfo.make(responseData[i])
-			  this._packageDetails(p, dir, repo).subscribe(success => {
+			  this.packageDetails(p, dir, repo).subscribe(success => {
 
 				  if (!success)
 					  images.splice(i, 1)
@@ -237,16 +236,33 @@ export class GitSourceService {
  		return images
     }
 
-    private _packageDetails(pckg: WmPackageInfo, dir: string, repo: string): Observable<boolean> {
+	private packageDetails(packageInfo: WmPackageInfo, dir: string, repo: string): Observable<boolean> {
 
-    	let path: string
+		return this.gitInfo(dir + '/' + packageInfo.name, repo).pipe(flatMap((ref) => {
 
-    	if (dir && dir != ".")
-    		path = dir + (dir.endsWith("/") ? "" : "/") + pckg.name + "/manifest.v3"
-    	else
-    		path = pckg.name + "/manifest.v3"
+			if (ref.type === 'submodule') {
+				return this._packageDetails(packageInfo, "manifest.v3", packageInfo.name)
+			} else {
 
-    	return this.fileContents(path, repo).pipe(map((c) => {
+				let path: string
+
+				if (dir && dir != ".")
+					path = dir + (dir.endsWith("/") ? "" : "/") + packageInfo.name + "/manifest.v3"
+				else
+					path = packageInfo.name + "/manifest.v3"
+
+				return this._packageDetails(packageInfo, path, repo)
+			}
+		}), catchError((err) => {
+			return of(false)
+		}))
+	}
+
+    private _packageDetails(pckg: WmPackageInfo, path: string, repo: string): Observable<boolean> {
+
+    	return this.gitInfo(path, repo).pipe(map((ref) => {
+
+			const c = ref.content
 
     		let xmlString: string = atob(c)
     		let xml = new DOMParser().parseFromString(xmlString, 'text/xml')
@@ -255,20 +271,50 @@ export class GitSourceService {
 
 			  for(var i=0;i<top.length;i++){
 
-				var values = top[i].getElementsByTagName('value')
+				  var values = top[i].getElementsByTagName('value')
 
-				for (var z=0; z < values.length; z++) {
+				  for (let z = 0; z < values.length; z++) {
 					let name: string = values[z].getAttribute('name')
 					let value: string = values[z].innerHTML
 
-					if (name == 'version')
-						pckg.version = +value
-					else if (name == 'build')
+					if (name == 'version') {
+						pckg.version = value
+
+						if (pckg.version === '' || pckg.version === null) {
+							pckg.version = "n/a"
+						}
+					} else if (name == 'build') {
 						pckg.build = +value
-					else if (name == 'description')
+
+						if (pckg.build === NaN) {
+							pckg.build = 0
+						}
+					} else if (name == 'description') {
 						pckg.description = value
+					}
 				}
-			}
+
+				var records = top[i].getElementsByTagName('record')
+				for (let z = 0; z < records.length; z++) {
+					let name: string = records[z].getAttribute('name')
+					let value = records[z].getElementsByTagName('value')
+
+					if (name === 'requires') {
+
+						pckg.requires = []
+
+						for (let y = 0; y < value.length; y++) {
+							let p = new WmPackageInfo(value[y].getAttribute('name'))
+							p.version = value[y].innerHTML
+							pckg.requires.push(p)
+						}
+					} else if (name === 'startup_services') {
+
+					} else if (name === 'shutdown_services') {
+
+					}
+				}
+			  }
 
     		return true
     	}), catchError((err) => {

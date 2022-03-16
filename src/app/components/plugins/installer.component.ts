@@ -168,32 +168,32 @@ export class InstallerComponent implements BuilderComponent, OnInit {
 		  return this._files.get(type)
 	  }
 
-	  public fileUploaded(element: BuildCommand, filename: string) {
+	  public fileUploaded(element: BuildCommand, response: any) {
 
-      let fileList: string[] = this._files.get(element.fileType)
+        let filename: string = response.filename
+        let fileList: string[] = this._files.get(element.fileType)
+        let matched: number = -1
 
-      let matched: number = -1
+        for (let i = 0; i < fileList.length; i++) {
 
-      for (let i = 0; i < fileList.length; i++) {
-
-        if (fileList[i].endsWith(filename)) {
-          matched = i
-          break
+            if (fileList[i].endsWith(filename)) {
+                matched = i
+                 break
+            }
         }
-      }
 
-      if (matched == -1) {
-        matched = fileList.length
-        fileList.push(filename.substring(filename.lastIndexOf("/")+1))
-      }
+        if (matched == -1) {
+            matched = fileList.length
+            fileList.push(filename.substring(filename.lastIndexOf("/")+1))
+        }
 
-      element.source = fileList[matched]
-      let ctrl: FormControl = this.controlForPanelElement("source", element, fileList[matched])
+        element.source = fileList[matched]
+        let ctrl: FormControl = this.controlForPanelElement("source", element, fileList[matched])
 
-      if (ctrl)
-        ctrl.setValue(fileList[matched])
+        if (ctrl)
+            ctrl.setValue(fileList[matched])
 
-      this.flagChanges()
+        this.flagChanges()
 	  }
 
 	  public refreshArgs(show: boolean) {

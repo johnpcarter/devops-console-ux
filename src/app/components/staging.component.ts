@@ -1,20 +1,13 @@
 import {
-  Component, ChangeDetectorRef, EventEmitter,
-  OnInit, OnChanges, OnDestroy, Input, Inject,
+  Component, EventEmitter,
+  OnInit, OnChanges, Input, Inject,
   Output
 } from '@angular/core'
 
-import {Router} from '@angular/router'
 import {
   FormBuilder, FormGroup, FormControl,
   Validators
 } from '@angular/forms'
-import {SelectionModel} from '@angular/cdk/collections'
-
-import {MediaMatcher} from '@angular/cdk/layout'
-import {MatAccordion} from '@angular/material/expansion'
-import {MatInput} from '@angular/material/input'
-import {MatButton} from '@angular/material/button'
 
 import {
   MatDialog, MatDialogRef, DialogPosition,
@@ -24,7 +17,7 @@ import {
 import {Stage, ContainerSet, Action} from '../models/project'
 import {APIDefinition} from '../models/wm-package-info'
 import {Settings} from '../settings'
-import {Container} from '../models/container';
+import {Container} from '../models/container'
 
 @Component({
   selector: 'staging',

@@ -9,34 +9,74 @@ import { DockerService }								from '../../services/docker.service'
 
 import {Observable, of }                  				from 'rxjs'
 import { map, startWith }                 				from 'rxjs/operators'
+import {BuildCommand} from '../../models/build';
 
 @Component({
   selector: 'docker-image-chooser',
   template: `
   <form [formGroup]="formGroup">
-	  <label *ngIf="title">{{title}}</label>
 	  <div *ngIf="!disabled;else disabledDiv"style="display:flex; flex-direction: row; width:100%; align-items: center">
-	    <mat-form-field style="min-width: 350px" [floatLabel]="title ? 'never' : (float ? 'float' : 'auto')">
-	    	<input [id]="baseIdentifier('input')" matInput placeholder="Docker Image template" [formControlName]="imageControlLabel" [matAutocomplete]="auto" oninput="this.value = this.value.toLowerCase()">
-	    	<mat-hint *ngIf="showRepoLabel()" align="start"><strong>{{value.repository()}}</strong> </mat-hint>
-	    	<mat-hint *ngIf="hint()" align="start">{{hint()}}</mat-hint>
-      		<mat-autocomplete #auto="matAutocomplete">
-        		<mat-option *ngFor="let image of filteredImages | async" [value]="image.name()" [ngStyle]="styleForImageItem(image)">
-          			{{image.name()}}
-        		</mat-option>
-    		</mat-autocomplete>
-    		<button [id]="baseIdentifier('button')" matSuffix *ngIf="showPullButton()" mat-flat-button (click)="pullImage($event)" style="margin-left: 5px; margin-top: -15px" matTooltip="Pull image from remote repository, include both registry and version e.g. registry/image:version"> <fa-icon class="icon" [icon]="['fas', 'plus-square']" style="color: red"></fa-icon> </button>
-	    </mat-form-field>
-	    <mat-form-field *ngIf="showVersionSelector()" style="width: 100px; margin-left: 10px" floatLabel="never">
-	        <mat-select [id]="baseIdentifier('version')" placeholder="Version" [formControlName]="imageVersionControlLabel" [disabled]="disabled">
-	          <mat-option *ngFor="let image of availableVersions" [value]="image.version()">
-	            {{image.version()}}
-	          </mat-option>
-	        </mat-select>
-	    </mat-form-field>
+		  <mat-tab-group *ngIf="allowBuild; else chooser" animationDuration="40ms" [(selectedIndex)]="selectedTabIndex" style="width: 60%; border: lightgray solid 1px">
+			  <mat-tab label="{{title || 'Image'}}" [disabled]="value && value.dockerFile">
+				  <div style="padding: 20px">
+					  <ng-container *ngIf="value && value.dockerFile; else chooserWrapper">
+						  <ng-container *ngTemplateOutlet="dockerFile">
+							  This text is not displayed
+						  </ng-container>
+					  </ng-container>
+					  <ng-template #chooserWrapper>
+						  <ng-container *ngTemplateOutlet="chooser">
+						  	This text is not displayed
+					  	</ng-container>
+					  </ng-template>
+				  </div>
+			  </mat-tab>
+			  <mat-tab label="Docker file">
+				  <div style="padding: 20px 10px; min-width:90px;">
+					  <ng-container *ngIf="value && value.dockerFile != null; else hint">
+						  <ng-container *ngTemplateOutlet="dockerFile">
+						  </ng-container>
+						  <button style="margin-bottom: 20px; float: right" mat-raised-button color="accent" class="red-on-hover" (click)="removeDockerFile()"><fa-icon class="icon" [icon]="['fas', 'trash-alt']"> Remove</fa-icon></button>
+					  </ng-container>
+					  <ng-template #hint>
+						  <p style="color: lightgray; font-size: smaller; padding-right: 20px">Specify a *lightweight* Dockerfile to be built at runtime.</p>
+						  <file-uploader-button style="margin-bottom: 20px; float: right;" title="Upload" alias="dockerfiles" [reference]="reference" type="dockerfiles" uploadURL="/invoke/jc.devops.console.resources_.services:uploadMultipartForm" (onCompletion)="dockerFileUploaded($event)"></file-uploader-button>
+					  </ng-template>
+				  </div>
+			  </mat-tab>
+		  </mat-tab-group>
+		  <ng-template #chooser>
+			  <div>
+				  <label *ngIf="title">{{title}}</label>
+				  <div>
+					  <mat-form-field style="min-width: 350px" [floatLabel]="title ? 'never' : (float ? 'float' : 'auto')">
+						  <input [id]="baseIdentifier('input')" matInput placeholder="Docker Image template" [formControlName]="imageControlLabel" [matAutocomplete]="auto" oninput="this.value = this.value.toLowerCase()" [disabled]="value && value.dockerFile">
+						  <mat-hint *ngIf="showRepoLabel()" align="start"><strong>{{value.repository()}}</strong> </mat-hint>
+						  <mat-hint *ngIf="hint()" align="start">{{hint()}}</mat-hint>
+						  <mat-autocomplete #auto="matAutocomplete">
+							  <mat-option class="multiline-mat-option" *ngFor="let image of filteredImages | async" [value]="image.name()" [ngStyle]="styleForImageItem(image)">
+								  <p>{{image.name()}}</p>
+								  <small style="color: gray">{{image.repository()}}</small>
+							  </mat-option>
+						  </mat-autocomplete>
+						  <button [id]="baseIdentifier('button')" matSuffix *ngIf="showPullButton()" mat-flat-button (click)="pullImage($event)" style="margin-left: 5px; margin-top: -15px" matTooltip="Pull image from remote repository, include both registry and version e.g. registry/image:version"> <fa-icon class="icon" [icon]="['fas', 'plus-square']" style="color: red"></fa-icon> </button>
+					  </mat-form-field>
+					  <mat-form-field *ngIf="showVersionSelector()" style="width: 100px; margin-left: 10px" floatLabel="never">
+						  <mat-select [id]="baseIdentifier('version')" placeholder="Version" [formControlName]="imageVersionControlLabel" [disabled]="disabled">
+							  <mat-option *ngFor="let image of availableVersions" [value]="image.version()">
+								  {{image.version()}}
+							  </mat-option>
+						  </mat-select>
+					  </mat-form-field>
+					  <p *ngIf="value && value.dockerFile">
+						  {{value.dockerFile}}
+					  </p>
+				  </div>
+			  </div>
+		  </ng-template>
 	  </div>
 	  <ng-template #disabledDiv>
-	  	<div>
+	  	<div *ngIf="!value || !value.dockerFile; else dockerFileReadOnly">
 		  	<mat-form-field style="min-width: 350px" [floatLabel]="title ? 'never' : float ? float : 'auto'">
 		  		<input [id]="baseIdentifier('input')" matInput placeholder="Docker Image template" [value]="readOnlyImageName()" readonly="true" oninput="this.value = this.value.toLowerCase()">
 		  		<mat-hint *ngIf="showRepoLabel()" align="start"><strong>{{value.repository()}}</strong> </mat-hint>
@@ -45,6 +85,19 @@ import { map, startWith }                 				from 'rxjs/operators'
 	       		<input [id]="baseIdentifier('version')" matInput [value]="readOnlyVersion()" readonly="true">
 	    	</mat-form-field>
 	  	</div>
+		  <ng-template #dockerFileReadOnly>
+			  <ng-container *ngTemplateOutlet="dockerFile">
+				  This text is not displayed
+			  </ng-container>
+		  </ng-template>
+	  </ng-template>
+	  <ng-template #dockerFile>
+		  <div style="display: flex; align-items: center; padding-right: 20px;">
+			  <div style="display: flex; flex-direction: column">
+				  <span style="color: black; font-size: smaller;  line-height: 30px; vertical-align: center">{{value.dockerFile}}</span>
+				  <span style="color: lightgray; font-size: smaller"> references {{value.tag()}}</span>
+			  </div>
+		  </div>
 	  </ng-template>
   </form>
 `
@@ -57,6 +110,9 @@ export class DockerImageChooserComponent implements OnInit, OnChanges, OnDestroy
 
 	@Input()
 	public id: string
+
+	@Input()
+	public reference: string
 
 	@Input()
 	public dockerImages: DockerImage[]
@@ -88,8 +144,14 @@ export class DockerImageChooserComponent implements OnInit, OnChanges, OnDestroy
 	@Input()
 	public hints: Map<any, string>
 
+	@Input()
+	public allowBuild: boolean = false
+
 	@Output()
 	public selectedImage: EventEmitter<DockerImage> = new EventEmitter()
+
+	@Output()
+	public buildCommands: EventEmitter<BuildCommand[]> = new EventEmitter()
 
 	public filteredImages: Observable<DockerImage[]>
 
@@ -101,8 +163,10 @@ export class DockerImageChooserComponent implements OnInit, OnChanges, OnDestroy
 	public imageControlLabel: string
 	public imageVersionControlLabel: string
 
+	public selectedTabIndex: number = 0
+
 	private _ignoreChanges: boolean = false
-  private _priorDisabled: boolean = null
+  	private _priorDisabled: boolean = null
 
 	public constructor(private _formBuilder: FormBuilder, private _dockerService: DockerService) {
 
@@ -184,6 +248,10 @@ export class DockerImageChooserComponent implements OnInit, OnChanges, OnDestroy
     })
 
     this.setAvailableVersions()
+
+		if (this.value && this.value.dockerFile) {
+			this.selectedTabIndex = 1
+		}
   }
 
 	public ngOnDestroy() {
@@ -262,10 +330,51 @@ export class DockerImageChooserComponent implements OnInit, OnChanges, OnDestroy
 			return null
 	}
 
-	private flagChange(image: DockerImage) {
+	public dockerFileUploaded(response: any) {
+
+		console.log("uploaded " + response.filename + ", hint: " + response.hint)
+
+		this.value = new DockerImage(response.hint)
+		this.value.dockerFile = response.filename
+		this.flagChange(this.value, response.buildCommands)
+	}
+
+	public removeDockerFile() {
+
+		if (this.value) {
+			this.value.dockerFile = null
+			this.flagChange(this.value)
+		}
+	}
+
+	public showPullButton(): boolean {
+
+		return (this.allowPull && this.imageCtrl.value && this.imageFor(this.imageCtrl.value) == null)
+	}
+
+	public showVersionSelector(): boolean {
+
+		return (this.imageCtrl.value && this.availableVersions.length > 0)
+	}
+
+	public pullImage(event: any) {
+
+		this._dockerService.pullImage(this.value.tag()).subscribe((d) => {
+
+			this.dockerImages.push(d)
+			this.value = d
+			this._setValue()
+		})
+	}
+
+	private flagChange(image: DockerImage, buildCommands?: BuildCommand[]) {
 
 		if (image) {
 			this.selectedImage.emit(image)
+
+			if (buildCommands && this.buildCommands) {
+				this.buildCommands.emit(buildCommands)
+			}
 		} else if (this.allowEmptyContainer) {
 			this.selectedImage.emit(new DockerImage(this.imageCtrl.value))
 		}
@@ -353,26 +462,6 @@ export class DockerImageChooserComponent implements OnInit, OnChanges, OnDestroy
       } else {
         return this.dockerImages
       }
-    }
-
-    public showPullButton(): boolean {
-
-    	return (this.allowPull && this.imageCtrl.value && this.imageFor(this.imageCtrl.value) == null)
-    }
-
-    public showVersionSelector(): boolean {
-
-    	return (this.imageCtrl.value && this.availableVersions.length > 0)
-    }
-
-    public pullImage(event: any) {
-
-    	this._dockerService.pullImage(this.value.tag()).subscribe((d) => {
-
-    		this.dockerImages.push(d)
-    		this.value = d
-    		this._setValue()
-    	})
     }
 
     private _setValue(setup?: boolean) {

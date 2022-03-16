@@ -15,7 +15,7 @@ export class GitPackageChooserComponent implements OnInit
 {
     public dependencyDisplayedColumns: string[] = ['select', 'repository', 'package', 'description', 'tests']
 
-    public dialogRef: MatDialogRef<GitPackageChooserComponent>;
+    public dialogRef: MatDialogRef<GitPackageChooserComponent>
     public repoName: string
 
     public dependencies: WmPackageInfo[]
@@ -32,7 +32,6 @@ export class GitPackageChooserComponent implements OnInit
 
         this.dialogRef = dialogRef;
         this._repository = data.repository
-
         this.repoName = this._repository.name
 
         this._settings.values().subscribe((v) => {

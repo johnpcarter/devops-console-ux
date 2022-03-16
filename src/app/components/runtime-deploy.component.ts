@@ -59,6 +59,7 @@ export class RuntimeDeployComponent implements OnInit {
   public runSetCtrl: FormControl
   public includeTestsCtrl: FormControl
   public uploadAPICtrl: FormControl
+  public pullCtrl: FormControl
   public runTypeCtrl: FormControl
 
   public downloadCtrl: FormControl
@@ -155,6 +156,7 @@ export class RuntimeDeployComponent implements OnInit {
     this.runTypeCtrl = new FormControl('docker')
     this.includeTestsCtrl = new FormControl()
     this.uploadAPICtrl = new FormControl()
+    this.pullCtrl = new FormControl()
     this.downloadCtrl = new FormControl(true)
 
     this.deployTypeFormGroup = this._formBuilder.group({
@@ -168,6 +170,7 @@ export class RuntimeDeployComponent implements OnInit {
     this.finaliseFormGroup = this._formBuilder.group({
       includeTestsCtrl: this.includeTestsCtrl,
       uploadAPICtrl: this.uploadAPICtrl,
+      pullCtrl: this.pullCtrl,
       downloadCtrl: this.downloadCtrl,
       runTypeCtrl: this.runTypeCtrl
     })
@@ -269,7 +272,7 @@ export class RuntimeDeployComponent implements OnInit {
 
   public deleteTemplate(event) {
 
-    var name = this.currentRunSet.name
+    var name = this.runSetCtrl.value
 
     this._configService.deleteRunSet(name).subscribe((success) => {
 
@@ -399,7 +402,7 @@ export class RuntimeDeployComponent implements OnInit {
 
     this.starting = true
 
-    this._dockerService.run(this.currentRunSet, this.runTypeCtrl.value == 'k8s', this.includeTestsCtrl.value || false, true, this.uploadAPICtrl.value, this._settings.currentEnvironment == 'Default' ? null : this._settings.currentEnvironment).subscribe((file) => {
+    this._dockerService.run(this.currentRunSet, this.runTypeCtrl.value == 'k8s', this.includeTestsCtrl.value || false, true, this.uploadAPICtrl.value, this._settings.currentEnvironment == 'Default' ? null : this._settings.currentEnvironment, this.pullCtrl.value).subscribe((file) => {
 
       if (file.type === null) {
         this._snackBar.open('Deployment generation failed', 'Dismiss', {duration: 5000})
@@ -540,12 +543,17 @@ export class RuntimeDeployComponent implements OnInit {
     this.showKubernetesCtrl.setValue("", {emitEvent: false})
     this.includeTestsCtrl.setValue("", {emitEvent: false})
     this.uploadAPICtrl.setValue("", {emitEvent: false})
-    this.runTypeCtrl.setValue("", {emitEvent: false})
+    this.runTypeCtrl.setValue("docker", {emitEvent: false})
 
-    this.downloadCtrl.setValue("", {emitEvent: false})
+    this.downloadCtrl.setValue(true, {emitEvent: false})
 
     this.packages = []
     this.apis = []
+  }
+
+  public downloadConfiguration(): void {
+
+    this._configService.downloadRunSet(this.currentRunSet.name)
   }
 
   private setTemplate(name: string): boolean {
@@ -556,6 +564,7 @@ export class RuntimeDeployComponent implements OnInit {
 
       this._configService.runSet(name).subscribe((runSet) => {
 
+        runSet.name = name
         this.isLinearStepper = false
         this.currentRunSetInitialised = true
         this.isTemplate = true
@@ -629,7 +638,7 @@ export class RuntimeDeployComponent implements OnInit {
     if (this.currentRunSet.builds && this.currentRunSet.builds.length > 0) {
       this.currentRunSet.builds.forEach((b) => {
 
-        names.push(b.name)
+        names.push(b.name.replace(/\-/g, " "))
 
         if (b.targetImage) {
           let latest: DockerImage = b.targetImage.id ? this.imageFor(b.targetImage.id) : null
@@ -647,7 +656,9 @@ export class RuntimeDeployComponent implements OnInit {
 
     this.runTypeCtrl.setValue(this.currentRunSet.useKubernetes ? 'k8s' : 'docker')
 
-    this.showKubernetesCtrl.setValue(this.currentRunSet.useKubernetes)
+    if (this.currentRunSet.useKubernetes === 'true') {
+      this.showKubernetesCtrl.setValue(true)
+    }
 
     this.refreshContainerPortsList()
 
@@ -1008,7 +1019,7 @@ export class RuntimeDeployComponent implements OnInit {
 
     let found: Container = null
 
-    for (var i = 0; i < service.containers.length; i++) {
+    for (let i = 0; i < service.containers.length; i++) {
 
       if (service.containers[i].type == type) {
         found = service.containers[i]

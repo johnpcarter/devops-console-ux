@@ -25,22 +25,20 @@ export class BuildComponent {
     public sagImageCounter: number = -1
     public customImageCounter: number = -1
 
+    public builds: string[] = []
     public deploymentSets: string[] = []
 
-	  public constructor(private _router: Router, private _settings: Settings, private _configService: ConfigurationService, private _dockerService: DockerService) {
+    public constructor(private _router: Router, private _settings: Settings, private _configService: ConfigurationService, private _dockerService: DockerService) {
 
-      console.log("constructor")
-
-      this._settings.values().subscribe((v) => {
-
-        this.settingsLoaded = true
-
-        this._settings.setCurrentPage("build")
-
-        this._configService.deploymentSets().subscribe((r) => {
-
-          this.deploymentSets = r
-        })
+        this._settings.values().subscribe((v) => {
+            this.settingsLoaded = true
+            this._settings.setCurrentPage("build")
+            this._configService.deploymentSets().subscribe((r) => {
+                this.deploymentSets = r
+            })
+            this._configService.builds().subscribe((v) => {
+                this.builds = v
+            })
       })
     }
 
@@ -69,5 +67,17 @@ export class BuildComponent {
 
     public gotoSourceCode(sourceName: string) {
       this._router.navigate(['build/package', {id:sourceName}])
+    }
+
+    public gotoBuild(build: string) {
+        this._router.navigate(['build/image', {id:build}])
+    }
+
+    public templateFileAdded(response: any) {
+
+        let filename: string = response.filename
+        let name: string = response.hint
+
+        this.builds.push(response.hint)
     }
   }

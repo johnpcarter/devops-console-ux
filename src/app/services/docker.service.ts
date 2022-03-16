@@ -263,17 +263,21 @@ export class DockerService {
       return WebSocketService.default("docker/log").listen(obs)
     }
 
-    public build(builder: Builder, version: string, comments: string, environment?: string): Observable<any> {
+    public build(builder: Builder, version: string, comments: string, environment?: string, push?: boolean): Observable<any> {
 
   		let url: string = DockerService.BUILD
 
+        if (push) {
+            url += "?push=true"
+        }
+
   		let headers = this.headers(environment)
-      headers = headers.append("dedicatedRepo", "" + builder.targetImage.dedicatedRepository())
+        headers = headers.append("dedicatedRepo", "" + builder.targetImage.dedicatedRepository())
 
-      builder.version = version
-      builder.targetImage.id = null
+        builder.version = version
+        builder.targetImage.id = null
 
-      let wrapper = {build: builder, comments: comments, downloadOnly: "false"}
+        let wrapper = {build: builder, comments: comments, downloadOnly: "false"}
   		let body: string = JSON.stringify(wrapper, stringifyReplacer)
 
   		let obs: Observable<Result> = this._http.post(url, body, { headers }).pipe(
@@ -371,7 +375,7 @@ export class DockerService {
     }
 
 
-    public run(run: RunSet, runAsKS8: boolean, includeTests: boolean, download: boolean, uploadAPI: boolean, environment: string): Observable<any> {
+    public run(run: RunSet, runAsKS8: boolean, includeTests: boolean, download: boolean, uploadAPI: boolean, environment: string, pull: boolean): Observable<any> {
 
       let url: string
 
@@ -382,6 +386,14 @@ export class DockerService {
 
       if (environment != null) {
         url += "?environment=" + environment
+      }
+
+      if (pull) {
+          if (environment != null) {
+              url += "&pull=true"
+          } else {
+              url += "?pull=true"
+          }
       }
 
       let headers = this.headers(environment)

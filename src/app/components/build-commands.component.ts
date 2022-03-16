@@ -1,26 +1,37 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, ViewChild} from '@angular/core'
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms'
 
-import {MatTable} from '@angular/material/table';
+import {MatTable} from '@angular/material/table'
 
-import { ResourceService } from '../services/resources.service';
+import { BuildCommand } from '../models/build'
+import { DisplayType } from '../models/display-type'
 
-import * as $ from 'jquery';
-import {BuildCommand} from '../models/build';
-import {DisplayType} from '../models/display-type';
+import { ResourceService } from '../services/resources.service'
+
+import * as $ from 'jquery'
+
 
 @Component({
   selector: 'build-commands',
   templateUrl: '../templates/build-commands.html'
 })
 
-export class BuildCommandsComponent implements OnInit {
+export class BuildCommandsComponent implements OnInit, OnChanges {
 
 	@Input()
 	public form: FormGroup
 
 	@Input()
+	public reference: string
+
+	@Input()
 	public commands: BuildCommand[]
+
+	@Input()
+	public showHiddenOption: boolean = true
+
+	@Input()
+	public edit: boolean
 
 	@Output()
 	public commandsChanged: EventEmitter<BuildCommand[]> = new EventEmitter()
@@ -30,10 +41,10 @@ export class BuildCommandsComponent implements OnInit {
 	public _displayedArgColumnsEdit: string[] = ["cmdEdit", "typeEdit", "srcEdit", "srcEditUpload", "tgtEdit", "descriptionEdit", 'move', "remove"]
 	public _displayedArgColumnsEditMin: string[] = ["cmdEdit", "typeEdit", "srcEdit", "srcEditUpload", "tgtEdit"]
 
-	public _displayedArgColumnsReadOnly: string[] = ["cmd", "src", "tgt", "description", "srcDownload"]
+	public _displayedArgColumnsReadOnly: string[] = ["cmd", "src", "srcEditUpload", "tgt", "description", "srcDownload"]
 	public _displayedArgColumnsReadOnlyMin: string[] = ["cmd", "src", "srcDownload"]
 
-	public commandTypes = ["file", "run"]
+	public commandTypes = ["copy", "add", "run", "entrypoint"]
 	public fileTypes = ["licenses", "properties", "source", "config", "resource"]
 
 	public editMode: boolean = false
@@ -49,6 +60,8 @@ export class BuildCommandsComponent implements OnInit {
 	@ViewChild('commandsTable', {read: MatTable}) table: MatTable<BuildCommand>
 
 	public constructor(private _formBuilder: FormBuilder,  private _resources: ResourceService) {
+
+		this.form = _formBuilder.group({})
 
 		this.resourceFiles = []
 		this.licenseFiles = []
@@ -81,7 +94,18 @@ export class BuildCommandsComponent implements OnInit {
 
 	public ngOnInit() {
 
+		if (this.edit != null) {
+			this.editMode = this.edit
+		}
+
 		this._panelStatus = new Map()
+	}
+
+	public ngOnChanges() {
+
+		if (this.edit != null) {
+			this.editMode = this.edit
+		}
 	}
 
 	public toggleShowHideCommands() {
@@ -133,14 +157,59 @@ export class BuildCommandsComponent implements OnInit {
 		event.stopPropagation()
 	}
 
-	public availableFiles(type: string): string[] {
+	public sourceWithoutReference(name: string): string {
+		if (this.reference && name.startsWith(this.reference)) {
+			return name.substring(this.reference.length+1)
+		} else {
+			return name
+		}
+	}
+	public availableFiles(command: BuildCommand): string[] {
 
-		if (type == 'resource') {
-			return this.resourceFiles
-		} else if (type == 'properties') {
+		if (command.fileType == 'resource') {
+
+			if (command.source && this.resourceFiles.indexOf(command.source) == -1) {
+				let r: string[] = [command.source].concat(this.resourceFiles)
+
+				return r
+			} else {
+				return this.resourceFiles
+			}
+		} else if (command.fileType == 'properties') {
 			return this.propertyFiles
 		} else  {
 			return this.licenseFiles
+		}
+	}
+
+	public styleForSourceOption(command: BuildCommand): any {
+
+		if (this.isFileMissing(command)) {
+			return {color: "red"}
+		} else {
+			return {}
+		}
+	}
+
+	public styleForDownloadButton(command: BuildCommand): any {
+
+		if (this.isFileMissing(command)) {
+			return {'background-color': 'lightgray', 'color': 'gray'}
+		} else {
+			return {'background-color': 'lightblue', 'color': 'white'}
+		}
+	}
+	public isFileMissing(command: BuildCommand): any {
+
+		if (command.fileType == 'resource') {
+			if (command.source) {
+				return this.resourceFiles.indexOf(this.resourceFileName(command.source)) === -1
+
+			} else {
+				return true
+			}
+		} else {
+			return false
 		}
 	}
 
@@ -154,11 +223,18 @@ export class BuildCommandsComponent implements OnInit {
 
 	public downloadFile(type: string, name: string) {
 
+		console.log("type is " + type + ", and " + this.reference)
+
+		if (type == 'other') {
+			name = this.resourceFileName(name)
+		}
+
 		this._resources.downloadResourceViaBrowser(type, name)
 	}
 
-	public fileUploaded(element: BuildCommand, filename: string) {
+	public fileUploaded(element: BuildCommand, response: any) {
 
+		let filename = response.filename
 		let fileList: string[]
 
     // update appropriate list with new file
@@ -184,24 +260,41 @@ export class BuildCommandsComponent implements OnInit {
 
 		// no, it's new add it to the end of the list
 
-		if (matched == -1) {
+		if (matched === -1) {
 			matched = fileList.length
 			fileList.push(filename.substring(filename.lastIndexOf("/")+1))
 		}
 
 		// force control to uploaded value
 
-    console.log("Selecting " + filename)
+		if (this.edit) {
+			element.source = fileList[matched]
+			let ctrl: FormControl = this.controlForPanelElement("source", element, fileList[matched])
 
-		element.source = fileList[matched]
-		let ctrl: FormControl = this.controlForPanelElement("source", element, fileList[matched])
-
-		if (ctrl)
-			ctrl.setValue(fileList[matched])
+			if (ctrl)
+				ctrl.setValue(fileList[matched])
+		}
 
 		this.table.renderRows()
 
 		this.flagChanges()
+	}
+
+	public resourceFileName(filename: string): string {
+
+		const index = filename.lastIndexOf("/")
+
+		if (index != -1) {
+			filename = filename.substring(index+1)
+		}
+
+		if (this.reference && !filename.startsWith(this.reference)) {
+			filename = this.reference + "-" + filename
+		}
+
+		console.log("filename is " + filename)
+
+		return filename
 	}
 
 	public commandTypeChanged(element: any) {
@@ -330,8 +423,13 @@ export class BuildCommandsComponent implements OnInit {
 		if (this.form.controls[name]) {
 			ctrl = <FormControl> this.form.controls[name]
 
-			if (this._ignoreChanges && value)
-				ctrl.setValue(value)
+			if (this._ignoreChanges && value) {
+				if (this.reference) {
+					ctrl.setValue(this.reference + "-" + value)
+				} else {
+					ctrl.setValue(value)
+				}
+			}
 		} else {
 			ctrl = new FormControl(value)
 			this.form.addControl(name, ctrl)

@@ -29,7 +29,7 @@ export class RuntimeK8sComponent implements OnInit {
 				this.namespace = v.k8sNamespace
 
 			if (v.k8sUrl) {
-				this.k8sDashboardUrl = v.k8sUrl
+				this.k8sDashboardUrl = v.k8sUrl.replace('localhost', window.location.hostname)
 
 				let i: number = this.k8sDashboardUrl.lastIndexOf(":")
 				this.k8sDashboardUrl = this.k8sDashboardUrl.substring(0, i+1) + "8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy"
@@ -37,7 +37,7 @@ export class RuntimeK8sComponent implements OnInit {
 				this.k8sDashboardUrl = "https://host.docker.internal:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/"
 			}
 
-			this._k8sService.namespaces(v.k8sUrl, v.k8sToken).subscribe((names) => {
+			this._k8sService.namespaces(v.k8sUrl.replace('localhost', window.location.hostname), v.k8sToken).subscribe((names) => {
 		        this.namespaces = names
 
 		        if (!this.namespace)

@@ -6,9 +6,12 @@ import { MatTable } from '@angular/material/table'
 import { MatSelectChange } from '@angular/material/select'
 
 import { DockerImage } from '../models/docker-image'
+import { DockerBuild } from '../models/docker-build'
+
 import { ContainerTemplates } from '../support/container.templates'
 import { Container, ContainerType} from '../models/container'
 import { Environment, Arg, Port, Volume } from '../models/environment'
+import { BuildCommand } from '../models/build'
 
 import { DockerService } from '../services/docker.service'
 
@@ -288,7 +291,7 @@ export class ContainerComponent implements OnInit {
     }
   }
 
-  public name() {
+  public imageName() {
 
     if (this.container != null) {
       return this.container.imageName()
@@ -319,7 +322,18 @@ export class ContainerComponent implements OnInit {
 
     if (this.container.image) {
 
-      let img: DockerImage = this.imageFor(this.name(), this.preferredVersion())
+      let img: DockerImage = this.imageFor(this.imageName(), this.preferredVersion())
+
+      if (this.container.build) {
+        if (img) {
+          img.dockerFile = this.container.build.dockerfile
+        } else {
+          img = new DockerImage(this.container.image)
+          img.dockerFile = this.container.build.dockerfile
+        }
+      } else if (!img) {
+        img = new DockerImage(this.container.image)
+      }
 
       return img
 
@@ -333,8 +347,24 @@ export class ContainerComponent implements OnInit {
 
     if (image) {
       this.container.image = image.tag()
+      if (image.dockerFile) {
+        this.container.build = new DockerBuild()
+        this.container.build.dockerfile = image.dockerFile
+      } else if (this.container.build) {
+        this.container.build.dockerfile = null
+        this.container.build.buildCommands = null
+      }
     } else {
       this.container.image = null
+      this.container.build = null
+    }
+
+    this.flagChanges()
+  }
+
+  public buildCommandsUpdated(commands: BuildCommand[]) {
+    if (this.container.build.buildCommands != commands) {
+      this.container.build.buildCommands = commands
     }
 
     this.flagChanges()

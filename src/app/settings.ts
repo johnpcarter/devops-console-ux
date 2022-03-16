@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core'
-import {Router} from '@angular/router'
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http'
-import {Observable, of} from 'rxjs'
-import {switchMap, map, catchError, share} from 'rxjs/operators'
-import {environment} from '../environments/environment';
+import { Injectable } from '@angular/core'
+import { Router } from '@angular/router'
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http'
+import { Observable, of } from 'rxjs'
+import { map, share } from 'rxjs/operators'
+import { environment } from '../environments/environment'
 
 export class RepoSettings {
 
@@ -29,6 +29,9 @@ export class Values {
   public gitRepos: RepoSettings[] = [new RepoSettings('wm', '/packages', '/config')]
 
   public dockerHost: string = null
+  public dockerUseHttps: boolean = false
+  public dockerCertificate: string = null
+
   public imagePrefix: string
 
   public lastViewedPage: string = null
@@ -39,9 +42,6 @@ export class Values {
   public k8sToken: string = null
   public k8sType: string = null
 
-  public dockerEmail: string = null
-  public dockerUserId: string = null
-  public dockerPassword: string = null
 
   public completeGitUri(): string {
 
@@ -294,6 +294,14 @@ export class Settings {
         this._values.dockerHost = data.dockerHost
       }
 
+      if (data.dockerUseHttps) {
+        this._values.dockerUseHttps = data.dockerUseHttps
+      }
+
+      if (data.dockerCertificate) {
+        this._values.dockerCertificate = data.dockerCertificate
+      }
+
       if (data.imagePrefix) {
         this._values.imagePrefix = data.imagePrefix
       }
@@ -312,18 +320,6 @@ export class Settings {
 
       if (data.k8sType) {
         this._values.k8sType = data.k8sType
-      }
-
-      if (data.dockerEmail) {
-        this._values.dockerEmail = data.dockerEmail
-      }
-
-      if (data.dockerUserId) {
-        this._values.dockerUserId = data.dockerUserId
-      }
-
-      if (data.dockerPassword) {
-        this._values.dockerPassword = data.dockerPassword
       }
 
       if (data.lastViewedPage) {

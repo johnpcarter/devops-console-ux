@@ -44,7 +44,7 @@ export class K8sService {
       this._cache = new Map()
 
       this._settings.values().subscribe((v) => {
-            this._K8sUrl = v.k8sUrl
+            this._K8sUrl = v.k8sUrl.replace('localhost', window.location.hostname)
             this._K8sToken = v.k8sToken
       })
   }

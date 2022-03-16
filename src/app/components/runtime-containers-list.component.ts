@@ -56,10 +56,10 @@ export class RuntimeContainersListComponent implements OnInit, OnChanges, OnDest
       if (s.dockerHost)
         this._host = s.dockerHost.substring(0, s.dockerHost.indexOf(":"))
       else
-        this._host = "localhost"
+        this._host = window.location.hostname
 
       if (this._host == 'host.docker.internal')
-        this._host = 'localhost'
+        this._host = window.location.hostname
 
       this._settings.setCurrentPage('deploy')
     })

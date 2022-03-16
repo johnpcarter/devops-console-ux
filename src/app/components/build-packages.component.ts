@@ -3,21 +3,25 @@ import { SelectionModel } 							  	from '@angular/cdk/collections'
 import { FormBuilder, FormControl, FormGroup } 			from '@angular/forms'
 import { ActivatedRoute }                 				from '@angular/router'
 
+import { Observable, of }                   			from 'rxjs'
+import { startWith, map }                  				from 'rxjs/operators'
+
 import { MatTable, MatTableDataSource } 				from '@angular/material/table'
 import { MatDialog } 									from '@angular/material/dialog'
 import { MatSnackBar, MatSnackBarRef, TextOnlySnackBar } from '@angular/material/snack-bar'
 
-import { Settings, Values} 								from '../settings'
+import { Repository, Source}               				from '../models/git-source'
+import { WmPackageInfo, APIDefinition }	  				from '../models/wm-package-info'
+import { DeploymentSet } 								from '../models/build'
 
 import { ConfigurationService } 			 			from '../services/configuration.service'
 import { PackagesService } 						 	  	from '../services/packages.service'
-import { Repository, Source}               				from '../models/git-source'
-import { WmPackageInfo, APIDefinition }	  				from '../models/wm-package-info'
+import { GitSourceService } 							from '../services/git-source-control.service'
+
 import { GitPackageChooserComponent } 					from './elements/git-package-chooser.component'
-import { GitSourceService }         					from '../services/git-source-control.service'
-import {Observable, of }                   				from 'rxjs'
-import { startWith, map }                  				from 'rxjs/operators'
-import {DeploymentSet} from '../models/build';
+
+import { RepoSettings, Settings, Values } 				from '../settings'
+import {Property, PropertyValueType} from '../models/properties';
 
 @Component({
   selector: 'build-package',
@@ -27,7 +31,7 @@ import {DeploymentSet} from '../models/build';
 
 export class BuildPackagesComponent implements OnInit {
 
-  	public displayedColumns: string[] = ['type', 'repository', 'description', 'packages', 'apis', 'selected'];
+  	public displayedColumns: string[] = ['type', 'repository', 'description', 'packages', 'useForStandardConfig', 'apis', 'selected'];
 
   	public deploymentSets: string[] = []
 	public dependencyDisplayedColumns: string[] = ['select', 'repository', 'package', 'description']
@@ -49,7 +53,6 @@ export class BuildPackagesComponent implements OnInit {
 	@ViewChild('reposTable', {read: MatTable})
 	public repoTable: MatTable<any>
 
-
 	public form: FormGroup
 	public deploymentNameCtrl: FormControl
 	public sourceTypeCtrl: FormControl
@@ -69,20 +72,20 @@ export class BuildPackagesComponent implements OnInit {
 
 		this._settings.values().subscribe((v) => {
 
-		  this.values = v
-		  v.gitRepos.forEach((r) => {
-			  this._availableRepositories.push(new Repository(r.name, r.packages, r.configuration))
-		  })
+			this.values = v
+		  	v.gitRepos.forEach((r) => {
+				  this._availableRepositories.push(new Repository(r.name, r.packages, r.configuration))
+		  	})
 
-		  this._configService.deploymentSets().subscribe((r) => {
+		  	this._configService.deploymentSets().subscribe((r) => {
 
-			  this.deploymentSets = r
-			  this.filteredSets = of(this.deploymentSets)
+				this.deploymentSets = r
+				this.filteredSets = of(this.deploymentSets)
 
-			  this.filteredSets = this.deploymentNameCtrl.valueChanges.pipe(startWith(''), map(value => this._filter(value)))
-		  })
+			  	this.filteredSets = this.deploymentNameCtrl.valueChanges.pipe(startWith(''), map(value => this._filter(value)))
+		  	})
 
-		  this._gitService.repositories(this.values.gitName, v).subscribe((r) => {
+		  	this._gitService.repositories(this.values.gitName, v).subscribe((r) => {
 
 			  r.forEach( (l) => {
 				  let r: Repository = this.availableRepositoryWithName(l.name)
@@ -109,7 +112,7 @@ export class BuildPackagesComponent implements OnInit {
 		this.form = this._formBuilder.group({
         	deploymentNameCtrl: this.deploymentNameCtrl,
 			sourceTypeControl: this.sourceTypeCtrl,
-        	repoNameCtrl: this.repoNameCtrl
+        	repoNameCtrl: this.repoNameCtrl,
 	    })
 
       	this.repoNameCtrl.valueChanges.subscribe( repo => {
@@ -150,6 +153,32 @@ export class BuildPackagesComponent implements OnInit {
     	}
 	}
 
+	public controlForRepoConfigControl(element: Repository, value?: any): FormControl {
+
+		let ctrl: FormControl = null
+
+		let name: string = element.name
+
+		if (this.form.controls[name]) {
+			ctrl = <FormControl> this.form.controls[name]
+
+			if (value != null) {
+				ctrl.setValue(value, {emitEvent: false})
+			}
+		} else {
+			ctrl = new FormControl(value || element.useForStandardConfig)
+			this.form.addControl(name, ctrl)
+		}
+
+		return ctrl
+	}
+
+	public updateRepoWithControlValue(element: Repository) {
+
+		this.setDefaultConfigRepo(element, this.controlForRepoConfigControl(element).value)
+		this.saveDeploymentSet(false)
+	}
+
 	public availableRepositories(): Repository[] {
 		let a: Repository[] = []
 
@@ -163,7 +192,16 @@ export class BuildPackagesComponent implements OnInit {
 
 	public addRepository() {
 
-		  this.repositories.data.push(new Repository(""))
+		this.repoNameCtrl.setValue(null, {emitEvent: false})
+		let r = new Repository("")
+
+		if (this.repositories.data.length == 0) {
+			r.useForStandardConfig = true
+		} else {
+			r.useForStandardConfig = false
+		}
+
+		this.repositories.data.push(r)
 		this.repoTable.renderRows()
 	}
 
@@ -173,10 +211,10 @@ export class BuildPackagesComponent implements OnInit {
 
 	public repoDidChange(r: Repository) {
 
-		this.repositories.data[this.repositories.data.length-1] = r
-		this.saveDeploymentSet(true, true)
+		  this.repositories.data[this.repositories.data.length-1] = r
+		  this.saveDeploymentSet(true, true)
 
-		this.repoTable.renderRows()
+		  this.repoTable.renderRows()
 	}
 
 	public removeRepository(repo: Repository) {
@@ -259,7 +297,7 @@ export class BuildPackagesComponent implements OnInit {
 
 			var found = false
 
-			for (var i=0;i<this.deploymentSets.length;i++) {
+			for (let i=0;i<this.deploymentSets.length;i++) {
 
 				if (this.deploymentSets[i] == name)
 				{
@@ -312,7 +350,7 @@ export class BuildPackagesComponent implements OnInit {
 	        this.selectedDependencies.clear() :
 	        this.dependencies.forEach(row => this.selectedDependencies.select(row))
 
-	    this.dependenciesSelectionChanged()
+	    //this.dependenciesSelectionChanged()
 	}
 
 	private dependenciesSelectionChanged() {
@@ -343,7 +381,6 @@ export class BuildPackagesComponent implements OnInit {
 		while(p=this.selectedDependencies.selected.pop()) {
 
 			this.removeDependency(p)
-			//this._gitSelectionModel.select(p.name) // TODO: this will go in popup version of git browser
 
 			// we need to add it to repo in the list, or even the repo to the list if not present
 
@@ -430,7 +467,7 @@ export class BuildPackagesComponent implements OnInit {
         		selectedReps.push(r.name)
       		})
 
-			this.repoNameCtrl.setValue(selectedReps, {onlySelf: true, emitEvent: false})
+			//this.repoNameCtrl.setValue(selectedReps, {onlySelf: true, emitEvent: false})
 
 			this.repositories.data = this.deploymentSet.source[0].repositories
 			this.repoTable.renderRows()
@@ -505,13 +542,25 @@ export class BuildPackagesComponent implements OnInit {
 					d.dependencies.forEach((p) => {
 						let found: boolean = false
 						for(let r of this.repositories.data) {
-							if (r.include.indexOf(p.name) != -1 || r.exclude.indexOf(p.name) != -1) {
+							if ((r.include.indexOf(p.name) != -1 || r.exclude.indexOf(p.name) != -1) || r.name === p.name) {
 								found = true
 								break
 							}
 						}
 
 						if (!found) {
+
+							if (!p.repository) {
+								for (let a of this._availableRepositories) {
+									if (a.name === p.name) {
+										p.repository = a.name
+									} else if (a.path) {
+										// need to scan contents
+										this.setRepoIfPackagePresent(this.values.gitName || this.values.gitUser, a, p)
+									}
+								}
+							}
+
 							this.dependencies.push(p)
 						}
 					})
@@ -524,6 +573,45 @@ export class BuildPackagesComponent implements OnInit {
 		} else {
 			this.dependencies = []
 		}
+	}
+
+	private setRepoIfPackagePresent(git: string, repo: Repository, pckg: WmPackageInfo) {
+		this._gitService.wmPackages(git, repo.name, this.configForRepo(repo.name).packages, false).subscribe((packages) => {
+
+			if (!pckg.repository) {
+				let found = false
+				for (let p of packages) {
+					if (p.name == pckg.name) {
+						found = true
+						break
+					}
+				}
+
+				if (found) {
+					pckg.repository = repo.name
+				}
+			}
+		}, error => {
+		})
+	}
+
+	private configForRepo(name: string): RepoSettings {
+
+		let found: RepoSettings = null
+
+		for (let i = 0; i < this._availableRepositories.length; i++) {
+			if (this._availableRepositories[i].name == name) {
+				let r = this._availableRepositories[i]
+				found = new RepoSettings(r.name, r.path, r.configPath)
+				break
+			}
+		}
+
+		if (found == null) {
+			found = new RepoSettings(name, "/packages", "/config")
+		}
+
+		return found
 	}
 
 	private rebuildAPIList(r: Repository, packages: WmPackageInfo[]) {
@@ -582,13 +670,13 @@ export class BuildPackagesComponent implements OnInit {
 		let out: string[] = []
     	source.repositories.forEach((r) => {
 
-      	if (r.include.length == 0 && r.path == null) {
-        	out.push(r.name)
-      	} else {
-        	r.include.forEach((p) => {
-          		out.push(p)
-        	})
-		  }
+			if (r.include.length == 0 && r.path == null) {
+				out.push(r.name)
+      		} else {
+        		r.include.forEach((p) => {
+          			out.push(p)
+        		})
+		  	}
     	})
 
 		return out
@@ -677,5 +765,22 @@ export class BuildPackagesComponent implements OnInit {
 		}
 
 		return found
+	}
+
+	private setDefaultConfigRepo(repo: Repository, isDefault: boolean) {
+
+		let setOnce: boolean = true
+
+		this.repositories.data.forEach((r) => {
+			if (r.name === repo.name) {
+				r.useForStandardConfig = isDefault
+			} else {
+				r.useForStandardConfig = isDefault ? false : setOnce
+				setOnce = false
+			}
+		})
+
+		this.saveDeploymentSet(false)
+		this.repoTable.renderRows()
 	}
 }

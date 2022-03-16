@@ -7,11 +7,20 @@
       </mat-chip-list>
     </div>
     <div style="margin-top: 50px">
+      <h3>Build templates</h3>
+      <mat-chip-list>
+        <mat-chip *ngFor="let s of builds" selected style="background-color: orange" (click)="gotoBuild(s)">{{s}}</mat-chip>
+      </mat-chip-list>
+    </div>
+    <div style="margin-top: 50px">
       <h3>Base Images</h3>
       <jc-docker-chips-images [type]="'sag'" (imageCount)="sagImageCount($event)"></jc-docker-chips-images>
     </div>
     <div style="margin-top: 50px">
       <h3>Microservice Images</h3>
       <jc-docker-chips-images [type]="'custom'" (imageCount)="customImageCount($event)"></jc-docker-chips-images>
+    </div>
+    <div style="margin-top: 50px">
+      <file-uploader-button id="build.image.uploadTemplateButton" alias="builds" type="builds" uploadURL="/invoke/jc.devops.console.resources_.services:uploadMultipartForm" title="Upload Build Template" (onCompletion)="templateFileAdded($event)"></file-uploader-button>
     </div>
   </div>

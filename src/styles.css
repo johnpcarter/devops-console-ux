@@ -56,7 +56,13 @@ a:visited {
     background-color: #00000044;
     border-top: 4px solid white;
 }
-
+.multiline-mat-option.mat-option {
+    white-space: normal;
+    line-height: normal;
+    height: unset;
+    padding-top: 0.9em;
+    padding-bottom: 0.9em;
+}
 div.mat-expansion-panel-body {
   padding-right: 0px;
   padding-left: 0px;

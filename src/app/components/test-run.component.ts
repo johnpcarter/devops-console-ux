@@ -175,6 +175,6 @@ export class TestRunComponent implements OnInit {
         port = p.external
     })
 
-	  return "http://localhost:" + port + "/JcTestRunner"
+	  return "http://" +  window.location.hostname + ":" + port + "/JcTestRunner"
   }
 }

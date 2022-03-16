@@ -1,7 +1,13 @@
-<div style="float: right; display: flex; flex-direction: column">
-  <fa-icon (click)="closeDialog()" class="icon" [icon]="['fas', 'times-circle']" style="color: gray"></fa-icon>
-  <fa-icon (click)="push()" class="icon" [icon]="['fas', 'cloud-upload-alt']" style="color: blue; margin-top: 270px"></fa-icon>
-  <fa-icon (click)="pull()" class="icon" [icon]="['fas', 'cloud-download-alt']" style="color: blue; margin-top: 20px"></fa-icon>
+<div style="float: right; display: flex; flex-direction: column; justify-content: space-between; height: 100%; text-align: right">
+  <fa-icon (click)="closeDialog()" class="icon" [icon]="['fas', 'times-circle']" style="color: gray; text-align: right"></fa-icon>
+  <div style="display: flex; flex-direction: column">
+      <div style="font-size: small; color: lightgray">
+          Push <fa-icon (click)="push()" class="icon" [icon]="['fas', 'cloud-upload-alt']" style="color: blue;"> </fa-icon>
+      </div>
+      <div style="font-size: small; color: lightgray">
+          Pull  <fa-icon (click)="pull()" class="icon" [icon]="['fas', 'cloud-download-alt']" style="color: blue; margin-top: 20px"> Pull </fa-icon>
+      </div>
+  </div>
 </div>
 <div style="display: flex; flex-direction: column">
     <div style="width: 50%;padding-bottom: 20px">

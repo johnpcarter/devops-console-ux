@@ -1,33 +1,32 @@
 import { Component, OnInit, ViewChild, ComponentFactoryResolver,
-				ComponentRef, Inject }   			                from '@angular/core'
+				ComponentRef, Inject }   			  from '@angular/core'
 import { DomSanitizer }                               from '@angular/platform-browser'
-import { ActivatedRoute }									            from '@angular/router'
-import {FormBuilder, FormGroup, FormControl } 		    from '@angular/forms'
+import { ActivatedRoute }							  from '@angular/router'
+import {FormBuilder, FormGroup, FormControl } 		  from '@angular/forms'
 import { SelectionModel }                             from '@angular/cdk/collections'
 import { Observable }                                 from 'rxjs'
 import { map, startWith }                             from 'rxjs/operators'
 
+import { trim }                                       from 'jquery'
 
-
-import { MatDialog, MAT_DIALOG_DATA }           	    from '@angular/material/dialog'
+import { MatDialog, MAT_DIALOG_DATA }           	  from '@angular/material/dialog'
 import { MatButton }                                  from '@angular/material/button'
-import {Settings, Values} from '../settings';
 
-import { DockerImage, VersionType } 								  from '../models/docker-image'
-import { ResourceService }                            from '../services/resources.service'
-
-import { BuildImageChooseDirective, PropertiesChangedOwner,
-			BuilderProperties, BuilderComponent } 			    from './elements/build-image-choose.directive'
-
-import { DockerService } 				                      from '../services/docker.service'
+import { DockerImage, VersionType } 				  from '../models/docker-image'
+import { BuildCommand, Builder } from '../models/build'
+import { Installer } from '../models/Installer'
 import { APIDefinition }                              from '../models/wm-package-info'
+
+import { ResourceService }                            from '../services/resources.service'
+import { BuildImageChooseDirective, PropertiesChangedOwner,
+			BuilderProperties, BuilderComponent } from './elements/build-image-choose.directive'
+import { DockerService } 				              from '../services/docker.service'
 import { ConfigurationService }                       from '../services/configuration.service'
+
 import { BuildExeComponent }                          from './build-exe.component'
-
-
 import { MicroServiceBuilderComponent }               from './plugins/micro-service-builder.component'
-import {BuildCommand, Builder} from '../models/build';
-import {Installer} from '../models/Installer';
+
+import { Settings, Values }                            from '../settings'
 
 @Component({
   selector: 'build-solution',
@@ -69,6 +68,8 @@ export class BuildImageComponent implements OnInit, PropertiesChangedOwner {
     public downloadCtrl: FormControl
     public buildUserCtrl: FormControl
     public entryUserCtrl: FormControl
+
+    public pushCtrl: FormControl
 
     public buildTemplateName: string
 
@@ -115,10 +116,10 @@ export class BuildImageComponent implements OnInit, PropertiesChangedOwner {
                 this.baseImages = d
                 this.settingsLoaded = true
 
-                if (this._id)
+                /*if (this._id)
                     this.baseImageSelected(this.imageFor(this._id))
 
-                this.baseImageTypeCtrl.setValue(this.currentBuild.sourceImage.type, {onlySelf: true})
+                this.baseImageTypeCtrl.setValue(this.currentBuild.sourceImage.type, {onlySelf: true})*/
             })
 
             this._dockerService.customImages(true).subscribe((d) => {
@@ -145,7 +146,12 @@ export class BuildImageComponent implements OnInit, PropertiesChangedOwner {
           })
 
           this._configService.builds().subscribe((b) => {
-            this.builds = b
+              this.builds = b
+
+              if (this._id != null) {
+                  this.buildCtrl.setValue(this._id)
+                  this.setTemplate(this._id)
+              }
           })
 
           this._settings.setCurrentPage("image")
@@ -162,6 +168,8 @@ export class BuildImageComponent implements OnInit, PropertiesChangedOwner {
         this.targetImageCtrl = new FormControl()
   		this.licCtrl = new FormControl()
   		this.commentsCtrl = new FormControl()
+        this.pushCtrl = new FormControl()
+
         this.targetVersionCtrl = new FormControl("0.0.1")
         this.versionTypeCtrl = new FormControl("minor")
         this.dedicatedRepoCtrl = new FormControl()
@@ -195,8 +203,9 @@ export class BuildImageComponent implements OnInit, PropertiesChangedOwner {
 
     	this.commitFormGroup = this._formBuilder.group({
       		commentsCtrl: this.commentsCtrl,
-          buildNameCtrl: this.buildNameCtrl,
-          downloadCtrl: this.downloadCtrl
+            buildNameCtrl: this.buildNameCtrl,
+            downloadCtrl: this.downloadCtrl,
+            pushCtrl: this.pushCtrl
     	})
 
       this.commandsFormGroup = this._formBuilder.group({})
@@ -265,9 +274,9 @@ export class BuildImageComponent implements OnInit, PropertiesChangedOwner {
 
             if (!this.currentBuild.targetImage || (this.targetImageCtrl.value != null && this.targetImageCtrl.value != this.currentBuild.targetImage)) {
 
-              this.updateTargetImage()
+              this.updateTargetImage(true)
 
-              this._save()
+              // this._save()  performed in async step of above
             } else {
                 this.currentBuild.targetImage.setDedicatedRepository(this.dedicatedRepoCtrl.value)
                 this.currentBuild.targetImage.setName(this.targetImageCtrl.value.name())
@@ -278,10 +287,11 @@ export class BuildImageComponent implements OnInit, PropertiesChangedOwner {
            this.targetImageCtrl.markAsPristine()
         } else if (this.targetRepoCtrl.dirty) {
 
-            this.updateTargetImage()
-            this._save()
-
             this.targetRepoCtrl.markAsPristine()
+
+            this.updateTargetImage(true)
+            // this._save()  performed in async step of above
+
         } else if (this.dedicatedRepoCtrl.dirty) {
 
           this.dedicatedRepoCtrl.disable({emitEvent: false})
@@ -319,11 +329,11 @@ export class BuildImageComponent implements OnInit, PropertiesChangedOwner {
     			return
 
     		if (this.commentsCtrl.dirty) {
-    			this.comments = this.commentsCtrl.value
+    			this.comments = this.commentsCtrl.value.replace(/[\n\r]/g, '')
         }
 
         if (this.buildNameCtrl.dirty) {
-          this.buildTemplateName = this.buildNameCtrl.value
+          this.buildTemplateName = trim(this.buildNameCtrl.value.replace(/[\n\r]/g, ''))
         }
 
         if (this.downloadCtrl.dirty) {
@@ -423,11 +433,18 @@ export class BuildImageComponent implements OnInit, PropertiesChangedOwner {
 
     public deleteTemplate(event) {
 
-      this._configService.deleteBuild(this.currentBuild.name).subscribe((success) => {
-        this.builds.splice(this.indexOfTemplate(this.currentBuild.name), 1)
-        this.buildCtrl.setValue("", {onlySelf: true, emitEvent: false})
-        this.currentBuild = new Builder()
+        const name = this.buildCtrl.value
+
+        this._configService.deleteBuild(this.currentBuild.name).subscribe((success) => {
+            this.builds.splice(this.indexOfTemplate(this.currentBuild.name), 1)
+            this.buildCtrl.setValue("", {onlySelf: true, emitEvent: false})
+            this.currentBuild = new Builder()
       })
+    }
+
+    public downloadConfiguration(): void {
+
+        this._configService.downloadBuild(this.buildCtrl.value)
     }
 
     public labelForGoButton(): string {
@@ -485,58 +502,58 @@ export class BuildImageComponent implements OnInit, PropertiesChangedOwner {
 
         this._configService.build(name).subscribe((build) => {
 
-          this.currentBuild = build
-          this.isLinearStepper = false
+            build.name = name
+            this.currentBuild = build
+            this.isLinearStepper = false
 
-          this._ignoreValuesChange = true
+            this._ignoreValuesChange = true
 
           // refresh current build with latest deployment set changes
+            this.currentBuild.deployments.forEach((d) => {
+                this._configService.deploymentSet(d.id).subscribe((nd) => {
 
-          this.currentBuild.deployments.forEach((d) => {
-            this._configService.deploymentSet(d.id).subscribe((nd) => {
-
-                d.name = nd.name
-                d.apis = nd.apis
+                    d.name = nd.name
+                    d.apis = nd.apis
 
               // keep current target dir as this is set at build time, NOT in the deployment set
-                let t = d.source[0].targetDir
-                d.source = nd.source
-                d.source[0].gitURI = this._values.completeGitUri()
-                d.source[0].targetDir = t
+                    let t = d.source[0].targetDir
+                    d.source = nd.source
+                    d.source[0].gitURI = this._values.completeGitUri()
+                    d.source[0].targetDir = t
+                })
             })
-          })
 
-          if (this.currentBuild.targetImage.repository()) {
-            this.targetRepoCtrl.setValue(this.currentBuild.targetImage.repository(), {emitEvent: false})
-            this.dedicatedRepoCtrl.setValue(this.currentBuild.targetImage.dedicatedRepository(), {emitEvent: false})
-          } else {
-            this.dedicatedRepoCtrl.setValue(false, {emitEvent: false})
-          }
+            if (this.currentBuild.targetImage.repository()) {
+                this.targetRepoCtrl.setValue(this.currentBuild.targetImage.repository(), {emitEvent: false})
+                this.dedicatedRepoCtrl.setValue(this.currentBuild.targetImage.dedicatedRepository(), {emitEvent: false})
+            } else {
+                this.dedicatedRepoCtrl.setValue(false, {emitEvent: false})
+            }
 
-          if (this.currentBuild.targetImage.name()) {
-            this.baseImageCtrl.setValue(build.sourceImage.name())
-            this.baseImageTypeCtrl.setValue(build.sourceImage.type, {onlySelf: true})
+            if (this.currentBuild.targetImage.name()) {
+                this.baseImageCtrl.setValue(build.sourceImage.name())
+                this.baseImageTypeCtrl.setValue(build.sourceImage.type, {onlySelf: true})
 
-            this.targetImageCtrl.setValue(this.currentBuild.targetImage)
-            this.updateTargetImage()
-          }
+                this.targetImageCtrl.setValue(this.currentBuild.targetImage)
+                this.updateTargetImage(false)
+            }
 
-          let licFiles: BuildCommand[] = this.currentBuild.fileForType("licenses")
-          this.licCtrl.setValue(licFiles.length > 0 ? licFiles[0].source.replace(/\-/g, " ") : null)
+            let licFiles: BuildCommand[] = this.currentBuild.fileForType("licenses")
+            this.licCtrl.setValue(licFiles.length > 0 ? licFiles[0].source.replace(/\-/g, " ") : null)
 
-          this.buildUserCtrl.setValue(this.currentBuild.buildUser ? this.currentBuild.buildUser : "sagadmin")
-          this.entryUserCtrl.setValue(this.currentBuild.entryUser ? this.currentBuild.entryUser : this.currentBuild.buildUser)
+            this.buildUserCtrl.setValue(this.currentBuild.buildUser ? this.currentBuild.buildUser : "sagadmin")
+            this.entryUserCtrl.setValue(this.currentBuild.entryUser ? this.currentBuild.entryUser : this.currentBuild.buildUser)
 
-          this.buildNameCtrl.setValue(this.currentBuild.name)
+            this.buildNameCtrl.setValue(this.currentBuild.name)
 
-          this.setBuilderComponent(this.currentBuild.sourceImage.type, this.currentBuild.sourceImage.tag())
+            this.setBuilderComponent(this.currentBuild.sourceImage.type, this.currentBuild.sourceImage.tag())
 
-          if (this.currentTargetVersionExists())
-            this.setNextVersion(this.targetImageCtrl.value.uniqueName())
-          else
-            this._setCtrlVersion(this.currentBuild.targetImage.version())
+            if (this.currentTargetVersionExists())
+                this.setNextVersion(this.targetImageCtrl.value.uniqueName())
+            else
+                this._setCtrlVersion(this.currentBuild.targetImage.version())
 
-          this._ignoreValuesChange = false
+            this._ignoreValuesChange = false
         })
       } else {
 
@@ -585,7 +602,7 @@ export class BuildImageComponent implements OnInit, PropertiesChangedOwner {
       this._customBuilderComponent.setLicenseFile(lic)
     }
 
-    private updateTargetImage() {
+    private updateTargetImage(save: boolean) {
 
       if (typeof this.targetImageCtrl.value == 'string') {
 
@@ -625,11 +642,14 @@ export class BuildImageComponent implements OnInit, PropertiesChangedOwner {
             this._ignoreValuesChange = false
           }
       } else {
-        this.currentBuild.targetImage.setName('')
+          this.currentBuild.targetImage.setRepository(this.targetRepoCtrl.value)
+          this.currentBuild.targetImage.setName('')
       }
 
       this.setNextVersion(this.currentBuild.targetImage.uniqueName()).subscribe( (success) => {
-        // do nowt just want to make sure lazy loading isn't a problem
+          if (save) {
+              this._save()
+          }
       })
     }
 
@@ -906,9 +926,9 @@ export class BuildImageComponent implements OnInit, PropertiesChangedOwner {
         this._resources.downloadResourceViaBrowser("licenses", file[0].source)
     }
 
-    public licenseFileAdded(filename: string) {
+    public licenseFileAdded(response: any) {
 
-       this._resources.resourcesForType("licenses").subscribe((p) => {
+        this._resources.resourcesForType("licenses").subscribe((p) => {
           this.licenceFiles = []
            p.forEach((f) => {
             this.licenceFiles.push(f.name)
@@ -918,52 +938,51 @@ export class BuildImageComponent implements OnInit, PropertiesChangedOwner {
 
     public build() {
 
-      this.buildButton.disabled = true
+        this.buildButton.disabled = true
+        let name = this.currentBuild.sourceImage.name()
 
-      let name = this.currentBuild.sourceImage.name()
+        if (this.currentBuild.sourceImage.repository() != null)
+            name = this.currentBuild.sourceImage.repository() + "/" + this.currentBuild.sourceImage.name()
 
-      if (this.currentBuild.sourceImage.repository() != null)
-        name = this.currentBuild.sourceImage.repository() + "/" + this.currentBuild.sourceImage.name()
+        this.currentBuild.targetImage.setVersion(this.targetVersionCtrl.value)
 
-      this.currentBuild.targetImage.setVersion(this.targetVersionCtrl.value)
+        if (!this.downloadCtrl.value) {
 
-      if (!this.downloadCtrl.value) {
+            this.isBuilding = true
 
-        this.isBuilding = true
+            this._dockerService.downloadBuild(this.currentBuild, "" + this.nextVersion(), this.comments).subscribe(result => {
 
-        this._dockerService.downloadBuild(this.currentBuild, "" + this.nextVersion(), this.comments).subscribe(result => {
+                this.isBuilding = false
 
-            this.isBuilding = false
+                if (!result) {
+                    window.alert("Build failed, refer to server log for more information")
+                } else {
+                    this.downloadRef = result
+                    window.alert("Build Successful, with image id " + result)
+                }
 
-            if (!result) {
-                window.alert("Build failed, refer to server log for more information")
-             } else {
-                this.downloadRef = result
-                window.alert("Build Successful, with image id " + result)
-            }
-
-            this._save()
-        })
-      } else {
+                this._save()
+            })
+        } else {
 
         // build on server
 
-        let dialogRef = this._dialog.open(BuildExeComponent, {
-          width: "80%",
-          height: "80%",
-          data: { build: this.currentBuild, version: this.nextVersion(), comments: this.comments },
-        })
+            let dialogRef = this._dialog.open(BuildExeComponent, {
+                width: "80%",
+                height: "80%",
+                data: { build: this.currentBuild, version: this.nextVersion(), comments: this.comments, push: this.pushCtrl.value },
+            })
 
-        dialogRef.afterClosed().subscribe(result => {
+            dialogRef.afterClosed().subscribe(result => {
 
-          this.buildButton.disabled = false
-          this.isBuilding = false
+                this.buildButton.disabled = false
+                this.isBuilding = false
 
-          if (result) {
-            this._save()
-          }
-        })
-      }
+                if (result) {
+                    this._save()
+                }
+            })
+        }
     }
 
     public downloadNow(fileRef: string) {

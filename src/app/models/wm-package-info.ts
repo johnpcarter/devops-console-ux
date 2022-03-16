@@ -34,7 +34,7 @@ export class APIDefinition {
 export class WmPackageInfo {
 
 	public name: string
-	public version: number
+	public version: string
 	public build: number
 	public description: string
 	public requires: WmPackageInfo[]

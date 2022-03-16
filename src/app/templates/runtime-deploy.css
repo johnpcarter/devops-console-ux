@@ -48,7 +48,7 @@ a:hover {
 }
 mat-card-actions {
 	position: absolute;
-	right:20px;
+	width: 100%;
 	bottom: 0px;
 }
 

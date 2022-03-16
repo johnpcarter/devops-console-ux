@@ -29,9 +29,9 @@
 
                             <ng-container matColumnDef="type" style="padding: 5px">
                               <mat-header-cell style="width: 80px" mat-header-cell *matHeaderCellDef>Source</mat-header-cell>
-                              <mat-cell style="width: 80px" mat-cell *matCellDef="let row">
+                              <mat-cell style="width: 80px; padding-right: 20px" mat-cell *matCellDef="let row">
 
-                                  <mat-select  placeholder="Source" [formControl]="sourceTypeCtrl" [disabled]="true">
+                                  <mat-select style="width: 80%" placeholder="Source" [formControl]="sourceTypeCtrl" [disabled]="true">
                                     <mat-option *ngFor="let source of sources" [value]="source">
                                       {{source}}
                                     </mat-option>
@@ -41,12 +41,12 @@
 
                             <ng-container matColumnDef="repository" style="padding: 5px">
                               <mat-header-cell style="flex-grow: 1" mat-header-cell *matHeaderCellDef>Repository</mat-header-cell>
-                              <mat-cell style="flex-grow: 1" mat-cell *matCellDef="let row">
+                              <mat-cell style="flex-grow: 1; padding-right: 20px" mat-cell *matCellDef="let row">
                                 <ng-container *ngIf="row.name; else pickRepo">
                                   {{row.name}}
                                 </ng-container>
                                 <ng-template #pickRepo>
-                                  <mat-select  placeholder="Repository" [formControl]="repoNameCtrl">
+                                  <mat-select style="width: 80%" placeholder="Repository" [formControl]="repoNameCtrl">
                                     <mat-option *ngFor="let repo of availableRepositories()" [value]="repo">
                                       {{repo.name}}
                                     </mat-option>
@@ -54,13 +54,26 @@
                                 </ng-template>
                               </mat-cell>
                             </ng-container>
+
+                            <ng-container matColumnDef="useForStandardConfig" style="padding: 5px">
+                              <mat-header-cell style="flex-grow: 1; display: flex; justify-content: center" mat-header-cell *matHeaderCellDef>Use for configuration</mat-header-cell>
+                              <mat-cell style="flex-grow: 1; padding-right: 20px; display: flex; justify-content: center" mat-cell *matCellDef="let row">
+                                <ng-container *ngIf="row.name; else pickConfig">
+                                  <mat-slide-toggle [formControl]="controlForRepoConfigControl(row, row.useForStandardConfig)" (change)="updateRepoWithControlValue(row)"></mat-slide-toggle>
+                                </ng-container>
+                                <ng-template #pickConfig>
+                                  <mat-slide-toggle disabled="true"></mat-slide-toggle>
+                                </ng-template>
+                              </mat-cell>
+                            </ng-container>
+
                             <ng-container matColumnDef="description" style="padding: 5px">
                               <mat-header-cell style="flex-grow: 2" mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
-                              <mat-cell style="flex-grow: 2" *matCellDef="let row">{{row.description}}</mat-cell>>
+                              <mat-cell style="flex-grow: 2; padding-right: 20px" *matCellDef="let row">{{row.description}}</mat-cell>>
                             </ng-container>
                             <ng-container matColumnDef="packages" style="padding: 5px">
                               <mat-header-cell style="flex-grow: 3; margin-left: 15px" mat-header-cell *matHeaderCellDef>Package(s)</mat-header-cell>
-                              <mat-cell style="flex-grow: 3" *matCellDef="let row">
+                              <mat-cell style="flex-grow: 3; padding-right: 20px" *matCellDef="let row">
                                 <ng-container *ngIf="row.path; else nameOnly">
                                   <div style="width: 100%; display: flex; justify-content: space-between; align-items: center">
                                     <mat-chip-list>
@@ -80,7 +93,7 @@
                             </ng-container>
                             <ng-container matColumnDef="apis" style="padding: 5px">
                               <mat-header-cell style="flex-grow: 2" mat-header-cell *matHeaderCellDef>APIs</mat-header-cell>
-                              <mat-cell style="flex-grow: 2" *matCellDef="let row">
+                              <mat-cell style="flex-grow: 2; padding-right: 20px" *matCellDef="let row">
                                 <mat-chip-list *ngIf="row.name">
                                   <mat-chip *ngFor="let api of row.selectedAPIs" color="warn" selected>{{api.name}}</mat-chip>
                                 </mat-chip-list>
@@ -88,7 +101,7 @@
                             </ng-container>
                             <ng-container matColumnDef="selected" style="padding: 5px">
                               <mat-header-cell style="width: 50px" mat-header-cell *matHeaderCellDef></mat-header-cell>>
-                              <mat-cell style="width: 110px" *matCellDef="let row">
+                              <mat-cell style="width: 110px; padding-right: 20px" *matCellDef="let row">
                                 <button mat-button class="red-on-hover"><fa-icon (click)="removeRepository(row)" class="icon" [icon]="['fas', 'trash-alt']"></fa-icon></button>
                               </mat-cell>
                             </ng-container>
@@ -96,7 +109,7 @@
                             <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>>
                           </mat-table>
                           <div *ngIf="isExistingDeploymentSet()" style="float: left">
-                            <button mat-button color="accent" (click)="addRepository()" style="margin-top: 20px; margin-right: 20px; font-size: 10px; line-height: 21px">Add Repository</button>
+                            <button mat-button color="accent" (click)="addRepository()" style="margin-top: 20px; margin-right: 20px; font-size: 11px; line-height: 21px">Add Repository</button>
                           </div>
                           <mat-paginator [length]="repositories.data.length" [pageSize]="10" aria-label="Select page of GitHub search results"></mat-paginator>
                         </div>
@@ -104,7 +117,7 @@
                           <div style="background-color: darkorange; border-radius: 10px; margin-top:60px; line-height:15px"><h2 style="padding: 16px; margin-bottom: 0px;">No packages have selected</h2></div>
                         </div>
 
-                        <div style="padding:10px; width:100%" *ngIf="!deploymentSetNotConfigured()">
+                        <div style="padding:10px; width:100%; padding-right: 20px" *ngIf="!deploymentSetNotConfigured()">
                           <div *ngIf="haveDependencies()">
                             <h3 style="color: red; margin-top: 15px;">Required packages</h3>
                             <table id="build.package.dependents" #dependentsTable mat-table [dataSource]="dependencies" style="width: 100%" class="mat-elevation-z8">
@@ -153,9 +166,11 @@
                                   (click)="selectedDependencies.toggle(row)">
                               </tr>
                             </table>
-                            <div style="float: right; padding: 10px">
-                              <button id="build.package.addDependents" mat-flat-button color="primary" (click)="addSelectedDependentsToSource()" [disabled]="!haveSelectedSomeDependents()" style="margin-right: 10px">Add ({{this.selectedDependencies.selected.length}})</button>
-                              <button id="build.package.ignoreDependents" mat-flat-button color="accent" (click)="addSelectedDependentsToIgnore()" [disabled]="!haveSelectedSomeDependents()">Ignore ({{this.selectedDependencies.selected.length}})</button>
+                            <div style="width: 100%">
+                              <div style="float: right; padding: 10px">
+                                <button id="build.package.addDependents" mat-flat-button color="primary" (click)="addSelectedDependentsToSource()" [disabled]="!haveSelectedSomeDependents()" style="margin-right: 10px">Add ({{this.selectedDependencies.selected.length}})</button>
+                                <button id="build.package.ignoreDependents" mat-flat-button color="accent" (click)="addSelectedDependentsToIgnore()" [disabled]="!haveSelectedSomeDependents()">Ignore ({{this.selectedDependencies.selected.length}})</button>
+                              </div>
                             </div>
                           </div>
                         </div>

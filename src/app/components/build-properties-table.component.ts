@@ -102,14 +102,14 @@ export class BuildPropertiesTableComponent implements OnInit {
 		return element.key && element.key.length > 0
 	}
 
-	public controlForPanelElement(key: string, element: any, value?: string): FormControl {
+	public controlForPanelElement(key: string, element: Property, value?: string): FormControl {
 
 		let ctrl: FormControl = null
 
 		//if (!element.position)
 		//	element.position = this.indexOfElement(element)
 
-		let name: string = key + ":" + this.indexOfElement(element) // element.position
+		let name: string = key + ":" + element.key   //this.indexOfElement(element) // element.position
 
 		if (this.form.controls[name]) {
 			ctrl = <FormControl> this.form.controls[name]
@@ -121,7 +121,7 @@ export class BuildPropertiesTableComponent implements OnInit {
 		return ctrl
 	}
 
-	public updateElementWithControlValue(key: string, element: any) {
+	public updateElementWithControlValue(key: string, element: Property) {
 
 		console.log("updating ctrl for " + name)
 
@@ -226,21 +226,21 @@ export class BuildPropertiesTableComponent implements OnInit {
 		}
 	}
 
-	private indexOfElement(element: any): number {
+	/*private indexOfElement(element: Property): number {
 
-		let list: any[] = this.properties
+		let list: Property[] = this.properties
 		var found: number = 0
 
 		for (var i = 0; i < list.length; i++) {
 
-			if (list[i] == element) {
+			if (list[i].key == element.key) {
 				found = i
 				break
 			}
 		}
 
 		return found
-	}
+	}*/
 
 	private removePrefixFromValue(value: string): string {
 

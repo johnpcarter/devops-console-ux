@@ -55,6 +55,8 @@ export class DockerImage {
 	public isSagImage: boolean = false
 	public testStatus: TestStatus = TestStatus.unknown
 
+	public dockerFile: string = null
+
 	public availableVersions: DockerImage[] = []
 
 	public static build(repo: string, name: string, version: string, useDedicatedRepo?: boolean): DockerImage {
@@ -94,7 +96,7 @@ export class DockerImage {
 	public constructor(tag?: string) {
 
 		if (tag) {
-			this._setTag(tag)
+			this.setTag(tag)
 		}
 	}
 
@@ -226,7 +228,11 @@ export class DockerImage {
 
 	public version(): string {
 
-		return this._version
+		if (this._version) {
+			return this._version
+		} else {
+			return "0.0"
+		}
 	}
 
 	public setVersion(newVersion: string) {
@@ -262,9 +268,8 @@ export class DockerImage {
 
 			if (!isNaN(+version)) {
 			// simple increment
-
-        if (!isNaN(+img.version())) {
-          if (+img.version() > +version) {
+				if (!isNaN(+img.version())) {
+					if (+img.version() > +version) {
 					// add to top of of list
 					  if (i > 0)
 						  versions.splice(i-1, 0, img)
@@ -272,27 +277,25 @@ export class DockerImage {
 						  versions.unshift(img)
 
 					  break
-				  } else if (i == versions.length-1) {
+					} else if (i == versions.length-1) {
 				  // reached end, so just add it
 					  versions.push(img)
 					  break
-				  }
-        } else {
-          if (this._compare(this.version(), img, i, versions)) {
-            break
-          }
-        }
+					}
+				} else {
+					if (this._compare(this.version(), img, i, versions)) {
+						break
+					}
+				}
 			} else if (i == versions.length-1) {
         // read end, so just add it
-
-        versions.push(img)
-        break
-
-      } else if (version.match(/^\d{1,3}\.\d{1,3}(?:\.\d{1,6})?$/)) {
+				versions.push(img)
+				break
+			} else if (version.match(/^\d{1,3}\.\d{1,3}(?:\.\d{1,6})?$/)) {
 
 				if (this._compare(this.version(), img, i, versions)) {
 				  break
-        }
+				}
 			}
 		}
   }
@@ -377,11 +380,6 @@ export class DockerImage {
 
 		let found: boolean = false
 
-		if (this.id)
-			return true
-		else
-			return false
-
 		this.availableVersions.forEach((v) => {
 			if (v.version === this.version)
 				found = true
@@ -393,6 +391,27 @@ export class DockerImage {
 	public tag(): string {
 
 		return this._tag
+	}
+
+	public setTag(tag: string) {
+
+		this._tag = tag
+
+		if (tag.indexOf(":") != -1) {
+
+			let b4: string = tag.substring(0, tag.indexOf(":"))
+			let af: string = tag.substring(tag.indexOf(":")+1)
+
+			if (af.length > 0) {
+				this._repository = b4
+				this._setNameAndVersion(af, b4)
+			} else {
+				this._setNameAndVersion(tag)
+			}
+		} else {
+
+			this._setNameAndVersion(tag)
+		}
 	}
 
 	public static make(data: any): DockerImage {
@@ -453,7 +472,7 @@ export class DockerImage {
     return false
   }
 
-	protected static _make(image: DockerImage, data: any): DockerImage {
+  protected static _make(image: DockerImage, data: any): DockerImage {
 
 		image.id = data.Id || data.id
 
@@ -600,27 +619,6 @@ export class DockerImage {
 		}
 
 		return image
-	}
-
-	private _setTag(tag: string) {
-
-		this._tag = tag
-
-		if (tag.indexOf(":") != -1) {
-
-			let b4: string = tag.substring(0, tag.indexOf(":"))
-			let af: string = tag.substring(tag.indexOf(":")+1)
-
-			if (af.length > 0) {
-				this._repository = b4
-				this._setNameAndVersion(af, b4)
-			} else {
-				this._setNameAndVersion(tag)
-			}
-		} else {
-
-			this._setNameAndVersion(tag)
-		}
 	}
 
 	private _setNameAndVersion(name: string, repo?: string) {

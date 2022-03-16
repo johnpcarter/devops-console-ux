@@ -1,4 +1,4 @@
-import {Component, ChangeDetectorRef, OnDestroy} from '@angular/core'
+import {Component, ChangeDetectorRef, OnDestroy, ViewChild} from '@angular/core';
 import {
   FormBuilder, FormGroup, FormControl,
   Validators
@@ -8,8 +8,13 @@ import {
   MatDialog, MatDialogRef,
   MAT_DIALOG_DATA
 } from '@angular/material/dialog'
+import { trim } from 'jquery'
 
 import {Settings, Values, RepoSettings, GitType} from '../settings'
+import {RegistryToken} from '../models/registry-token';
+import {MatTable} from '@angular/material/table';
+import {DockerRegistriesService} from '../services/docker-registries.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'home',
@@ -40,9 +45,7 @@ export class SettingsComponent {
   public dockerHttpsCtrl: FormControl
   public dockerCertCtrl: FormControl
 
-  public dockerEmailCtrl: FormControl
-  public dockerUserIdCtrl: FormControl
-  public dockerPasswordCtrl: FormControl
+  public dockerCertificateCtrl: FormControl
 
   public k8sUrlCtrl: FormControl
   public k8sTokenCtrl: FormControl
@@ -50,9 +53,12 @@ export class SettingsComponent {
 
   public gitExpander: boolean = true
   public dockerExpander: boolean
+  public dockerRegistries: boolean
   public k8sExpander: boolean
 
-  public gitRepos: RepoSettings[]
+  public gitRepos: RepoSettings[] = []
+
+  public registries: RegistryToken[] = []
 
   private _ignoreChanges: boolean
   private _oldName: string
@@ -61,8 +67,21 @@ export class SettingsComponent {
   private _values: Values
 
   public k8sTypes: string[] = ["desktop", "aks", "eks", "other"]
+  public displayedColumnsForRegistries: string[] = ["registry", "user", "token", "remove"]
 
-  public constructor(private _settings: Settings, private _dialog: MatDialog, private _formBuilder: FormBuilder) {
+  @ViewChild('registriesTable', {read: MatTable})
+  public registriesTable: MatTable<RegistryToken>
+
+  public constructor(private _settings: Settings, private _dialog: MatDialog, private _formBuilder: FormBuilder, private _registriesService: DockerRegistriesService, private _snackbar: MatSnackBar) {
+
+    this._registriesService.registries().subscribe((r) => {
+
+      if (r != null) {
+        this.registries = r
+      }
+
+      this.registries.push(new EditableRegistryToken())
+    })
 
     this._settings.environments().subscribe((env) => {
       this.environments = env
@@ -94,9 +113,7 @@ export class SettingsComponent {
     this.k8sTokenCtrl = new FormControl()
     this.k8sTypeCtrl = new FormControl("desktop")
 
-    this.dockerEmailCtrl = new FormControl()
-    this.dockerUserIdCtrl = new FormControl()
-    this.dockerPasswordCtrl = new FormControl()
+    this.dockerCertificateCtrl = new FormControl()
 
     this.settingsForm = this._formBuilder.group({
       envCtrl: this.envCtrl,
@@ -114,9 +131,7 @@ export class SettingsComponent {
       dockerPortCtrl: this.dockerPortCtrl,
       dockerHttpsCtrl: this.dockerHttpsCtrl,
       dockerCertCtrl: this.dockerCertCtrl,
-      dockerEmailCtrl: this.dockerEmailCtrl,
-      dockerUserIdCtrl: this.dockerUserIdCtrl,
-      dockerPasswordCtrl: this.dockerPasswordCtrl,
+      dockerCertificateCtrl: this.dockerCertificateCtrl,
       k8sUrlCtrl: this.k8sUrlCtrl,
       k8sTokenCtrl: this.k8sTokenCtrl,
       k8sTypeCtrl: this.k8sTypeCtrl
@@ -233,6 +248,12 @@ export class SettingsComponent {
         this.dockerPortCtrl.markAsPristine()
       }
 
+      if (this.dockerHttpsCtrl.dirty) {
+
+        this._values.dockerUseHttps = this.dockerHttpsCtrl.value
+        this.dockerHttpsCtrl.markAsPristine()
+      }
+
       if (this.dockerCertCtrl.dirty) {
         //this._settings.dockerCert = this.dockerCertCtrl.value
         this.dockerCertCtrl.markAsPristine()
@@ -243,19 +264,9 @@ export class SettingsComponent {
         this.gitPasswordCtrl.markAsPristine()
       }
 
-      if (this.dockerEmailCtrl.dirty) {
-        this._values.dockerEmail = this.dockerEmailCtrl.value
-        this.dockerEmailCtrl.markAsPristine()
-      }
-
-      if (this.dockerUserIdCtrl.dirty) {
-        this._values.dockerUserId = this.dockerUserIdCtrl.value
-        this.dockerUserIdCtrl.markAsPristine()
-      }
-
-      if (this.dockerPasswordCtrl.dirty) {
-        this._values.dockerPassword = this.dockerPasswordCtrl.value
-        this.dockerPasswordCtrl.markAsPristine()
+      if (this.dockerCertificateCtrl.dirty) {
+        this._values.dockerCertificate = this.dockerCertificateCtrl.value
+        this.dockerCertificateCtrl.markAsPristine()
       }
 
       if (this.k8sUrlCtrl.dirty) {
@@ -277,6 +288,14 @@ export class SettingsComponent {
     })
 
     this.setFormValues()
+  }
+
+  public certFileUploaded(response: any) {
+
+    let filename: string = response.filename
+    this.dockerCertificateCtrl.setValue(filename)
+    this._values.dockerCertificate = filename
+    this._settings.saveChanges(this._values, this.envCtrl.value == 'Default' ? null : this.envCtrl.value)
   }
 
   public changedEnvironment() {
@@ -356,9 +375,7 @@ export class SettingsComponent {
     this.gitConfigCtrl.setValue('', {emitEvent: false})
     this.dockerHostCtrl.setValue('', {emitEvent: false})
     this.dockerPortCtrl.setValue('', {emitEvent: false})
-    this.dockerUserIdCtrl.setValue('', {emitEvent: false})
-    this.dockerPasswordCtrl.setValue('', {emitEvent: false})
-    this.dockerEmailCtrl.setValue('', {emitEvent: false})
+    this.dockerCertificateCtrl.setValue('', {emitEvent: false})
     this.k8sUrlCtrl.setValue('', {emitEvent: false})
     this.k8sTokenCtrl.setValue('', {emitEvent: false})
     this.k8sTypeCtrl.setValue('desktop', {emitEvent: false})
@@ -403,10 +420,18 @@ export class SettingsComponent {
 
       this.dockerHostCtrl.setValue(this.hostNameFromURI(v.dockerHost))
       this.dockerPortCtrl.setValue(this.portFromURI(v.dockerHost))
-      this.dockerEmailCtrl.setValue(v.dockerEmail)
-      this.dockerUserIdCtrl.setValue(v.dockerUserId)
-      this.dockerPasswordCtrl.setValue(v.dockerPassword)
-      this.k8sUrlCtrl.setValue(v.k8sUrl)
+      this.dockerHttpsCtrl.setValue(this._values.dockerUseHttps)
+
+      if (v.dockerCertificate) {
+        let i = v.dockerCertificate.lastIndexOf('/')
+        if (i != -1) {
+          this.dockerCertificateCtrl.setValue(v.dockerCertificate.substring(i+1))
+        } else {
+          this.dockerCertificateCtrl.setValue(v.dockerCertificate)
+        }
+      }
+
+      this.k8sUrlCtrl.setValue(v.k8sUrl.replace('localhost', window.location.hostname))
       this.k8sTokenCtrl.setValue(v.k8sToken)
       this.k8sTypeCtrl.setValue(v.k8sType == null ? "desktop" : v.k8sType)
 
@@ -448,16 +473,16 @@ export class SettingsComponent {
 
   public addRepo() {
 
-    this._values.gitRepos.push(new RepoSettings(this.gitRepoCtrl.value, this.gitPackagesCtrl.value, this.gitConfigCtrl.value))
+    this._values.gitRepos.push(new RepoSettings(trim(this.gitRepoCtrl.value), trim(this.gitPackagesCtrl.value), trim(this.gitConfigCtrl.value)))
 
     this.gitRepos = this._values.gitRepos
 
-    this._settings.saveChanges(this.envCtrl.value == 'Default' ? null : this.envCtrl.value)
+    this._settings.saveChanges(this._values, this.envCtrl.value == 'Default' ? null : this.envCtrl.value)
   }
 
   public deleteRepo() {
 
-    let repo: RepoSettings = this._values.repoForName(this.gitRepoCtrl.value)
+    let repo: RepoSettings = this._values.repoForName(trim(this.gitRepoCtrl.value))
     let index: number = this._values.gitRepos.indexOf(repo)
     this._values.gitRepos.splice(index, 1)
 
@@ -469,11 +494,93 @@ export class SettingsComponent {
     this.gitConfigCtrl.setValue(null)
     this._ignoreChanges = false
 
-    this._settings.saveChanges(this.envCtrl.value == 'Default' ? null : this.envCtrl.value)
+    this._settings.saveChanges(this._values, this.envCtrl.value == 'Default' ? null : this.envCtrl.value)
   }
 
   public repoSelectionChanged(event: any) {
     console.log('did change')
   }
 
+  public controlForPanelElement(key: string, element: RegistryToken, value?: string): FormControl {
+
+    let ctrl: FormControl = null
+
+    const name: string = key + ':0' // element.position
+
+    if (this.settingsForm.controls[name]) {
+      ctrl = (this.settingsForm.controls[name] as FormControl)
+    } else {
+      ctrl = new FormControl(value)
+      this.settingsForm.addControl(name, ctrl)
+    }
+
+    return ctrl
+  }
+
+  public updateElementWithControlValue(key: string, r: RegistryToken): void {
+
+    r[key] = this.controlForPanelElement(key, r).value
+  }
+
+  public addRegistriesRow(row: RegistryToken): void {
+
+    const r = new RegistryToken()
+    r.name = row.name
+    r.user = row.user
+    r.token = row.token
+
+    if (r.name && r.user && r.token) {
+      this._registriesService.addRegistry(r).subscribe((success) => {
+
+        if (success) {
+          this.registries.splice(this.registries.length-1, 1, r)
+          this.registries.push(new EditableRegistryToken())
+
+          this.registriesTable.renderRows()
+        } else {
+          this._snackbar.open('I cannot comply at the moment!', 'Sorry', {
+            duration: 2000,
+          })
+        }
+      })
+    }
+  }
+
+  public removeRegistryRow(r: RegistryToken): void {
+
+    let found = -1
+
+    for (let i = 0; i < this.registries.length; i++) {
+
+      if (this.registries[i] === r) {
+        found = i
+      }
+    }
+
+    if (found !== -1) {
+      this.settingsForm.removeControl('key:' + found)
+      this.settingsForm.removeControl('type:' + found)
+      this.settingsForm.removeControl('value:' + found)
+
+      this.registries.splice(found, 1)
+      this.registriesTable.renderRows()
+
+      this._registriesService.removeRegistry(r.name).subscribe((success) => {
+
+        if (!success) {
+          this._snackbar.open('ach, deletion failed', 'Sorry', {
+            duration: 2000,
+          })
+        }
+      })
+    }
+  }
+
+  public isValidNewRegistry(element: RegistryToken): boolean {
+    return element.name != null && element.user != null && element.token != null
+  }
+}
+
+class EditableRegistryToken extends RegistryToken {
+  isEditable: boolean = true
 }

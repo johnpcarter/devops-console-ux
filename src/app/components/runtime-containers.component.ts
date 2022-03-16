@@ -37,6 +37,7 @@ export class RuntimeContainersComponent implements OnInit, OnDestroy {
   public includeTestsCtrl: FormControl
   private _test: boolean
   private _uploadAPIS: boolean
+  private _pull: boolean
   private _stop: boolean
   private _msr: string
   private _host: string
@@ -53,10 +54,10 @@ export class RuntimeContainersComponent implements OnInit, OnDestroy {
       if (s.dockerHost)
         this._host = s.dockerHost.substring(0, s.dockerHost.indexOf(":"))
       else
-        this._host = "localhost"
+        this._host = window.location.hostname
 
       if (this._host == 'host.docker.internal')
-        this._host = 'localhost'
+        this._host = window.location.hostname
 
       this._settings.setCurrentPage('deploy')
     })
@@ -244,6 +245,11 @@ export class RuntimeContainersComponent implements OnInit, OnDestroy {
     this._uploadAPIS = event.checked
   }
 
+  public pullImages(event: any) {
+
+    this._pull = event.checked
+  }
+
   public startContainers() {
 
     this.spinner = true
@@ -251,7 +257,7 @@ export class RuntimeContainersComponent implements OnInit, OnDestroy {
     let dialogRef = this._dialog.open(BuildExeComponent, {
       width: '80%',
       height: '80%',
-      data: {run: this.selectedRuntime, includeTests: this._test, uploadAPIs: this._uploadAPIS},
+      data: {run: this.selectedRuntime, includeTests: this._test, uploadAPIs: this._uploadAPIS, pull: this._pull},
     })
 
     dialogRef.afterClosed().subscribe(result => {
@@ -345,6 +351,20 @@ export class RuntimeContainersComponent implements OnInit, OnDestroy {
       }
     }
 
-    return false
+    return found
+  }
+
+  public edit(): void {
+    this._router.navigate(['deploy/run', {id: this.selectedDeploymentName}])
+  }
+
+  public templateFileAdded(response: any) {
+
+    let filename: string = response.filename
+    let name: string = response.hint
+
+    this.templates.push(response.hint)
+    this.selectedDeploymentName = response.hint
+    this.deploymentSelectionChanged()
   }
 }

@@ -183,9 +183,10 @@ export class MicroServiceBuilderComponent implements BuilderComponent, OnInit {
       })
   }
 
-	public propertiesFileAdded(filename: string) {
+  public propertiesFileAdded(response: any) {
 
-       this._resources.resourcesForType("properties").subscribe((p) => {
+      let filename: string = response.filename
+      this._resources.resourcesForType("properties").subscribe((p) => {
 
           this.propertyFiles = []
           p.forEach((f) => {
@@ -208,7 +209,7 @@ export class MicroServiceBuilderComponent implements BuilderComponent, OnInit {
         var packages: string[] = []
 
         set.source[0].repositories.forEach( (r) => {
-            if (r.include != null) {
+            if (r.include != null && r.include.length > 0) {
                 r.include.forEach((p) => {
                     packages.push(p)
                 })
@@ -410,7 +411,7 @@ export class MicroServiceBuilderComponent implements BuilderComponent, OnInit {
 		if (d.source && d.source[0].repositories) {
             d.source[0].repositories.forEach((r) => {
 
-                if (r.include != null) {
+                if (r.include != null && r.include.length > 1) {
 
                     r.include.forEach((s) => {
                         ref.push(s)

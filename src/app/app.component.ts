@@ -54,15 +54,18 @@ import {FormControl} from '@angular/forms'
 
 export class AppComponent implements OnInit, OnDestroy {
 
-  public currentRouteURL: string
-  public currentRouteURLObserver: any
+    public static VERSION = "1.5"
 
-  public currentMenu: any
+    public currentRouteURL: string
+    public currentRouteURLObserver: any
+    public currentMenu: any
+    public environments: string[] = []
+    public version = "1.0"
 
-  public environments: string[] = []
-
-  constructor(private router: Router, private _location: Location, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
+    constructor(private router: Router, private _location: Location, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
               private _dialog: MatDialog, private _router: Router, private _route: ActivatedRoute, public settings: Settings) {
+
+        this.version = AppComponent.VERSION
 
     this.settings.environments().subscribe((e) => {
       this.environments = e

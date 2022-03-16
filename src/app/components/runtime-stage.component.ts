@@ -90,7 +90,7 @@ export class RuntimeStageComponent implements OnInit {
 
 		this.currentProject = new Project()
 		let stage: Stage = this.addStageToProject("local")
-		stage.containerHost = "localhost"
+		stage.containerHost = window.location.hostname
 
 		this.runListCtrl = new FormControl()
     	this.stageCtrl = new FormControl()

@@ -135,7 +135,9 @@ export class BuildPropertiesComponent implements OnInit {
 		this._resources.downloadResourceViaBrowser("properties", this.propsCtrl.value)
 	}
 
-	public propertiesFileAdded(filename: string) {
+	public propertiesFileAdded(response: any) {
+
+		let filename: string = response.any
 
 		this._resources.resourcesForType("properties").subscribe((p) => {
 
@@ -172,7 +174,17 @@ export class BuildPropertiesComponent implements OnInit {
 		this.saveProperties()
 	}
 
-	public propertiesDidChange($event: Property[]) {
+	public extendedPropertiesDidChange($event: Property[]) {
+
+		this.saveProperties()
+	}
+
+	public globalPropertiesDidChange($event: Property[]) {
+
+		this.saveProperties()
+	}
+
+	public otherPropertiesDidChange($event: Property[]) {
 
 		this.saveProperties()
 	}
@@ -369,10 +381,8 @@ export class BuildPropertiesComponent implements OnInit {
 				&& this.isPropertyPresent("settings.watt.server.stats.logFilesToKeep", this.extendedProperties)
 				&& this.isPropertyPresent("settings.watt.debug.level", this.extendedProperties)
 				&& this.isPropertyPresent("watt.server.pipeline.processor", this.extendedProperties)
-				&& this.isPropertyPresent("consul.default.host", this.extendedProperties)
-				&& this.isPropertyPresent("consul.default.port", this.extendedProperties)
-				&& this.isPropertyPresent("consul.default.user", this.extendedProperties)
-				&& this.isPropertyPresent("consul.default.password", this.extendedProperties)
+				&& this.isPropertyPresent("watt.server.threadPool", this.extendedProperties)
+				&& this.isPropertyPresent("watt.server.threadPoolMin", this.extendedProperties)
 				&& this.isPropertyPresent("watt.net.default.accept", this.extendedProperties)
 
 		} else {
@@ -394,10 +404,9 @@ export class BuildPropertiesComponent implements OnInit {
 		this.addPropertyIfNotPresent(new Property("settings.watt.debug.level", "Warn", "Set logging level to warning only"), this.extendedProperties)
 		this.addPropertyIfNotPresent(new Property("watt.server.pipeline.processor", "false", "Disables pipeline save/restore debug options"), this.extendedProperties)
 		this.addPropertyIfNotPresent(new Property("watt.net.default.accept", "application/json", "Set the default repsonse type if Accept header missing"), this.extendedProperties)
-		this.addPropertyIfNotPresent(new Property("consul.default.host", "$env{consul_host}", "host name of Consul service registry to use"), this.extendedProperties)
-		this.addPropertyIfNotPresent(new Property("consul.default.port", "$env{consul_port}", "Disables pipeline save/restore debug options"), this.extendedProperties)
-		this.addPropertyIfNotPresent(new Property("consul.default.user", "$env{consul_user}", "Disables pipeline save/restore debug options"), this.extendedProperties)
-		this.addPropertyIfNotPresent(new Property("consul.default.password", "$env{consul_password}", "Disables pipeline save/restore debug options"), this.extendedProperties)
+
+		this.addPropertyIfNotPresent(new Property("watt.server.threadPool", "75", "maximum number of permitted service threads"), this.extendedProperties)
+		this.addPropertyIfNotPresent(new Property("watt.server.threadPoolMin", "20", "minimum number of service threads to allocate"), this.extendedProperties)
 
 		this.extendedProperties = this.copyList(this.extendedProperties)
 		this.otherProperties = this.copyList(this.otherProperties)
@@ -471,45 +480,59 @@ export class BuildPropertiesComponent implements OnInit {
 
 		let props: Property[] = []
 
-		this.wmCloudConnections.forEach((p) => {
-			let vals = p.toProperties()
+		if (this.wmCloudConnections) {
+			this.wmCloudConnections.forEach((p) => {
+				let vals = p.toProperties()
 
-			vals.forEach((v) => {
-				if (p.name == 'stage') {
-					props.push(v.keyValuePair(WmCloudProperties.PREFIX_ACCOUNT + p.name + "."))
-				} else {
-					props.push(v.keyValuePair(WmCloudProperties.PREFIX_SETTINGS + p.name + "."))
-				}
+				vals.forEach((v) => {
+					if (p.name == 'stage') {
+						props.push(v.keyValuePair(WmCloudProperties.PREFIX_ACCOUNT + p.name + "."))
+					} else {
+						props.push(v.keyValuePair(WmCloudProperties.PREFIX_SETTINGS + p.name + "."))
+					}
+				})
 			})
-		})
+		}
 
-		this.jdbcConnections.forEach((p) => {
-			let vals = p.toProperties()
+		if (this.jdbcConnections) {
+			this.jdbcConnections.forEach((p) => {
+				let vals = p.toProperties()
 
-			vals.forEach((v) => {
-				props.push(v.keyValuePair(JdbcConnectionProperties.JDBC_PREFIX + p.jdbcAlias + "."))
+				vals.forEach((v) => {
+					props.push(v.keyValuePair(JdbcConnectionProperties.JDBC_PREFIX + p.jdbcAlias + "."))
+				})
 			})
-		})
 
-		this.artConnections.forEach((a) => {
-			let vals = a.toProperties()
+		}
 
-			vals.forEach((v) => {
-				props.push(v.keyValuePair(ARTConnectionProperties.PREFIX + a.name + "."))
+		if (this.artConnections) {
+			this.artConnections.forEach((a) => {
+				let vals = a.toProperties()
+
+				vals.forEach((v) => {
+					props.push(v.keyValuePair(ARTConnectionProperties.PREFIX + a.name + "."))
+				})
 			})
-		})
+		}
 
-		this.otherProperties.forEach((o) => {
-			props.push(o.keyValuePair())
-		})
+		if (this.otherProperties) {
+			this.otherProperties.forEach((o) => {
+				props.push(o.keyValuePair())
+			})
+		}
 
-		this.extendedProperties.forEach((o) => {
-			props.push(o.keyValuePair('settings.'))
-		})
+		if (this.extendedProperties) {
+			this.extendedProperties.forEach((o) => {
+				props.push(o.keyValuePair('settings.'))
+			})
+		}
 
-		this.globalProperties.forEach((o) => {
-			props.push(o.keyValuePair('globalvariable.'))
-		})
+		if (this.globalProperties) {
+			this.globalProperties.forEach((o) => {
+				props.push(o.keyValuePair('globalvariable.'))
+			})
+		}
+
 		if (this.auditDestCtrl.value && this.auditDestCtrl.value != 'default') {
 			props.push(new Property(JdbcConnectionProperties.JDBC_FUNC_ISCOREAUDIT, this.auditDestCtrl.value))
 			props.push(new Property(JdbcConnectionProperties.JDBC_SERVICEQUEUE_DEST, ServiceQueueDestType.ServiceDBDest))

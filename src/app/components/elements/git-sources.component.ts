@@ -86,7 +86,7 @@ export class GitSourcesComponent implements OnInit, OnChanges //, BuilderCompone
   	public apiActivated: EventEmitter<boolean> = new EventEmitter()
 
 	public formGroup: FormGroup
-	public packageTableDataSource: MatTableDataSource<WmPackageInfo>
+	public packageTableDataSource: MatTableDataSource<WmPackageInfo> = new MatTableDataSource([])
 	public owner: PropertiesChangedOwner
 
 	public gitURI: string
@@ -114,13 +114,10 @@ export class GitSourcesComponent implements OnInit, OnChanges //, BuilderCompone
 	pageEvent: PageEvent
 
 	constructor(private _settings: Settings, private _gitService: GitSourceService, private _packagesService: PackagesService) {
-	}
 
-	public ngOnInit() {
+		this._gitService.values().subscribe((v) => {
 
-	  this._gitService.values().subscribe((v) => {
-
-	    this.gitURI = v.gitUri
+			this.gitURI = v.gitUri
 
 			if (!this.gitURI.endsWith("/"))
 				this.gitURI = this.gitURI + "/"
@@ -133,15 +130,18 @@ export class GitSourcesComponent implements OnInit, OnChanges //, BuilderCompone
 			this._gitAPIUrl = v.gitAPIUrl
 			this._gitUser = v.gitUser
 			this._gitToken = v.gitPassword
-
 			this.selectedGit = this.gits[0]
 
 			v.gitRepos.forEach((r) => {
-			  this._configuredGitRepos.push(r)
+				this._configuredGitRepos.push(r)
 			})
 
 			this.fetchRepositories()
 		})
+	}
+
+	public ngOnInit() {
+
 	}
 
 	public ngOnChanges() {
@@ -152,9 +152,9 @@ export class GitSourcesComponent implements OnInit, OnChanges //, BuilderCompone
 
 	public onGitChange(event?: any) {
 
-	  if (this._gitAPIUrl && (!this._source || this.selectedRepo.id != this._source.repositories[0].name)) {
-	     this.setCurrentRepo(this.selectedRepo)
-    }
+		if (this.selectedRepo && this._gitAPIUrl && (!this._source || this.selectedRepo.id != this._source.repositories[0].name)) {
+			this.setCurrentRepo(this.selectedRepo)
+    	}
 	}
 
 	public resyncGitRepo() {
@@ -204,18 +204,24 @@ export class GitSourcesComponent implements OnInit, OnChanges //, BuilderCompone
 	  this.isBusy = true
 
 		this._gitService.repositories(this.selectedGit).subscribe((r) => {
+
 			this.repositories = r
 
-			if (this.repositories.length > 0 && !this.selectedRepo) {
-        let repo: GitRepo = this.repoForId(this._configuredGitRepos[0].name)
+			if (this.repositories.length > 0 && this.selectedRepoName) {
 
-			  if (repo)
-			    this.setCurrentRepo(repo)
-			  else
-			    this.setCurrentRepo(this.repositories[0])
-      }
+				let repo: GitRepo = this.repoForId(this.selectedRepoName)
+
+				if (repo)
+					this.setCurrentRepo(repo)
+				else
+					this.setCurrentRepo(this.repositories[0])
+      		} else if (this.repositories.length > 0) {
+				this.setCurrentRepo(this.repositories[0])
+			}
+
 			this.isBusy = false
 		}, error => {
+
 			this._settings.values().subscribe((v) => {
 
 				this.repositories = []
@@ -223,10 +229,11 @@ export class GitSourcesComponent implements OnInit, OnChanges //, BuilderCompone
 					this.repositories.push(new GitRepo(g.name, g.name, "", "main"))
 				})
 
-				if (this.repositories.length > 0 && !this.selectedRepoName)
-				  this.setCurrentRepo(this.repositories[0])
-        else
-          this.setCurrentRepoFromInput()
+				if (this.repositories.length > 0 && !this.selectedRepoName) {
+					this.setCurrentRepo(this.repositories[0])
+				} else {
+					this.setCurrentRepoFromInput()
+				}
 
 				this.isBusy = false
 			})
@@ -287,21 +294,21 @@ export class GitSourcesComponent implements OnInit, OnChanges //, BuilderCompone
 
 	private configForRepo(name: string): RepoSettings {
 
-	  let found: RepoSettings = null
+		let found: RepoSettings = null
 
-	  for (let i = 0; i < this._configuredGitRepos.length; i++) {
-	    if (this._configuredGitRepos[i].name == name) {
-	      found = this._configuredGitRepos[i]
-	      break
-      }
-    }
+		for (let i = 0; i < this._configuredGitRepos.length; i++) {
+			if (this._configuredGitRepos[i].name == name) {
+				found = this._configuredGitRepos[i]
+				break
+      		}
+    	}
 
-	  if (found == null) {
-	    found = new RepoSettings(name, "/packages", "/config")
-    }
+		if (found == null) {
+	    	found = new RepoSettings(name, "/packages", "/config")
+    	}
 
-	  return found
-  }
+	  	return found
+  	}
 
 	private fetchPackageContents(resync: boolean) {
 
@@ -311,36 +318,31 @@ export class GitSourcesComponent implements OnInit, OnChanges //, BuilderCompone
 
 			this._gitService.wmPackages(this.selectedGit, this.selectedRepo.id, this.configForRepo(this.selectedRepo.name).packages, !resync).subscribe((packages) => {
 
-				 this._setModel(packages)
-				 this.apiActivated.emit(true)
-          this.isBusy = false
+				this._setModel(packages)
+				this.apiActivated.emit(true)
+				this.isBusy = false
 			}, error => {
 
 			  // okay, api failed, so lets try cloning data on server side and then return the packages from there
         // less efficient but bette than nothing.
 
-        console.log("git request failed, let trying indexing via clone on server and get packages back from that")
-
-        this._packagesService.index(this.selectedRepo.name, this._source, resync).subscribe((p) => {
-
-          this.manualSyncRequired = true
-          this.selectedRepoName = this._source.repositories[0].name
-          this._setModel(p)
-
-          this.isBusy = false
-
-          this.apiActivated.emit(false)
-        }, error => {
+				console.log("git request failed, let trying indexing via clone on server and get packages back from that")
+				this._packagesService.index(this.selectedRepo.name, this._source, resync).subscribe((p) => {
+					this.manualSyncRequired = true
+					this.selectedRepoName = this._source.repositories[0].name
+					this._setModel(p)
+					this.isBusy = false
+					this.apiActivated.emit(false)
+				}, error => {
           // bugger even that failed.
+					this.isBusy = false
 
-          this.isBusy = false
-
-          if (error.status == 404) {
+          			if (error.status == 404) {
 					  window.alert("Error 404 - git request failed, this might be either because you have specified invalid user credentials, or the packages path is not valid. Please revisit your git preferences")
-				  } else {
+				  	} else {
 					  window.alert("Error " + error.status + ", git request failed with error " + error.message)
-				  }
-        })
+				  	}
+        		})
 			})
 		}
 	}

@@ -12,6 +12,7 @@ import {Container} from '../models/container';
 import {ArgDisplayType} from '../models/display-type';
 import {Builder, DeploymentSet} from '../models/build';
 import { environment } from '../../environments/environment'
+import {ResourceService} from './resources.service';
 
 @Injectable()
 export class ConfigurationService {
@@ -264,6 +265,10 @@ export class ConfigurationService {
          }))
     }
 
+    public downloadBuild(id: string): void {
+        window.open(ConfigurationService.URI_CONFIG + "/build/" + encodeURIComponent(id))
+    }
+
     public build(id: string): Observable<Builder> {
 
       let url: string = ConfigurationService.URI_CONFIG + "/build/" + encodeURIComponent(id)
@@ -274,7 +279,7 @@ export class ConfigurationService {
 
       return this._http.get(url, { headers }).pipe(map( (responseData) => {
 
-            return Builder.make((<any>responseData).build.build || (<any>responseData).build)
+            return Builder.make(responseData)
           },
           error => {
             return null
@@ -349,6 +354,10 @@ export class ConfigurationService {
           error => {
             return null
          }))
+    }
+
+    public downloadRunSet(id: string): void {
+        window.open(ConfigurationService.URI_CONFIG + "/run/" + encodeURIComponent(id))
     }
 
     public uploadRunSet(runSet: RunSet): Observable<boolean> {
