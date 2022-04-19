@@ -29,7 +29,6 @@
            [ngClass]="classForSubmenuItem(item)">{{labelForSubmenu(item)}} </a>
       </div>
     </div>
-    <span style="float: right; padding-right: 20px; line-height: 15px; vertical-align: top; font-size: small; color: lightgray">v. {{version}}</span>
     <span class="page-description">{{currentMenu.description}}</span>
     <span *ngIf="currentMenu.label == 'Configuration Variables'">
       <a href="" onclick="window.open('http://localhost:5555/#/integration/dsp/microservices.dsp', '_blank', 'location=yes,width=1720,height=870,scrollbars=yes,status=yes'); return false" matTooltip="Opens a link to your local Microservices Runtime Portal from where you can export a configurations template file" style="width:15px;"> <fa-icon class="icon" [icon]="['fas', 'external-link-alt']" style="margin-left: 5px; color: blue; margin-right: 20px"> </fa-icon> </a>
