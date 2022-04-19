@@ -54,7 +54,7 @@ import {FormControl} from '@angular/forms'
 
 export class AppComponent implements OnInit, OnDestroy {
 
-    public static VERSION = "1.5"
+    public static VERSION = "1.6"
 
     public currentRouteURL: string
     public currentRouteURLObserver: any

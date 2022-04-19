@@ -583,21 +583,23 @@ export class DockerService {
 
     private _filterAllList(type: DockerFilterType): DockerImage[] {
 
-        let out: DockerImage[] = []
+        if (type == DockerFilterType.all) {
+            return this.__allImages
+        } else {
+            let out: DockerImage[] = []
 
-        this.__allImages.forEach((a) => {
+            this.__allImages.forEach((a) => {
 
-            if (a.name) {
-                if (type == DockerFilterType.custom && a.isCustom)
-                  out.push(a)
-                else if (type == DockerFilterType.sag && a.isSagImage)
-                  out.push(a)
-                else  if (type == DockerFilterType.all)
-                  out.push(a)
-            }
-        })
+                if (a.name) {
+                    if (type == DockerFilterType.custom && a.isCustom)
+                        out.push(a)
+                    else if (type === DockerFilterType.sag && a.isSagImage)
+                        out.push(a)
+                }
+            })
 
-        return out
+            return out
+        }
     }
 
     private _mapImagesResponse(filter: string, responseData: any): DockerImage[]

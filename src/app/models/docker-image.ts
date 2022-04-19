@@ -166,7 +166,7 @@ export class DockerImage {
 
 	public setDedicatedRepository(dedicated: boolean) {
 
-		if (this._dedicatedRepo && !dedicated) {
+		/*if (this._dedicatedRepo && !dedicated) {
 			// remove image name from repo
 
 			let index: number = this._repository.indexOf(this._name)
@@ -179,7 +179,7 @@ export class DockerImage {
 
 			if (this._repository != null && this._name != null && !this._repository.endsWith(this._name))
 				this._repository = this._repository + "/" + this._name
-		}
+		}*/
 
 		this._dedicatedRepo = dedicated
 
@@ -540,46 +540,6 @@ export class DockerImage {
 						image.testStatus = TestStatus.todo
 					else if (data.testStatus == "RUNNING")
 						image.testStatus = TestStatus.running
-			}
-
-			if (image._tag.indexOf(":") != -1) {
-				let split: number = image._tag.indexOf(":")
-          		let before: string = image._tag.substring(0, split)
-          		let after: string = image._tag.substring(split+1)
-
-          		if (DockerImage.isVersionNumber(after)) {
-            // value version
-
-            		image._dedicatedRepo = true
-            		image._name = before
-            		image._version = after
-
-            // either no repository or dedicated repository where tag is only the version
-            	if (image._repository == null || image._name.indexOf(image._repository) != -1) {
-              		image._repository = image._name
-            	}
-
-            // perhaps the repo is in the name part (check if we have a slash)
-
-            	if (image._name.lastIndexOf("/") != -1) {
-              		let split: number = image._name.lastIndexOf("/")
-              		//image._repository = image._name.substring(0, split)
-              		image._name = image._name.substring(split+1)
-            	}
-          	} else {
-            // name is in tag part!!
-
-            	image._repository = before
-            	image._dedicatedRepo = false
-            	let split: number = after.lastIndexOf("-")
-
-            	if (split != -1 && DockerImage.isVersionNumber(after.substring(split+1))) {
-              		image._name = after.substring(0, split)
-              		image._version = after.substring(split+1)
-            	} else {
-              		image._name = after
-            	}
-				  }
 			}
 		} else {
 			image._tag = "none"
