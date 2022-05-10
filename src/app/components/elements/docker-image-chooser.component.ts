@@ -10,6 +10,7 @@ import { DockerService }								from '../../services/docker.service'
 import {Observable, of }                  				from 'rxjs'
 import { map, startWith }                 				from 'rxjs/operators'
 import {BuildCommand} from '../../models/build';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'docker-image-chooser',
@@ -17,7 +18,7 @@ import {BuildCommand} from '../../models/build';
   <form [formGroup]="formGroup">
 	  <div *ngIf="!disabled;else disabledDiv"style="display:flex; flex-direction: row; width:100%; align-items: center">
 		  <mat-tab-group *ngIf="allowBuild; else chooser" animationDuration="40ms" [(selectedIndex)]="selectedTabIndex" style="width: 60%; border: lightgray solid 1px">
-			  <mat-tab label="{{title || 'Image'}}" [disabled]="value && value.dockerFile">
+			  <mat-tab label="{{title || 'Image'}}" [disabled]="value && value.dockerFile != null">
 				  <div style="padding: 20px">
 					  <ng-container *ngIf="value && value.dockerFile; else chooserWrapper">
 						  <ng-container *ngTemplateOutlet="dockerFile">
@@ -50,10 +51,10 @@ import {BuildCommand} from '../../models/build';
 				  <label *ngIf="title">{{title}}</label>
 				  <div>
 					  <mat-form-field style="min-width: 350px" [floatLabel]="title ? 'never' : (float ? 'float' : 'auto')">
-						  <input [id]="baseIdentifier('input')" matInput placeholder="Docker Image template" [formControlName]="imageControlLabel" [matAutocomplete]="auto" oninput="this.value = this.value.toLowerCase()" [disabled]="value && value.dockerFile">
+						  <input [id]="baseIdentifier('input')" matInput placeholder="Docker Image template" [formControlName]="imageControlLabel" [matAutocomplete]="autoImage" oninput="this.value = this.value.toLowerCase()" [disabled]="value && value.dockerFile">
 						  <mat-hint *ngIf="showRepoLabel()" align="start"><strong>{{value.repository()}}</strong> </mat-hint>
 						  <mat-hint *ngIf="hint()" align="start">{{hint()}}</mat-hint>
-						  <mat-autocomplete #auto="matAutocomplete">
+						  <mat-autocomplete #autoImage="matAutocomplete">
 							  <mat-option class="multiline-mat-option" *ngFor="let image of filteredImages | async" [value]="image.name()" [ngStyle]="styleForImageItem(image)">
 								  <p>{{image.name()}}</p>
 								  <small style="color: gray">{{image.repository()}}</small>
@@ -62,11 +63,12 @@ import {BuildCommand} from '../../models/build';
 						  <button [id]="baseIdentifier('button')" matSuffix *ngIf="showPullButton()" mat-flat-button (click)="pullImage($event)" style="margin-left: 5px; margin-top: -15px" matTooltip="Pull image from remote repository, include both registry and version e.g. registry/image:version"> <fa-icon class="icon" [icon]="['fas', 'plus-square']" style="color: red"></fa-icon> </button>
 					  </mat-form-field>
 					  <mat-form-field *ngIf="showVersionSelector()" style="width: 100px; margin-left: 10px" floatLabel="never">
-						  <mat-select [id]="baseIdentifier('version')" placeholder="Version" [formControlName]="imageVersionControlLabel" [disabled]="disabled">
+						  <input [id]="baseIdentifier('version')" matInput placeholder="Version" [formControlName]="imageVersionControlLabel" [disabled]="disabled" [matAutocomplete]="autoVersion">
+						  <mat-autocomplete #autoVersion="matAutocomplete">
 							  <mat-option *ngFor="let image of availableVersions" [value]="image.version()">
 								  {{image.version()}}
 							  </mat-option>
-						  </mat-select>
+						  </mat-autocomplete>
 					  </mat-form-field>
 					  <p *ngIf="value && value.dockerFile">
 						  {{value.dockerFile}}
@@ -127,7 +129,10 @@ export class DockerImageChooserComponent implements OnInit, OnChanges, OnDestroy
 	public disabled: boolean = false
 
 	@Input()
-	public allowPull: boolean
+	public allowPull: string
+
+	@Input()
+	public allowBuild: string
 
 	@Input()
 	public allowLatest: boolean
@@ -143,9 +148,6 @@ export class DockerImageChooserComponent implements OnInit, OnChanges, OnDestroy
 
 	@Input()
 	public hints: Map<any, string>
-
-	@Input()
-	public allowBuild: boolean = false
 
 	@Output()
 	public selectedImage: EventEmitter<DockerImage> = new EventEmitter()
@@ -168,7 +170,7 @@ export class DockerImageChooserComponent implements OnInit, OnChanges, OnDestroy
 	private _ignoreChanges: boolean = false
   	private _priorDisabled: boolean = null
 
-	public constructor(private _formBuilder: FormBuilder, private _dockerService: DockerService) {
+	public constructor(private _formBuilder: FormBuilder, private _dockerService: DockerService, private _snackBar: MatSnackBar) {
 
 		this.imageCtrl = new FormControl(null, Validators.required)
 		this.imageVersionCtrl = new FormControl()
@@ -232,18 +234,23 @@ export class DockerImageChooserComponent implements OnInit, OnChanges, OnDestroy
 
           this.preferredVersion = this.imageVersionCtrl.value
 
-          let image = this.imageFor(this.imageCtrl.value, this.imageVersionCtrl.value)
+          let image = this.imageFor(this.imageCtrl.value, this.imageVersionCtrl.value, this.allowPull === 'true')
 
-          if (!image && this.preferredVersion === 'latest') {
-            image = this.imageFor(this.imageCtrl.value).copy()
-            image.setVersion('latest')
-          } else if (this.preferredVersion === 'latest') {
-            image.setVersion('latest')
-          }
+		  if (this.preferredVersion === 'latest') {
+			  if (!image) {
+				  image = this.imageFor(this.imageCtrl.value).copy()
+				  image.setVersion('latest')
+			  } else if (this.preferredVersion === 'latest') {
+				  image.setVersion('latest')
+			  }
+		  } else if (!image) {
+			  image = this.imageFor(this.imageCtrl.value).copy()
 
+			  image.setVersion(this.preferredVersion)
+		  }
+
+		  this.flagChange(image)
           this.imageVersionCtrl.markAsPristine()
-
-          this.flagChange(image)
       }
     })
 
@@ -349,7 +356,7 @@ export class DockerImageChooserComponent implements OnInit, OnChanges, OnDestroy
 
 	public showPullButton(): boolean {
 
-		return (this.allowPull && this.imageCtrl.value && this.imageFor(this.imageCtrl.value) == null)
+		return (this.allowPull && this.imageCtrl.value && this.imageFor(this.imageCtrl.value, this.imageVersionCtrl.value, false) == null)
 	}
 
 	public showVersionSelector(): boolean {
@@ -359,11 +366,18 @@ export class DockerImageChooserComponent implements OnInit, OnChanges, OnDestroy
 
 	public pullImage(event: any) {
 
+		this._snackBar.open('Pulling package', 'Dismiss')
+
 		this._dockerService.pullImage(this.value.tag()).subscribe((d) => {
 
-			this.dockerImages.push(d)
-			this.value = d
-			this._setValue()
+			if (d) {
+				this.setImageFor(d)
+				this.value = d
+				this._setValue()
+				this._snackBar.dismiss()
+			} else {
+				this._snackBar.open('Pull failed', 'Argh', {duration: 3000})
+			}
 		})
 	}
 
@@ -486,7 +500,7 @@ export class DockerImageChooserComponent implements OnInit, OnChanges, OnDestroy
 		this._ignoreChanges = false
     }
 
-    private imageFor(name: string, version?: string): DockerImage {
+    private imageFor(name: string, version?: string, allowOtherVersions?: boolean): DockerImage {
 
       var found: DockerImage = null
 
@@ -494,20 +508,66 @@ export class DockerImageChooserComponent implements OnInit, OnChanges, OnDestroy
 
         if (this.dockerImages[i].name() == name) {
 
-          found = this.dockerImages[i]
+			var x: DockerImage = this.dockerImages[i]
 
-          if  (version && found.version() != version) {
+			if (!version || x.version() == version) {
+				// exact match
 
-            for (var z=0; z < found.availableVersions.length; z++) {
-              if (found.availableVersions[z].version() == version) {
-                found = found.availableVersions[z]
-                break
-              }
-            }
-          }
+				found = x
+				break
+			} else if (!allowOtherVersions) {
+
+				// don't allow version if not in list
+
+				for (let z=0; z < x.availableVersions.length; z++) {
+					if (x.availableVersions[z].version() == version) {
+						found = x.availableVersions[z]
+						break
+					}
+				}
+			}
         }
+
+		if (found) {
+			break
+		}
       }
 
       return found
     }
+
+	private setImageFor(image: DockerImage): void {
+
+		var foundName: boolean = false
+
+		for (var i=0; i < this.dockerImages.length; i++) {
+
+			if (this.dockerImages[i].name() == image.name()) {
+
+				foundName = true
+
+				var x: DockerImage = this.dockerImages[i]
+				var foundVersion: boolean = false
+				for (let z=0; z < x.availableVersions.length; z++) {
+					if (x.availableVersions[z].version() == image.version()) {
+						foundVersion = true
+						break
+					}
+				}
+
+				if (!foundVersion) {
+					x.availableVersions.push(image)
+				}
+
+				break
+			}
+		}
+
+		if (!foundName) {
+			this.dockerImages.push(image)
+			if (image.availableVersions.length == 0) {
+				this.availableVersions.push(image)
+			}
+		}
+	}
 }

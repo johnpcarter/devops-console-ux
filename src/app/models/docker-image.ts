@@ -505,7 +505,32 @@ export class DockerImage {
 			image._tag = data._tag || data._name
 			image._name = data._name
 			image._version = data._version
-			image._dedicatedRepo = data._dedicatedRepo
+
+			if (data._tag.indexOf(":") != -1) {
+				if (data._tag.substring(data._tag.indexOf(":")).indexOf(data._version)) {
+					image._dedicatedRepo = true
+				} else {
+					image._dedicatedRepo = false
+				}
+
+				console.log("poop")
+			}
+
+			if (data._version != null && image._tag.indexOf(data._version) == -1) {
+
+				if (image._tag.endsWith("-slim")) {
+					image._tag = image._tag.substring(0, image._tag.length - 5) + ":" + data._version + "-slim"
+				} else if (image._tag.endsWith("-ubi")) {
+					image._tag = image._tag.substring(0, image._tag.length - 4) + ":" + data._version + "-ubi"
+				} else {
+					image._tag += ":" + data._version
+				}
+			}
+
+			if (data._dedicatedRepo != null) {
+				image._dedicatedRepo = data._dedicatedRepo
+			}
+
 			image.type = data.type
 			image.primaryPort = data.primaryPort
 
@@ -621,39 +646,36 @@ export class DockerImage {
 
 	private _updateTag() {
 
-		if (this._dedicatedRepo) {
+		var nameSeparator = "/"
+		var versionSeparator = ":"
+		var name = this._name
+		var version = this._version
 
-			if (this._repository && this._repository.endsWith(this._name)) {
+		if (!this._dedicatedRepo) {
+			nameSeparator = ":"
+			versionSeparator = "-"
+		}
 
-				if (this._version) {
-					this._tag = this._repository + ":" + this._version
-				} else {
-					this._tag = this._repository + ":1.0"
-				}
-			} else if (this._repository) {
-				if (this._version) {
-					this._tag = this._repository + "/" + this._name + ":" + this._version
-				} else {
-					this._tag = this._repository + "/" + this._name + ":1.0"
-				}
-			} else {
-				if (this._version) {
-					this._tag = this._name + ":" + this._version
-				} else {
-					this._tag = this._name + ":1.0"
-				}
-			}
-		} else if(this._repository) {
+		if (!version) {
+			version = "1.0"
+		}
 
-			if (this._version) {
-				this._tag = this._repository + ":" + this._name + "-" + this._version
-      		} else {
-        		this._tag = this._repository + ":" + this._name
-      		}
-		} else if (this._version) {
-			this._tag = this._name + ":" + this._version
+		if (name && name.endsWith('-slim')) {
+			name = name.substring(0, name.length-5)
+			version += '-slim'
+		}
+
+		if (name && name.endsWith('-ubi')) {
+			name = name.substring(0, name.length-4)
+			version += '-ubi'
+		}
+
+		if (this._repository && this._repository.endsWith(name)) {
+			this._tag = this._repository + versionSeparator + version
+		} else if (this._repository) {
+			this._tag = this._repository + nameSeparator + name + versionSeparator + version
 		} else {
-			this._tag = this._name
+			this._tag = name + versionSeparator + version
 		}
 	}
 }

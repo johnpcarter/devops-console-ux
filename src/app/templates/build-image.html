@@ -9,7 +9,7 @@
               <ng-template matStepLabel>{{productCodeLabel()}}</ng-template>
                 <div style="display: flex; flex-direction: column; align-items: flex-start;">
                   <input id="build.image.baseImage" type="hidden" formControlName="baseImageCtrl" required>
-                  <docker-image-chooser title="Select Base Image" [dockerImages]="baseImages" [value]="currentBaseImage()" (selectedImage)="baseImageSelected($event)" allowPull="true"></docker-image-chooser>
+                  <docker-image-chooser title="Select Base Image" [dockerImages]="baseImages" [value]="currentBaseImage()" (selectedImage)="baseImageSelected($event)" allowPull=true></docker-image-chooser>
                   <span *ngIf="this.baseImageCtrl.value && this.baseImageCtrl.value.length > 0 && this.currentBuild.sourceImage.id == null" style="font-size: 11px; color: red; font-weight: bold">
                     No such image exists locally, will attempt to pull from remote repository!!
                   </span>

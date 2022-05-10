@@ -60,12 +60,12 @@ export class DockerService {
 
        return this._http.get(url, options).pipe(map( (responseData) => {
 
-            return DockerImage.make((<any>responseData).image)
+            return DockerImage.make((<any>responseData).imageInfo)
 
-          },
-          error => {
-            return null
-        }))
+          }), catchError((error) => {
+           console.log(error.message)
+           return of(null)
+       }))
     }
 
     public pushImage(image: DockerImage, environment?: string): Observable<boolean> {

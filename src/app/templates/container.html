@@ -36,7 +36,7 @@
 				<div style="padding: 20px">
 					<mat-panel-title><b>Image</b></mat-panel-title>
 					<div style="margin-left: 30px; margin-top: 20px; min-width: 400px">
-						<docker-image-chooser allowBuild="true" [reference]="container.name" [id]="containerId('image')" style="margin-left: 10px; min-width: 350px;" [dockerImages]="images" [value]="currentImage()" [disabled]="!editMode" [allowLatest]="isCustom()" [preferredVersion]="preferredVersion()" (selectedImage)="imageSelected($event)" (buildCommands)="buildCommandsUpdated($event)"></docker-image-chooser>
+						<docker-image-chooser allowBuild=true [reference]="container.name" [id]="containerId('image')" style="margin-left: 10px; min-width: 350px;" [dockerImages]="images" [value]="currentImage()" [disabled]="!editMode" [allowLatest]="isCustom()" [preferredVersion]="preferredVersion()" (selectedImage)="imageSelected($event)" (buildCommands)="buildCommandsUpdated($event)"></docker-image-chooser>
 					</div>
 
 				</div>

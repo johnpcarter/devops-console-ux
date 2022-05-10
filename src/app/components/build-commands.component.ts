@@ -292,8 +292,6 @@ export class BuildCommandsComponent implements OnInit, OnChanges {
 			filename = this.reference + "-" + filename
 		}
 
-		console.log("filename is " + filename)
-
 		return filename
 	}
 
