@@ -20,7 +20,7 @@
 
     <ng-container matColumnDef="Containers">
       <mat-header-cell *matHeaderCellDef style="flex-grow: 2"> Containers </mat-header-cell>
-      <mat-cell *matCellDef="let element" style="display:flex;flex-direction: column; align-items: flex-start; flex-grow: 2; padding: 5px">
+      <mat-cell *matCellDef="let element" style="display:flex;flex-direction: column; align-items: flex-start; justify-content: space-around; flex-grow: 2; padding: 5px">
         <p style="line-height:19px;min-height:12px;" *ngFor="let c of containerSummary(element)">{{c}}</p>
       </mat-cell>
     </ng-container>

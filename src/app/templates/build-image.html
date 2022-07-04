@@ -36,8 +36,9 @@
                       <mat-hint align="start">Optional, Use this to save your build parameters for future reference and to enable automatic builds. </mat-hint>
                     </mat-form-field>
                     <div [hidden]="!buildCtrl.value" style="flex-grow: 1; display: inline-flex; justify-content: flex-start; align-items: center">
-                      <button id="build.image.addTemplateButton" mat-flat-button color="accent" (click)="addTemplate($event)" [disabled]="buildCtrl.value == null || isExistingTemplate()" style="margin-right: 10px">Add</button>
-                      <button id="build.image.deleteTemplateButton" mat-flat-button color="warn" (click)="deleteTemplate($event)" [disabled]="!isExistingTemplate()" style="margin-left: 10px">Delete</button>
+                      <button id="build.image.addTemplateButton" mat-flat-button color="accent" (click)="addTemplate($event)" [disabled]="buildCtrl.value == null || isExistingTemplate()"><fa-icon class="icon" [icon]="['fas', 'plus-circle']"></fa-icon></button>
+                      <button id="build.image.deleteTemplateButton" mat-flat-button color="primary" (click)="copyTemplate($event)" [disabled]="!isExistingTemplate()" style="margin-left: 10px"><fa-icon class="icon" [icon]="['fas', 'copy']"></fa-icon></button>
+                      <button id="build.image.deleteTemplateButton" mat-flat-button color="warn" (click)="deleteTemplate($event)" [disabled]="!isExistingTemplate()" style="margin-left: 20px"><fa-icon class="icon" [icon]="['fas', 'trash-alt']"></fa-icon></button>
                     </div>
                   </div>
                 </div>

@@ -26,6 +26,7 @@ export class Container {
   public hostname: string
   public secure: string
   public image: string
+  public buildRef: string
   public build: DockerBuild
   public environments: Environment[]
   public readinessProbe
@@ -167,6 +168,7 @@ export class Container {
     c.hostname = data.hostName
     c.secure  = data.secure
     c.image = data.image
+    c.buildRef = data.buildRef
     c.adminUser = data.adminUser
     c.adminPassword = data.adminPassword
 

@@ -3,12 +3,15 @@ import { Component, ChangeDetectorRef, OnInit, OnChanges, OnDestroy,
 import { Router }                                                 from '@angular/router'
 
 import { MatTable }                                               from '@angular/material/table'
+import { MatDialog }                                              from '@angular/material/dialog'
 
 import { Settings }                                               from '../../settings'
 import { LivePods, LivePodsCount }                                from '../../support/live-pods'
 import { K8sPod, PodStatus }                                      from '../../models/k8s-pod'
 import { K8sDeployment }                                          from '../../models/k8s-deployment'
 import { K8sService }                                             from '../../services/k8s.service'
+import { SimpleNameComponent }                                    from '../elements/simple-name.component'
+
 
 const PODS_LIST_REFRESH_INTERVAL = 5000
 
@@ -37,7 +40,7 @@ export class PodsListComponent implements OnInit, OnChanges, OnDestroy {
 
     @ViewChild('podsTable', {read: MatTable}) table: MatTable<any>
 
-    public constructor(private _router: Router, private _settings: Settings, private _podService: K8sService) {
+    public constructor(private _router: Router, private _settings: Settings, private _podService: K8sService, private _dialog: MatDialog) {
 
     }
 
@@ -62,9 +65,7 @@ export class PodsListComponent implements OnInit, OnChanges, OnDestroy {
 
     public ngOnDestroy() {
 
-            console.log("destroying for" + this.appId)
-
-      this._podsSource.stop()
+        this._podsSource.stop()
     }
 
     public start() {
@@ -73,9 +74,32 @@ export class PodsListComponent implements OnInit, OnChanges, OnDestroy {
 
       this._podsSource = new LivePods(this.namespace, this.appId, PODS_LIST_REFRESH_INTERVAL, this._podService)
       this._podsSource.refreshPods().subscribe((podsCount) => {
-        this.podCountChanged.emit(podsCount)
-      })
 
+          if (podsCount.ready == -1) {
+            this.requestTokenUpdate()
+          } else {
+              this.podCountChanged.emit(podsCount)
+          }
+      })
+    }
+
+    public requestTokenUpdate() {
+        const dialogRef = this._dialog.open(SimpleNameComponent, {width: "80%",
+            data: {title: 'Enter a valid Bearer Token to access your kubernetes environment', type: 'password', hint: 'e.g. kubectl -n kubernetes-dashboard create token admin-user', description: 'token'}
+        })
+
+        dialogRef.afterClosed().subscribe(name => {
+
+            if (name) {
+                this._settings.values().subscribe((v) => {
+
+                    v.k8sToken = name
+                    this._settings.saveChanges(v)
+
+                    this.start()
+                })
+            }
+        })
     }
 
     public dataSource(): K8sPod[] {

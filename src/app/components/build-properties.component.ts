@@ -2,20 +2,20 @@ import { Component, OnInit }   							from '@angular/core'
 import { FormBuilder, FormControl, FormGroup } 			from '@angular/forms'
 import {ActivatedRoute, Router} from '@angular/router';
 
-import { MatDialog } 									from '@angular/material/dialog';
-import {MatSnackBar, MatSnackBarRef, TextOnlySnackBar} from '@angular/material/snack-bar';
+import { Observable, of } 								from 'rxjs'
+import { map, startWith } 								from 'rxjs/operators'
+
+import { MatDialog } 									from '@angular/material/dialog'
+import { MatSnackBar, MatSnackBarRef, TextOnlySnackBar } from '@angular/material/snack-bar'
 
 import { ConfigurationService } 			 			from '../services/configuration.service'
 import { ResourceService } 								from '../services/resources.service'
 import { Property } 									from '../models/properties'
-import { JdbcConnectionProperties, ServiceQueueDestType } 		from '../models/jdbc-connection-properties';
+import { JdbcConnectionProperties, ServiceQueueDestType } 		from '../models/jdbc-connection-properties'
 import { ARTConnectionProperties } 								from '../models/art-properties'
-import { SimpleNameComponent} 							from './elements/simple-name.component';
-import { SimpleConfirmationComponent } 					from './elements/simple-confirmation.component';
-import {Observable, of} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
-import {BuildCommand} from '../models/build';
-import {WmCloudProperties} from '../models/wm-cloud-properties';
+import { SimpleNameComponent} 							from './elements/simple-name.component'
+import { SimpleConfirmationComponent } 					from './elements/simple-confirmation.component'
+import { WmCloudProperties } 							from '../models/wm-cloud-properties'
 
 @Component({
   selector: 'build-package',
@@ -102,8 +102,13 @@ export class BuildPropertiesComponent implements OnInit {
 			if (this.propsCtrl.dirty) {
 				this.propsCtrl.markAsPristine()
 				this.loadPropertiesFile(this.propsCtrl.value)
-			} else if (this.auditDestCtrl.dirty) {
+			} else {
 				this.auditDestCtrl.markAsPristine()
+				this.centralUserCtrl.markAsPristine()
+				this.internalDestCtrl.markAsPristine()
+				this.adaptersCtrl.markAsPristine()
+				this.xrefCtrl.markAsPristine()
+
 				this.saveProperties()
 			}
 		})
@@ -207,6 +212,24 @@ export class BuildPropertiesComponent implements OnInit {
 
 			this.saveProperties()
 		}
+	}
+
+	public copyPropertiesFile(event: any) {
+
+		let dialogRef = this._dialog.open(SimpleNameComponent, {
+			width: "600px",
+			height: "150px",
+			data: { title: "Name of new properties file" },
+		})
+
+		dialogRef.afterClosed().subscribe(result => {
+
+			if (result) {
+				this.currentFile = result
+				this.propsCtrl.setValue(result, {onlySelf: true, emitEvent: false})
+				this.saveProperties()
+			}
+		})
 	}
 
 	public deletePropertiesFile(event: any) {
@@ -380,10 +403,10 @@ export class BuildPropertiesComponent implements OnInit {
 				&& this.isPropertyPresent("settings.watt.server.serverlogFilesToKeep", this.extendedProperties)
 				&& this.isPropertyPresent("settings.watt.server.stats.logFilesToKeep", this.extendedProperties)
 				&& this.isPropertyPresent("settings.watt.debug.level", this.extendedProperties)
-				&& this.isPropertyPresent("watt.server.pipeline.processor", this.extendedProperties)
-				&& this.isPropertyPresent("watt.server.threadPool", this.extendedProperties)
-				&& this.isPropertyPresent("watt.server.threadPoolMin", this.extendedProperties)
-				&& this.isPropertyPresent("watt.net.default.accept", this.extendedProperties)
+				&& this.isPropertyPresent("settings.watt.server.pipeline.processor", this.extendedProperties)
+				&& this.isPropertyPresent("settings.watt.server.threadPool", this.extendedProperties)
+				&& this.isPropertyPresent("settings.watt.server.threadPoolMin", this.extendedProperties)
+				&& this.isPropertyPresent("settings.watt.net.default.accept", this.extendedProperties)
 
 		} else {
 			return true
@@ -402,11 +425,11 @@ export class BuildPropertiesComponent implements OnInit {
 		this.addPropertyIfNotPresent(new Property("settings.watt.server.serverlogFilesToKeep", "1", "don't keep archive files"), this.extendedProperties)
 		this.addPropertyIfNotPresent(new Property("settings.watt.server.stats.logFilesToKeep", "1", "don't keep archive files"), this.extendedProperties)
 		this.addPropertyIfNotPresent(new Property("settings.watt.debug.level", "Warn", "Set logging level to warning only"), this.extendedProperties)
-		this.addPropertyIfNotPresent(new Property("watt.server.pipeline.processor", "false", "Disables pipeline save/restore debug options"), this.extendedProperties)
-		this.addPropertyIfNotPresent(new Property("watt.net.default.accept", "application/json", "Set the default repsonse type if Accept header missing"), this.extendedProperties)
+		this.addPropertyIfNotPresent(new Property("settings.watt.server.pipeline.processor", "false", "Disables pipeline save/restore debug options"), this.extendedProperties)
+		this.addPropertyIfNotPresent(new Property("settings.watt.net.default.accept", "application/json", "Set the default response type if Accept header missing in outbound http calls"), this.extendedProperties)
 
-		this.addPropertyIfNotPresent(new Property("watt.server.threadPool", "75", "maximum number of permitted service threads"), this.extendedProperties)
-		this.addPropertyIfNotPresent(new Property("watt.server.threadPoolMin", "20", "minimum number of service threads to allocate"), this.extendedProperties)
+		this.addPropertyIfNotPresent(new Property("settings.watt.server.threadPool", "75", "maximum number of permitted service threads"), this.extendedProperties)
+		this.addPropertyIfNotPresent(new Property("settings.watt.server.threadPoolMin", "20", "minimum number of service threads to allocate"), this.extendedProperties)
 
 		this.extendedProperties = this.copyList(this.extendedProperties)
 		this.otherProperties = this.copyList(this.otherProperties)
@@ -463,7 +486,8 @@ export class BuildPropertiesComponent implements OnInit {
 						this.extendedProperties.push(kv)
 					} else if (kv.key.startsWith('globalvariable.')) {
 						this.globalProperties.push(kv)
-					} else if (!kv.key.startsWith(ARTConnectionProperties.PREFIX) && !kv.key.startsWith(JdbcConnectionProperties.JDBC_PREFIX)) {
+					} else if (!kv.key.startsWith(ARTConnectionProperties.PREFIX) && !kv.key.startsWith(JdbcConnectionProperties.JDBC_PREFIX)
+					&& !kv.key.startsWith(WmCloudProperties.PREFIX_ACCOUNT) && !kv.key.startsWith(WmCloudProperties.PREFIX_SETTINGS) && !kv.key.startsWith(JdbcConnectionProperties.JDBC_SERVICEQUEUE_DEST)) {
 						this.otherProperties.push(kv)
 					}
 				})

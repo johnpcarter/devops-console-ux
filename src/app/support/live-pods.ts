@@ -17,19 +17,30 @@ export class LivePods {
 	private _hasChanges: boolean = false
 	private _pleaseStop: boolean = false
 
-	private _observer: Observable<LivePodsCount>
+	private _appType: string = null
+
+	//private _observer: Observable<LivePodsCount>
 
 	public constructor(private _namespace: string, private _deploymentId: string, private _refreshInterval, private _k8sService: K8sService) {
 
 		this.appId = _deploymentId
 		
 		this.fetchPods().subscribe((d) => {
-          this._dataSource = d
+
+			if (d == null) {
+				// mean's we got an error probably an authentication error
+
+			} else if (d.length > 0) {
+				this._dataSource = d
+			} else {
+				// no pods returned from this deployment, probably because they are labelled differently, let's try that
+
+				this._appType = 'k8s-app'
+				this.fetchPods().subscribe((d) => {
+					this._dataSource = d
+				})
+			}
         })
-
-        // now schedule refresh
-
-        //this.refreshPods()
 	}
 
 	public stop() {
@@ -52,16 +63,36 @@ export class LivePods {
 		})
 	}
 
-	private _refreshPods(observer: Subscriber<LivePodsCount>) {
+	private _refreshPods(observer: Subscriber<LivePodsCount>, refreshInterval?: number) {
 
 		let ref: LivePods = this
+
+		if (refreshInterval == null)
+			refreshInterval = this._refreshInterval
+
 		setTimeout(() => {
 
         	ref.fetchPods().subscribe((d) => {
-        		ref.updatePods(observer, d)
+
+				if (d == null) {
+
+					// mean's we got an error probably an authentication error, report it by return -1 via the observer
+
+					observer.next(new LivePodsCount(this.appId, -1, -1, -1))
+					observer.complete()
+
+				} else if (d.length == 0 && this._appType != 'k8s-app') {
+
+					// no pods returned from this deployment, probably because they are labelled differently, let's try that
+
+					this._appType = 'k8s-app'
+					this._refreshPods(observer, 0)
+				} else {
+					ref.updatePods(observer, d)
+				}
         	})
 
-        }, this._refreshInterval)
+        }, refreshInterval)
 	}
 
 	private updatePods(observer: Subscriber<LivePodsCount>, pods: K8sPod[]) {
@@ -155,6 +186,6 @@ export class LivePods {
 
 	private fetchPods(): Observable<K8sPod[]> {
 
-		return this._k8sService.podsForAppLabel(this._namespace, this._deploymentId); //TODO: change this false
+		return this._k8sService.podsForAppLabel(this._namespace, this._deploymentId, this._appType); //TODO: change this false
 	}
 }

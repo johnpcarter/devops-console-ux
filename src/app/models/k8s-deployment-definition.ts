@@ -16,6 +16,7 @@ export class K8sDeploymentDefinition {
 	public name: string
 	public deploymentId: string
 	public serviceId: string
+	public serviceType: string
 	public description: string
 	public namespace: string
 	public reference: string
@@ -58,6 +59,7 @@ export class K8sDeploymentDefinition {
 		this.description = data.metadata.labels.app
 		this.serviceId = data.metadata.labels.serviceId
 		this.deploymentId = data.metadata.labels.deploymentId
+		this.serviceType = data.metadata.labels.serviceType
 		this.namespace = data.metadata.namespace
 		this.reference = data.metadata.selfLink
 		this.creationDate = moment(data.metadata.creationTimestamp).toDate()

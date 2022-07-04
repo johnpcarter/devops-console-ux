@@ -11,9 +11,10 @@
                   </mat-form-field>
                   <button *ngIf="isExistingPropertyFile()" id="build.image.msr.downloadPropertiesButton" (click)="downloadProperties($event)" [disabled]="!propsCtrl.value" style="margin-left: -10px; margin-right: 30px; border: none; background-color: transparent"><fa-icon class="icon" [icon]="['fas', 'file-download']" style="font-size: 12px; color: blue"></fa-icon></button>
                   <div *ngIf="propsCtrl.value" style="flex-grow: 1; display: inline-flex; justify-content: flex-end; align-items: center; margin-left: 20px">
-                      <button id="build.properties.addFile" mat-flat-button color="accent" (click)="addPropertiesFile($event)" [disabled]="isExistingPropertyFile()" style="margin-right: 10px">Add</button>
-                      <button id="build.properties.deleteFile" mat-flat-button color="warn" (click)="deletePropertiesFile($event)" [disabled]="!isExistingPropertyFile()" style="margin-left: 10px">Delete</button>
-                      <button id="build.properties.addRecommendations" mat-flat-button color="primary" (click)="setRecommendedSettings(true)" [disabled]="hasRecommendedSettings()" style="margin-left: 60px">Include recommended properties</button>
+                      <button id="build.properties.addFile" mat-flat-button color="accent" (click)="addPropertiesFile($event)" [disabled]="isExistingPropertyFile()"><fa-icon class="icon" [icon]="['fas', 'plus-circle']"></fa-icon></button>
+                      <button id="build.properties.copyFile" mat-flat-button color="primary" (click)="copyPropertiesFile($event)" [disabled]="!isExistingPropertyFile()" style="margin-left: 10px"><fa-icon class="icon" [icon]="['fas', 'copy']"></fa-icon></button>
+                      <button id="build.properties.deleteFile" mat-flat-button color="warn" (click)="deletePropertiesFile($event)" [disabled]="!isExistingPropertyFile()" style="margin-left: 30px"><fa-icon class="icon" [icon]="['fas', 'trash-alt']"></fa-icon></button>
+                      <button id="build.properties.addRecommendations" mat-flat-button color="primary" (click)="setRecommendedSettings(true)" [disabled]="hasRecommendedSettings()" style="margin-left: 80px">Include recommended properties</button>
 
                   </div>
                   <div style="float: right">

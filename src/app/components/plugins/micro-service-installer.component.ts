@@ -5,9 +5,9 @@ import {FormControl, FormGroup} from '@angular/forms'
 import {BuilderComponent, BuilderProperties, PropertiesChangedOwner} from '../elements/build-image-choose.directive'
 import {ConfigurationService} from '../../services/configuration.service'
 import {ResourceService} from '../../services/resources.service'
-import {Installer} from '../../models/Installer';
-import {BuildCommand} from '../../models/build';
-import {DisplayType} from '../../models/display-type';
+import {Installer} from '../../models/Installer'
+import {BuildCommand} from '../../models/build'
+import {DisplayType} from '../../models/display-type'
 
 @Component({
   selector: 'jc-msc-install',

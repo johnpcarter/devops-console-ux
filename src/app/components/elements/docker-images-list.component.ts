@@ -59,6 +59,9 @@ export class DockerImagesListComponent implements OnInit, OnChanges {
   @Input()
   public columns: string[]
 
+  @Input()
+  public selectedImage: DockerImage
+
   @Output()
   public haveChanges: EventEmitter<boolean> = new EventEmitter<boolean>()
 
@@ -70,8 +73,6 @@ export class DockerImagesListComponent implements OnInit, OnChanges {
 
   @Output()
   public imageCount: EventEmitter<number> = new EventEmitter<number>()
-
-  protected _selectedVersion: DockerImage
 
   public constructor(private _router: Router, private _snackBar: MatSnackBar, private _dockerImageService: DockerService) {
 
@@ -105,7 +106,6 @@ export class DockerImagesListComponent implements OnInit, OnChanges {
         }
       })
     }
-
   }
 
   public ngOnChanges() {
@@ -177,7 +177,7 @@ export class DockerImagesListComponent implements OnInit, OnChanges {
       return true
     } else if (row) {
 
-      if (this._selectedVersion && this._selectedVersion.version() == row.version())
+      if (this.selectedImage && this.selectedImage.version() == row.version())
         return true
       else
         return false
@@ -350,14 +350,14 @@ export class DockerImagesListComponent implements OnInit, OnChanges {
 
       if (Number(row.version())!= this.currentVersion) {
 
-        if (this._selectedVersion == row)
-          this._selectedVersion = null
+        if (this.selectedImage == row)
+          this.selectedImage = null
         else
-          this._selectedVersion = row
+          this.selectedImage = row
       }
 
       if (this.onSelection)
-        this.onSelection.emit(this._selectedVersion)
+        this.onSelection.emit(this.selectedImage)
     }
 
 

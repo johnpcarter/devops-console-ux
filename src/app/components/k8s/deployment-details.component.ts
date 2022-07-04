@@ -14,7 +14,19 @@ export class DeploymentDetailsComponent {
   @Input()
   public deployment: K8sDeploymentDefinition
 
-  public status(): string {
-  	return "ok"
+  public serviceId(): string {
+  	return this.deployment.serviceId
+  }
+
+  public serviceType(): string {
+    return this.deployment.serviceType
+  }
+
+  public version(): number {
+    return this.deployment.version
+  }
+
+  public createdDate(): Date {
+    return this.deployment.creationDate
   }
 }

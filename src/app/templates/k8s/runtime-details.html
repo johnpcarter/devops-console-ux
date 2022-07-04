@@ -1,16 +1,24 @@
 
   <div class="page-content-wrapper">
     <div class="page-scrollable-content">
-      <mat-accordion [hideToggle]='true' [multi]="'true'">
+      <mat-accordion [hideToggle]='true' multi="true">
         <mat-expansion-panel [expanded]="selectedDeployment" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-          <mat-expansion-panel-header class="right-aligned-header">
+          <mat-expansion-panel-header class="right-aligned-header" style="height: 70px">
             <mat-panel-title style="line-height: 60px">
              Deployment Details
             </mat-panel-title>
             <mat-panel-description>
+              <mat-form-field style="min-width: 250px; text-align: right; margin-right: 40px">
+                <mat-label *ngIf="namespace == null" style="margin-right: 25px">Select Name space</mat-label>
+                <mat-select #selectedDeploymentControl placeholder="Name space" [(value)]="namespace" style="min-width: 200px" (selectionChange)="namespaceSelectionChanged()">
+                  <mat-option *ngFor="let name of namespaces" [value]="name">
+                    {{name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
                <mat-form-field style="min-width: 250px; text-align: right">
                 <mat-label *ngIf="selectedDeployment == null">Select Deployment (required)</mat-label>
-                <mat-select #selectedDeploymentControl [(value)]="selectedDeployment" style="min-width: 200px" (selectionChange)="deploymentSelectionChanged($event)">
+                <mat-select #selectedDeploymentControl placeholder="Deployment" [(value)]="selectedDeployment" style="min-width: 200px" (selectionChange)="deploymentSelectionChanged($event)">
                   <mat-option *ngFor="let deployment of deployments" [value]="deployment">
                     {{deployment.name}}
                   </mat-option>
@@ -31,7 +39,7 @@
             </mat-panel-description>
           </mat-expansion-panel-header>
 
-          <jc-pods *ngIf="selectedDeployment" [showActions]="false" [namespace]="namespace" [appId]="selectedDeployment.name" (podCountChanged)="updatePodCount($event)"></jc-pods>
+          <jc-pods *ngIf="selectedDeployment" style="min-height: 200px" [showActions]="false" [namespace]="namespace" [appId]="selectedDeployment.name" (podCountChanged)="updatePodCount($event)"></jc-pods>
         </mat-expansion-panel>
       </mat-accordion><br/>
 

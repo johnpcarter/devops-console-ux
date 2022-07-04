@@ -40,7 +40,7 @@
 				<div class="containers-zone" cdkDropList (cdkDropListDropped)="dropContainer($event)">
 					<ng-container *ngFor="let container of service.containers">
             <div class="deployment-set-placeholder" *cdkDragPlaceholder></div>
-						<container [container]="container" [images]="images" [showK8sFields]="showK8sFields" (containerUpdated)="containerConfigUpdated(container)" (deleteContainer)="deleteContainer(container)" cdkDrag cdkDragBoundary=".containers-zone" [cdkDragData]="{container: container, service: service}" cdkDragLockAxis="y"></container>
+						<container [container]="container" [images]="images" [showK8sFields]="showK8sFields" [builds]="builds" (containerUpdated)="containerConfigUpdated($event)" (deleteContainer)="deleteContainer($event)" cdkDrag cdkDragBoundary=".containers-zone" [cdkDragData]="{container: container, service: service}" cdkDragLockAxis="y"></container>
 					</ng-container>
 					<div style="width: 100%">
 						<button id="run.deploy.container.{{service.name}}.addContainerButton" (click)="addNewContainer(service)" style="float: right; margin-right: 10px; height: 16px; border: none; background-color: transparent;"><fa-icon class="icon" [icon]="['fas', 'plus-square']" style="color: red"></fa-icon> Add Container</button>

@@ -30,8 +30,11 @@ export class ContainersComponent implements OnInit {
   @Input()
   public images: DockerImage[]
 
+  @Input()
+  public builds: string[]
+
   @Output()
-  public runSetUpdated: EventEmitter<Container> = new EventEmitter()
+  public runSetUpdated: EventEmitter<any> = new EventEmitter()
 
   public formGroup: FormGroup
   public namespaceCtrl: FormControl
@@ -96,9 +99,9 @@ export class ContainersComponent implements OnInit {
     this.runSetUpdated.emit(null)
   }
 
-  public containerConfigUpdated(container: Container) {
+  public containerConfigUpdated(ref: any) {
 
-    this.runSetUpdated.emit(container)
+    this.runSetUpdated.emit(ref)
   }
 
   public addNewContainer(service: ContainerSet) {
@@ -132,7 +135,7 @@ export class ContainersComponent implements OnInit {
       }
     }
 
-    this.runSetUpdated.emit(container)
+    this.runSetUpdated.emit({previousValue: container.buildRef})
   }
 
   public addNewService() {

@@ -1,16 +1,12 @@
 import { Component, ChangeDetectorRef, OnInit, Input,
                                            ViewChild }  from '@angular/core'
-import { Router }                                       from '@angular/router'
 
-import { MatSelect }                                    from '@angular/material/select'
 import { MatButton }                                    from '@angular/material/button'
 
 import {MatSnackBar}                                    from '@angular/material/snack-bar'
 
-import { Settings }                                     from '../../settings'
 
 import { K8sDeploymentDefinition }                      from '../../models/k8s-deployment-definition'
-import { K8sDeployment }                                from '../../models/k8s-deployment'
 import { K8sService }                                   from '../../services/k8s.service'
 
 import { ActionsComponent }                             from './runtime-actions.directive'
@@ -25,7 +21,7 @@ export class RuntimeScaleComponent implements OnInit, ActionsComponent {
   @Input()
   public selectedDeployment: K8sDeploymentDefinition
 
-  public podsCount: number = 5
+  public podsCount: number = 1
   public haveChanges: boolean = false
 
   @ViewChild('updateButton', {read: MatButton}) updateButton: MatButton
@@ -54,7 +50,7 @@ export class RuntimeScaleComponent implements OnInit, ActionsComponent {
     this._k8sService.scalePods(this.selectedDeployment, +this.podsCount).subscribe((result) => {
 
       if (result)
-        this._snackBar.open("Update Succesful", "Dismiss", {
+        this._snackBar.open("Update Successful", "Dismiss", {
           duration: 2000,
         })
       else

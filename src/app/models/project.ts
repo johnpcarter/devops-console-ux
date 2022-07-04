@@ -78,6 +78,43 @@ export class RunSet {
         return p
     }
 
+    public hasBuild(id: string): boolean {
+
+        return this.buildFor(id) != null
+    }
+
+    public buildFor(id: string): Builder {
+
+        let b: Builder = null
+
+        for (let i = 0; i < this.builds.length; i++) {
+            if (this.builds[i].name === id) {
+                b = this.builds[i]
+                break
+            }
+        }
+
+        return b
+    }
+
+    public removeBuild(id: string): boolean {
+
+        let found: number = -1
+
+        for (let i = 0; i < this.builds.length; i++) {
+            if (this.builds[i].name === id) {
+                found = i
+                break
+            }
+        }
+
+        if (found != -1) {
+            this.builds.splice(found,1)
+        }
+
+        return found != -1
+    }
+
     public deploymentFor(id: string): ContainerSet {
 
         let found: ContainerSet = null
@@ -120,8 +157,8 @@ export class RunSet {
 
             for (var i = 0; i < deployment.containers.length; i++) {
 
-                if (deployment.containers[i].name && (deployment.containers[i].name.startsWith(id) || deployment.containers[i].type == id ||
-                    (tag && deployment.containers[i].image.indexOf(tag) != -1))) {
+                if ((deployment.containers[i].buildRef == id) || (deployment.containers[i].name && (deployment.containers[i].name.startsWith(id) || deployment.containers[i].type == id ||
+                    (tag && deployment.containers[i].image.indexOf(tag) != -1)))) {
                     found = deployment.containers[i]
                     break
                 }

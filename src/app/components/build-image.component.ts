@@ -27,6 +27,7 @@ import { BuildExeComponent }                          from './build-exe.componen
 import { MicroServiceBuilderComponent }               from './plugins/micro-service-builder.component'
 
 import { Settings, Values }                            from '../settings'
+import {SimpleNameComponent} from './elements/simple-name.component';
 
 @Component({
   selector: 'build-solution',
@@ -429,6 +430,29 @@ export class BuildImageComponent implements OnInit, PropertiesChangedOwner {
       this._ignoreValuesChange = false
 
       this._save()
+    }
+
+    public copyTemplate(event) {
+
+        let dialogRef = this._dialog.open(SimpleNameComponent, {
+            width: "600px",
+            height: "150px",
+            data: { title: "Name of new template" },
+        })
+
+        dialogRef.afterClosed().subscribe(result => {
+
+            if (result) {
+
+                this.currentBuild.name = result
+                this.buildCtrl.setValue(result, {onlySelf: true, emitEvent: false})
+
+                this._configService.uploadBuild(this.currentBuild).subscribe((success) => {
+
+                    this.builds.push(this.currentBuild.name)
+                })
+            }
+        })
     }
 
     public deleteTemplate(event) {

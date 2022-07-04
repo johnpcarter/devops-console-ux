@@ -29,6 +29,7 @@ export class K8sDeployment extends K8sDeploymentDefinition {
 	public readyReplicas: number = 0
 	public availableReplicas: number = 0
 	public unavailableReplicas: number = 0
+	public replicasBeforeSuspend: number = 0
 
 	public updatePodCount(replicas: number, readyReplicas: number, availableReplicas: number, unavailableReplicas: number) {
 
@@ -70,22 +71,21 @@ export class K8sDeployment extends K8sDeploymentDefinition {
 		this.availableReplicas = availableReplicas || 0
 		this.unavailableReplicas =  unavailableReplicas || 0
 
+		if (this.availableReplicas <= this.readyReplicas) {
+			this.availableReplicas = 0
+		}
+
 		if (this.replicas == 0) {
 			this.status = DeploymentStatus.suspended
-		}
-		else if (availableReplicas > 0) {
+		} else if (this.availableReplicas > 0) {
 			this.status = DeploymentStatus.updating
-		}
-		else if (readyReplicas > 0) {
+		} else if (this.readyReplicas > 0) {
 			this.status = DeploymentStatus.running
-		}
-		else if (unavailableReplicas > 0) {
+		} else if (this.unavailableReplicas > 0) {
 			this.status = DeploymentStatus.unavailable
-		}
-		else if (replicas > 1) {
+		} else if (this.replicas > 1) {
 			this.status = DeploymentStatus.stopped
-		}
-		else {
+		} else {
 			this.status = DeploymentStatus.new
 		}
 	}

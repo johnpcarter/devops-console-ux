@@ -512,8 +512,6 @@ export class DockerImage {
 				} else {
 					image._dedicatedRepo = false
 				}
-
-				console.log("poop")
 			}
 
 			if (data._version != null && image._tag.indexOf(data._version) == -1) {

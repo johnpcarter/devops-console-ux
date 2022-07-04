@@ -113,9 +113,10 @@ import { ContainerTemplates } from './support/container.templates'
 import { faDocker, faCloudscale } from '@fortawesome/free-brands-svg-icons'
 import { faCircle } from '@fortawesome/free-regular-svg-icons'
 
-import { faEllipsisV, faBars, faEraser, faFilter, faExternalLinkAlt, faTerminal, faTimesCircle, faBox, faBoxOpen, faVial, faRocket, faSpinner, faCheck, faBug, faHome, faExclamationCircle, faRunning, faCog, faEject, faPlay, faSquare, faExclamationTriangle, faLightbulb, faEnvelope, faStop, faStopCircle, faClock, faPlus, faTimes, faCloudSunRain,
-    faMinus, faPlusCircle, faMinusCircle, faArrowUp, faArrowDown, faTrashAlt, faProjectDiagram, faComment, faStar, faFlag, faPen, faPenSquare, faHourglassEnd, faList, faArrowLeft, faArrowRight, faChevronCircleDown, faThumbsUp, faThumbsDown, faQuestion,
-    faComments, faSync, faLevelUpAlt, faChevronDown, faCheckSquare, faCaretSquareDown, faCaretSquareUp, faArrowsAltV, faVials, faCodeBranch, faLock, faFileDownload, faTools, faFileUpload, faLockOpen, faUser, faSyncAlt,faUserCircle, faShare, faInfo, faCertificate, faClone, faPlusSquare, faMinusSquare, faCloudDownloadAlt, faCloudUploadAlt }  from '@fortawesome/free-solid-svg-icons'
+import { faEllipsisV, faBars, faEraser, faFilter, faExternalLinkAlt, faTerminal, faTimesCircle, faBox, faBoxOpen, faVial, faRocket, faSpinner, faCheck, faBug, faHome, faExclamationCircle, faRunning, faCog,  faPlay, faSquare, faLightbulb, faCopy,
+     faStopCircle, faClock, faPlus, faTimes, faCloudSunRain, faPlusCircle, faArrowUp, faArrowDown, faTrashAlt, faProjectDiagram, faPen, faList, faArrowLeft, faArrowRight, faThumbsUp, faThumbsDown, faQuestion,
+     faSync, faLevelUpAlt, faChevronDown, faCheckSquare, faCaretSquareDown, faCaretSquareUp, faArrowsAltV, faVials, faCodeBranch, faLock, faFileDownload, faTools, faFileUpload , faSyncAlt, faPlusSquare,
+    faCloudDownloadAlt, faCloudUploadAlt }  from '@fortawesome/free-solid-svg-icons'
 import {MatTooltipModule} from '@angular/material/tooltip'
 import {GitPackageChooserComponent} from './components/elements/git-package-chooser.component';
 import {SimpleConfirmationComponent} from './components/elements/simple-confirmation.component';
@@ -123,7 +124,7 @@ import {ComboBoxComponent} from './components/elements/combo-box.component';
 import {DockerRegistriesService} from './services/docker-registries.service';
 import {MatTabsModule} from '@angular/material/tabs';
 
- library.add(faEllipsisV, faEraser, faFilter, faLock, faList, faBars, faArrowUp, faArrowDown, faTerminal, faBox, faBoxOpen, faTimes, faTimesCircle, faHome, faVial, faCheck, faPlay, faSpinner, faExclamationCircle, faBug, faLightbulb, faTrashAlt, faCloudscale, faCaretSquareDown, faCaretSquareUp, faPen, faLevelUpAlt, faVials, faCodeBranch, faArrowsAltV, faStopCircle, faSyncAlt, faCloudUploadAlt, faClock, faThumbsUp, faThumbsDown, faQuestion,
+ library.add(faEllipsisV, faEraser, faFilter, faLock, faList, faBars, faArrowUp, faArrowDown, faTerminal, faBox, faBoxOpen, faTimes, faTimesCircle, faHome, faVial, faCheck, faPlay, faSpinner, faCopy, faExclamationCircle, faBug, faLightbulb, faTrashAlt, faCloudscale, faCaretSquareDown, faCaretSquareUp, faPen, faLevelUpAlt, faVials, faCodeBranch, faArrowsAltV, faStopCircle, faSyncAlt, faCloudUploadAlt, faClock, faThumbsUp, faThumbsDown, faQuestion,
    faRocket, faCog, faCloudSunRain, faDocker, faCircle, faSquare, faProjectDiagram, faChevronDown, faCheckSquare, faExternalLinkAlt, faCheckSquare, faRunning, faArrowLeft, faArrowRight, faPlusCircle, faFileDownload, faFileUpload, faPlusSquare, faTools, faSync, faCloudDownloadAlt)
 
 const sideNavRoutes: Routes = [

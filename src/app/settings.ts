@@ -39,6 +39,7 @@ export class Values {
 
   public k8sUrl: string = 'https://localhost:6443'
   public k8sNamespace: string = null
+  public k8sDeploymentName: string = null
   public k8sToken: string = null
   public k8sType: string = null
 
@@ -160,6 +161,15 @@ export class Settings {
     }
   }
 
+  public setCurrentDeploymentName(name: string) {
+
+    if (this._values.k8sDeploymentName != name) {
+      this._values.k8sDeploymentName = name
+
+      this.saveChanges(this._values)
+    }
+  }
+
   public gotoLastViewedPage(router: Router) {
 
     if (this._values.lastViewedPage) {
@@ -209,7 +219,7 @@ export class Settings {
     })
   }
 
-  public saveChanges(newValues: Values, environment: string = null) {
+  public saveChanges(newValues: Values, environment?: string) {
 
     this._values = newValues
 
@@ -312,6 +322,10 @@ export class Settings {
 
       if (data.k8sNamespace) {
         this._values.k8sNamespace = data.k8sNamespace
+      }
+
+      if (data.k8sDeploymentName) {
+        this._values.k8sDeploymentName = data.k8sDeploymentName
       }
 
       if (data.k8sToken) {

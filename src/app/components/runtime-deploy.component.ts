@@ -15,7 +15,7 @@ import { ContainerSet, RunSet} from '../models/project'
 import { Container, ContainerType} from '../models/container'
 import { BuildCommand, Builder, DeploymentSet } from '../models/build'
 import { Property, PropertyValueType } from '../models/properties'
-import { Arg } from '../models/environment'
+import {Arg, Environment} from '../models/environment'
 
 import { Settings } from '../settings'
 
@@ -26,6 +26,7 @@ import { ConfigurationService} from '../services/configuration.service'
 import { EditContainerComponent} from './staging.component'
 import { ContainerTemplates} from '../support/container.templates'
 import { BuildExeComponent} from './build-exe.component'
+import {SimpleNameComponent} from './elements/simple-name.component'
 
 @Component({
   selector: 'runtime-deploy',
@@ -34,8 +35,6 @@ import { BuildExeComponent} from './build-exe.component'
 })
 
 export class RuntimeDeployComponent implements OnInit {
-
-  public hints: Map<string, string> = new Map([['EXTERNAL', 'Assume API Gateway hosted elsewhere']])
 
   public setupOkay: boolean = false
   public isLinearStepper: boolean = true
@@ -104,7 +103,7 @@ export class RuntimeDeployComponent implements OnInit {
       }
     })
 
-    this.builds = ['external']
+    this.builds = []
     this._configService.builds().subscribe((builds) => {
 
       builds.forEach((b) => {
@@ -120,7 +119,7 @@ export class RuntimeDeployComponent implements OnInit {
 
         this.baseImages = d
 
-        this.baseImages.unshift(new DockerImage('EXTERNAL'))
+       // this.baseImages.unshift(new DockerImage('EXTERNAL'))
 
         this._dockerService.customImages(false).subscribe((images) => {
 
@@ -185,7 +184,7 @@ export class RuntimeDeployComponent implements OnInit {
       }
 
       if (this.buildListCtrl.dirty) {
-        this.setBuildForRunSet(this.buildListCtrl.value)
+        this.setBuildsForRunSet(this.buildListCtrl.value)
         this.buildListCtrl.markAsPristine()
       } else if (this.showKubernetesCtrl.dirty) {
         this.currentRunSet.useKubernetes = this.showKubernetesCtrl.value
@@ -205,7 +204,7 @@ export class RuntimeDeployComponent implements OnInit {
 
   public buildOptionStyle(value: string): any {
 
-    if (this.buildListCtrl.value && this.buildListCtrl.value.length > 0 &&  this.buildListCtrl.value[0] == 'external' && value != 'external') {
+    if (this.buildListCtrl.value && this.buildListCtrl.value.length > 0) {
       return {"color": "gray"}
     } else {
       return {}
@@ -238,20 +237,70 @@ export class RuntimeDeployComponent implements OnInit {
     }
   }
 
-  public containerConfigDidChange(container: Container) {
+  public containerConfigDidChange(ref: any) {
 
-    if (container && container.type == ContainerType.msr) {
+    let container: Container = ref.container
+    let imageChanged: boolean = ref.imageChanged
+    let previousValue: string = ref.previousValue
 
-      let svc: ContainerSet = this.currentRunSet.deploymentForContainer(container)
+    if (container && (container.type == ContainerType.msr || container.buildRef != null)) {
 
-      if (svc) {
-        this.setAPIEndPointForContainer(svc, container)
+      if (previousValue != null) {
+        this.currentRunSet.removeBuild(previousValue)
       }
 
-      this.setAvailableAPIs()
+      if (imageChanged && container.buildRef != null) {
+        this._setBuildForRunSet(container.buildRef, container.name)
+
+        let svc: ContainerSet = this.currentRunSet.deploymentForContainer(container)
+
+        if (svc) {
+          this.setAPIEndPointForContainer(svc, container)
+        }
+
+        this.setAvailableAPIs()
+      }
+    } else if (previousValue != null) {
+      // container was deleted, remove associated build
+
+      if (this.currentRunSet.removeBuild(previousValue)) {
+
+        let found = -1
+        let l: string[] = this.buildListCtrl.value.copy
+
+        for(let i = 0; i < l.length; i++) {
+          if (l[i] === previousValue) {
+            found = i
+            break
+          }
+        }
+
+        if (found != -1)
+          l.splice(found, 1)
+          this.buildListCtrl.setValue(l, {emitEvent: false})
+      }
     }
 
     this._save()
+  }
+
+  public containerDidChange(container: Container) {
+
+    this.currentRunSet.deployments.forEach((d) => {
+
+      let found: number = -1
+
+      for(let i = 0; i < d.containers.length; i++) {
+        if (container == d.containers[i]) {
+          found = i
+          break
+        }
+      }
+
+      if (found != -1) {
+        d.containers[found] = container.copy()
+      }
+    })
   }
 
   public isExistingTemplate(): boolean {
@@ -267,6 +316,30 @@ export class RuntimeDeployComponent implements OnInit {
 
       this.isTemplate = true
       this.runSets.push(this.currentRunSet.name)
+    })
+  }
+
+  public copyTemplate(event) {
+
+    let dialogRef = this._dialog.open(SimpleNameComponent, {
+      width: "600px",
+      height: "150px",
+      data: { title: "Name of new template" },
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+
+      if (result) {
+
+        this.runSetCtrl.setValue(result, {emitEvent: false, onlySelf: true})
+        this.currentRunSet.name = result
+
+        this._configService.uploadRunSet(this.currentRunSet).subscribe((success) => {
+
+          this.isTemplate = true
+          this.runSets.push(this.currentRunSet.name)
+        })
+      }
     })
   }
 
@@ -474,25 +547,21 @@ export class RuntimeDeployComponent implements OnInit {
     })
   }
 
-  private setBuildForRunSet(names: string[]) {
+  private setBuildsForRunSet(names: string[]) {
 
     this.currentRunSet.builds = []
     this.apis = []
     this.packages = []
     this.selectedImages = null
 
-    if (names[0] == 'external') {
-      this.buildListCtrl.setValue(['external'], {emitEvent: false})
+    names.forEach((n) => {
+      this._setBuildForRunSet(n)
+    })
 
-    } else {
-      names.forEach((n) => {
-        this._setBuildForRunSet(n)
-      })
-
-      let removeList: number[] = []
-      let i: number = 0
-      this.currentRunSet.deployments.forEach((d) => {
-        if (names.indexOf(d.name) == -1) {
+    let removeList: number[] = []
+    let i: number = 0
+    this.currentRunSet.deployments.forEach((d) => {
+      if (names.indexOf(d.name) == -1) {
           // remove if it contains a sub-container of type MSR.
           d.containers.forEach((c) => {
             if (c.name.toLowerCase() == d.name.toLowerCase() && c.type == 'msr') {
@@ -501,20 +570,21 @@ export class RuntimeDeployComponent implements OnInit {
           })
 
           i+= 1
-        }
-      })
+      }
+    })
 
-      removeList.forEach((i) => {
-        this.currentRunSet.deployments.splice(i, 1)
-      })
-    }
+    removeList.forEach((i) => {
+      this.currentRunSet.deployments.splice(i, 1)
+    })
   }
 
-  private _setBuildForRunSet(name: string) {
+  private _setBuildForRunSet(name: string, containerName?: string) {
 
     this._configService.build(name).subscribe((b) => {
 
-      this.currentRunSet.builds.push(b)
+      if (!this.currentRunSet.hasBuild(b.name)) {
+        this.currentRunSet.builds.push(b)
+      }
 
       let found: DockerImage = this.imageFor(b.targetImage.name())
 
@@ -523,7 +593,7 @@ export class RuntimeDeployComponent implements OnInit {
       }
 
       this.setAvailableAPIs()
-      this.setContainerForBuild(b)
+      this.setContainerForBuild(b, containerName)
 
       this._save()
     })
@@ -648,8 +718,6 @@ export class RuntimeDeployComponent implements OnInit {
           }
         }
       })
-    } else {
-      names.push('external')
     }
 
     this.buildListCtrl.setValue(names)
@@ -749,9 +817,9 @@ export class RuntimeDeployComponent implements OnInit {
     return found
   }
 
-  private setContainerForBuild(b: Builder): ContainerSet {
+  private setContainerForBuild(b: Builder, containerName?: string): void {
 
-    let container: Container = this.currentRunSet.containerInDeploymentFor(b.hyphenatedName())
+    let container: Container = this.currentRunSet.containerInDeploymentFor(containerName || b.hyphenatedName())
 
     if (!container) {
 
@@ -764,34 +832,68 @@ export class RuntimeDeployComponent implements OnInit {
       let container: Container = new Container()
       container.name = b.hyphenatedName()
       container.type = ContainerType.msr
-
+      container.buildRef = b.name
 
       this._containerTemplates.configureContainerFor(container, b.targetImage, b.deploymentType || 'msr', this._settings.currentEnvironment).subscribe((success) => {
+
         container.name = b.hyphenatedName()
         container.description = b.name
         this.setAPIEndPointForContainer(service, container)
 
+        this.updateEnvWithRequiredProperties(container, b)
+
         service.containers.push(container)
         this.currentRunSet.deployments.push(service)
-
-        this.propertiesForBuild(b).subscribe((properties) => {
-
-          let env: Arg[] = []
-
-          properties.forEach((p) => {
-            env.push(new Arg(p.value, "", p.description, true))
-          })
-
-          container.environments[0].env.forEach((a) => {
-            env.push(a)
-          })
-
-          container.environments[0].env = env
-        })
       })
-
-      return service
+    } else {
+      this.updateEnvWithRequiredProperties(container, b)
     }
+  }
+
+  private updateEnvWithRequiredProperties(container: Container, b: Builder) {
+
+    this.propertiesForBuild(b).subscribe((properties) => {
+
+      if (container.environments) {
+
+        container.environments.forEach((env) => {
+          this._updateEnvProperties(container, b, env.env, properties)
+        })
+      } else {
+        let args: Arg[] = []
+        this._updateEnvProperties(container, b, args, properties)
+        container.environments = []
+        let env: Environment = new Environment()
+        env.env = args
+        container.environments.push(env)
+      }
+
+      this.containerDidChange(container)
+    })
+  }
+
+  private _updateEnvProperties(container: Container, b: Builder, args: Arg[], properties: Property[]) {
+
+    properties.forEach((p) => {
+      if (!this.hasEnvironmentVariable(args, p.value)) {
+        args.push(new Arg(p.value, "", p.description, true))
+      }
+    })
+  }
+
+  private hasEnvironmentVariable(args: Arg[], id: string): boolean {
+
+    let found: boolean = false
+
+    for (let i=0; i< args.length; i++) {
+
+      if (args[i].source == id) {
+        found = true
+        break
+      }
+    }
+
+    return found
   }
 
   private propertiesForBuild(builder: Builder): Observable<Property[]> {

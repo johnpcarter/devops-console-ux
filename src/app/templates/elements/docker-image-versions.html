@@ -1,5 +1,5 @@
 <mat-card style="height:90%; box-shadow: none">
-  	<mat-card-title>Select new version</mat-card-title>
+  	<mat-card-title><h3><b>Select new version</b></h3></mat-card-title>
   <mat-card-content style="position: absolute; top: 40px; bottom: 40px; left: 10px; right: 10px; overflow: hidden">
   	  <jc-docker-images [type]="'edit'" [columns]="columns" [dataSource]="dataSource" [currentVersion]="currentVersion" (onSelection)="selectVersion($event)"></jc-docker-images>
   </mat-card-content>

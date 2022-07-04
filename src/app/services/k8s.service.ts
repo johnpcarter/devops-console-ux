@@ -70,10 +70,10 @@ export class K8sService {
 
         return this._mapResponseNamespace(responseData)
 
-      },
-      error => {
-        return null
-     }))
+      }), catchError((error) => {
+        console.log(error.message)
+        return of(null)
+      }))
   }
 
   public deployments(namespace: string, useCache?: boolean): Observable<K8sDeploymentDefinition[]> {
@@ -96,14 +96,13 @@ export class K8sService {
 
               return this._mapResponse(namespace, responseData)
 
-            },
-            error => {
-              return null
-           }))
+            }), catchError((error) => {
+              return of(null)
+            }))
         }
     }
 
-    public podsForAppLabel(namespace: string, app: string): Observable<K8sPod[]> {
+    public podsForAppLabel(namespace: string, app: string, appType?: string): Observable<K8sPod[]> {
 
         //let url: string = this._K8sUrl + K8sPodService.RESOURCE.replace(/NMESPCE/, namespace)
         let url: string = K8sService.RESOURCE + "/" + namespace
@@ -119,19 +118,26 @@ export class K8sService {
 
         let httpParams: HttpParams = new HttpParams().append('app', app)
 
+        if (appType)
+            httpParams = httpParams.set('appType', appType)
+
       return this._http.get(url, { headers, params: httpParams }).pipe(map( (responseData) => {
 
           return this._mapPodsResponse(namespace, responseData)
 
-          },
-          error => {
-              return null
-      }))
+          }), catchError((error) => {
+            return of(null)
+          }))
     }
 
     public updateVersion(deployment: K8sDeploymentDefinition, containers: K8sContainerRef[]): Observable<boolean> {
 
-       let url: string = K8sService.UPDATE + "/" + deployment.namespace + "/" + deployment.name
+        let serviceType: string = deployment.serviceType
+
+        if (!serviceType)
+            serviceType = 'deployments'
+
+       let url: string = K8sService.UPDATE + "/" + deployment.namespace + "/" + deployment.name + "/" + serviceType
 
         let headers = new HttpHeaders()
                             .append('Content-Type', 'application/json')
@@ -148,22 +154,12 @@ export class K8sService {
             })
 
             return true
-        },
-          error => {
-              console.log("error is " + error.message)
-            return false
+        }), catchError((error) => {
+            return of(false)
         }))
     }
 
-    public rollbackLastChange(deployment: K8sDeploymentDefinition): Observable<boolean> {
-
-        return of(true)
-    }
-
     public deleteDeployment(deployment: K8sDeploymentDefinition): Observable<boolean> {
-
-        // let url: string = this._K8sUrl + K8sDeploymentService.DEPLOY.replace(/NMESPCE/, deployment.namespace)
-        //                                                     .replace(/NAMEDEPLOY/, deployment.name)
 
         let url: string = K8sService.DEPLOYMENT + "/" + deployment.namespace + "/" + deployment.name
 
@@ -182,9 +178,6 @@ export class K8sService {
     }
 
     public scalePods(deployment: K8sDeploymentDefinition, count: number): Observable<boolean> {
-
-       // let url: string = this._K8sUrl + K8sDeploymentService.DEPLOY.replace(/NMESPCE/, deployment.namespace)
-       //                                                     .replace(/NAMEDEPLOY/, deployment.name)
 
       let url: string = K8sService.SCALE + "/" + deployment.namespace + "/" + deployment.name + "?replicas=" + count
 

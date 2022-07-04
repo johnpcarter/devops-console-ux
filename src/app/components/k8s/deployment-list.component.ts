@@ -42,8 +42,6 @@ export class DeploymentListComponent implements OnInit, OnChanges {
 
     private _lastFetch: string
 
-    private _podCountsByRow: Map<any, number> = new Map()
-
     public constructor(private _router: Router, private _snackBar: MatSnackBar, private _settings: Settings, private _k8sService: K8sService, private _configService: ConfigurationService) {
 
     }
@@ -78,18 +76,21 @@ export class DeploymentListComponent implements OnInit, OnChanges {
       return (row && row.replicas == 0)
     }
 
-    public enableDeployment(event: MatSlideToggleChange, row: K8sDeployment) {
+    public enableOrDisableDeployment(event: MatSlideToggleChange, row: K8sDeployment) {
 
       if (event.checked) {
 
         this._configService.runSet(row.deploymentId).subscribe((result) => {
           if (result) {
-            this._scaleDeployment(row, +result.deploymentFor(row.serviceId.replace('-', ' ')).replicas)
+            let replicas: number = row.replicasBeforeSuspend
+
+            this._scaleDeployment(row, replicas > 0 ? replicas : 1)
           } else {
-            this._snackBar.open("Activation failed", "Dismiss", {duration: 5000})
+            this._snackBar.open("Activation failed", "Dismiss", {duration: 3000})
           }
         })
       } else {
+        row.replicasBeforeSuspend = row.replicas
         this._scaleDeployment(row, 0)
       }
 
@@ -102,9 +103,8 @@ export class DeploymentListComponent implements OnInit, OnChanges {
 
       this._k8sService.deleteDeployment(deployment).subscribe((result) => {
         if (result) {
-          this._snackBar.dismiss()
         } else {
-          this._snackBar.open("Delete failed", "Dismiss", {duration: 5000})
+          this._snackBar.open("Delete failed", "Dismiss", {duration: 3000})
         }
       })
     }
@@ -127,8 +127,9 @@ export class DeploymentListComponent implements OnInit, OnChanges {
     public updatePodCount(event: any) {
 
       this.dataSource.forEach((d) => {
+
         if (d.name == event.appId && !d.detailRow) {
-                console.log("got pod event for " + event.appId + ", " + event.running + ", " + event.other)
+          console.log("got pod event for " + event.appId + ", " + event.running + ", " + event.other)
 
           d.updatePodCount(d.replicas, event.ready, event.available, event.unavailable)
         }
@@ -215,7 +216,8 @@ export class DeploymentListComponent implements OnInit, OnChanges {
         if (result) {
 
           this._refresh()
-
+          deployment.replicasBeforeSuspend = deployment.replicas
+          deployment.replicas = count
           this._snackBar.open(type + " succeeded", "Dismiss", { duration: 2000})
 
         } else {

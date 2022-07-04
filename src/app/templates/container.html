@@ -36,7 +36,7 @@
 				<div style="padding: 20px">
 					<mat-panel-title><b>Image</b></mat-panel-title>
 					<div style="margin-left: 30px; margin-top: 20px; min-width: 400px">
-						<docker-image-chooser allowBuild=true [reference]="container.name" [id]="containerId('image')" style="margin-left: 10px; min-width: 350px;" [dockerImages]="images" [value]="currentImage()" [disabled]="!editMode" [allowLatest]="isCustom()" [preferredVersion]="preferredVersion()" (selectedImage)="imageSelected($event)" (buildCommands)="buildCommandsUpdated($event)"></docker-image-chooser>
+						<docker-image-chooser allowBuild=true [reference]="container.name" [id]="containerId('image')" style="margin-left: 10px; min-width: 350px;" [dockerImages]="images" [value]="currentImage()" [disabled]="!editMode" [allowLatest]="isCustom()" [preferredVersion]="preferredVersion()" [builds]="builds" [currentBuild]="container.buildRef" (selectedImage)="imageSelected($event)" (buildCommands)="buildCommandsUpdated($event)"></docker-image-chooser>
 					</div>
 
 				</div>
@@ -44,7 +44,7 @@
 			</mat-card-subtitle>
 			<div *ngIf="this.container.build && this.container.build.dockerfile" style="padding: 0 0 20px 40px">
 				<mat-panel-title>Build Commands</mat-panel-title>
-				<build-commands [showHiddenOption]="false" [reference]="container.name" [edit]="false" [commands]="container.build.buildCommands" (commandsChanged)="buildCommandsUpdated($event)"></build-commands>
+				<build-commands [showHiddenOption]="false" [reference]="container.name" [edit]="false" [allowUpload]="editMode" [commands]="container.build.buildCommands" (commandsChanged)="buildCommandsUpdated($event)"></build-commands>
 			</div>
 			<div style="padding: 10px">
 				<mat-panel-title><b>Environment</b></mat-panel-title>
@@ -101,20 +101,20 @@
 				    <th mat-header-cell *matHeaderCellDef style="width:100px;"> Service </th>
 				    <td mat-cell *matCellDef="let element" style="background-color: orange; border-radius: 5px; padding-right: 10px; padding-bottom: 10px; margin-right: 40px">
 				   		<mat-select style="padding: 5px" [placeholder]="fieldForPort(element, 'serviceType')" [(value)]="element.serviceType" (selectionChange)="serviceTypeSelected($event, element)">
-                <mat-option value="">Private</mat-option>
-                <mat-option *ngFor="let type of serviceTypes" [value]="type">{{type}}</mat-option>
-              </mat-select>
-              <div *ngIf="element.serviceType == 'NodePort'" style="white-space: nowrap">30<input maxlength="3" type="text" [formControl]="controlForPanelElement('ports', 'publicPort', element, publicPort(element), publicPortValidators())" (change)="updateElementWithControlValue('ports', 'publicPort', element, '30')" style="max-width: 30px; margin-left: 10px; margin-right: 15px; line-height: 24px; border: none; background-color: lightyellow"></div>
+                			<mat-option value="">Private</mat-option>
+                			<mat-option *ngFor="let type of serviceTypes" [value]="type">{{type}}</mat-option>
+              			</mat-select>
+              			<div *ngIf="element.serviceType == 'NodePort'" style="white-space: nowrap">30<input maxlength="3" type="text" [formControl]="controlForPanelElement('ports', 'publicPort', element, publicPort(element), publicPortValidators())" (change)="updateElementWithControlValue('ports', 'publicPort', element, '30')" style="max-width: 30px; margin-left: 10px; margin-right: 15px; line-height: 24px; border: none; background-color: lightyellow"></div>
 					</td>
 				  </ng-container>
 				  <ng-container matColumnDef="typeEdit">
 				    <th mat-header-cell *matHeaderCellDef style="width: 100px"> Type </th>
 				    <td mat-cell *matCellDef="let element">
 				    	<mat-select #selectedType [placeholder]="fieldForPort(element, 'type')" [formControl]="controlForPanelElement('ports', 'type', element, element.type)" [disabled]="!editMode">
-                <mat-option *ngFor="let type of portTypes" [value]="type" (click)="updateElementWithControlValue('ports', 'type', element)">
-                  {{type}}
-                </mat-option>
-              </mat-select>
+                			<mat-option *ngFor="let type of portTypes" [value]="type" (click)="updateElementWithControlValue('ports', 'type', element)">
+                  				{{type}}
+                			</mat-option>
+              			</mat-select>
 				    </td>
 				  </ng-container>
           <ng-container matColumnDef="internalEdit">

@@ -1,4 +1,4 @@
-import {Property} from './properties';
+import { Property } from './properties'
 
 export class WmCloudProperties {
 

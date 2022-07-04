@@ -33,6 +33,9 @@ export class BuildCommandsComponent implements OnInit, OnChanges {
 	@Input()
 	public edit: boolean
 
+	@Input()
+	public allowUpload: boolean
+
 	@Output()
 	public commandsChanged: EventEmitter<BuildCommand[]> = new EventEmitter()
 
@@ -41,7 +44,8 @@ export class BuildCommandsComponent implements OnInit, OnChanges {
 	public _displayedArgColumnsEdit: string[] = ["cmdEdit", "typeEdit", "srcEdit", "srcEditUpload", "tgtEdit", "descriptionEdit", 'move', "remove"]
 	public _displayedArgColumnsEditMin: string[] = ["cmdEdit", "typeEdit", "srcEdit", "srcEditUpload", "tgtEdit"]
 
-	public _displayedArgColumnsReadOnly: string[] = ["cmd", "src", "srcEditUpload", "tgt", "description", "srcDownload"]
+	public _displayedArgColumnsReadOnly: string[] = ["cmd", "src", "tgt", "description", "srcDownload"]
+	public _displayedArgColumnsUploadAndReadOnly: string[] = ["cmd", "src", "srcEditUpload", "tgt", "description", "srcDownload"]
 	public _displayedArgColumnsReadOnlyMin: string[] = ["cmd", "src", "srcDownload"]
 
 	public commandTypes = ["copy", "add", "run", "entrypoint"]
@@ -145,7 +149,9 @@ export class BuildCommandsComponent implements OnInit, OnChanges {
 
 	    if (this.editMode) {
 	    	return wide ? this._displayedArgColumnsEdit : this._displayedArgColumnsEditMin
-	    } else {
+	    } else if (this.allowUpload) {
+			return wide ? this._displayedArgColumnsUploadAndReadOnly : this._displayedArgColumnsReadOnly
+		} else {
 	    	return wide ? this._displayedArgColumnsReadOnly : this._displayedArgColumnsReadOnlyMin
 	    }
 	}
@@ -153,6 +159,12 @@ export class BuildCommandsComponent implements OnInit, OnChanges {
 	public flagEdit(event: any) {
 
 		this.editMode = !this.editMode
+
+		if (!this.editMode) {
+			this.commands.forEach((c) => {
+				this.removeRow(c, true)
+			})
+		}
 
 		event.stopPropagation()
 	}
@@ -321,28 +333,31 @@ export class BuildCommandsComponent implements OnInit, OnChanges {
 		event.stopPropagation()
 	}
 
-	public removeRow(element: BuildCommand) {
+	public removeRow(element: BuildCommand, keepCommand?: boolean) {
 
 		let found = -1
 
 		for (let i=0; i < this.commands.length; i++) {
 
 			if (this.commands[i] == element) {
+				(<any> element).ref = null
 				found = i
 			}
 		}
 
 		if (found != -1) {
 			this.form.removeControl("fileType:" + found)
-		  	this.form.removeControl("commandType:" + found)
-		  	this.form.removeControl("source:" + found)
-      		this.form.removeControl("target:" + found)
-      		this.form.removeControl("description:" + found)
+			this.form.removeControl("commandType:" + found)
+			this.form.removeControl("source:" + found)
+			this.form.removeControl("target:" + found)
+			this.form.removeControl("description:" + found)
 
-			this.commands.splice(found, 1)
-			this.table.renderRows()
+			if (!keepCommand) {
+				this.commands.splice(found, 1)
+				this.table.renderRows()
 
-			this.flagChanges()
+				this.flagChanges()
+			}
 		}
 	}
 
@@ -356,6 +371,7 @@ export class BuildCommandsComponent implements OnInit, OnChanges {
 
 			if (this.commands[i] == command) {
 				found = i
+				break
 			}
 		}
 
@@ -379,6 +395,7 @@ export class BuildCommandsComponent implements OnInit, OnChanges {
 
 			if (this.commands[i] == command) {
 				found = i
+				break
 			}
 		}
 
@@ -413,10 +430,10 @@ export class BuildCommandsComponent implements OnInit, OnChanges {
 
 		let ctrl: FormControl = null
 
-		if (!element.position)
-			element.position = this.indexOfElement(element)
+		if (!element.ref && element.ref != 0)
+			element.ref = this.indexOfElement(element)
 
-		let name: string = key + ":" + element.position
+		let name: string = key + ":" + element.ref
 
 		if (this.form.controls[name]) {
 			ctrl = <FormControl> this.form.controls[name]

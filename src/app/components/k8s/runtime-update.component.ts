@@ -1,19 +1,18 @@
-import { Component, ChangeDetectorRef, Input, ViewChild,
-							OnInit, OnDestroy } 		from '@angular/core'
+import { Component, Input, OnInit, ViewChild } 	        from '@angular/core'
 
 import { MatButton }                                    from '@angular/material/button'
 import { MatDialog }                                    from '@angular/material/dialog'
+import { MatSnackBar }                                  from '@angular/material/snack-bar'
 
-import { DockerImage, VersionType }                   	from '../../models/docker-image'
+import { DockerImage }                   	            from '../../models/docker-image'
 
 import {K8sContainerRef, K8sDeploymentDefinition} from '../../models/k8s-deployment-definition'
-import { K8sDeployment }                                from '../../models/k8s-deployment'
 import { K8sService }                                   from '../../services/k8s.service'
 import { DockerService }                                from '../../services/docker.service'
 
 import { ActionsComponent }                             from './runtime-actions.directive'
-import { Action }										                    from '../elements/docker-images-list.component'
-import { DockerImageVersionsComponent }					        from '../elements/docker-image-versions.component'
+import { Action }										from '../elements/docker-images-list.component'
+import { DockerImageVersionsComponent }					from '../elements/docker-image-versions.component'
 
 @Component({
   templateUrl: '../../templates/k8s/runtime-update.html',
@@ -26,9 +25,10 @@ export class RuntimeUpdateComponent implements OnInit, ActionsComponent {
   	public selectedDeployment: K8sDeploymentDefinition
 
   	public haveActions: boolean = false
-  	public rollbackPossible: boolean = false
 
   	public references: any[]
+    public selectedImage: DockerImage
+    public currentVersion: number
 
   	private _dialogRef: any
   	private _image: DockerImage
@@ -36,9 +36,8 @@ export class RuntimeUpdateComponent implements OnInit, ActionsComponent {
   	private _containersToUpdate: K8sContainerRef[] = []
 
   	@ViewChild('updateButton', {read: MatButton}) updateButton: MatButton
-  	@ViewChild('rollbackButton', {read: MatButton}) rollbackButton: MatButton
 
-  	public constructor(private _dockerService: DockerService, private _k8sService: K8sService, private _matDialog: MatDialog) {
+  	public constructor(private _dockerService: DockerService, private _k8sService: K8sService, private _matDialog: MatDialog, private _snackBar: MatSnackBar) {
 
   	}
 
@@ -88,9 +87,9 @@ export class RuntimeUpdateComponent implements OnInit, ActionsComponent {
          if (c.name() == image.name()) {
 
            if (c.version() != image.version()) {
-             this.updateContainersRefs(c.name(), image.tag())
+             this.updateContainersRefs(c.altName, image.tag())
            } else {
-             this.removeContainerRef(c.name())
+             this.removeContainerRef(c.altName)
            }
 
            currentVersion = c.version()
@@ -113,23 +112,24 @@ export class RuntimeUpdateComponent implements OnInit, ActionsComponent {
 
   		this._k8sService.updateVersion(this.selectedDeployment, this._containersToUpdate).subscribe(result=> {
 
-  		  this._containersToUpdate = []
-  			this.haveActions = false
-  			this.rollbackPossible = true
-        this.confirmUpdate()
-  		})
-  	}
+            //this.updateButton.disabled = false
 
-  	public rollback() {
+            if (!result) {
+                this._snackBar.open("Update failed", "Bugger", {
+                    duration: 2000,
+                })
+              } else {
 
-  		this.rollbackButton.disabled = true
+                this._snackBar.open("Update Successful", "Dismiss", {
+                    duration: 2000,
+                })
 
-  		this._k8sService.rollbackLastChange(this.selectedDeployment).subscribe(result=> {
-
-  			this.rollbackButton.disabled = false
-  			this.updateButton.disabled = false
-  			this.haveActions = false
-  			this.rollbackPossible = false
+                this._containersToUpdate = []
+                this.haveActions = false
+                this.selectedImage = null
+                this.currentVersion = this.selectedDeployment.version
+                this.confirmUpdate()
+              }
   		})
   	}
 
@@ -152,7 +152,7 @@ export class RuntimeUpdateComponent implements OnInit, ActionsComponent {
         }
       })
 
-  	  if (matched != null) {
+  	  if (matched == null) {
   	    this._containersToUpdate.push(new K8sContainerRef(name, matched, tag))
       }
     }

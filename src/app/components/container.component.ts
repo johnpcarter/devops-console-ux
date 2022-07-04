@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core'
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
 
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 
@@ -23,7 +23,7 @@ import { Settings } from '../settings'
   styleUrls: ['../templates/container.css']
 })
 
-export class ContainerComponent implements OnInit {
+export class ContainerComponent implements OnInit, OnChanges {
 
   public static seq: number = 0
 
@@ -36,8 +36,11 @@ export class ContainerComponent implements OnInit {
   @Input()
   public showK8sFields: boolean
 
+  @Input()
+  public builds: string[]
+
   @Output()
-  public containerUpdated: EventEmitter<Container> = new EventEmitter()
+  public containerUpdated: EventEmitter<any> = new EventEmitter()
 
   @Output()
   public deleteContainer: EventEmitter<Container> = new EventEmitter()
@@ -87,9 +90,9 @@ export class ContainerComponent implements OnInit {
   private _ignoreChanges: boolean = false
   private _hasChanged: boolean = false
 
-  @ViewChild('ports', {read: MatTable}) ports: MatTable<Port>
-  @ViewChild('volumes', {read: MatTable}) volumes: MatTable<Arg>
-  @ViewChild('env', {read: MatTable}) env: MatTable<Arg>
+  @ViewChild('ports', {read: MatTable}) portsTable: MatTable<Port>
+  @ViewChild('volumes', {read: MatTable}) volumesTable: MatTable<Arg>
+  @ViewChild('env', {read: MatTable}) envTable: MatTable<Arg>
 
   public constructor(private _formBuilder: FormBuilder, private _dockerService: DockerService, private _containerTemplates: ContainerTemplates, private _settings: Settings) {
 
@@ -178,6 +181,15 @@ export class ContainerComponent implements OnInit {
     })
   }
 
+  public ngOnChanges(changes: SimpleChanges) {
+
+    if (this.portsTable) {
+      this.portsTable.renderRows()
+      this.volumesTable.renderRows()
+      this.envTable.renderRows()
+    }
+  }
+
   public containerId(suffix: String): String {
 
     if (this.container.name != null) {
@@ -216,7 +228,7 @@ export class ContainerComponent implements OnInit {
     return this._panelStatus.get(panel) || false
   }
 
-  public flagChanges() {
+  public flagChanges(imageChanged?: boolean, oldValue?: string) {
 
     if (this.selectedEnvironmentSettings != this.defaultEnvironmentSettings) {
       // need to extract changes for target environment and inject into container before saving
@@ -224,7 +236,7 @@ export class ContainerComponent implements OnInit {
       this.container.updateEnvironmentSettings(this.selectedEnvironmentSettings)
     }
     this._hasChanged = true
-    this.containerUpdated.emit(this.container)
+    this.containerUpdated.emit({container: this.container, imageChanged: imageChanged, previousValue: oldValue})
   }
 
   public flagEditContainer(event: any) {
@@ -345,8 +357,12 @@ export class ContainerComponent implements OnInit {
 
   public imageSelected(image: DockerImage) {
 
+    let old: string = this.container.buildRef || this.container.name
+
     if (image) {
       this.container.image = image.tag()
+      this.container.buildRef = image.buildTemplate
+
       if (image.dockerFile) {
         this.container.build = new DockerBuild()
         this.container.build.dockerfile = image.dockerFile
@@ -359,7 +375,7 @@ export class ContainerComponent implements OnInit {
       this.container.build = null
     }
 
-    this.flagChanges()
+    this.flagChanges(true, old)
   }
 
   public buildCommandsUpdated(commands: BuildCommand[]) {
@@ -511,9 +527,9 @@ export class ContainerComponent implements OnInit {
 
     this._ignoreChanges = false
 
-    this.ports.renderRows()
-    this.volumes.renderRows()
-    this.env.renderRows()
+    this.portsTable.renderRows()
+    this.volumesTable.renderRows()
+    this.envTable.renderRows()
   }
 
   public portServiceType(port: Port): string {
@@ -573,7 +589,7 @@ export class ContainerComponent implements OnInit {
       })
     }
 
-    this.ports.renderRows()
+    this.portsTable.renderRows()
 
     event.stopPropagation()
   }
@@ -598,7 +614,7 @@ export class ContainerComponent implements OnInit {
       element.serviceType = null
       element.type = null
 
-      this.ports.renderRows()
+      this.portsTable.renderRows()
       this.flagChanges()
     } else {
 
@@ -612,7 +628,7 @@ export class ContainerComponent implements OnInit {
       if (found != -1) {
         this.selectedEnvironmentSettings.ports.splice(found, 1)
 
-        this.ports.renderRows()
+        this.portsTable.renderRows()
         this.flagChanges()
       }
     }
@@ -633,7 +649,7 @@ export class ContainerComponent implements OnInit {
       })
     }
 
-    this.volumes.renderRows()
+    this.volumesTable.renderRows()
 
     event.stopPropagation()
   }
@@ -654,7 +670,7 @@ export class ContainerComponent implements OnInit {
       element.k8sStorageType = null
       element.description = null
 
-      this.volumes.renderRows()
+      this.volumesTable.renderRows()
       this.flagChanges()
     } else {
       for (var i = 0; i < this.selectedEnvironmentSettings.volumes.length; i++) {
@@ -667,7 +683,7 @@ export class ContainerComponent implements OnInit {
       if (found != -1) {
         this.selectedEnvironmentSettings.volumes.splice(found, 1)
 
-        this.volumes.renderRows()
+        this.volumesTable.renderRows()
         this.flagChanges()
       }
     }
@@ -688,7 +704,7 @@ export class ContainerComponent implements OnInit {
       })
     }
 
-    this.env.renderRows()
+    this.envTable.renderRows()
 
     event.stopPropagation()
   }
@@ -706,7 +722,7 @@ export class ContainerComponent implements OnInit {
       element.target = null
       element.description = null
 
-      this.env.renderRows()
+      this.envTable.renderRows()
       this.flagChanges()
 
     } else {
@@ -720,7 +736,7 @@ export class ContainerComponent implements OnInit {
       if (found != -1) {
         this.selectedEnvironmentSettings.env.splice(found, 1)
 
-        this.env.renderRows()
+        this.envTable.renderRows()
         this.flagChanges()
       }
     }

@@ -10,7 +10,7 @@
 
   <ng-container matColumnDef="enable">
     <mat-header-cell *matHeaderCellDef style="flex-grow: 2" style="width:30px"> </mat-header-cell>
-    <mat-cell *matCellDef="let element" style="flex-grow: 1; width: 30px"> <mat-slide-toggle toggle [checked]="!isDeploymentSuspened(element)" (change)="enableDeployment($event, element)"></mat-slide-toggle></mat-cell>
+    <mat-cell *matCellDef="let element" style="flex-grow: 1; width: 30px"> <mat-slide-toggle toggle [checked]="!isDeploymentSuspened(element)" (change)="enableOrDisableDeployment($event, element)"></mat-slide-toggle></mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="Name">

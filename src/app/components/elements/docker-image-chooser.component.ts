@@ -4,13 +4,17 @@ import { Component, EventEmitter, OnInit, OnChanges,
 import { FormBuilder, FormGroup, FormControl,
 		                  Validators } 			  		from '@angular/forms'
 
+import {Observable, of }                  				from 'rxjs'
+import { map, startWith }                 				from 'rxjs/operators'
+
+import { MatSnackBar } 									from '@angular/material/snack-bar'
+
 import { DockerImage } 								   	from '../../models/docker-image'
 import { DockerService }								from '../../services/docker.service'
 
-import {Observable, of }                  				from 'rxjs'
-import { map, startWith }                 				from 'rxjs/operators'
-import {BuildCommand} from '../../models/build';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { BuildCommand } 								from '../../models/build'
+import {BuildImage} from '../../models/build-image';
+import {ConfigurationService} from '../../services/configuration.service';
 
 @Component({
   selector: 'docker-image-chooser',
@@ -31,6 +35,15 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 					  	</ng-container>
 					  </ng-template>
 				  </div>
+			  </mat-tab>
+			  <mat-tab *ngIf="builds" label="Build">
+				  <mat-form-field style="min-width: 250px;; padding: 25px;">
+					  <mat-select id="run.deploy.templateChooser" #selectedProjectControl placeholder="Select Build" [formControlName]="buildRefCtrlLabel">
+						  <mat-option *ngFor="let build of builds" [value]="build">
+							  {{build}}
+						  </mat-option>
+					  </mat-select>
+				  </mat-form-field>
 			  </mat-tab>
 			  <mat-tab label="Docker file">
 				  <div style="padding: 20px 10px; min-width:90px;">
@@ -144,10 +157,16 @@ export class DockerImageChooserComponent implements OnInit, OnChanges, OnDestroy
 	public float: string
 
 	@Input()
-	public required: FormGroup
+	public parentFormGroup: FormGroup
 
 	@Input()
 	public hints: Map<any, string>
+
+	@Input()
+	public currentBuild: string
+
+	@Input()
+	public builds: string[]
 
 	@Output()
 	public selectedImage: EventEmitter<DockerImage> = new EventEmitter()
@@ -162,104 +181,128 @@ export class DockerImageChooserComponent implements OnInit, OnChanges, OnDestroy
 	public imageVersionCtrl: FormControl
 	public availableVersions: DockerImage[]
 
+	public buildRefCtrl: FormControl
+
 	public imageControlLabel: string
 	public imageVersionControlLabel: string
+	public buildRefCtrlLabel: string
 
 	public selectedTabIndex: number = 0
 
 	private _ignoreChanges: boolean = false
   	private _priorDisabled: boolean = null
 
-	public constructor(private _formBuilder: FormBuilder, private _dockerService: DockerService, private _snackBar: MatSnackBar) {
-
-		this.imageCtrl = new FormControl(null, Validators.required)
-		this.imageVersionCtrl = new FormControl()
+	public constructor(private _formBuilder: FormBuilder, private _dockerService: DockerService, private _configService: ConfigurationService, private _snackBar: MatSnackBar) {
 	}
 
 	public ngOnInit() {
 
-    this.imageControlLabel = "dk_" + (this.id ? this.id : this.title)
-    this.imageVersionControlLabel = this.imageControlLabel + "_v"
+		if (this.value) {
+			this.imageCtrl = new FormControl(this.value.name(), Validators.required)
+			this.imageVersionCtrl = new FormControl(this.preferredVersion)
+		} else {
+			this.imageCtrl = new FormControl(null, Validators.required)
+			this.imageVersionCtrl = new FormControl()
+			this.availableVersions = []
+		}
 
-    if (this.required)
-      this.formGroup = this.required
-    else
-      this.formGroup = this._formBuilder.group({})
+		this.buildRefCtrl = new FormControl(this.currentBuild)
 
-    this._setValue(true)
+    	this.imageControlLabel = "dk_" + (this.id ? this.id : this.title)
+    	this.imageVersionControlLabel = this.imageControlLabel + "_v"
+		this.buildRefCtrlLabel = this.imageControlLabel + "_b"
 
-    if (!this.disabled) {
+    	if (this.parentFormGroup)
+      		this.formGroup = this.parentFormGroup
+    	else
+      		this.formGroup = this._formBuilder.group({})
 
-      this.addRequiredControl()
-    } else {
+    	if (!this.disabled) {
 
-      this.filteredImages = of(this.dockerImages)
-    }
+      		this.addRequiredControl()
+    	} else {
 
-    this.imageCtrl.valueChanges.subscribe((v) => {
+      		this.filteredImages = of(this.dockerImages)
+		}
 
-      if (!this._ignoreChanges) {
+    	this.imageCtrl.valueChanges.subscribe((v) => {
 
-        // if image changed, set version to latest by default
+      		if (!this._ignoreChanges) {
 
-          this._ignoreChanges = true
+        		// if image changed, set version to latest by default
 
-          let image: DockerImage = this.imageFor(this.imageCtrl.value)
+          		this._ignoreChanges = true
 
-          if (image) {
-            image = image.latestVersion().copy()
+          		let image: DockerImage = this.imageFor(this.imageCtrl.value)
 
-            this.imageVersionCtrl.setValue(image.version())
-            this.setAvailableVersions()
-          } else {
-            image = new DockerImage(this.imageCtrl.value)
+          		if (image) {
+            		image = image.latestVersion().copy()
 
-            this.value = image
-            this.imageVersionCtrl.setValue(null)
-            this.availableVersions = []
-          }
+            		this.imageVersionCtrl.setValue(image.version(), {emitEvent: false})
+            		this.setAvailableVersions()
+          		} else {
+            		image = new DockerImage(this.imageCtrl.value)
 
-          this.imageCtrl.markAsPristine()
-          this._ignoreChanges = false
+            		this.value = image
+            		this.imageVersionCtrl.setValue(null, {emitEvent: false})
+            		this.availableVersions = []
+          		}
 
-          this.flagChange(image)
-        }
-    })
+          		this.imageCtrl.markAsPristine()
+          		this._ignoreChanges = false
 
-    this.imageVersionCtrl.valueChanges.subscribe((v) => {
+          		this.flagChange(image)
+        	}
+    	})
 
-      if (!this._ignoreChanges) {
+    	this.imageVersionCtrl.valueChanges.subscribe((v) => {
 
-          // chosen a different version
+      		if (!this._ignoreChanges) {
 
-          this.preferredVersion = this.imageVersionCtrl.value
+          		// chosen a different version
 
-          let image = this.imageFor(this.imageCtrl.value, this.imageVersionCtrl.value, this.allowPull === 'true')
+          		this.preferredVersion = this.imageVersionCtrl.value
 
-		  if (this.preferredVersion === 'latest') {
-			  if (!image) {
-				  image = this.imageFor(this.imageCtrl.value).copy()
-				  image.setVersion('latest')
-			  } else if (this.preferredVersion === 'latest') {
-				  image.setVersion('latest')
-			  }
-		  } else if (!image) {
-			  image = this.imageFor(this.imageCtrl.value).copy()
+          		let image = this.imageFor(this.imageCtrl.value, this.imageVersionCtrl.value, this.allowPull === 'true')
 
-			  image.setVersion(this.preferredVersion)
-		  }
+		  		if (this.preferredVersion === 'latest') {
+			  		if (!image) {
+				  		image = this.imageFor(this.imageCtrl.value).copy()
+				  		image.setVersion('latest')
+			  		} else if (this.preferredVersion === 'latest') {
+				  		image.setVersion('latest')
+			  		}
+		  		} else if (!image) {
+			  		image = this.imageFor(this.imageCtrl.value).copy()
+			  		image.setVersion(this.preferredVersion)
+		  		}
 
-		  this.flagChange(image)
-          this.imageVersionCtrl.markAsPristine()
-      }
-    })
+		  		this.flagChange(image)
+          		this.imageVersionCtrl.markAsPristine()
+      		}
+    	})
 
-    this.setAvailableVersions()
+		this.buildRefCtrl.valueChanges.subscribe((v) => {
+
+			this._configService.build(v).subscribe((build) => {
+				if (build != null) {
+					let image = build.targetImage
+					image.buildTemplate = v
+					this.imageCtrl.setValue(image.name(), {onlySelf: true, emitEvent: false})
+					this.imageVersionCtrl.setValue(image.version(), {onlySelf: true, emitEvent: false})
+
+					this.flagChange(image)
+					this.buildRefCtrl.markAsPristine()
+				}
+			})
+		})
+
+    	this.setAvailableVersions()
 
 		if (this.value && this.value.dockerFile) {
 			this.selectedTabIndex = 1
 		}
-  }
+  	}
 
 	public ngOnDestroy() {
 
@@ -398,23 +441,24 @@ export class DockerImageChooserComponent implements OnInit, OnChanges, OnDestroy
 
 		this.formGroup.setControl(this.imageControlLabel, this.imageCtrl)
 		this.formGroup.setControl(this.imageVersionControlLabel, this.imageVersionCtrl)
+		this.formGroup.setControl(this.buildRefCtrlLabel, this.buildRefCtrl)
 
 		const ct = this.formGroup.controls
 
-    const fc = this.formGroup.controls[this.imageControlLabel]
+    	const fc = this.formGroup.controls[this.imageControlLabel]
 
-    this.filteredImages = fc.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => this._filter(value)))
+    	this.filteredImages = fc.valueChanges
+      		.pipe(
+        		startWith(''),
+        		map(value => this._filter(value)))
 	}
 
 	private removeRequiredControl() {
 
 		this._ignoreChanges = true
 
-		this.imageCtrl.setValue(null)
-		this.imageVersionCtrl.setValue(null)
+		this.imageCtrl.setValue(null, {emitEvent: false})
+		this.imageVersionCtrl.setValue(null, {emitEvent: false})
 
 		this._ignoreChanges = false
 
@@ -478,22 +522,18 @@ export class DockerImageChooserComponent implements OnInit, OnChanges, OnDestroy
       }
     }
 
-    private _setValue(setup?: boolean) {
+    private _setValue() {
 
     	this._ignoreChanges = true
 
     	if (this.value) {
 
-    		this.imageCtrl.setValue(this.value.name())
+    		this.imageCtrl.setValue(this.value.name(), {emitEvent: false})
 			this.setAvailableVersions()
-
-			if (setup && this.preferredVersion)
-				this.imageVersionCtrl.setValue(this.preferredVersion)
-			else
-				this.imageVersionCtrl.setValue(this.value.version())
+			this.imageVersionCtrl.setValue(this.value.version(), {emitEvent: false})
     	} else {
-    		this.imageCtrl.setValue(null)
-    		this.imageVersionCtrl.setValue(null)
+    		this.imageCtrl.setValue(null, {emitEvent: false})
+    		this.imageVersionCtrl.setValue(null, {emitEvent: false})
     		this.availableVersions = []
     	}
 
