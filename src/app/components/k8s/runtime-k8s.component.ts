@@ -27,13 +27,11 @@ export class RuntimeK8sComponent implements OnInit {
 			if (v.k8sNamespace)
 				this.namespace = v.k8sNamespace
 
-			if (v.k8sUrl) {
-				this.k8sDashboardUrl = v.k8sUrl.replace('localhost', window.location.hostname)
-
+			if (v.k8sUrl && v.k8sUrl != 'xx') {
 				let i: number = this.k8sDashboardUrl.indexOf(":")
 				this.k8sDashboardUrl = this.k8sDashboardUrl.substring(0, i+1) + "8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy"
 			} else {
-				this.k8sDashboardUrl = "https://host.docker.internal:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/"
+				this.k8sDashboardUrl = "http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/"
 			}
 
 			this.getNamespaces(v)
@@ -62,6 +60,15 @@ export class RuntimeK8sComponent implements OnInit {
 					this.namespace = this.namespaces[0]
 			}
 		})
+	}
+
+	public dashboard(): string {
+
+		if (this.namespace)
+			return this.k8sDashboardUrl + "?namespace=default#/pod?namespace="+this.namespace
+		else
+			return this.k8sDashboardUrl + "?namespace=default#/pod"
+
 	}
 
 	public namespaceSelectionChanged() {
