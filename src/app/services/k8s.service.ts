@@ -34,7 +34,6 @@ export class K8sService {
 
     //public static SCALE: string = "/apis/apps/v1/namespaces/NMESPCE/deployments/NAMEDEPLOY/scale"
 
-   private _K8sUrl: string
    private _K8sToken: string
 
   public _cache: Map<String, K8sDeploymentDefinition[]>
@@ -44,20 +43,14 @@ export class K8sService {
       this._cache = new Map()
 
       this._settings.values().subscribe((v) => {
-            this._K8sUrl = v.k8sUrl.replace('localhost', window.location.hostname)
             this._K8sToken = v.k8sToken
       })
   }
 
-  public namespaces(K8sUrl?: string, K8sToken?: string): Observable<string[]> {
+  public namespaces(K8sToken?: string): Observable<string[]> {
 
     if (K8sToken)
       this._K8sToken = K8sToken
-
-    if (K8sUrl)
-      this._K8sUrl = K8sUrl
-
-    //let url: string = this._K8sUrl + K8sDeploymentService.NAMESPACES
 
     let url: string = K8sService.NAMESPACES
 
@@ -84,7 +77,6 @@ export class K8sService {
 
     } else {
 
-      //let url: string = this._K8sUrl + K8sDeploymentService.DEPLOYMENTS.replace(/NMESPCE/, namespace)
       let url: string = K8sService.DEPLOYMENTS + "/" + namespace
 
       let headers = new HttpHeaders()
@@ -104,7 +96,6 @@ export class K8sService {
 
     public podsForAppLabel(namespace: string, app: string, appType?: string): Observable<K8sPod[]> {
 
-        //let url: string = this._K8sUrl + K8sPodService.RESOURCE.replace(/NMESPCE/, namespace)
         let url: string = K8sService.RESOURCE + "/" + namespace
 
     let headers = new HttpHeaders()

@@ -79,7 +79,7 @@ export class RuntimeDetailsComponent implements OnInit {
 
   public getNamespaces(v: Values) {
 
-    this._k8sService.namespaces(v.k8sUrl.replace('localhost', window.location.hostname), v.k8sToken).subscribe((names) => {
+    this._k8sService.namespaces(v.k8sToken).subscribe((names) => {
 
       if (names == null) {
 
