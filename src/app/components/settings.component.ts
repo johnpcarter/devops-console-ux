@@ -431,7 +431,7 @@ export class SettingsComponent {
         }
       }
 
-      this.k8sUrlCtrl.setValue(v.k8sUrl.replace('localhost', window.location.hostname))
+      this.k8sUrlCtrl.setValue(v.k8sUrl)//.replace('localhost', window.location.hostname))
       this.k8sTokenCtrl.setValue(v.k8sToken)
       this.k8sTypeCtrl.setValue(v.k8sType == null ? "desktop" : v.k8sType)
 
@@ -511,7 +511,9 @@ export class SettingsComponent {
       ctrl = (this.settingsForm.controls[name] as FormControl)
     } else {
       ctrl = new FormControl(value)
+      this._ignoreChanges = true
       this.settingsForm.addControl(name, ctrl)
+      this._ignoreChanges = false
     }
 
     return ctrl

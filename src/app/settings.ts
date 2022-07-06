@@ -37,7 +37,7 @@ export class Values {
   public lastViewedPage: string = null
   public lastViewedPageArg: string = null
 
-  public k8sUrl: string = 'https://localhost:6443'
+  public k8sUrl: string = null
   public k8sNamespace: string = null
   public k8sDeploymentName: string = null
   public k8sToken: string = null
