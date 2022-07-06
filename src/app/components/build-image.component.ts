@@ -500,11 +500,11 @@ export class BuildImageComponent implements OnInit, PropertiesChangedOwner {
       this.targetImageCtrl.setValue("", {emitEvent: false})
       this.targetVersionCtrl.setValue("", {emitEvent: false})
       this.dedicatedRepoCtrl.setValue("", {emitEvent: false})
-      this.versionTypeCtrl.setValue("", {emitEvent: false})
+      this.versionTypeCtrl.setValue("minor", {emitEvent: false})
       this.licCtrl.setValue("", {emitEvent: false})
       this.commentsCtrl.setValue("", {emitEvent: false})
       this.buildNameCtrl.setValue("", {emitEvent: false})
-      this.downloadCtrl.setValue("", {emitEvent: false})
+      this.downloadCtrl.setValue(true, {emitEvent: false})
       this.buildUserCtrl.setValue("", {emitEvent: false})
       this.entryUserCtrl.setValue("", {emitEvent: false})
 
