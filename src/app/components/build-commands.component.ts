@@ -48,7 +48,7 @@ export class BuildCommandsComponent implements OnInit, OnChanges {
 	public _displayedArgColumnsUploadAndReadOnly: string[] = ["cmd", "src", "srcEditUpload", "tgt", "description", "srcDownload"]
 	public _displayedArgColumnsReadOnlyMin: string[] = ["cmd", "src", "srcDownload"]
 
-	public commandTypes = ["copy", "add", "run", "entrypoint"]
+	public commandTypes = ["copy", "add", "run", "entrypoint", "healthcheck"]
 	public fileTypes = ["licenses", "properties", "source", "config", "resource"]
 
 	public editMode: boolean = false

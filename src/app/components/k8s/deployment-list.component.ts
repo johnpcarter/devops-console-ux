@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input }                    from '@angular/core'
+import {Component, OnInit, OnChanges, Input, ViewChild} from '@angular/core';
 import { Router }                                                 from '@angular/router'
 import { animate, state, style, transition, trigger }             from '@angular/animations'
 
@@ -11,6 +11,9 @@ import { K8sDeploymentDefinition }                                from '../../mo
 
 import { K8sService }                                             from '../../services/k8s.service'
 import { ConfigurationService }                                   from '../../services/configuration.service'
+import {RuntimeActionsDirective} from './runtime-actions.directive';
+import {MatButton} from '@angular/material/button';
+import {MatTable} from '@angular/material/table';
 
 @Component({
   selector: 'jc-k8s-deployments',
@@ -37,7 +40,9 @@ export class DeploymentListComponent implements OnInit, OnChanges {
 
     public dataSource: any[]
 
-    isExpansionDetailRow = (i: number, row: Object) => row.hasOwnProperty('detailRow')
+  @ViewChild('deploymentsTable') deploymentsTable: MatTable<any>
+
+  isExpansionDetailRow = (i: number, row: Object) => row.hasOwnProperty('detailRow')
     expandedElement: any
 
     private _lastFetch: string
@@ -97,12 +102,23 @@ export class DeploymentListComponent implements OnInit, OnChanges {
     }
 
     public deleteDeployment(deployment: K8sDeployment) {
-    //TODO:
 
       this._snackBar.open("Deleting deployment")
 
       this._k8sService.deleteDeployment(deployment).subscribe((result) => {
         if (result) {
+          this._snackBar.open("Deleted successfully", "Hooray!", {duration: 2000})
+
+          for (let i = 0; i < this.dataSource.length; i++) {
+
+            if (this.dataSource[i].name == deployment.name || (this.dataSource[i].element && this.dataSource[i].element.name == deployment.name)) {
+              this.dataSource.splice(i, 1)
+              i -= 1
+            }
+          }
+
+          this.deploymentsTable.renderRows()
+
         } else {
           this._snackBar.open("Delete failed", "Dismiss", {duration: 3000})
         }
@@ -134,7 +150,6 @@ export class DeploymentListComponent implements OnInit, OnChanges {
           d.updatePodCount(d.replicas, event.ready, event.available, event.unavailable)
         }
       })
-
     }
 
     public podCount(deployment: K8sDeployment): number {
