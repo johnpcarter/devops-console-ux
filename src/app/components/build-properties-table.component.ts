@@ -23,6 +23,9 @@ export class BuildPropertiesTableComponent implements OnInit {
 	public prefixForKey: string
 
 	@Input()
+	public postfixForKey: string
+
+	@Input()
 	public properties: Property[]
 
 	@Input()
@@ -30,6 +33,9 @@ export class BuildPropertiesTableComponent implements OnInit {
 
 	@Input()
 	public readOnlyKey: boolean = false
+
+	@Input()
+	public allowDots: boolean = true
 
 	@Output()
 	public propertiesChanges: EventEmitter<Property[]> = new EventEmitter()
@@ -41,6 +47,8 @@ export class BuildPropertiesTableComponent implements OnInit {
 	@ViewChild('propertiesTable', {read: MatTable})
 	public table: MatTable<Property>
 
+	//private _didReplaceDots: Set<String> = new Set()
+
 	public constructor(private _formBuilder: FormBuilder,  private _resources: ResourceService, private _dialog: MatDialog) {
 
 		this.form = this._formBuilder.group({})
@@ -48,7 +56,7 @@ export class BuildPropertiesTableComponent implements OnInit {
 
 	public ngOnInit() {
 
-		if (this.prefixForKey && this.prefixForKey.length > 14) {
+		if (this.prefixForKey && this.prefixForKey.length > 15) {
 			this.prefixForKeyBrief = this.prefixForKey.substring(0, 14) + "..."
 		} else {
 			this.prefixForKeyBrief = this.prefixForKey
@@ -60,13 +68,45 @@ export class BuildPropertiesTableComponent implements OnInit {
 		this.propertiesChanges.emit(this.properties)
 	}
 
-	public displayName(key: string) {
+	public displayKey(value: string): string {
 
-		if (this.prefixForKey && key.startsWith(this.prefixForKey)) {
-			return key.substring(this.prefixForKey.length)
-		} else {
-			return key
+		if (!value || typeof value != 'string') {
+			return value
 		}
+
+		if (this.prefixForKey && value.startsWith(this.prefixForKey)) {
+			value = value.substring(this.prefixForKey.length)
+		}
+
+		if (this.postfixForKey && value.endsWith(this.postfixForKey)) {
+			value = value.substring(0, value.length - this.postfixForKey.length)
+		}
+
+		if (value.indexOf('..') != -1) {
+			value = value.replace(/\.\./g, '.')
+		}
+		return value
+	}
+
+	public formatKey(value: string): string {
+
+		if (!value || typeof value != 'string') {
+			return value
+		}
+
+		if (!this.allowDots) {
+			value = value.replace(/\./g, '..')
+		}
+
+		if (this.prefixForKey) {
+			value = this.prefixForKey + value
+		}
+
+		if (this.postfixForKey) {
+			value = value + this.postfixForKey
+		}
+
+		return value
 	}
 
 	public filterKeys(filter: string): string[] {
@@ -106,15 +146,12 @@ export class BuildPropertiesTableComponent implements OnInit {
 
 		let ctrl: FormControl = null
 
-		//if (!element.position)
-		//	element.position = this.indexOfElement(element)
-
 		let name: string = key + ":" + element.key   //this.indexOfElement(element) // element.position
 
 		if (this.form.controls[name]) {
 			ctrl = <FormControl> this.form.controls[name]
 		} else {
-			ctrl = new FormControl(this.removePrefixFromValue(value))
+			ctrl = new FormControl(this.displayKey(value))
 			this.form.addControl(name, ctrl)
 		}
 
@@ -142,6 +179,8 @@ export class BuildPropertiesTableComponent implements OnInit {
 
 			console.log("type for " + element.key + " is now " + element.type)
 
+		} else if (key == 'key') {
+			element[key] = this.formatKey(this.controlForPanelElement(key, element).value)
 		} else {
 			element[key] = this.controlForPanelElement(key, element).value
 		}
@@ -241,13 +280,4 @@ export class BuildPropertiesTableComponent implements OnInit {
 
 		return found
 	}*/
-
-	private removePrefixFromValue(value: string): string {
-
-		if (value && this.prefixForKey && typeof value == 'string' && value.startsWith(this.prefixForKey)) {
-			return value.substring(this.prefixForKey.length)
-		} else {
-			return value
-		}
-	}
 }

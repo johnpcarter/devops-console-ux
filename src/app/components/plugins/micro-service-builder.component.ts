@@ -301,11 +301,21 @@ export class MicroServiceBuilderComponent implements BuilderComponent, OnInit {
 
             file.source = p.replace(/\s/g, "-")
 
-            if (file.source.startsWith('_')) {
-                let envName = file.source.substring(1, file.source.lastIndexOf("_"))
-                file.target = "/opt/softwareag/IntegrationServer/env/" + envName + "/application.properties"
+            if (this.currentBuild.sourceImage.type == 'is') {
+
+                if (file.source.startsWith('_')) {
+                    let envName = file.source.substring(1, file.source.lastIndexOf("_"))
+                    file.target = "/opt/softwareag/IntegrationServer/instances/default/env/" + envName + "/application.properties"
+                } else {
+                    file.target = "/opt/softwareag/IntegrationServer/instances/default/application.properties"
+                }
             } else {
-                file.target = "/opt/softwareag/IntegrationServer/application.properties"
+                if (file.source.startsWith('_')) {
+                    let envName = file.source.substring(1, file.source.lastIndexOf("_"))
+                    file.target = "/opt/softwareag/IntegrationServer/env/" + envName + "/application.properties"
+                } else {
+                    file.target = "/opt/softwareag/IntegrationServer/application.properties"
+                }
             }
 
         //ensures that the build-components view gets updated

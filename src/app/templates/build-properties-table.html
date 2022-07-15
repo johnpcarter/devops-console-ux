@@ -40,10 +40,11 @@
 				<ng-container *ngIf="!readOnlyKey; else readonly">
 					<span *ngIf="prefixForKey" style="font-size: 11px; color: lightgray">{{prefixForKeyBrief}}</span>
 					<input type="text" [formControl]="controlForPanelElement('key', element, element.key)" (change)="updateElementWithControlValue('key', element)" style="width: 80%; line-height: 24px; border: none; background-color: lightyellow" required>
+					<span *ngIf="postfixForKey" style="font-size: 11px; color: lightgray">{{postfixForKey}}</span>
 					<button *ngIf="availableKeys" style="padding-bottom: 10px; border: none; background-color: transparent;" (click)="filterAvailableKey(controlForPanelElement('key', element, element.key))"><fa-icon class="icon" [icon]="['fas', 'filter']" style="color: lightskyblue; padding-right: 5px"></fa-icon></button>
 				</ng-container>
 				<ng-template #readonly>
-					<span style="color: black; font-size: 11px">{{prefixForKeyBrief}}{{displayName(element.key)}}</span>
+					<span style="color: black; font-size: 11px">{{prefixForKeyBrief}}{{displayKey(element.key)}}{{postfixForKey}}</span>
 				</ng-template>
 			</td>
 		  </ng-container>
