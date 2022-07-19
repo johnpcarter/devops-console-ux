@@ -619,12 +619,15 @@ export class BuildPackagesComponent implements OnInit {
 		this.deploymentSet.apis = []
 		r.selectedAPIs = []
 
+		let didUpdate: boolean = false
+
 		packages.forEach((p) => {
 
 			if (p.apis) {
 				p.apis.forEach((a) => {
 					if (this.notInAPIList(a)) {
 						this.deploymentSet.apis.push(a)
+						didUpdate = true
 					}
 				})
 
@@ -635,6 +638,10 @@ export class BuildPackagesComponent implements OnInit {
 				}
 			}
 		})
+
+		if (didUpdate) {
+			this.saveDeploymentSet(false)
+		}
 	}
 
 	private notInAPIList(a: APIDefinition): boolean {

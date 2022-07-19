@@ -576,6 +576,8 @@ export class RuntimeDeployComponent implements OnInit {
     removeList.forEach((i) => {
       this.currentRunSet.deployments.splice(i, 1)
     })
+
+    this._save()
   }
 
   private _setBuildForRunSet(name: string, containerName?: string) {
