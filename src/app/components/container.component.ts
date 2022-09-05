@@ -16,6 +16,7 @@ import { BuildCommand } from '../models/build'
 import { DockerService } from '../services/docker.service'
 
 import { Settings } from '../settings'
+import {ResourceService} from '../services/resources.service';
 
 @Component({
   selector: 'container',
@@ -94,7 +95,7 @@ export class ContainerComponent implements OnInit, OnChanges {
   @ViewChild('volumes', {read: MatTable}) volumesTable: MatTable<Arg>
   @ViewChild('env', {read: MatTable}) envTable: MatTable<Arg>
 
-  public constructor(private _formBuilder: FormBuilder, private _dockerService: DockerService, private _containerTemplates: ContainerTemplates, private _settings: Settings) {
+  public constructor(private _formBuilder: FormBuilder, private _dockerService: DockerService, private _resourcesSevices: ResourceService, private _containerTemplates: ContainerTemplates, private _settings: Settings) {
 
     this.nextSeq = ContainerComponent.seq++
 
@@ -376,6 +377,17 @@ export class ContainerComponent implements OnInit, OnChanges {
     }
 
     this.flagChanges(true, old)
+  }
+
+  public refreshBuildCommands() {
+
+    this._resourcesSevices.getDockerfile(this.container.build.dockerfile).subscribe((r) => {
+
+      if (r) {
+        this.container.build.buildCommands = r.buildCommands
+        this.flagChanges()
+      }
+    })
   }
 
   public buildCommandsUpdated(commands: BuildCommand[]) {

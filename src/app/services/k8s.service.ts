@@ -32,10 +32,6 @@ export class K8sService {
     //public static RESOURCE: string = "/api/v1/namespaces/NMESPCE/pods"
   public static RESOURCE: string = environment.SERVER_API + "/rad/jc.devops:api/k8s/pods"
 
-    //public static SCALE: string = "/apis/apps/v1/namespaces/NMESPCE/deployments/NAMEDEPLOY/scale"
-
-   private _K8sToken: string
-
   public _cache: Map<String, K8sDeploymentDefinition[]>
 
   constructor(private _settings: Settings, private _http: HttpClient) {
@@ -43,21 +39,22 @@ export class K8sService {
       this._cache = new Map()
 
       this._settings.values().subscribe((v) => {
-            this._K8sToken = v.k8sToken
+            // do nothing
+          console.log("loaded")
       })
   }
 
-  public namespaces(K8sToken?: string): Observable<string[]> {
-
-    if (K8sToken)
-      this._K8sToken = K8sToken
+  public namespaces(environment?: string): Observable<string[]> {
 
     let url: string = K8sService.NAMESPACES
 
     let headers = new HttpHeaders()
       .append('Content-Type', 'application/json')
       .append('Accept', 'application/json')
-     // .append('Authorization', 'Bearer ' + this._K8sToken)
+
+    if (environment != null) {
+        headers = headers.append("environment", environment)
+    }
 
     return this._http.get(url, { headers }).pipe(map( (responseData) => {
 
@@ -69,7 +66,7 @@ export class K8sService {
       }))
   }
 
-  public deployments(namespace: string, useCache?: boolean): Observable<K8sDeploymentDefinition[]> {
+  public deployments(namespace: string, environment?: string, useCache?: boolean): Observable<K8sDeploymentDefinition[]> {
 
     if (useCache && this._cache.get(namespace == null ? 'default' : namespace)) {
 
@@ -82,30 +79,36 @@ export class K8sService {
       let headers = new HttpHeaders()
                             .append('Content-Type', 'application/json')
                             .append('Accept', 'application/json')
-                            //.append('Authorization', 'Bearer ' + this._K8sToken)
 
-          return this._http.get(url, { headers }).pipe(map( (responseData) => {
+      if (environment != null) {
+            headers = headers.append("environment", environment)
+      }
 
-              return this._mapResponse(namespace, responseData)
+      return this._http.get(url, { headers }).pipe(map( (responseData) => {
 
-            }), catchError((error) => {
-              return of(null)
-            }))
-        }
+            return this._mapResponse(namespace, responseData)
+
+        }), catchError((error) => {
+           return of(null)
+        }))
+      }
     }
 
-    public podsForAppLabel(namespace: string, app: string, appType?: string): Observable<K8sPod[]> {
+    public podsForAppLabel(namespace: string, app: string, appType?: string, environment?: string): Observable<K8sPod[]> {
 
         let url: string = K8sService.RESOURCE + "/" + namespace
 
-    let headers = new HttpHeaders()
+        let headers = new HttpHeaders()
                             .append('Content-Type', 'application/json')
                             .append('Accept', 'application/json')
                             .append('Cache-Control', 'no-cache')
                             .append('Cache-Control', 'no-store')
                             .append('Pragma','no-cache')
                             .append('Expires', '0')
-                           // .append('Authorization', 'Bearer ' + this._K8sToken)
+
+        if (environment != null) {
+            headers = headers.append("environment", environment)
+        }
 
         let httpParams: HttpParams = new HttpParams().append('app', app)
 
@@ -121,7 +124,7 @@ export class K8sService {
           }))
     }
 
-    public updateVersion(deployment: K8sDeploymentDefinition, containers: K8sContainerRef[]): Observable<boolean> {
+    public updateVersion(deployment: K8sDeploymentDefinition, containers: K8sContainerRef[], environment?: string): Observable<boolean> {
 
         let serviceType: string = deployment.serviceType
 
@@ -133,6 +136,10 @@ export class K8sService {
         let headers = new HttpHeaders()
                             .append('Content-Type', 'application/json')
                             .append('Accept', 'application/json')
+
+        if (environment != null) {
+            headers = headers.append("environment", environment)
+        }
 
         let body: string = JSON.stringify(containers)
 
@@ -150,14 +157,17 @@ export class K8sService {
         }))
     }
 
-    public deleteDeployment(deployment: K8sDeploymentDefinition): Observable<boolean> {
+    public deleteDeployment(deployment: K8sDeploymentDefinition, environment?: string): Observable<boolean> {
 
         let url: string = K8sService.DEPLOYMENT + "/" + deployment.namespace + "/" + deployment.name
 
         let headers = new HttpHeaders()
             .append('Content-Type', 'application/json')
             .append('Accept', 'application/json')
-        //.append('Authorization', 'Bearer ' + this._K8sToken)
+
+        if (environment != null) {
+            headers = headers.append("environment", environment)
+        }
 
         return this._http.delete(url, { headers }).pipe(map((responseData) => {
 
@@ -168,7 +178,7 @@ export class K8sService {
         }))
     }
 
-    public scalePods(deployment: K8sDeploymentDefinition, count: number): Observable<boolean> {
+    public scalePods(deployment: K8sDeploymentDefinition, count: number, environment?: string): Observable<boolean> {
 
       let url: string = K8sService.SCALE + "/" + deployment.namespace + "/" + deployment.name + "?replicas=" + count
 
@@ -177,14 +187,18 @@ export class K8sService {
                             .append('Accept', 'application/json')
                             //.append('Authorization', 'Bearer ' + this._K8sToken)
 
+      if (environment != null) {
+          headers = headers.append("environment", environment)
+      }
+
       return this._http.get(url, { headers }).pipe(map((responseData) => {
 
-        return true
-      }), catchError((error) => {
-        console.log("operation failed due to:" + error.message)
-        return of(false)
-      }))
-    }
+            return true
+        }), catchError((error) => {
+            console.log("operation failed due to:" + error.message)
+            return of(false)
+        }))
+     }
 
     /*private _scalePod(deployment: K8sDeploymentDefinition, count: number) {
 

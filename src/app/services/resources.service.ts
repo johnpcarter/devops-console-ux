@@ -116,6 +116,22 @@ export class ResourceService {
          }))
     }
 
+    public getDockerfile(name: string): Observable<any> {
+
+        let url: string = ResourceService.URI_RESOURCES + "/dockerfile/" + encodeURIComponent(name)
+
+        let headers = new HttpHeaders()
+            .set('Accept', 'application/json')
+
+        return this._http.get(url, { headers }).pipe(map( (responseData) => {
+
+                return responseData
+            },
+            error => {
+                return null
+            }))
+    }
+
     public getServerSettings(): Observable<any> {
 
         let url: string = ResourceService.SERVER_SETTINGS

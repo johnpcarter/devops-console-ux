@@ -384,10 +384,6 @@ export class DockerService {
       else
         url = DockerService.RUN
 
-      if (environment != null) {
-        url += "?environment=" + environment
-      }
-
       if (pull) {
           if (environment != null) {
               url += "&pull=true"
@@ -408,6 +404,10 @@ export class DockerService {
 
       if (download) {
         headers = headers.append("generateOnly", "true")
+      }
+
+      if (environment != null) {
+          headers = headers.append("environment", environment)
       }
 
       let wrapper = {definition: run}

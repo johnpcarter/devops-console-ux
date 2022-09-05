@@ -4,6 +4,7 @@ import { animate, state, style, transition, trigger }             from '@angular
 
 import { MatSlideToggleChange }                                   from '@angular/material/slide-toggle'
 import { MatSnackBar }                                            from '@angular/material/snack-bar'
+import { MatTable }                                               from '@angular/material/table'
 
 import { Settings }                                               from '../../settings'
 import { K8sDeployment, DeploymentStatus }                        from '../../models/k8s-deployment'
@@ -11,9 +12,7 @@ import { K8sDeploymentDefinition }                                from '../../mo
 
 import { K8sService }                                             from '../../services/k8s.service'
 import { ConfigurationService }                                   from '../../services/configuration.service'
-import {RuntimeActionsDirective} from './runtime-actions.directive';
-import {MatButton} from '@angular/material/button';
-import {MatTable} from '@angular/material/table';
+
 
 @Component({
   selector: 'jc-k8s-deployments',
@@ -105,7 +104,7 @@ export class DeploymentListComponent implements OnInit, OnChanges {
 
       this._snackBar.open("Deleting deployment")
 
-      this._k8sService.deleteDeployment(deployment).subscribe((result) => {
+      this._k8sService.deleteDeployment(deployment, this._settings.currentEnvironment).subscribe((result) => {
         if (result) {
           this._snackBar.open("Deleted successfully", "Hooray!", {duration: 2000})
 
@@ -224,7 +223,7 @@ export class DeploymentListComponent implements OnInit, OnChanges {
 
     private _scaleDeployment(deployment: K8sDeployment, count: number) {
 
-      this._k8sService.scalePods(deployment, count).subscribe((result) => {
+      this._k8sService.scalePods(deployment, count, this._settings.currentEnvironment).subscribe((result) => {
 
         let type: string = count == 0 ? "Activation" : "Suspend"
 
@@ -243,7 +242,7 @@ export class DeploymentListComponent implements OnInit, OnChanges {
 
     private _refresh() {
 
-      this._k8sService.deployments(this.namespace, true).subscribe((d) => {
+      this._k8sService.deployments(this.namespace, this._settings.currentEnvironment, true).subscribe((d) => {
           this._lastFetch = this.namespace
           this.dataSource = []
 

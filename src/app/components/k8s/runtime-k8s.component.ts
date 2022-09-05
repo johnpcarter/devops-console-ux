@@ -46,7 +46,7 @@ export class RuntimeK8sComponent implements OnInit {
 
 	public getNamespaces(v: Values) {
 
-		this._k8sService.namespaces(v.k8sToken).subscribe((names) => {
+		this._k8sService.namespaces(this._settings.currentEnvironment).subscribe((names) => {
 
 			if (names == null) {
 

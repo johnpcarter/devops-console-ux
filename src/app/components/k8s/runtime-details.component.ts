@@ -79,7 +79,7 @@ export class RuntimeDetailsComponent implements OnInit {
 
   public getNamespaces(v: Values) {
 
-    this._k8sService.namespaces(v.k8sToken).subscribe((names) => {
+    this._k8sService.namespaces(this._settings.currentEnvironment).subscribe((names) => {
 
       if (names == null) {
 
@@ -97,7 +97,7 @@ export class RuntimeDetailsComponent implements OnInit {
 
   public getDeploymentsForSelectedNamespace(settings: Values) {
 
-    this._k8sService.deployments(settings.k8sNamespace, true).subscribe((d) => {
+    this._k8sService.deployments(settings.k8sNamespace, this._settings.currentEnvironment, true).subscribe((d) => {
       this.deployments = d
 
       if (!this.selectedDeployment) {

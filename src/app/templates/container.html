@@ -43,7 +43,12 @@
 
 			</mat-card-subtitle>
 			<div *ngIf="this.container.build && this.container.build.dockerfile" style="padding: 0 0 20px 40px">
-				<mat-panel-title>Build Commands</mat-panel-title>
+				<mat-panel-title>
+					<button *ngIf="editMode" mat-button color="primary" id="run.refresh.build" (click)="refreshBuildCommands()" style="margin-left: -10px; margin-top: -10px" aria-label="reindex package dependencies" matTooltip="reload docker file">
+						<fa-icon class="icon" [icon]="['fas', 'sync-alt']" style="color: orange"></fa-icon>
+					</button>
+					Build Commands
+				</mat-panel-title>
 				<build-commands [showHiddenOption]="false" [reference]="container.name" [edit]="false" [allowUpload]="editMode" [commands]="container.build.buildCommands" (commandsChanged)="buildCommandsUpdated($event)"></build-commands>
 			</div>
 			<div style="padding: 10px">

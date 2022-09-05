@@ -36,7 +36,7 @@ import {ConfigurationService} from '../../services/configuration.service';
 					  </ng-template>
 				  </div>
 			  </mat-tab>
-			  <mat-tab *ngIf="builds" label="Build">
+			  <mat-tab *ngIf="builds" label="Build" [disabled]="value && value.dockerFile != null">
 				  <mat-form-field style="min-width: 250px;; padding: 25px;">
 					  <mat-select id="run.deploy.templateChooser" #selectedProjectControl placeholder="Select Build" [formControlName]="buildRefCtrlLabel">
 						  <mat-option *ngFor="let build of builds" [value]="build">
@@ -300,6 +300,8 @@ export class DockerImageChooserComponent implements OnInit, OnChanges, OnDestroy
     	this.setAvailableVersions()
 
 		if (this.value && this.value.dockerFile) {
+			this.selectedTabIndex = 2
+		} else if (this.currentBuild) {
 			this.selectedTabIndex = 1
 		}
   	}

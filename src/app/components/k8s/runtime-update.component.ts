@@ -21,8 +21,11 @@ import { DockerImageVersionsComponent }					from '../elements/docker-image-versi
 
 export class RuntimeUpdateComponent implements OnInit, ActionsComponent {
 
-	  @Input()
+    @Input()
   	public selectedDeployment: K8sDeploymentDefinition
+
+    @Input()
+    public selectedEnvironment: string
 
   	public haveActions: boolean = false
 
@@ -110,7 +113,7 @@ export class RuntimeUpdateComponent implements OnInit, ActionsComponent {
 
   		this.updateButton.disabled = true
 
-  		this._k8sService.updateVersion(this.selectedDeployment, this._containersToUpdate).subscribe(result=> {
+  		this._k8sService.updateVersion(this.selectedDeployment, this._containersToUpdate, this.selectedEnvironment).subscribe(result=> {
 
             //this.updateButton.disabled = false
 

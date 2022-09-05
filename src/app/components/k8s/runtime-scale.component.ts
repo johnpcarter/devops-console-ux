@@ -21,6 +21,9 @@ export class RuntimeScaleComponent implements OnInit, ActionsComponent {
   @Input()
   public selectedDeployment: K8sDeploymentDefinition
 
+  @Input()
+  public selectedEnvironment: string
+
   public podsCount: number = 1
   public haveChanges: boolean = false
 
@@ -47,7 +50,7 @@ export class RuntimeScaleComponent implements OnInit, ActionsComponent {
 
     this.updateButton.disabled = true
 
-    this._k8sService.scalePods(this.selectedDeployment, +this.podsCount).subscribe((result) => {
+    this._k8sService.scalePods(this.selectedDeployment, +this.podsCount, this.selectedEnvironment).subscribe((result) => {
 
       if (result)
         this._snackBar.open("Update Successful", "Dismiss", {
