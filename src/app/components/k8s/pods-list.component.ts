@@ -72,7 +72,7 @@ export class PodsListComponent implements OnInit, OnChanges, OnDestroy {
 
       console.log("starting up for " + this.appId)
 
-      this._podsSource = new LivePods(this.namespace, this.appId, PODS_LIST_REFRESH_INTERVAL, this._podService)
+      this._podsSource = new LivePods(this.namespace, this.appId, PODS_LIST_REFRESH_INTERVAL, this._podService, this._settings.currentEnvironment)
       this._podsSource.refreshPods().subscribe((podsCount) => {
 
           if (podsCount.ready == -1) {

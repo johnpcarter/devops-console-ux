@@ -246,10 +246,11 @@ export class DeploymentListComponent implements OnInit, OnChanges {
           this._lastFetch = this.namespace
           this.dataSource = []
 
-           d.forEach((dp) => {
-
-             this.dataSource.push(dp, {element: dp, detailRow: true})
-           })
+          if (d != null) {
+            d.forEach((dp) => {
+              this.dataSource.push(dp, {element: dp, detailRow: true})
+            })
+          }
       })
     }
 }

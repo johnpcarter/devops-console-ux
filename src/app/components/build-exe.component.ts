@@ -139,8 +139,8 @@ export class BuildExeComponent implements OnInit {
 
       if (this.environment != null) {
         this.processMessage("Running in environment: " + this.environment)
-
       }
+
       this._dockerService.run(this.run, this.runK8s, this.includeTests, false, this.uploadAPIs, this.environment, this.pull).subscribe((result) => {
 
         this.isBusy = false
@@ -194,7 +194,9 @@ export class BuildExeComponent implements OnInit {
 			this.log.splice(0,100)
 		}
 
-		this.scrollPos = this.logDiv.nativeElement.scrollHeight + 20
+		if (this.logDiv) {
+			this.scrollPos = this.logDiv.nativeElement.scrollHeight + 20
+		}
 	}
 
 	private timeNow(): string {

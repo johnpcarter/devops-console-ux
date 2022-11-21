@@ -36,7 +36,7 @@ export class K8sDeployment extends K8sDeploymentDefinition {
 		this.updateStatus(replicas, readyReplicas, availableReplicas, unavailableReplicas)
 	}
 
-	public pods(service: K8sService, refresh?: boolean): Observable<K8sPod[]> {
+	public pods(service: K8sService, environment: string, refresh?: boolean): Observable<K8sPod[]> {
 
 		if (!refresh && this._cache.length > 0) {
 
@@ -44,7 +44,7 @@ export class K8sDeployment extends K8sDeploymentDefinition {
 
 		} else {
 
-			return service.podsForAppLabel(this.namespace, this.description).pipe(map((pods) => {
+			return service.podsForAppLabel(this.namespace, this.description, null, environment).pipe(map((pods) => {
 
 				this._cache = pods
 

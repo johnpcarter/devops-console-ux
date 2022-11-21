@@ -114,17 +114,15 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   public selectedEnvironmentChanged(event) {
-
-    this.settings.currentEnvironment = event.value
+        this.settings.currentEnvironment = event.value
   }
 
   public classForMenuItem(path: string): string {
-
-    if (this.currentRouteURL.indexOf(path) != -1) {
-      return "toolbar-item-selected"
-    } else {
-      return ""
-    }
+        if (this.currentRouteURL.indexOf(path) != -1) {
+            return "toolbar-item-selected"
+        } else {
+            return ""
+        }
   }
 
   public classForSubmenuItem(path: string): string {

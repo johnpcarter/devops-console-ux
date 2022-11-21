@@ -100,7 +100,7 @@ export class RuntimeDetailsComponent implements OnInit {
     this._k8sService.deployments(settings.k8sNamespace, this._settings.currentEnvironment, true).subscribe((d) => {
       this.deployments = d
 
-      if (!this.selectedDeployment) {
+      if (!this.selectedDeployment && this.deployments != null) {
 
         let f: number = 0
 

@@ -21,7 +21,7 @@ export class LivePods {
 
 	//private _observer: Observable<LivePodsCount>
 
-	public constructor(private _namespace: string, private _deploymentId: string, private _refreshInterval, private _k8sService: K8sService) {
+	public constructor(private _namespace: string, private _deploymentId: string, private _refreshInterval, private _k8sService: K8sService, private _environment: string) {
 
 		this.appId = _deploymentId
 		
@@ -186,6 +186,6 @@ export class LivePods {
 
 	private fetchPods(): Observable<K8sPod[]> {
 
-		return this._k8sService.podsForAppLabel(this._namespace, this._deploymentId, this._appType); //TODO: change this false
+		return this._k8sService.podsForAppLabel(this._namespace, this._deploymentId, this._appType, this._environment); //TODO: change this false
 	}
 }

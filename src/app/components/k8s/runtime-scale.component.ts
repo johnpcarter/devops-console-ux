@@ -9,6 +9,8 @@ import {MatSnackBar}                                    from '@angular/material/
 import { K8sDeploymentDefinition }                      from '../../models/k8s-deployment-definition'
 import { K8sService }                                   from '../../services/k8s.service'
 
+import { Settings }                                     from '../../settings'
+
 import { ActionsComponent }                             from './runtime-actions.directive'
 
 @Component({
@@ -29,8 +31,11 @@ export class RuntimeScaleComponent implements OnInit, ActionsComponent {
 
   @ViewChild('updateButton', {read: MatButton}) updateButton: MatButton
 
-  public constructor(private _snackBar: MatSnackBar, private _k8sService: K8sService) {
+  public constructor(private _snackBar: MatSnackBar, private _k8sService: K8sService, private _settings: Settings) {
 
+    this._settings.values().subscribe((settings) => {
+      this.selectedEnvironment = this._settings.currentEnvironment
+    })
   }
 
   public ngOnInit() {
