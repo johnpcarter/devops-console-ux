@@ -27,9 +27,12 @@ export class RuntimeK8sComponent implements OnInit {
 			if (v.k8sNamespace)
 				this.namespace = v.k8sNamespace
 
-			if (v.k8sUrl && v.k8sUrl != 'xx') {
+			if (this.k8sDashboardUrl != null && v.k8sUrl && v.k8sUrl != 'xx') {
 				let i: number = this.k8sDashboardUrl.indexOf(":")
-				this.k8sDashboardUrl = this.k8sDashboardUrl.substring(0, i+1) + "8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy"
+
+				if (i != -1) {
+					this.k8sDashboardUrl = this.k8sDashboardUrl.substring(0, i+1) + "8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy"
+				}
 			} else {
 				this.k8sDashboardUrl = "http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/"
 			}

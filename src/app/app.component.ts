@@ -1,4 +1,4 @@
-import { ViewChild, OnInit, OnDestroy }                from '@angular/core'
+import { OnInit, OnDestroy }                           from '@angular/core'
 import { Component, ChangeDetectorRef }                from '@angular/core'
 
 import { ActivatedRoute, RouterOutlet, Router,
@@ -12,11 +12,8 @@ import { trigger, style, transition, animate,
 import { MediaMatcher }                                from '@angular/cdk/layout'
 
 import { MatDialog }                                   from '@angular/material/dialog'
-import { AboutComponent }                              from './components/about.component'
-import {filter, map, startWith} from 'rxjs/operators'
-import {Observable} from 'rxjs'
-import {Settings} from './settings'
-import {FormControl} from '@angular/forms'
+import { filter, map, startWith }                      from 'rxjs/operators'
+import { Settings }                                    from './settings'
 
 @Component({
   selector: 'app-root',
@@ -114,7 +111,9 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   public selectedEnvironmentChanged(event) {
-        this.settings.currentEnvironment = event.value
+        this.settings.setCurrentEnvironment(event.value).subscribe((v) => {
+            // nothing to do
+        })
   }
 
   public classForMenuItem(path: string): string {

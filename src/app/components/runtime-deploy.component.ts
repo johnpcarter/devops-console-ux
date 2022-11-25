@@ -475,18 +475,16 @@ export class RuntimeDeployComponent implements OnInit {
 
     this.starting = true
 
-    this._dockerService.run(this.currentRunSet, this.runTypeCtrl.value == 'k8s', this.includeTestsCtrl.value || false, true, this.uploadAPICtrl.value, this._settings.currentEnvironment == 'Default' ? null : this._settings.currentEnvironment, this.pullCtrl.value).subscribe((file) => {
+    this._dockerService.run(this.currentRunSet, this.runTypeCtrl.value == 'k8s', this.includeTestsCtrl.value || false, true, this.uploadAPICtrl.value, this._settings.currentEnvironment == 'Default' ? null : this._settings.currentEnvironment, this.pullCtrl.value).subscribe((response) => {
 
-      if (file.type === null) {
-        this._snackBar.open('Deployment generation failed', 'Dismiss', {duration: 5000})
-      } else {
-        this.starting = false
+      this.starting = false
 
-        let url = window.URL.createObjectURL(file)
+      if (response.type) {
+        let url = window.URL.createObjectURL(response)
         const link = this._downloadLink.nativeElement
         link.href = url
 
-        if (file.type == 'application/zip') {
+        if (response.type == 'application/zip') {
           link.download = 'deploy-' + this.currentRunSet.name + '.zip'
         } else { //if (file.type == "application/yaml") {
           if (this.runTypeCtrl.value === 'k8s') {
@@ -499,6 +497,8 @@ export class RuntimeDeployComponent implements OnInit {
         link.click()
 
         window.URL.revokeObjectURL(url)
+      } else {
+        this._snackBar.open('Deployment generation failed:' + response.message, 'Dismiss', {duration: 5000})
       }
     })
   }

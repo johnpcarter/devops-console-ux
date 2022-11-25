@@ -1462,7 +1462,7 @@ export class K8sDeployment extends K8sDeploymentDefinition {
 
 		} else {
 
-			return service.podsForAppLabel(this.namespace, this.description).pipe(map((pods) &#x3D;&gt; {
+			return service.podsForAppLabel(this.namespace, this.description, null, this.environment).pipe(map((pods) &#x3D;&gt; {
 
 				this._cache &#x3D; pods;
 

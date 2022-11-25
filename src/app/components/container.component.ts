@@ -64,7 +64,7 @@ export class ContainerComponent implements OnInit, OnChanges {
 
   public _displayedPortColumnsEdit: string[] = ['externalEdit', 'internalEdit', 'typeEdit', 'descriptionEdit', 'remove']
   public _displayedPortColumnsReadOnly: string[] = ['external', 'internal', 'type', 'description']
-  public _displayedPortColumnsK8sEdit: string[] = ['ks8TypeEdit', 'internalEdit', 'externalEdit', 'typeEdit', 'descriptionEdit', 'remove']
+  public _displayedPortColumnsK8sEdit: string[] = ['ks8TypeEdit', 'externalEdit', 'internalEdit' , 'typeEdit', 'descriptionEdit', 'remove']
   public _displayedPortColumnsK8sReadOnly: string[] = ['ks8Type', 'external', 'internal', 'type', 'description']
 
   public _displayedArgColumnsEdit: string[] = ['srcEdit', 'tgtEdit', 'descriptionEdit', 'remove']
@@ -75,7 +75,7 @@ export class ContainerComponent implements OnInit, OnChanges {
   public _displayedVolumeColumnsK8sEdit: string[] = ['srcEdit', 'tgtEdit', 'k8sStorageTypeEdit', 'k8sAccessModeEdit', 'k8sCapacityEdit', 'descriptionEdit', 'remove']
   public _displayedVolumeK8sReadOnly: string[] = ['src', 'tgt', 'k8sStorageType', 'k8sAccessMode', 'k8sCapacity', 'description']
 
-  public serviceTypes: string[] = ['ClusterIP', 'NodePort', 'Ingress']
+  public serviceTypes: string[] = ['ClusterIP', 'NodePort', 'Ingress', 'LoadBalancer']
 
   public displayedPortColumns: string[]
   public displayedArgColumns: string[]
@@ -558,6 +558,8 @@ export class ContainerComponent implements OnInit, OnChanges {
       return 'Public'
     } else if (port.serviceType == 'ClusterIP') {
       return 'Internal'
+    } else if (port.serviceType == 'LoadBalancer') {
+      return 'Load Balancer'
     } else {
       return 'Private'
     }

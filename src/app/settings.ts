@@ -74,12 +74,13 @@ export class Settings {
 
   // runtime prefs
 
-  public currentEnvironment: string = 'Default'
   public currentRuntime: string
   public gitExpander: boolean
   public dockerExpander: boolean
   public k8sExpander: boolean
   public empowerExpander: boolean
+
+  public currentEnvironment: string = 'Default'
 
   public _environments: string[] = []
   // server managed settings
@@ -128,12 +129,16 @@ export class Settings {
     }))
   }
 
+  public setCurrentEnvironment(environment: string) : Observable<Values> {
+    this.currentEnvironment = environment
+    return this._restore(environment, environment == null ? "true" : "true")
+  }
+
   public values(environment: string = null, includeDefaults: boolean = true): Observable<Values> {
 
-    if (this._valuesName != null && this._valuesName == environment || (environment == null && this._valuesName == 'default')) {
+    if (this._valuesName != null && (environment == null || this._valuesName == environment)) {
 
       console.log('getting preloaded settings')
-
       return of(this._values)
     } else {
       console.log('restoring settings')
@@ -198,6 +203,8 @@ export class Settings {
 
     if (environment != null) {
       url += "?environment=" + environment
+    } else if (this.currentEnvironment != null && this.currentEnvironment != 'Default') {
+      url += "?environment=" + this.currentEnvironment
     }
 
     return this._http.get(url, { headers }).pipe(map((response) => {
@@ -230,6 +237,10 @@ export class Settings {
       .append('Cache-Control', 'no-cache')
       .append('Pragma', 'no-cache')
       .append('Expires', '0')
+
+    if ((environment == null || environment == '') && this.currentEnvironment != 'Default') {
+      environment = this.currentEnvironment
+    }
 
     if (environment != null) {
       headers = headers.append('environment', environment)

@@ -78,7 +78,7 @@
 				    <td mat-cell *matCellDef="let element"> <button mat-button class="red-on-hover" (click)="removePort(element)"><fa-icon class="icon" [icon]="['fas', 'trash-alt']"></fa-icon></button> </td>
 				  </ng-container>
 				  <ng-container matColumnDef="ks8Type">
-				    <th mat-header-cell *matHeaderCellDef style="width: 75px"> Service </th>
+				    <th mat-header-cell *matHeaderCellDef style="width: 100px"> Service </th>
 				    <td mat-cell *matCellDef="let element" [style]="styleForAttribute(element, 'serviceType')">
               <div style="text-align: center; background-color: orange; border-radius: 5px; min-height: 50px; margin-left: -12px; margin-right: 10px">
                 {{portServiceType(element)}}
@@ -103,7 +103,7 @@
 				  </ng-container>
 
 				  <ng-container matColumnDef="ks8TypeEdit">
-				    <th mat-header-cell *matHeaderCellDef style="width:100px;"> Service </th>
+				    <th mat-header-cell *matHeaderCellDef style="width:140px;"> Service </th>
 				    <td mat-cell *matCellDef="let element" style="background-color: orange; border-radius: 5px; padding-right: 10px; padding-bottom: 10px; margin-right: 40px">
 				   		<mat-select style="padding: 5px" [placeholder]="fieldForPort(element, 'serviceType')" [(value)]="element.serviceType" (selectionChange)="serviceTypeSelected($event, element)">
                 			<mat-option value="">Private</mat-option>
