@@ -23,7 +23,6 @@ export class RuntimeScaleComponent implements OnInit, ActionsComponent {
   @Input()
   public selectedDeployment: K8sDeploymentDefinition
 
-  @Input()
   public selectedEnvironment: string
 
   public podsCount: number = 1

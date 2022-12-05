@@ -13,6 +13,7 @@ import { DockerService }                                from '../../services/doc
 import { ActionsComponent }                             from './runtime-actions.directive'
 import { Action }										from '../elements/docker-images-list.component'
 import { DockerImageVersionsComponent }					from '../elements/docker-image-versions.component'
+import {Settings} from '../../settings';
 
 @Component({
   templateUrl: '../../templates/k8s/runtime-update.html',
@@ -24,10 +25,9 @@ export class RuntimeUpdateComponent implements OnInit, ActionsComponent {
     @Input()
   	public selectedDeployment: K8sDeploymentDefinition
 
-    @Input()
     public selectedEnvironment: string
 
-  	public haveActions: boolean = false
+    public haveActions: boolean = false
 
   	public references: any[]
     public selectedImage: DockerImage
@@ -40,8 +40,11 @@ export class RuntimeUpdateComponent implements OnInit, ActionsComponent {
 
   	@ViewChild('updateButton', {read: MatButton}) updateButton: MatButton
 
-  	public constructor(private _dockerService: DockerService, private _k8sService: K8sService, private _matDialog: MatDialog, private _snackBar: MatSnackBar) {
+  	public constructor(private _dockerService: DockerService, private _k8sService: K8sService, private _settings: Settings, private _matDialog: MatDialog, private _snackBar: MatSnackBar) {
 
+        this._settings.values().subscribe((settings) => {
+            this.selectedEnvironment = this._settings.currentEnvironment
+        })
   	}
 
   	public ngOnInit() {
