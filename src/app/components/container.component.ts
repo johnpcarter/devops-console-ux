@@ -236,6 +236,7 @@ export class ContainerComponent implements OnInit, OnChanges {
 
       this.container.updateEnvironmentSettings(this.selectedEnvironmentSettings)
     }
+
     this._hasChanged = true
     this.containerUpdated.emit({container: this.container, imageChanged: imageChanged, previousValue: oldValue})
   }
@@ -276,7 +277,7 @@ export class ContainerComponent implements OnInit, OnChanges {
   public changeSelectedEnvironment(event: any) {
 
     this.selectedEnvironment = event.value
-    this.selectedEnvironmentSettings = this.mergeDefaultValuesIntoEnvironment(this.container.environmentSettings(this.selectedEnvironment))
+    this.selectedEnvironmentSettings = this.container.environmentSettings(this.selectedEnvironment)
 
     this._updateEnvironmentValueControls()
   }
