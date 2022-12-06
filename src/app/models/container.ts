@@ -262,7 +262,18 @@ export class Container {
 
   public updateEnvironmentSettings(env: Environment) {
 
-    env.mergeSettings(this.environmentSettings(env.name)); // get existing
+    let e: Environment = null
+    this.environments.forEach((t) => {
+      if (t.name === env.name) {
+        e = t
+      }
+    })
+
+    env.mergeSettings(this.environmentSettings(env.name)) // get existing
+
+    if (e === null) {
+      this.environments.push(env)
+    }
   }
 }
 

@@ -117,7 +117,7 @@ export class Settings {
       if ((<any>response).environments != null)
       {
         (<any>response).environments.forEach((e) => {
-          if (e.length > 0) {
+          if (e.length > 0 && e != 'Default') {
             env.push(e)
           }
         })
